@@ -1,0 +1,99 @@
+[
+  {
+    "id": "ai-solutions",
+    "icon": "Brain",
+    "title": "AI Solutions & Implementation",
+    "description": "Harness the power of artificial intelligence to transform your business operations. We design, develop, and deploy cutting-edge AI solutions that drive innovation and competitive advantage.",
+    "features": [
+      "Machine Learning model development",
+      "AI integration & automation",
+      "Natural Language Processing",
+      "Computer Vision solutions",
+      "Predictive analytics",
+      "AI strategy & consulting"
+    ],
+    "variant": "primary",
+    "href": "/services/ai-solutions"
+  },
+  {
+    "id": "custom-software",
+    "icon": "Code",
+    "title": "Custom Software Development",
+    "description": "Tailored software solutions designed to meet your unique business requirements. From enterprise applications to SaaS products, we build scalable, secure, and maintainable systems.",
+    "features": [
+      "Enterprise software solutions",
+      "SaaS product development",
+      "API development & integration",
+      "Legacy system modernization",
+      "Microservices architecture",
+      "DevOps & CI/CD pipelines"
+    ],
+    "variant": "default",
+    "href": "/services/custom-software"
+  },
+  {
+    "id": "mobile-apps",
+    "icon": "Smartphone",
+    "title": "Mobile App Development",
+    "description": "Cross-platform mobile applications that deliver exceptional user experiences. We build native and hybrid apps for iOS, Android, and web platforms with cutting-edge technologies.",
+    "features": [
+      "iOS native development (Swift)",
+      "Android native development (Kotlin)",
+      "Cross-platform (React Native, Flutter)",
+      "Progressive Web Apps (PWA)",
+      "App store optimization",
+      "Mobile UI/UX design"
+    ],
+    "variant": "accent",
+    "href": "/services/mobile-apps"
+  },
+  {
+    "id": "web-development",
+    "icon": "Globe",
+    "title": "Web Development",
+    "description": "Modern, responsive websites and web applications that combine stunning design with cutting-edge functionality. From sophisticated corporate sites to complex e-commerce platforms.",
+    "features": [
+      "Sophisticated website development",
+      "E-commerce solutions",
+      "Web application development",
+      "Progressive Web Apps",
+      "Performance optimization",
+      "SEO & accessibility"
+    ],
+    "variant": "default",
+    "href": "/services/web-development"
+  },
+  {
+    "id": "cloud-solutions",
+    "icon": "Cloud",
+    "title": "Cloud Solutions",
+    "description": "Comprehensive cloud infrastructure and deployment services across AWS, Azure, and GCP. We help you migrate, optimize, and manage your cloud infrastructure for maximum efficiency.",
+    "features": [
+      "AWS deployment & management",
+      "Azure cloud services",
+      "Google Cloud Platform (GCP)",
+      "Cloud migration & strategy",
+      "Infrastructure as Code (IaC)",
+      "Cloud security & compliance"
+    ],
+    "variant": "primary",
+    "href": "/services/cloud-solutions"
+  },
+  {
+    "id": "consulting",
+    "icon": "TrendingUp",
+    "title": "Consulting & Strategy",
+    "description": "Strategic technology consulting to guide your digital transformation journey. Our experts provide actionable insights and roadmaps to help you leverage technology for business growth.",
+    "features": [
+      "Digital transformation strategy",
+      "Technology advisory services",
+      "Architecture consulting",
+      "Technical due diligence",
+      "Innovation workshops",
+      "Technology roadmap planning"
+    ],
+    "variant": "accent",
+    "href": "/services/consulting"
+  }
+]
+

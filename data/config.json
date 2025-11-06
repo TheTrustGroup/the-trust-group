@@ -1,0 +1,103 @@
+{
+  "company": {
+    "name": "The Trust Group",
+    "tagline": "Building Tomorrow's Technology Today",
+    "description": "A parent company with multiple businesses under its umbrella, delivering excellence in every project. We specialize in AI solutions, custom software development, mobile and web application development, and sophisticated website development.",
+    "founded": "2014",
+    "headquarters": "San Francisco, CA",
+    "website": "https://thetrustgroup.com"
+  },
+  "contact": {
+    "address": {
+      "line1": "123 Innovation Drive",
+      "line2": "Suite 500",
+      "city": "San Francisco",
+      "state": "CA",
+      "zip": "94105",
+      "country": "United States"
+    },
+    "email": "info@thetrustgroup.com",
+    "phone": "+1 (555) 123-4567",
+    "businessHours": {
+      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM PST",
+      "weekends": "Saturday: 10:00 AM - 2:00 PM PST",
+      "closed": "Sunday: Closed"
+    },
+    "social": {
+      "linkedin": "https://linkedin.com/company/thetrustgroup",
+      "twitter": "https://twitter.com/thetrustgroup",
+      "github": "https://github.com/thetrustgroup",
+      "facebook": "",
+      "instagram": "",
+      "youtube": ""
+    }
+  },
+  "socialLinks": [
+    {
+      "name": "LinkedIn",
+      "icon": "Linkedin",
+      "href": "https://linkedin.com/company/thetrustgroup"
+    },
+    {
+      "name": "Twitter",
+      "icon": "Twitter",
+      "href": "https://twitter.com/thetrustgroup"
+    },
+    {
+      "name": "GitHub",
+      "icon": "Github",
+      "href": "https://github.com/thetrustgroup"
+    },
+    {
+      "name": "Email",
+      "icon": "Mail",
+      "href": "mailto:info@thetrustgroup.com"
+    }
+  ],
+  "navigation": {
+    "main": [
+      { "name": "Home", "href": "/" },
+      { "name": "Services", "href": "/services" },
+      { "name": "About", "href": "/about" },
+      { "name": "Contact", "href": "/contact" }
+    ],
+    "footer": {
+      "services": [
+        { "name": "AI Solutions & Implementation", "href": "/services/ai-solutions" },
+        { "name": "Custom Software Development", "href": "/services/custom-software" },
+        { "name": "Mobile App Development", "href": "/services/mobile-apps" },
+        { "name": "Web Development", "href": "/services/web-development" },
+        { "name": "Cloud Solutions", "href": "/services/cloud-solutions" },
+        { "name": "Consulting & Strategy", "href": "/services/consulting" }
+      ],
+      "company": [
+        { "name": "About Us", "href": "/about" },
+        { "name": "Careers", "href": "/careers" },
+        { "name": "Blog", "href": "/blog" },
+        { "name": "Privacy Policy", "href": "/privacy" },
+        { "name": "Terms of Service", "href": "/terms" }
+      ],
+      "subsidiaries": [
+        {
+          "name": "AI Innovations",
+          "href": "/companies/ai-innovations",
+          "status": "coming-soon",
+          "description": "Leading AI research and development"
+        },
+        {
+          "name": "Cloud Dynamics",
+          "href": "/companies/cloud-dynamics",
+          "status": "coming-soon",
+          "description": "Cloud infrastructure solutions"
+        },
+        {
+          "name": "Digital Ventures",
+          "href": "/companies/digital-ventures",
+          "status": "coming-soon",
+          "description": "Digital transformation consulting"
+        }
+      ]
+    }
+  }
+}
+

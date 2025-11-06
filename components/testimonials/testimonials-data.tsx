@@ -1,0 +1,50 @@
+import type { Testimonial } from "./testimonial-card";
+
+export const testimonials: Testimonial[] = [
+  {
+    id: "1",
+    quote: "The Trust Group transformed our business with their AI-powered analytics platform. The insights we gained led to a 35% increase in conversion rates and significantly improved our customer retention. Their team's expertise and professionalism are unmatched.",
+    clientName: "Sarah Johnson",
+    clientTitle: "Chief Technology Officer",
+    company: "TechRetail Inc.",
+    rating: 5,
+    featured: true,
+  },
+  {
+    id: "2",
+    quote: "Working with The Trust Group on our enterprise SaaS platform was a game-changer. They delivered a scalable solution that now serves 500+ companies with 99.9% uptime. Their attention to detail and commitment to excellence is remarkable.",
+    clientName: "Michael Chen",
+    clientTitle: "VP of Engineering",
+    company: "Enterprise Solutions Group",
+    rating: 5,
+    featured: true,
+  },
+  {
+    id: "3",
+    quote: "The mobile banking app they developed for us exceeded all expectations. With 100K+ active users and a 4.8/5 rating, it's clear they understand both technology and user experience. The security features and AI fraud detection are top-notch.",
+    clientName: "Emily Rodriguez",
+    clientTitle: "Digital Banking Director",
+    company: "Regional Financial Bank",
+    rating: 5,
+    featured: false,
+  },
+  {
+    id: "4",
+    quote: "Their e-commerce platform with AI recommendations revolutionized our online sales. We saw a 40% increase in average order value and a 60% improvement in search relevance. The Trust Group truly understands how to leverage technology for business growth.",
+    clientName: "David Thompson",
+    clientTitle: "E-Commerce Director",
+    company: "Fashion Forward Retail",
+    rating: 5,
+    featured: false,
+  },
+  {
+    id: "5",
+    quote: "The Trust Group's cloud migration strategy saved us 50% on infrastructure costs while improving performance. Their team's expertise in AWS and Kubernetes is impressive, and they made the entire process seamless for our organization.",
+    clientName: "Jennifer Martinez",
+    clientTitle: "IT Director",
+    company: "Global Manufacturing Corp",
+    rating: 5,
+    featured: false,
+  },
+];
+
