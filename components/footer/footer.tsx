@@ -25,10 +25,10 @@ export function Footer() {
           {/* Column 1 - Company */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div>
-              <Link href="/" className="inline-flex items-center mb-4">
-                <Logo variant="full" size="lg" className="hover:opacity-80 transition-opacity" showText={true} />
+              <Link href="/" className="inline-flex items-center mb-4 max-w-fit">
+                <Logo variant="full" size="md" className="hover:opacity-80 transition-opacity" showText={true} />
               </Link>
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed break-words">
                 Building tomorrow&apos;s technology today. Leading innovation across multiple tech ventures.
               </p>
             </div>
@@ -115,10 +115,10 @@ export function Footer() {
             </div>
 
             {/* Built With */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Built with</span>
-              <Heart className="h-4 w-4 text-error fill-error" />
-              <span>by The Trust Group</span>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground flex-wrap justify-center">
+              <span className="whitespace-nowrap">Built with</span>
+              <Heart className="h-4 w-4 text-error fill-error flex-shrink-0" />
+              <span className="whitespace-nowrap">by The Trust Group</span>
             </div>
 
             {/* Legal Links */}

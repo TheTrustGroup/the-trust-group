@@ -67,12 +67,12 @@ const EnhancedServiceCard = React.forwardRef<HTMLDivElement, EnhancedServiceCard
               <Icon className="h-7 w-7 transition-transform duration-300" />
             </div>
           )}
-          <CardTitle className="text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors">
+          <CardTitle className="text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors break-words">
             {title}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <CardDescription className="text-base leading-relaxed">
+          <CardDescription className="text-base leading-relaxed break-words">
             {description}
           </CardDescription>
           
@@ -100,7 +100,7 @@ const EnhancedServiceCard = React.forwardRef<HTMLDivElement, EnhancedServiceCard
                       }}
                     >
                       <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
+                      <span className="break-words">{feature}</span>
                     </li>
                   ))}
                 </ul>

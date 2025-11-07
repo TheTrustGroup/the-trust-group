@@ -21,14 +21,14 @@ export function Navigation() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex h-16 md:h-20 items-center justify-between">
+        <div className="flex h-16 md:h-20 items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity flex-shrink-0">
-            <Logo variant="full" size="lg" />
+          <Link href="/" className="flex items-center hover:opacity-90 transition-opacity flex-shrink-0 min-w-0">
+            <Logo variant="full" size="md" className="flex-shrink-0" />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6 flex-shrink-0">
             {navItems.map((item) => (
               <Link
                 key={item.href}

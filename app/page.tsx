@@ -59,7 +59,7 @@ export default function Home() {
               {values.map((value, index) => (
                 <div key={index} className="flex items-start gap-4 p-4 rounded-lg hover:bg-muted/50 transition-colors">
                   <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                  <p className="text-base md:text-lg text-foreground">{value}</p>
+                  <p className="text-base md:text-lg text-foreground break-words">{value}</p>
                 </div>
               ))}
             </div>

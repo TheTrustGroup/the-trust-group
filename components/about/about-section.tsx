@@ -49,7 +49,7 @@ export function AboutSection() {
               <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">
                 About Us
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground break-words">
                 Building Tomorrow&apos;s Technology Today
               </h2>
             </div>
@@ -57,12 +57,12 @@ export function AboutSection() {
             {/* Our Story */}
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold text-foreground">Our Story</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed break-words">
                 The Trust Group is a parent company leading innovation across multiple tech ventures. 
                 We specialize in AI solutions, custom software development, and sophisticated digital 
                 experiences that transform businesses and drive growth.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed break-words">
                 With a portfolio of specialized companies under our umbrella, we bring together 
                 diverse expertise to deliver comprehensive technology solutions. Our ecosystem 
                 approach allows us to provide end-to-end services while maintaining deep specialization 

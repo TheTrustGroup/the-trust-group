@@ -29,7 +29,7 @@ export function ContactInfo() {
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-1">Office Address</h4>
-            <address className="text-muted-foreground not-italic leading-relaxed">
+            <address className="text-muted-foreground not-italic leading-relaxed break-words">
               {contactInfo.address.line1}
               <br />
               {contactInfo.address.line2}
