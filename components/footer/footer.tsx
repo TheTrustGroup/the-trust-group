@@ -42,7 +42,7 @@ export function Footer() {
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div>
               <Link href="/" className="inline-flex items-center mb-4">
-                <Logo variant="full" size="lg" className="hover:opacity-80 transition-opacity" />
+                <Logo variant="full" size="lg" className="hover:opacity-80 transition-opacity" showText={true} />
               </Link>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 Building tomorrow&apos;s technology today. Leading innovation across multiple tech ventures.

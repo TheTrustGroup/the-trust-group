@@ -18,9 +18,9 @@ export function Logo({
   showText = true 
 }: LogoProps) {
   const sizeClasses = {
-    sm: { icon: "h-10 w-10", text: "text-lg" },
-    md: { icon: "h-12 w-12", text: "text-xl" },
-    lg: { icon: "h-16 w-16", text: "text-2xl" },
+    sm: { icon: "h-12 w-12", text: "text-lg md:text-xl" },
+    md: { icon: "h-14 w-14 md:h-16 md:w-16", text: "text-xl md:text-2xl" },
+    lg: { icon: "h-16 w-16 md:h-20 md:w-20", text: "text-2xl md:text-3xl" },
   };
 
   const currentSize = sizeClasses[size];
@@ -42,10 +42,10 @@ export function Logo({
   }
 
   return (
-    <div className={cn("flex items-center gap-2", className)}>
-      <LogoIcon className={currentSize.icon} />
+    <div className={cn("flex items-center gap-3 md:gap-4", className)}>
+      <LogoIcon className={cn(currentSize.icon, "flex-shrink-0")} />
       {showText && (
-        <span className={cn("font-bold text-foreground", currentSize.text)}>
+        <span className={cn("font-bold text-foreground whitespace-nowrap", currentSize.text)}>
           The Trust Group
         </span>
       )}

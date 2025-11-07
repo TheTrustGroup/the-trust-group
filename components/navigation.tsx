@@ -24,7 +24,7 @@ export function Navigation() {
         <div className="flex h-16 md:h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity flex-shrink-0">
-            <Logo variant="full" size="md" className="md:!h-14 md:!w-auto" />
+            <Logo variant="full" size="lg" />
           </Link>
 
           {/* Desktop Navigation */}
