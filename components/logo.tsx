@@ -18,9 +18,9 @@ export function Logo({
   showText = true 
 }: LogoProps) {
   const sizeClasses = {
-    sm: { icon: "h-6 w-6", text: "text-lg" },
-    md: { icon: "h-8 w-8", text: "text-xl" },
-    lg: { icon: "h-12 w-12", text: "text-2xl" },
+    sm: { icon: "h-8 w-8", text: "text-lg" },
+    md: { icon: "h-10 w-10", text: "text-xl" },
+    lg: { icon: "h-14 w-14", text: "text-2xl" },
   };
 
   const currentSize = sizeClasses[size];
@@ -72,36 +72,41 @@ function LogoIcon({ className }: LogoIconProps) {
     >
       <defs>
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#0066FF", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#00D4FF", stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: "#0052CC", stopOpacity: 1 }} />
+          <stop offset="50%" style={{ stopColor: "#0066FF", stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: "#00B8E6", stopOpacity: 1 }} />
         </linearGradient>
         <filter id={filterId}>
-          <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
           <feMerge>
             <feMergeNode in="coloredBlur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+        <filter id={`${filterId}-shadow`}>
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0066FF" floodOpacity="0.3" />
+        </filter>
       </defs>
       
-      {/* Outer hexagon */}
+      {/* Outer hexagon - more visible */}
       <polygon
         points="200,60 280,110 280,210 200,260 120,210 120,110"
         fill="none"
         stroke={`url(#${gradientId})`}
-        strokeWidth="3"
-        opacity="0.3"
+        strokeWidth="4"
+        opacity="0.5"
       />
       
-      {/* Main hexagon */}
+      {/* Main hexagon - full opacity for better visibility */}
       <polygon
         points="200,80 260,120 260,200 200,240 140,200 140,120"
         fill={`url(#${gradientId})`}
-        opacity="0.9"
+        opacity="1"
+        filter={`url(#${filterId}-shadow)`}
       />
       
-      {/* Inner circuit pattern */}
-      <g stroke="#FFFFFF" strokeWidth="2" fill="none" opacity="0.6">
+      {/* Inner circuit pattern - more visible */}
+      <g stroke="#FFFFFF" strokeWidth="2.5" fill="none" opacity="0.85">
         {/* Vertical lines */}
         <line x1="200" y1="100" x2="200" y2="140" />
         <line x1="200" y1="180" x2="200" y2="220" />
@@ -117,19 +122,19 @@ function LogoIcon({ className }: LogoIconProps) {
         <line x1="240" y1="160" x2="230" y2="180" />
       </g>
       
-      {/* Circuit nodes */}
+      {/* Circuit nodes - larger and more visible */}
       <g filter={`url(#${filterId})`}>
-        <circle cx="200" cy="100" r="5" fill="#FFFFFF" />
-        <circle cx="200" cy="140" r="6" fill="#FFFFFF" />
-        <circle cx="170" cy="140" r="5" fill="#FFFFFF" />
-        <circle cx="230" cy="140" r="5" fill="#FFFFFF" />
-        <circle cx="160" cy="160" r="7" fill="#00D4FF" />
-        <circle cx="240" cy="160" r="7" fill="#00D4FF" />
-        <circle cx="200" cy="160" r="8" fill="#FFFFFF" />
-        <circle cx="170" cy="180" r="5" fill="#FFFFFF" />
-        <circle cx="230" cy="180" r="5" fill="#FFFFFF" />
-        <circle cx="200" cy="180" r="6" fill="#FFFFFF" />
-        <circle cx="200" cy="220" r="5" fill="#FFFFFF" />
+        <circle cx="200" cy="100" r="6" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="200" cy="140" r="7" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="170" cy="140" r="6" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="230" cy="140" r="6" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="160" cy="160" r="8" fill="#00B8E6" opacity="1" />
+        <circle cx="240" cy="160" r="8" fill="#00B8E6" opacity="1" />
+        <circle cx="200" cy="160" r="9" fill="#FFFFFF" opacity="1" />
+        <circle cx="170" cy="180" r="6" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="230" cy="180" r="6" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="200" cy="180" r="7" fill="#FFFFFF" opacity="0.95" />
+        <circle cx="200" cy="220" r="6" fill="#FFFFFF" opacity="0.95" />
       </g>
     </svg>
   );
