@@ -9,6 +9,8 @@ import { ToastProvider } from "@/components/ui/toast";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Chatbot } from "@/components/chatbot";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -32,7 +34,7 @@ export default function RootLayout({
   const websiteSchema = generateStructuredData("WebSite");
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -44,24 +46,32 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans`}>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        <CustomCursor />
-        <ToastProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
-          >
-            Skip to main content
-          </a>
-          <Navigation />
-          <main id="main-content">
-            <PageTransition>
-              {children}
-            </PageTransition>
-          </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          <CustomCursor />
+          <ToastProvider>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
+            >
+              Skip to main content
+            </a>
+            <Navigation />
+            <main id="main-content">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </main>
           <Footer />
           <BackToTop />
+          <Chatbot />
         </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

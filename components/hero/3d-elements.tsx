@@ -1,8 +1,76 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Code2, Cpu, Zap, Network } from "lucide-react";
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
+import { Code2, Cpu, Zap, Network, LucideIcon } from "lucide-react";
+
+interface FloatingShapeProps {
+  icon: LucideIcon;
+  position: { x: string; y: string; z: number };
+  rotation: { x: number; y: number; z: number };
+  delay: number;
+  size: number;
+  index: number;
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+}
+
+function FloatingShape({ icon: Icon, position, rotation, delay, size, index, mouseX, mouseY }: FloatingShapeProps) {
+  const rotateX = useSpring(
+    useTransform(mouseY, [-1, 1], [rotation.x - 30, rotation.x + 30]),
+    { stiffness: 50, damping: 10 }
+  );
+  const rotateY = useSpring(
+    useTransform(mouseX, [-1, 1], [rotation.y - 30, rotation.y + 30]),
+    { stiffness: 50, damping: 10 }
+  );
+
+  return (
+    <motion.div
+      className="absolute"
+      style={{
+        left: position.x,
+        top: position.y,
+        transformStyle: "preserve-3d",
+        rotateX,
+        rotateY,
+        rotateZ: rotation.z,
+      }}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: [0, -20, 0],
+      }}
+      transition={{
+        opacity: { duration: 0.8, delay },
+        scale: { duration: 0.8, delay },
+        y: {
+          duration: 4 + index,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay,
+        },
+      }}
+    >
+      <div
+        className="relative"
+        style={{
+          width: size,
+          height: size,
+          transform: `translateZ(${position.z}px)`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-2xl backdrop-blur-sm border border-primary/20 shadow-2xl" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Icon className="h-10 w-10 text-primary" />
+        </div>
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10" />
+      </div>
+    </motion.div>
+  );
+}
 
 export function Floating3DShapes() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -59,64 +127,19 @@ export function Floating3DShapes() {
       className="absolute inset-0 overflow-hidden pointer-events-none z-5"
       style={{ perspective: "1000px" }}
     >
-      {shapes.map((shape, index) => {
-        const Icon = shape.icon;
-        const rotateX = useSpring(
-          useTransform(mouseY, [-1, 1], [shape.rotation.x - 30, shape.rotation.x + 30]),
-          { stiffness: 50, damping: 10 }
-        );
-        const rotateY = useSpring(
-          useTransform(mouseX, [-1, 1], [shape.rotation.y - 30, shape.rotation.y + 30]),
-          { stiffness: 50, damping: 10 }
-        );
-
-        return (
-          <motion.div
-            key={index}
-            className="absolute"
-            style={{
-              left: shape.position.x,
-              top: shape.position.y,
-              transformStyle: "preserve-3d",
-              rotateX,
-              rotateY,
-              rotateZ: shape.rotation.z,
-            }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: [0, -20, 0],
-            }}
-            transition={{
-              opacity: { duration: 0.8, delay: shape.delay },
-              scale: { duration: 0.8, delay: shape.delay },
-              y: {
-                duration: 4 + index,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: shape.delay,
-              },
-            }}
-          >
-            <div
-              className="relative"
-              style={{
-                width: shape.size,
-                height: shape.size,
-                transform: `translateZ(${shape.position.z}px)`,
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-2xl backdrop-blur-sm border border-primary/20 shadow-2xl" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Icon className="h-10 w-10 text-primary" />
-              </div>
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10" />
-            </div>
-          </motion.div>
-        );
-      })}
+      {shapes.map((shape, index) => (
+        <FloatingShape
+          key={index}
+          icon={shape.icon}
+          position={shape.position}
+          rotation={shape.rotation}
+          delay={shape.delay}
+          size={shape.size}
+          index={index}
+          mouseX={mouseX}
+          mouseY={mouseY}
+        />
+      ))}
     </div>
   );
 }

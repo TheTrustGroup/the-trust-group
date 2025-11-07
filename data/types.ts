@@ -119,6 +119,64 @@ export interface CompanyInfo {
   website?: string;
 }
 
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  author: {
+    name: string;
+    avatar?: string;
+    role?: string;
+  };
+  publishedAt: string; // ISO date string
+  updatedAt?: string; // ISO date string
+  category: string;
+  tags: string[];
+  featuredImage?: string;
+  featured: boolean;
+  readTime?: number; // in minutes
+}
+
+export interface BlogCategory {
+  id: string;
+  name: string;
+  slug: string;
+  description?: string;
+}
+
+export interface JobListing {
+  id: string;
+  title: string;
+  slug: string;
+  department: string;
+  location: string;
+  type: "full-time" | "part-time" | "contract" | "internship" | "remote";
+  experience: "entry" | "mid" | "senior" | "lead";
+  description: string;
+  requirements: string[];
+  responsibilities: string[];
+  benefits?: string[];
+  salary?: {
+    min?: number;
+    max?: number;
+    currency?: string;
+    period?: "hourly" | "monthly" | "yearly";
+  };
+  postedAt: string; // ISO date string
+  expiresAt?: string; // ISO date string
+  featured: boolean;
+  applicationUrl?: string;
+  applicationEmail?: string;
+}
+
+export interface JobDepartment {
+  id: string;
+  name: string;
+  description?: string;
+}
+
 export interface SiteConfig {
   company: CompanyInfo;
   contact: ContactInfo;

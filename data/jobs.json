@@ -1,0 +1,389 @@
+{
+  "departments": [
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "description": "Software development, architecture, and technical leadership roles"
+    },
+    {
+      "id": "ai-ml",
+      "name": "AI & Machine Learning",
+      "description": "Artificial intelligence, machine learning, and data science positions"
+    },
+    {
+      "id": "product",
+      "name": "Product",
+      "description": "Product management, design, and user experience roles"
+    },
+    {
+      "id": "sales",
+      "name": "Sales & Business Development",
+      "description": "Sales, business development, and customer success positions"
+    },
+    {
+      "id": "operations",
+      "name": "Operations",
+      "description": "Operations, project management, and administrative roles"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Senior Full-Stack Developer",
+      "slug": "senior-full-stack-developer",
+      "department": "engineering",
+      "location": "Remote / San Francisco, CA",
+      "type": "full-time",
+      "experience": "senior",
+      "description": "We're looking for an experienced Full-Stack Developer to join our engineering team. You'll work on building scalable web applications using modern technologies like Next.js, React, Node.js, and TypeScript. This role offers the opportunity to work on cutting-edge projects and collaborate with a talented team.",
+      "requirements": [
+        "5+ years of experience in full-stack development",
+        "Strong proficiency in JavaScript/TypeScript, React, and Node.js",
+        "Experience with Next.js or similar React frameworks",
+        "Knowledge of database design and optimization (PostgreSQL, MongoDB)",
+        "Experience with cloud platforms (AWS, Vercel, or similar)",
+        "Understanding of RESTful APIs and GraphQL",
+        "Familiarity with CI/CD pipelines and DevOps practices",
+        "Strong problem-solving skills and attention to detail"
+      ],
+      "responsibilities": [
+        "Design and develop scalable web applications",
+        "Collaborate with cross-functional teams to define and implement features",
+        "Write clean, maintainable, and well-documented code",
+        "Participate in code reviews and technical discussions",
+        "Optimize applications for maximum speed and scalability",
+        "Troubleshoot and debug applications",
+        "Mentor junior developers and contribute to team growth"
+      ],
+      "benefits": [
+        "Competitive salary and equity package",
+        "Comprehensive health, dental, and vision insurance",
+        "Flexible work hours and remote work options",
+        "Professional development budget",
+        "401(k) with company matching",
+        "Unlimited paid time off",
+        "Home office stipend"
+      ],
+      "salary": {
+        "min": 120000,
+        "max": 180000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-15T10:00:00Z",
+      "featured": true
+    },
+    {
+      "id": "2",
+      "title": "AI/ML Engineer",
+      "slug": "ai-ml-engineer",
+      "department": "ai-ml",
+      "location": "Remote / New York, NY",
+      "type": "full-time",
+      "experience": "mid",
+      "description": "Join our AI team to build innovative machine learning solutions. You'll work on developing and deploying ML models, working with large datasets, and implementing AI features in production systems.",
+      "requirements": [
+        "3+ years of experience in machine learning or data science",
+        "Strong programming skills in Python",
+        "Experience with ML frameworks (TensorFlow, PyTorch, scikit-learn)",
+        "Knowledge of deep learning architectures",
+        "Experience with data processing and analysis (Pandas, NumPy)",
+        "Understanding of MLOps and model deployment",
+        "Familiarity with cloud ML services (AWS SageMaker, Google Cloud AI)",
+        "Strong mathematical and statistical background"
+      ],
+      "responsibilities": [
+        "Develop and train machine learning models",
+        "Preprocess and analyze large datasets",
+        "Deploy ML models to production environments",
+        "Collaborate with engineering teams to integrate AI features",
+        "Monitor and optimize model performance",
+        "Stay current with latest ML research and techniques",
+        "Document models and experiments"
+      ],
+      "benefits": [
+        "Competitive salary and equity",
+        "Health, dental, and vision insurance",
+        "Remote work flexibility",
+        "Learning and conference budget",
+        "401(k) matching",
+        "Flexible PTO"
+      ],
+      "salary": {
+        "min": 130000,
+        "max": 190000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-12T09:00:00Z",
+      "featured": true
+    },
+    {
+      "id": "3",
+      "title": "Frontend Developer",
+      "slug": "frontend-developer",
+      "department": "engineering",
+      "location": "Remote",
+      "type": "full-time",
+      "experience": "mid",
+      "description": "We're seeking a talented Frontend Developer to create beautiful and intuitive user interfaces. You'll work with React, TypeScript, and modern CSS frameworks to build responsive web applications.",
+      "requirements": [
+        "3+ years of frontend development experience",
+        "Proficiency in React and TypeScript",
+        "Strong CSS and styling skills (Tailwind CSS, CSS-in-JS)",
+        "Experience with state management (Redux, Zustand, or similar)",
+        "Knowledge of responsive design principles",
+        "Understanding of web performance optimization",
+        "Experience with testing frameworks (Jest, React Testing Library)",
+        "Portfolio demonstrating strong UI/UX skills"
+      ],
+      "responsibilities": [
+        "Build responsive and accessible user interfaces",
+        "Implement design systems and component libraries",
+        "Optimize applications for performance and SEO",
+        "Collaborate with designers to implement pixel-perfect designs",
+        "Write unit and integration tests",
+        "Participate in design and code reviews",
+        "Stay updated with frontend best practices"
+      ],
+      "benefits": [
+        "Competitive compensation",
+        "Full health benefits",
+        "100% remote work",
+        "Flexible schedule",
+        "Professional development opportunities",
+        "401(k) plan"
+      ],
+      "salary": {
+        "min": 90000,
+        "max": 140000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-10T08:00:00Z",
+      "featured": false
+    },
+    {
+      "id": "4",
+      "title": "Product Designer",
+      "slug": "product-designer",
+      "department": "product",
+      "location": "San Francisco, CA / Hybrid",
+      "type": "full-time",
+      "experience": "mid",
+      "description": "Join our product team to design innovative software solutions. You'll work closely with engineers and product managers to create user-centered designs that solve real problems.",
+      "requirements": [
+        "4+ years of product design experience",
+        "Strong portfolio showcasing UX/UI design work",
+        "Proficiency in design tools (Figma, Sketch, Adobe Creative Suite)",
+        "Experience with user research and testing",
+        "Understanding of design systems and component libraries",
+        "Knowledge of web and mobile design patterns",
+        "Strong communication and collaboration skills",
+        "Experience working in agile environments"
+      ],
+      "responsibilities": [
+        "Design user interfaces and user experiences",
+        "Conduct user research and usability testing",
+        "Create wireframes, prototypes, and high-fidelity designs",
+        "Collaborate with cross-functional teams",
+        "Maintain and evolve design systems",
+        "Present design concepts and gather feedback",
+        "Iterate on designs based on user feedback and data"
+      ],
+      "benefits": [
+        "Competitive salary and equity",
+        "Comprehensive benefits package",
+        "Hybrid work model",
+        "Design tools and software provided",
+        "Conference and workshop budget",
+        "Flexible PTO"
+      ],
+      "salary": {
+        "min": 100000,
+        "max": 150000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-08T10:00:00Z",
+      "featured": false
+    },
+    {
+      "id": "5",
+      "title": "DevOps Engineer",
+      "slug": "devops-engineer",
+      "department": "engineering",
+      "location": "Remote",
+      "type": "full-time",
+      "experience": "senior",
+      "description": "We're looking for a DevOps Engineer to help build and maintain our infrastructure. You'll work on CI/CD pipelines, cloud infrastructure, monitoring, and automation.",
+      "requirements": [
+        "5+ years of DevOps or infrastructure engineering experience",
+        "Strong knowledge of cloud platforms (AWS, GCP, or Azure)",
+        "Experience with containerization (Docker, Kubernetes)",
+        "Proficiency in infrastructure as code (Terraform, CloudFormation)",
+        "Knowledge of CI/CD tools (GitHub Actions, Jenkins, GitLab CI)",
+        "Experience with monitoring and logging (Prometheus, Grafana, ELK)",
+        "Strong scripting skills (Bash, Python, or similar)",
+        "Understanding of security best practices"
+      ],
+      "responsibilities": [
+        "Design and maintain cloud infrastructure",
+        "Build and optimize CI/CD pipelines",
+        "Implement monitoring and alerting systems",
+        "Automate deployment and scaling processes",
+        "Ensure system reliability and performance",
+        "Collaborate with development teams",
+        "Document infrastructure and processes"
+      ],
+      "benefits": [
+        "Competitive salary and equity",
+        "Full health benefits",
+        "Remote work",
+        "Professional development budget",
+        "401(k) matching",
+        "Unlimited PTO"
+      ],
+      "salary": {
+        "min": 130000,
+        "max": 180000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-05T09:00:00Z",
+      "featured": false
+    },
+    {
+      "id": "6",
+      "title": "Sales Development Representative",
+      "slug": "sales-development-representative",
+      "department": "sales",
+      "location": "Remote / Austin, TX",
+      "type": "full-time",
+      "experience": "entry",
+      "description": "Join our sales team to help grow our business. You'll identify and qualify leads, conduct outreach, and help build relationships with potential clients.",
+      "requirements": [
+        "1-2 years of sales or business development experience",
+        "Strong communication and interpersonal skills",
+        "Experience with CRM systems (Salesforce, HubSpot)",
+        "Ability to work in a fast-paced environment",
+        "Self-motivated and goal-oriented",
+        "Basic understanding of technology and software",
+        "Bachelor's degree or equivalent experience"
+      ],
+      "responsibilities": [
+        "Identify and qualify potential leads",
+        "Conduct outreach via email, phone, and social media",
+        "Schedule meetings and demos for sales team",
+        "Maintain accurate records in CRM",
+        "Research target companies and contacts",
+        "Collaborate with marketing and sales teams",
+        "Meet and exceed monthly quotas"
+      ],
+      "benefits": [
+        "Base salary plus commission",
+        "Health and dental insurance",
+        "Remote work options",
+        "Sales training and development",
+        "401(k) plan",
+        "Unlimited PTO"
+      ],
+      "salary": {
+        "min": 45000,
+        "max": 65000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-03T08:00:00Z",
+      "featured": false
+    },
+    {
+      "id": "7",
+      "title": "Data Scientist",
+      "slug": "data-scientist",
+      "department": "ai-ml",
+      "location": "Remote / Boston, MA",
+      "type": "full-time",
+      "experience": "mid",
+      "description": "We're seeking a Data Scientist to analyze data, build predictive models, and provide insights to drive business decisions. You'll work with large datasets and collaborate with cross-functional teams.",
+      "requirements": [
+        "3+ years of data science experience",
+        "Strong programming skills in Python and SQL",
+        "Experience with statistical analysis and modeling",
+        "Knowledge of machine learning algorithms",
+        "Proficiency in data visualization tools",
+        "Experience with big data technologies (Spark, Hadoop)",
+        "Strong analytical and problem-solving skills",
+        "Master's degree in Data Science, Statistics, or related field"
+      ],
+      "responsibilities": [
+        "Analyze large datasets to extract insights",
+        "Build predictive models and algorithms",
+        "Create data visualizations and reports",
+        "Collaborate with business teams to understand requirements",
+        "Present findings to stakeholders",
+        "Maintain and improve data pipelines",
+        "Stay current with data science trends"
+      ],
+      "benefits": [
+        "Competitive salary and equity",
+        "Comprehensive benefits",
+        "Remote work flexibility",
+        "Learning and conference budget",
+        "401(k) matching",
+        "Flexible PTO"
+      ],
+      "salary": {
+        "min": 110000,
+        "max": 160000,
+        "currency": "USD",
+        "period": "yearly"
+      },
+      "postedAt": "2024-01-01T10:00:00Z",
+      "featured": false
+    },
+    {
+      "id": "8",
+      "title": "Software Engineering Intern",
+      "slug": "software-engineering-intern",
+      "department": "engineering",
+      "location": "Remote / San Francisco, CA",
+      "type": "internship",
+      "experience": "entry",
+      "description": "We're offering an exciting internship opportunity for students or recent graduates interested in software engineering. You'll work on real projects, learn from experienced developers, and gain valuable industry experience.",
+      "requirements": [
+        "Currently pursuing or recently completed a degree in Computer Science or related field",
+        "Basic programming skills in at least one language (JavaScript, Python, Java, etc.)",
+        "Familiarity with web development concepts",
+        "Strong desire to learn and grow",
+        "Good communication skills",
+        "Ability to work in a team environment"
+      ],
+      "responsibilities": [
+        "Assist in developing software features",
+        "Write and test code under supervision",
+        "Participate in code reviews",
+        "Attend team meetings and standups",
+        "Complete assigned projects and tasks",
+        "Learn from senior developers",
+        "Document code and processes"
+      ],
+      "benefits": [
+        "Competitive internship stipend",
+        "Mentorship from experienced engineers",
+        "Flexible schedule",
+        "Potential for full-time conversion",
+        "Learning and development opportunities"
+      ],
+      "salary": {
+        "min": 25,
+        "max": 35,
+        "currency": "USD",
+        "period": "hourly"
+      ],
+      "postedAt": "2024-01-20T09:00:00Z",
+      "featured": true
+    }
+  ]
+}
+
