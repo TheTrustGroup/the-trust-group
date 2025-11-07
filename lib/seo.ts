@@ -41,6 +41,10 @@ export function generateMetadata({
     authors: [{ name: siteName }],
     creator: siteName,
     publisher: siteName,
+    icons: {
+      icon: "/icon.svg",
+      apple: "/apple-icon.svg",
+    },
     robots: {
       index: !noindex,
       follow: !nofollow,

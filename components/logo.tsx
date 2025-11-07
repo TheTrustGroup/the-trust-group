@@ -18,9 +18,9 @@ export function Logo({
   showText = true 
 }: LogoProps) {
   const sizeClasses = {
-    sm: { icon: "h-8 w-8", text: "text-lg" },
-    md: { icon: "h-10 w-10", text: "text-xl" },
-    lg: { icon: "h-14 w-14", text: "text-2xl" },
+    sm: { icon: "h-10 w-10", text: "text-lg" },
+    md: { icon: "h-12 w-12", text: "text-xl" },
+    lg: { icon: "h-16 w-16", text: "text-2xl" },
   };
 
   const currentSize = sizeClasses[size];
@@ -72,32 +72,32 @@ function LogoIcon({ className }: LogoIconProps) {
     >
       <defs>
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#0052CC", stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: "#0044AA", stopOpacity: 1 }} />
           <stop offset="50%" style={{ stopColor: "#0066FF", stopOpacity: 1 }} />
           <stop offset="100%" style={{ stopColor: "#00B8E6", stopOpacity: 1 }} />
         </linearGradient>
         <filter id={filterId}>
-          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+          <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
           <feMerge>
             <feMergeNode in="coloredBlur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
         <filter id={`${filterId}-shadow`}>
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#0066FF" floodOpacity="0.3" />
+          <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#0066FF" floodOpacity="0.4" />
         </filter>
       </defs>
       
-      {/* Outer hexagon - more visible */}
+      {/* Outer hexagon - more visible with thicker stroke */}
       <polygon
         points="200,60 280,110 280,210 200,260 120,210 120,110"
         fill="none"
         stroke={`url(#${gradientId})`}
-        strokeWidth="4"
-        opacity="0.5"
+        strokeWidth="5"
+        opacity="0.6"
       />
       
-      {/* Main hexagon - full opacity for better visibility */}
+      {/* Main hexagon - full opacity with stronger shadow */}
       <polygon
         points="200,80 260,120 260,200 200,240 140,200 140,120"
         fill={`url(#${gradientId})`}
@@ -105,8 +105,8 @@ function LogoIcon({ className }: LogoIconProps) {
         filter={`url(#${filterId}-shadow)`}
       />
       
-      {/* Inner circuit pattern - more visible */}
-      <g stroke="#FFFFFF" strokeWidth="2.5" fill="none" opacity="0.85">
+      {/* Inner circuit pattern - more visible with thicker lines */}
+      <g stroke="#FFFFFF" strokeWidth="3" fill="none" opacity="0.95">
         {/* Vertical lines */}
         <line x1="200" y1="100" x2="200" y2="140" />
         <line x1="200" y1="180" x2="200" y2="220" />
