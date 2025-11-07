@@ -43,9 +43,11 @@ export function Logo({
 
   return (
     <div className={cn("flex items-center gap-2 md:gap-3 lg:gap-4 min-w-0", className)}>
-      <LogoIcon className={cn(currentSize.icon, "flex-shrink-0")} />
+      <div className={cn("flex items-center justify-center flex-shrink-0", currentSize.icon)}>
+        <LogoIcon className="w-full h-full" />
+      </div>
       {showText && (
-        <span className={cn("font-bold text-foreground whitespace-nowrap truncate", currentSize.text)}>
+        <span className={cn("font-bold text-foreground whitespace-nowrap truncate leading-none", currentSize.text)}>
           The Trust Group
         </span>
       )}

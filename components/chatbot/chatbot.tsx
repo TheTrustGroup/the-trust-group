@@ -129,7 +129,7 @@ export function Chatbot() {
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl",
+          "fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl mb-0",
           isOpen && "hidden"
         )}
         whileHover={{ scale: 1.1 }}
@@ -164,7 +164,7 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl md:h-[600px] md:w-[420px]"
+            className="fixed bottom-6 right-6 z-40 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl md:h-[600px] md:w-[420px] mb-0"
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-border bg-primary/5 px-4 py-3">
