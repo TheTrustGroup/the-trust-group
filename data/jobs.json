@@ -380,7 +380,7 @@
         "max": 35,
         "currency": "USD",
         "period": "hourly"
-      ],
+      },
       "postedAt": "2024-01-20T09:00:00Z",
       "featured": true
     }
