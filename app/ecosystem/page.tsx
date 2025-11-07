@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
-import { Section, AnimatedSection } from "@/components/ui/section";
+import { AnimatedSection } from "@/components/ui/animated-section";
 import { ScrollAnimation } from "@/components/animations";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,7 @@ export default function EcosystemPage() {
               </span>
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-              Building Tomorrow's Technology Today
+              Building Tomorrow&apos;s Technology Today
             </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
               The Trust Group is a parent company with multiple innovative businesses under our umbrella, each specializing in cutting-edge technology solutions.

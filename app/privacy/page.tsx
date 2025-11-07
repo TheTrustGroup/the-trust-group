@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             </CardHeader>
             <CardContent className="space-y-4 text-muted-foreground">
               <p>
-                The Trust Group ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website thetrustgroupsolutions.com.
+                The Trust Group (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website thetrustgroupsolutions.com.
               </p>
             </CardContent>
           </Card>

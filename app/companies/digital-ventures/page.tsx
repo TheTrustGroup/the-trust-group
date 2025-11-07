@@ -32,7 +32,7 @@ export default function DigitalVenturesPage() {
             <CardHeader>
               <CardTitle className="text-2xl">Coming Soon</CardTitle>
               <CardDescription className="text-base">
-                We're crafting something transformative. Digital Ventures will be launching soon as part of The Trust Group ecosystem.
+                We&apos;re crafting something transformative. Digital Ventures will be launching soon as part of The Trust Group ecosystem.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">

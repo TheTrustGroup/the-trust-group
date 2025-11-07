@@ -32,7 +32,7 @@ export default function CloudDynamicsPage() {
             <CardHeader>
               <CardTitle className="text-2xl">Coming Soon</CardTitle>
               <CardDescription className="text-base">
-                We're building something powerful. Cloud Dynamics will be launching soon as part of The Trust Group ecosystem.
+                We&apos;re building something powerful. Cloud Dynamics will be launching soon as part of The Trust Group ecosystem.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">

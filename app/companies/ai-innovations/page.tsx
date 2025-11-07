@@ -32,13 +32,13 @@ export default function AIInnovationsPage() {
             <CardHeader>
               <CardTitle className="text-2xl">Coming Soon</CardTitle>
               <CardDescription className="text-base">
-                We're working on something amazing. AI Innovations will be launching soon as part of The Trust Group ecosystem.
+                We&apos;re working on something amazing. AI Innovations will be launching soon as part of The Trust Group ecosystem.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
                 AI Innovations will focus on cutting-edge artificial intelligence research, development, and implementation. 
-                We're building innovative AI solutions that will transform industries and drive technological advancement.
+                We&apos;re building innovative AI solutions that will transform industries and drive technological advancement.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild>
