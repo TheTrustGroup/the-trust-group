@@ -27,13 +27,13 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
     };
 
     const sizeStyles = {
-      sm: "py-section-sm",
-      default: "py-section",
-      lg: "py-section-lg",
+      sm: "py-8 md:py-12 lg:py-16",
+      default: "py-12 md:py-16 lg:py-20",
+      lg: "py-16 md:py-24 lg:py-32",
     };
 
     const content = container ? (
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {children}
       </div>
     ) : (

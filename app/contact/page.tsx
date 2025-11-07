@@ -11,7 +11,7 @@ export const metadata: Metadata = generateSEOMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-4 md:pt-8">
       <ContactSection />
     </div>
   );

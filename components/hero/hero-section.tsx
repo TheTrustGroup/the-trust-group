@@ -127,7 +127,7 @@ export function HeroSection() {
 
       {/* Content with 3D Effects */}
       <motion.div
-        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20"
+        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20"
         style={{
           translateZ: 200,
           rotateX: contentRotateX,
@@ -135,7 +135,7 @@ export function HeroSection() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center px-4">
           {/* Badge with 3D effect */}
           <motion.div
             initial={{ opacity: 0, y: 20, rotateX: -90 }}
