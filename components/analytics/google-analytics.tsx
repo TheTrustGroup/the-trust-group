@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 declare global {
@@ -19,7 +19,7 @@ interface GoogleAnalyticsProps {
   gaId?: string;
 }
 
-export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
+function GoogleAnalyticsInner({ gaId }: GoogleAnalyticsProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -61,6 +61,18 @@ export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
         }}
       />
     </>
+  );
+}
+
+export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
+  if (!gaId) {
+    return null;
+  }
+
+  return (
+    <Suspense fallback={null}>
+      <GoogleAnalyticsInner gaId={gaId} />
+    </Suspense>
   );
 }
 
