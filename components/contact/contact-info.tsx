@@ -141,25 +141,35 @@ export function ContactInfo() {
         </div>
       </div>
 
-      {/* Google Maps Embed (Optional) */}
+      {/* Google Maps Link */}
       <div className="pt-4">
         <h4 className="font-semibold text-foreground mb-4">Find Us</h4>
-        <div className="rounded-lg overflow-hidden border-2 border-border">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509041!2d-122.4194154846814!3d37.774929279759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c6c8f4459%3A0xb10ed6d9b5050fa5!2sTwitter%20HQ!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
-            width="100%"
-            height="250"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="w-full"
-            title="Office Location"
-          />
+        <div className="rounded-lg overflow-hidden border-2 border-border bg-muted/30 p-8 flex items-center justify-center">
+          <div className="text-center">
+            <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
+            <p className="text-muted-foreground mb-4">
+              {contactInfo.address.line1}, {contactInfo.address.line2}
+              <br />
+              {contactInfo.address.city}, {contactInfo.address.state} {contactInfo.address.zip}
+              <br />
+              {contactInfo.address.country}
+            </p>
+            <Button
+              asChild
+              variant="outline"
+              className="mt-2"
+            >
+              <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${contactInfo.address.line1}, ${contactInfo.address.city}, ${contactInfo.address.country}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MapPin className="h-4 w-4 mr-2" />
+                Open in Google Maps
+              </a>
+            </Button>
+          </div>
         </div>
-        <p className="text-xs text-muted-foreground mt-2">
-          * Map shows approximate location. Contact us for exact directions.
-        </p>
       </div>
     </div>
   );

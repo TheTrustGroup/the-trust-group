@@ -19,8 +19,8 @@
     "email": "info@thetrustgroupsolutions.com",
     "phone": "+233 (057) 589-5601",
     "businessHours": {
-      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM PST",
-      "weekends": "Saturday: 10:00 AM - 2:00 PM PST",
+      "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM GMT",
+      "weekends": "Saturday: 10:00 AM - 2:00 PM GMT",
       "closed": "Sunday: Closed"
     },
     "social": {
