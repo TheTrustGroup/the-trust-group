@@ -2,33 +2,17 @@
 
 import Link from "next/link";
 import { 
-  Linkedin, 
-  Twitter, 
-  Github, 
-  Mail,
   Building2,
   Heart
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 import { siteConfig } from "@/lib/cms-client";
-import * as Icons from "lucide-react";
 import { Logo } from "@/components/logo";
-
-// Helper to get icon component by name
-function getIconComponent(iconName: string): React.ComponentType<any> {
-  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<any>>)[iconName];
-  return IconComponent || Icons.Mail; // Fallback to Mail icon
-}
 
 const services = siteConfig.navigation.footer.services;
 const companyLinks = siteConfig.navigation.footer.company;
 const subsidiaries = siteConfig.navigation.footer.subsidiaries;
-const socialLinks = siteConfig.socialLinks.map((link) => ({
-  ...link,
-  icon: getIconComponent(link.icon),
-}));
 
 const currentYear = new Date().getFullYear();
 
@@ -47,34 +31,6 @@ export function Footer() {
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 Building tomorrow&apos;s technology today. Leading innovation across multiple tech ventures.
               </p>
-            </div>
-            
-            {/* Social Media */}
-            <div>
-              <h4 className="text-sm font-semibold text-foreground mb-3">Connect With Us</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <Button
-                      key={social.name}
-                      variant="outline"
-                      size="icon"
-                      className="rounded-lg min-w-[44px] min-h-[44px] touch-manipulation"
-                      asChild
-                    >
-                      <a
-                        href={social.href}
-                        target={social.href.startsWith("mailto:") ? undefined : "_blank"}
-                        rel={social.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                        aria-label={social.name}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </a>
-                    </Button>
-                  );
-                })}
-              </div>
             </div>
           </div>
 

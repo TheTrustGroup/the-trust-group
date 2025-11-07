@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Mail, Phone, Clock, Linkedin, Twitter, Github } from "lucide-react";
+import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -86,58 +86,6 @@ export function ContactInfo() {
               <p>{contactInfo.businessHours.closed}</p>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Social Media */}
-      <div>
-        <h4 className="font-semibold text-foreground mb-4">Connect With Us</h4>
-        <div className="flex gap-3">
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-lg"
-            asChild
-          >
-            <a
-              href={contactInfo.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-lg"
-            asChild
-          >
-            <a
-              href={contactInfo.social.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <Twitter className="h-5 w-5" />
-            </a>
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-lg"
-            asChild
-          >
-            <a
-              href={contactInfo.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-          </Button>
         </div>
       </div>
 
