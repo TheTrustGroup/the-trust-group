@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 
 import { siteConfig } from "@/lib/cms-client";
 import * as Icons from "lucide-react";
+import { Logo } from "@/components/logo";
 
 // Helper to get icon component by name
 function getIconComponent(iconName: string): React.ComponentType<any> {
@@ -40,9 +41,8 @@ export function Footer() {
           {/* Column 1 - Company */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div>
-              <Link href="/" className="inline-flex items-center space-x-2 mb-4">
-                <Building2 className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
-                <span className="text-xl sm:text-2xl font-bold text-foreground">The Trust Group</span>
+              <Link href="/" className="inline-flex items-center mb-4">
+                <Logo variant="full" size="lg" className="hover:opacity-80 transition-opacity" />
               </Link>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 Building tomorrow&apos;s technology today. Leading innovation across multiple tech ventures.

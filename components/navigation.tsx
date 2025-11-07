@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { siteConfig } from "@/lib/cms-client";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Logo } from "@/components/logo";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -22,8 +23,8 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary">The Trust Group</span>
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <Logo variant="full" size="md" />
           </Link>
 
           {/* Desktop Navigation */}
