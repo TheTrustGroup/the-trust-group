@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroup.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
 const siteName = "The Trust Group";
 const defaultDescription = "The Trust Group specializes in AI solutions, custom software development, mobile and web application development, and sophisticated website development.";
 
@@ -98,7 +98,7 @@ export function generateStructuredData(type: "Organization" | "WebSite" | "Servi
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      email: "contact@thetrustgroup.com",
+      email: "contact@thetrustgroupsolutions.com",
     },
     sameAs: [
       "https://www.linkedin.com/company/thetrustgroup",

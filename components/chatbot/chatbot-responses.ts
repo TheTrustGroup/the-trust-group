@@ -19,7 +19,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["contact", "email", "phone", "reach", "get in touch", "address"],
-    response: "You can reach us through:\n\n📧 Email: info@thetrustgroup.com\n📞 Phone: Available on our contact page\n📍 Location: Check our contact page for details\n\nWe're also available for consultations and project discussions. Would you like to schedule a call?",
+    response: "You can reach us through:\n\n📧 Email: info@thetrustgroupsolutions.com\n📞 Phone: Available on our contact page\n📍 Location: Check our contact page for details\n\nWe're also available for consultations and project discussions. Would you like to schedule a call?",
     links: [{ text: "Contact us", href: "/contact" }],
   },
   {

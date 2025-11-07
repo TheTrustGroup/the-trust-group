@@ -5,7 +5,7 @@
     "description": "A parent company with multiple businesses under its umbrella, delivering excellence in every project. We specialize in AI solutions, custom software development, mobile and web application development, and sophisticated website development.",
     "founded": "2014",
     "headquarters": "San Francisco, CA",
-    "website": "https://thetrustgroup.com"
+    "website": "https://thetrustgroupsolutions.com"
   },
   "contact": {
     "address": {
@@ -16,7 +16,7 @@
       "zip": "94105",
       "country": "United States"
     },
-    "email": "info@thetrustgroup.com",
+    "email": "info@thetrustgroupsolutions.com",
     "phone": "+1 (555) 123-4567",
     "businessHours": {
       "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM PST",
@@ -51,7 +51,7 @@
     {
       "name": "Email",
       "icon": "Mail",
-      "href": "mailto:info@thetrustgroup.com"
+      "href": "mailto:info@thetrustgroupsolutions.com"
     }
   ],
   "navigation": {
