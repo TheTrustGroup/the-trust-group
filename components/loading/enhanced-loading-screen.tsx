@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { Logo } from "@/components/logo";
+import { getRandomLoadingMessage } from "@/components/ui/personality-placeholders";
 
 interface EnhancedLoadingScreenProps {
   isLoading: boolean;
@@ -13,8 +14,21 @@ interface EnhancedLoadingScreenProps {
 export function EnhancedLoadingScreen({
   isLoading,
   progress,
-  message = "Loading your experience...",
+  message,
 }: EnhancedLoadingScreenProps) {
+  const [loadingMessage, setLoadingMessage] = React.useState(
+    message || getRandomLoadingMessage()
+  );
+
+  // Rotate loading messages
+  React.useEffect(() => {
+    if (!message) {
+      const interval = setInterval(() => {
+        setLoadingMessage(getRandomLoadingMessage());
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [message]);
   const [mounted, setMounted] = React.useState(false);
   const progressValue = useMotionValue(progress || 0);
   const smoothProgress = useSpring(progressValue, {
@@ -171,17 +185,13 @@ export function EnhancedLoadingScreen({
             className="text-center"
           >
             <motion.p
+              key={loadingMessage}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               className="text-base font-medium text-foreground mb-2"
-              animate={{
-                opacity: [0.7, 1, 0.7],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
             >
-              {message}
+              {loadingMessage}
             </motion.p>
             <div className="flex items-center justify-center gap-1">
               {[0, 1, 2].map((i) => (

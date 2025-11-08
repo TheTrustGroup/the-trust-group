@@ -12,6 +12,11 @@ import { SuccessAnimation } from "./success-animation";
 import { AsyncLoadingIndicator } from "@/components/ui/async-loading-indicator";
 import { useToast } from "@/components/ui/toast";
 import { cn } from "@/lib/utils";
+import { 
+  getRandomPlaceholder, 
+  errorMessages, 
+  getRandomSuccessMessage 
+} from "@/components/ui/personality-placeholders";
 
 interface FormData {
   name: string;
@@ -52,26 +57,26 @@ export function PremiumContactForm() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState<"idle" | "success" | "error">("idle");
 
-  // Real-time validation
+  // Real-time validation with personality
   const validateField = (name: keyof FormData, value: string): string | undefined => {
     switch (name) {
       case "name":
-        if (!value.trim()) return "Name is required";
-        if (value.trim().length < 2) return "Name must be at least 2 characters";
+        if (!value.trim()) return errorMessages.name.required;
+        if (value.trim().length < 2) return errorMessages.name.minLength;
         return undefined;
       case "email":
-        if (!value.trim()) return "Email is required";
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Please enter a valid email address";
+        if (!value.trim()) return errorMessages.email.required;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return errorMessages.email.invalid;
         return undefined;
       case "phone":
-        if (value && !/^[\d\s\-\+\(\)]+$/.test(value)) return "Please enter a valid phone number";
+        if (value && !/^[\d\s\-\+\(\)]+$/.test(value)) return errorMessages.phone.invalid;
         return undefined;
       case "service":
-        if (!value) return "Please select a service";
+        if (!value) return errorMessages.service.required;
         return undefined;
       case "description":
-        if (!value.trim()) return "Project description is required";
-        if (value.trim().length < 20) return "Please provide at least 20 characters";
+        if (!value.trim()) return errorMessages.description.required;
+        if (value.trim().length < 20) return errorMessages.description.minLength;
         return undefined;
       default:
         return undefined;
@@ -146,8 +151,8 @@ export function PremiumContactForm() {
       setSubmitStatus("success");
       showToast({
         type: "success",
-        title: "Message Sent!",
-        message: "We'll get back to you within 24 hours.",
+        title: getRandomSuccessMessage(),
+        message: "We'll get back to you within 24 hours. You're awesome! 🎉",
       });
 
       // Reset form after delay

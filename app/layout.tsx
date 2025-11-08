@@ -13,6 +13,8 @@ import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Chatbot } from "@/components/chatbot";
 import { PageLoader } from "@/components/loading/page-loader";
+import { KonamiCode } from "@/components/ui/konami-code";
+import { ConsoleMessage } from "@/components/ui/console-message";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -74,6 +76,8 @@ export default function RootLayout({
           <Footer />
           <BackToTop />
           <Chatbot />
+          <KonamiCode />
+          <ConsoleMessage />
         </ToastProvider>
         </ThemeProvider>
       </body>

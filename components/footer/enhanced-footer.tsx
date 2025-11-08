@@ -99,7 +99,18 @@ export function EnhancedFooter() {
               className="space-y-6"
             >
               <Link href="/" className="inline-flex items-center group">
-                <Logo variant="full" size="md" className="group-hover:opacity-90 transition-opacity" showText={true} />
+                <motion.div
+                  animate={{
+                    scale: [1, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Logo variant="full" size="md" className="group-hover:opacity-90 transition-opacity" showText={true} />
+                </motion.div>
               </Link>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {siteConfig.company.tagline}
@@ -261,15 +272,25 @@ export function EnhancedFooter() {
             </div>
 
             {/* Made with Love */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Made with</span>
-              <motion.span
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
+            <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <span>Made with</span>
+                <motion.span
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
+                >
+                  <Heart className="h-4 w-4 text-error fill-error" />
+                </motion.span>
+                <span>by The Trust Group</span>
+              </div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="text-xs text-muted-foreground/70 italic"
               >
-                <Heart className="h-4 w-4 text-error fill-error" />
-              </motion.span>
-              <span>by The Trust Group</span>
+                Made by humans (and some AI) 🤖
+              </motion.p>
             </div>
 
             {/* Back to Top Button */}
