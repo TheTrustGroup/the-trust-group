@@ -13,7 +13,7 @@ export const placeholders = {
     "your.email@example.com",
     "Where should we reach you?",
     "your@email.com (we promise not to spam)",
-    "Drop your email here 📧",
+    "Drop your email here",
   ],
   phone: [
     "Optional, but helpful!",
@@ -60,11 +60,11 @@ export const errorMessages = {
 };
 
 export const successMessages = [
-  "🎉 Awesome! You're all set!",
-  "✨ Perfect! We'll be in touch soon!",
-  "🚀 Great! Your message is on its way!",
-  "💫 Excellent! We'll get back to you within 24 hours!",
-  "🌟 Fantastic! We've received your message!",
+  "Awesome! You're all set!",
+  "Perfect! We'll be in touch soon!",
+  "Great! Your message is on its way!",
+  "Excellent! We'll get back to you within 24 hours!",
+  "Fantastic! We've received your message!",
 ];
 
 export const loadingMessages = [

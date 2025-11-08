@@ -289,7 +289,7 @@ export function EnhancedFooter() {
                 transition={{ delay: 0.5 }}
                 className="text-xs text-muted-foreground/70 italic"
               >
-                Made by humans (and some AI) 🤖
+                Made by humans (and some AI)
               </motion.p>
             </div>
 

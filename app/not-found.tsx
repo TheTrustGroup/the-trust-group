@@ -91,7 +91,7 @@ export default function NotFound() {
             className="text-lg text-muted-foreground mb-8"
           >
             Looks like this page took a wrong turn and got lost in the digital universe. 
-            Don&apos;t worry, even the best developers encounter 404s! 🚀
+            Don&apos;t worry, even the best developers encounter 404s!
           </motion.p>
 
           {/* Action buttons */}
@@ -133,7 +133,7 @@ export default function NotFound() {
             <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">Fun fact:</span>{" "}
               The 404 error got its name from room 404 at CERN, where the web was born. 
-              The room didn&apos;t exist, just like this page! 😄
+              The room didn&apos;t exist, just like this page!
             </p>
           </motion.div>
         </div>

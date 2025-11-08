@@ -152,7 +152,7 @@ export function PremiumContactForm() {
       showToast({
         type: "success",
         title: getRandomSuccessMessage(),
-        message: "We'll get back to you within 24 hours. You're awesome! 🎉",
+        message: "We'll get back to you within 24 hours. You're awesome!",
       });
 
       // Reset form after delay

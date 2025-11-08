@@ -12,7 +12,7 @@ export function ConsoleMessage() {
     ].join(";");
 
     const message = `
-%c👋 Hey there, developer!
+%cHey there, developer!
 
 Thanks for checking out our code. We're The Trust Group, and we build amazing things.
 
@@ -22,14 +22,14 @@ https://thetrustgroupsolutions.com/careers
 Or just want to say hi? Drop us a line:
 info@thetrustgroupsolutions.com
 
-Built with ❤️ (and some AI) by The Trust Group
+Built with love (and some AI) by The Trust Group
     `.trim();
 
     console.log(message, styles);
     
     // Additional fun message
     console.log(
-      "%c💡 Pro tip: Try the Konami code! (↑↑↓↓←→←→BA)",
+      "%cPro tip: Try the Konami code! (↑↑↓↓←→←→BA)",
       "color: #00B8E6; font-size: 14px; font-style: italic;"
     );
   }, []);

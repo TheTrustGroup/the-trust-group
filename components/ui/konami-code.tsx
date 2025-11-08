@@ -35,7 +35,7 @@ export function KonamiCode() {
             setIsUnlocked(true);
             showToast({
               type: "success",
-              title: "🎉 Easter Egg Unlocked!",
+              title: "Easter Egg Unlocked!",
               message: "You found our secret! Welcome to the club.",
             });
           }
@@ -83,7 +83,7 @@ export function KonamiCode() {
               </motion.div>
               
               <h2 className="text-3xl font-bold text-foreground">
-                🎉 You Found Us!
+                You Found Us!
               </h2>
               
               <p className="text-muted-foreground">

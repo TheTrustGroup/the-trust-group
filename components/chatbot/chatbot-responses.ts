@@ -19,7 +19,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["contact", "email", "phone", "reach", "get in touch", "address"],
-    response: "You can reach us through:\n\n📧 Email: info@thetrustgroupsolutions.com\n📞 Phone: Available on our contact page\n📍 Location: Check our contact page for details\n\nWe're also available for consultations and project discussions. Would you like to schedule a call?",
+    response: "You can reach us through:\n\nEmail: info@thetrustgroupsolutions.com\nPhone: Available on our contact page\nLocation: Check our contact page for details\n\nWe're also available for consultations and project discussions. Would you like to schedule a call?",
     links: [{ text: "Contact us", href: "/contact" }],
   },
   {
@@ -49,7 +49,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["hello", "hi", "hey", "greetings"],
-    response: "Hello! 👋 Welcome to The Trust Group. I'm here to help answer any questions you have about our services, company, or how we can assist with your project. What would you like to know?",
+    response: "Hello! Welcome to The Trust Group. I'm here to help answer any questions you have about our services, company, or how we can assist with your project. What would you like to know?",
   },
   {
     keywords: ["help", "support", "assistance"],
@@ -57,7 +57,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["thank", "thanks", "appreciate"],
-    response: "You're welcome! 😊 Is there anything else I can help you with today?",
+    response: "You're welcome! Is there anything else I can help you with today?",
   },
 ];
 
@@ -77,7 +77,7 @@ export function getChatbotResponse(userInput: string): string {
       if (match.links && match.links.length > 0) {
         response += "\n\n";
         match.links.forEach((link) => {
-          response += `🔗 ${link.text}: ${link.href}\n`;
+          response += `${link.text}: ${link.href}\n`;
         });
       }
       
