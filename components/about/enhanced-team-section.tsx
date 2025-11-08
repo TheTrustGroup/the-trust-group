@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Github, Twitter } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -10,10 +9,6 @@ interface TeamMember {
   name: string;
   role: string;
   expertise: string[];
-  linkedin?: string;
-  email?: string;
-  github?: string;
-  twitter?: string;
 }
 
 interface EnhancedTeamSectionProps {
@@ -112,75 +107,6 @@ export function EnhancedTeamSection({
                   )}
                 </div>
 
-                {/* Social Links */}
-                <div className="flex justify-center gap-2">
-                  {member.linkedin && (
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-8 w-8 rounded-lg"
-                      asChild
-                    >
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} LinkedIn`}
-                      >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                  {member.email && (
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-8 w-8 rounded-lg"
-                      asChild
-                    >
-                      <a
-                        href={`mailto:${member.email}`}
-                        aria-label={`Email ${member.name}`}
-                      >
-                        <Mail className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                  {member.github && (
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-8 w-8 rounded-lg"
-                      asChild
-                    >
-                      <a
-                        href={member.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} GitHub`}
-                      >
-                        <Github className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                  {member.twitter && (
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="h-8 w-8 rounded-lg"
-                      asChild
-                    >
-                      <a
-                        href={member.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} Twitter`}
-                      >
-                        <Twitter className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                </div>
 
                 {/* Glow effect */}
                 <div className="absolute -inset-0.5 rounded-2xl bg-primary/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10" />

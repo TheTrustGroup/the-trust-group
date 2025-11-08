@@ -29,13 +29,13 @@ export function generateServiceSchema(serviceData: {
 /**
  * Generate Review schemas from testimonials
  */
-export function generateReviewSchemas(testimonials: Testimonial[]) {
+export function generateReviewSchemas(testimonials: any[]) {
   return testimonials.map((testimonial) =>
     generateStructuredData("Review", {
-      authorName: testimonial.author.name,
+      authorName: testimonial.clientName || testimonial.author?.name || "Client",
       rating: testimonial.rating || 5,
-      reviewText: testimonial.quote,
-      datePublished: testimonial.date || new Date().toISOString(),
+      reviewText: testimonial.quote || testimonial.reviewText || "",
+      datePublished: testimonial.date || testimonial.datePublished || new Date().toISOString(),
     })
   );
 }

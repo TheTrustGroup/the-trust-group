@@ -3,12 +3,12 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TestimonialCard } from "./testimonial-card";
+import { EnhancedTestimonialCard, type EnhancedTestimonial } from "./enhanced-testimonial-card";
 import { cn } from "@/lib/utils";
-import type { Testimonial } from "./testimonial-card";
+import { motion } from "framer-motion";
 
 interface TestimonialCarouselProps {
-  testimonials: Testimonial[];
+  testimonials: EnhancedTestimonial[];
   autoRotate?: boolean;
   rotationInterval?: number;
 }
@@ -51,13 +51,28 @@ export function TestimonialCarousel({
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Carousel Container */}
-      <div className="relative h-[450px] md:h-[500px] overflow-hidden rounded-2xl">
+      <div className="relative min-h-[550px] md:min-h-[600px] lg:min-h-[650px] overflow-hidden rounded-3xl bg-gradient-to-br from-muted/30 to-background border-2 border-border shadow-2xl">
         {testimonials.map((testimonial, index) => (
-          <TestimonialCard
+          <motion.div
             key={testimonial.id}
-            testimonial={testimonial}
-            isActive={index === activeIndex}
-          />
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={
+              index === activeIndex
+                ? { opacity: 1, scale: 1, y: 0 }
+                : { opacity: 0, scale: 0.95, y: 20 }
+            }
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className={cn(
+              index === activeIndex
+                ? "relative z-10"
+                : "absolute inset-0 z-0"
+            )}
+          >
+            <EnhancedTestimonialCard
+              testimonial={testimonial}
+              variant="carousel"
+            />
+          </motion.div>
         ))}
       </div>
 

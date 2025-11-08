@@ -168,6 +168,7 @@ export default function CustomSoftwarePage() {
       <ServiceFAQ faqs={faqs} />
       <ServiceContactForm serviceName="Custom Software Development" />
     </div>
+    </>
   );
 }
 

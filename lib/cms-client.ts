@@ -27,7 +27,7 @@ import type {
 export const services: Service[] = servicesData as Service[];
 export const projects: Project[] = projectsData.projects as Project[];
 export const projectCategories: ProjectCategory[] = projectsData.categories as ProjectCategory[];
-export const testimonials: Testimonial[] = testimonialsData as Testimonial[];
+export const testimonials: Testimonial[] = testimonialsData as unknown as Testimonial[];
 export const teamMembers: TeamMember[] = teamData as TeamMember[];
 export const technologies: Technology[] = technologiesData.technologies as Technology[];
 export const technologyCategories: TechnologyCategory[] = technologiesData.categories as TechnologyCategory[];

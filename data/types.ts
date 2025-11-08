@@ -39,6 +39,13 @@ export interface Testimonial {
   rating: number;
   featured: boolean;
   avatar?: string;
+  companyLogo?: string;
+  companySize?: string;
+  industry?: string;
+  projectType?: string;
+  date?: string;
+  verified?: boolean;
+  metrics?: Record<string, string>;
 }
 
 export interface TeamMember {

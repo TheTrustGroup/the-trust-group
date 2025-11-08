@@ -5,8 +5,19 @@
     "clientName": "Sarah Johnson",
     "clientTitle": "Chief Technology Officer",
     "company": "TechRetail Inc.",
+    "companySize": "Enterprise",
+    "industry": "E-Commerce",
+    "projectType": "AI Solutions",
     "rating": 5,
-    "featured": true
+    "date": "2024-01-15",
+    "verified": true,
+    "featured": true,
+    "metrics": {
+      "conversionIncrease": "35%",
+      "retentionImprovement": "Significant"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Sarah+Johnson&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=TechRetail+Inc&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
   },
   {
     "id": "2",
@@ -14,8 +25,19 @@
     "clientName": "Michael Chen",
     "clientTitle": "VP of Engineering",
     "company": "Enterprise Solutions Group",
+    "companySize": "Enterprise",
+    "industry": "SaaS",
+    "projectType": "Custom Software Development",
     "rating": 5,
-    "featured": true
+    "date": "2024-02-20",
+    "verified": true,
+    "featured": true,
+    "metrics": {
+      "companiesServed": "500+",
+      "uptime": "99.9%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Michael+Chen&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Enterprise+Solutions&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
   },
   {
     "id": "3",
@@ -23,8 +45,19 @@
     "clientName": "Emily Rodriguez",
     "clientTitle": "Digital Banking Director",
     "company": "Regional Financial Bank",
+    "companySize": "Enterprise",
+    "industry": "Finance",
+    "projectType": "Mobile App Development",
     "rating": 5,
-    "featured": false
+    "date": "2024-03-10",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "activeUsers": "100K+",
+      "appRating": "4.8/5"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Emily+Rodriguez&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Regional+Financial&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
   },
   {
     "id": "4",
@@ -32,8 +65,19 @@
     "clientName": "David Thompson",
     "clientTitle": "E-Commerce Director",
     "company": "Fashion Forward Retail",
+    "companySize": "Mid-Size",
+    "industry": "Retail",
+    "projectType": "Web Development",
     "rating": 5,
-    "featured": false
+    "date": "2024-01-28",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "orderValueIncrease": "40%",
+      "searchRelevance": "60% improvement"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=David+Thompson&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Fashion+Forward&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
   },
   {
     "id": "5",
@@ -41,8 +85,118 @@
     "clientName": "Jennifer Martinez",
     "clientTitle": "IT Director",
     "company": "Global Manufacturing Corp",
+    "companySize": "Enterprise",
+    "industry": "Manufacturing",
+    "projectType": "Cloud Solutions",
     "rating": 5,
-    "featured": false
+    "date": "2024-02-14",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "costSavings": "50%",
+      "performanceImprovement": "Significant"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Jennifer+Martinez&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Global+Manufacturing&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "6",
+    "quote": "As a startup, we needed a technology partner who could move fast and deliver quality. The Trust Group built our MVP in record time and helped us scale to 10K users within 6 months. Their agile approach and technical expertise were exactly what we needed.",
+    "clientName": "Alex Kumar",
+    "clientTitle": "Founder & CEO",
+    "company": "InnovateTech Startup",
+    "companySize": "Startup",
+    "industry": "Technology",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-03-25",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "timeToMarket": "Record time",
+      "usersScaled": "10K in 6 months"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Alex+Kumar&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=InnovateTech&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "7",
+    "quote": "Their consulting services helped us identify AI opportunities we never considered. The strategic roadmap they provided has already resulted in 25% operational efficiency gains. The Trust Group doesn't just build software—they transform businesses.",
+    "clientName": "Robert Williams",
+    "clientTitle": "Chief Operating Officer",
+    "company": "Healthcare Solutions Inc.",
+    "companySize": "Mid-Size",
+    "industry": "Healthcare",
+    "projectType": "Consulting",
+    "rating": 5,
+    "date": "2024-04-05",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "efficiencyGains": "25%",
+      "operationalImprovement": "Significant"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Robert+Williams&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Healthcare+Solutions&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "8",
+    "quote": "The Trust Group developed a custom ERP system that streamlined our entire operation. We reduced manual processes by 70% and improved data accuracy to 99.5%. Their team was responsive, professional, and truly understood our business needs.",
+    "clientName": "Lisa Anderson",
+    "clientTitle": "Operations Manager",
+    "company": "Supply Chain Dynamics",
+    "companySize": "Mid-Size",
+    "industry": "Logistics",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-03-18",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "processReduction": "70%",
+      "dataAccuracy": "99.5%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Lisa+Anderson&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Supply+Chain+Dynamics&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "9",
+    "quote": "We needed a modern web application to replace our legacy system. The Trust Group not only delivered a beautiful, user-friendly solution but also trained our team and provided ongoing support. The migration was seamless, and user adoption exceeded 95%.",
+    "clientName": "James Wilson",
+    "clientTitle": "IT Manager",
+    "company": "Educational Services Group",
+    "companySize": "Mid-Size",
+    "industry": "Education",
+    "projectType": "Web Development",
+    "rating": 5,
+    "date": "2024-02-08",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "userAdoption": "95%+",
+      "migrationSuccess": "Seamless"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=James+Wilson&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Educational+Services&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "10",
+    "quote": "Their AI-powered customer service chatbot reduced our support ticket volume by 60% while maintaining a 4.9/5 customer satisfaction rating. The Trust Group's innovative approach to AI implementation is truly impressive.",
+    "clientName": "Maria Garcia",
+    "clientTitle": "Customer Success Director",
+    "company": "Service Excellence Corp",
+    "companySize": "Mid-Size",
+    "industry": "Customer Service",
+    "projectType": "AI Solutions",
+    "rating": 5,
+    "date": "2024-04-12",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "ticketReduction": "60%",
+      "satisfactionRating": "4.9/5"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Maria+Garcia&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Service+Excellence&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
   }
 ]
-

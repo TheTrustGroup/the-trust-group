@@ -56,32 +56,21 @@ const teamMembers = [
     name: "Emmanuel A.",
     role: "Founder & CEO",
     expertise: ["Strategy", "Leadership", "Business Development"],
-    linkedin: "https://linkedin.com/in/johndoe",
-    email: "ea@thetrustgroupsolutions.com",
   },
   {
     name: "Jane Smith",
     role: "CTO",
     expertise: ["Architecture", "Cloud", "DevOps"],
-    linkedin: "https://linkedin.com/in/janesmith",
-    email: "jane@thetrustgroupsolutions.com",
-    github: "https://github.com/janesmith",
   },
   {
     name: "Mike Johnson",
     role: "Lead AI Engineer",
     expertise: ["Machine Learning", "TensorFlow", "Python"],
-    linkedin: "https://linkedin.com/in/mikejohnson",
-    email: "mike@thetrustgroupsolutions.com",
-    github: "https://github.com/mikejohnson",
   },
   {
     name: "Sarah Williams",
     role: "Senior Developer",
     expertise: ["React", "Next.js", "TypeScript"],
-    linkedin: "https://linkedin.com/in/sarahwilliams",
-    email: "sarah@thetrustgroupsolutions.com",
-    github: "https://github.com/sarahwilliams",
   },
 ];
 
