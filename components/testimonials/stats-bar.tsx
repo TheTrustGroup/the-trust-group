@@ -60,7 +60,7 @@ export function StatsBar() {
             <div
               className={`${stat.bgColor} ${stat.color} w-14 h-14 md:w-16 md:h-16 rounded-xl flex items-center justify-center mx-auto mb-4`}
             >
-              <Icon className="h-7 w-7 md:h-8 md:w-8" />
+              <Icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={2} fill="none" />
             </div>
             <div className={`text-3xl md:text-4xl lg:text-5xl font-bold ${stat.color} mb-2`}>
               <AnimatedCounter

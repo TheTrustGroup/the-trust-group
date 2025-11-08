@@ -202,7 +202,7 @@ export function EnhancedTestimonialsSection() {
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
                 >
-                  <TrendingUp className="h-8 w-8 text-primary" />
+                  <TrendingUp className="h-8 w-8 text-primary" strokeWidth={2} fill="none" />
                 </motion.div>
               </motion.div>
 

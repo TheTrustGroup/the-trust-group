@@ -65,13 +65,13 @@ export function EnhancedTestimonialCard({
         animate={isHovered ? { scale: 1.15, rotate: 8, opacity: 0.15 } : { scale: 1, rotate: 0, opacity: 0.1 }}
         transition={{ duration: 0.4, type: "spring" }}
       >
-        <Quote className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28" />
+        <Quote className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28" strokeWidth={1.5} fill="none" />
       </motion.div>
 
       {/* Verified Badge */}
       {testimonial.verified && (
         <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success/10 border border-success/20">
-          <CheckCircle2 className="h-3.5 w-3.5 text-success" />
+          <CheckCircle2 className="h-3.5 w-3.5 text-success" strokeWidth={2} fill="currentColor" />
           <span className="text-xs font-semibold text-success">Verified Client</span>
         </div>
       )}
@@ -98,6 +98,8 @@ export function EnhancedTestimonialCard({
                   ? "text-warning fill-warning drop-shadow-sm"
                   : "text-muted fill-muted"
               )}
+              strokeWidth={2}
+              fill={star <= testimonial.rating ? "currentColor" : "none"}
             />
           </motion.div>
         ))}
@@ -141,7 +143,7 @@ export function EnhancedTestimonialCard({
               animate={isHovered ? { rotate: [0, -10, 10, 0] } : {}}
               transition={{ duration: 0.5 }}
             >
-              <TrendingUp className="h-4 w-4 text-primary" />
+              <TrendingUp className="h-4 w-4 text-primary" strokeWidth={2} fill="none" />
             </motion.div>
             <span className="text-xs font-semibold text-primary uppercase tracking-wider">
               Project Results
@@ -258,7 +260,7 @@ export function EnhancedTestimonialCard({
           {/* Date */}
           {testimonial.date && (
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground flex-shrink-0">
-              <Calendar className="h-3.5 w-3.5" />
+              <Calendar className="h-3.5 w-3.5" strokeWidth={2} fill="none" />
               <span>{formatDate(testimonial.date)}</span>
             </div>
           )}

@@ -41,7 +41,7 @@ export function VideoTestimonialPlaceholder({
             transition={{ duration: 0.3, type: "spring" }}
             className="w-24 h-24 rounded-full bg-primary/95 backdrop-blur-md flex items-center justify-center mb-4 mx-auto shadow-2xl border-4 border-primary-foreground/20"
           >
-            <Play className="h-12 w-12 text-primary-foreground ml-1" fill="currentColor" />
+            <Play className="h-12 w-12 text-primary-foreground ml-1" strokeWidth={2} fill="currentColor" />
           </motion.div>
           <p className="text-sm font-semibold text-foreground/90 uppercase tracking-wider">Video Testimonial</p>
         </div>
@@ -51,7 +51,7 @@ export function VideoTestimonialPlaceholder({
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
         <div className="text-white">
           <div className="flex items-center gap-2 mb-2">
-            <Video className="h-4 w-4" />
+            <Video className="h-4 w-4" strokeWidth={2} fill="none" />
             <span className="text-xs font-semibold uppercase tracking-wider">Video Review</span>
           </div>
           <h3 className="text-lg font-bold mb-1">{testimonial.clientName}</h3>
@@ -78,7 +78,7 @@ export function VideoTestimonialPlaceholder({
             console.log("Open video testimonial");
           }}
         >
-          <Play className="h-5 w-5 mr-2" fill="currentColor" />
+          <Play className="h-5 w-5 mr-2" strokeWidth={2} fill="currentColor" />
           Watch Video
         </Button>
       </motion.div>

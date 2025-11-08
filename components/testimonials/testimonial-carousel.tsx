@@ -85,7 +85,7 @@ export function TestimonialCarousel({
           className="rounded-full"
           aria-label="Previous testimonial"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-5 w-5" strokeWidth={2} fill="none" />
         </Button>
 
         {/* Dots Indicator */}
@@ -112,7 +112,7 @@ export function TestimonialCarousel({
           className="rounded-full"
           aria-label="Next testimonial"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-5 w-5" strokeWidth={2} fill="none" />
         </Button>
       </div>
     </div>

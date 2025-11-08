@@ -10,7 +10,12 @@ const nextConfig = {
     // Enable image optimization
     unoptimized: false,
     // Remote image domains (add as needed)
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ui-avatars.com',
+      },
+    ],
   },
   compress: true,
   poweredByHeader: false,

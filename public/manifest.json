@@ -1,0 +1,27 @@
+{
+  "name": "The Trust Group - AI & Software Engineering Solutions",
+  "short_name": "The Trust Group",
+  "description": "AI solutions, custom software development, mobile and web application development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0066FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["business", "technology", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}
+
