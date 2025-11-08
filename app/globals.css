@@ -192,6 +192,48 @@
     @apply bg-background text-foreground antialiased;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
+  
+  /* Accessibility: Focus indicators */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+  
+  /* Accessibility: Skip to main content link */
+  .skip-to-main {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50;
+    @apply focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground;
+    @apply focus:rounded-md focus:shadow-lg;
+  }
+  
+  /* Accessibility: Minimum touch target size (WCAG 2.5.5) */
+  button, a, input[type="checkbox"], input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Exception for icon-only buttons */
+  button[aria-label], a[aria-label] {
+    min-width: 44px;
+  }
+  
+  /* Accessibility: High contrast mode support */
+  @media (prefers-contrast: high) {
+    * {
+      border-width: 2px;
+    }
+  }
+  
+  /* Accessibility: Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 /* Typography System */

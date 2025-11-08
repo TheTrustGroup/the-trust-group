@@ -1,13 +1,16 @@
+"use client";
+
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { designTokens } from "@/lib/design-tokens";
 
-export interface InputProps
+export interface StandardizedInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
   success?: boolean;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const StandardizedInput = React.forwardRef<HTMLInputElement, StandardizedInputProps>(
   ({ className, type, error, success, ...props }, ref) => {
     return (
       <input
@@ -36,8 +39,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ],
           // Default border
           !error && !success && "border-input focus-visible:border-primary",
-          // Focus shadow
-          "focus-visible:shadow-sm focus-visible:shadow-primary/20",
           // Disabled
           "disabled:cursor-not-allowed disabled:opacity-50",
           className
@@ -48,7 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-Input.displayName = "Input";
+StandardizedInput.displayName = "StandardizedInput";
 
-export { Input };
+export { StandardizedInput };
 

@@ -1,24 +1,23 @@
+"use client";
+
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface StandardizedTextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
   success?: boolean;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, error, success, ...props }, ref) => {
+const StandardizedTextarea = React.forwardRef<HTMLTextAreaElement, StandardizedTextareaProps>(
+  ({ className, error, success, ...props }, ref) => {
     return (
-      <input
-        type={type}
+      <textarea
         className={cn(
           // Base styles
-          "flex w-full rounded-md border bg-background px-4 py-2 text-sm",
-          "min-h-[44px]",
+          "flex min-h-[80px] w-full rounded-md border bg-background px-4 py-2 text-sm",
           "ring-offset-background",
           "transition-all duration-200",
-          "file:border-0 file:bg-transparent file:text-sm file:font-medium",
           "placeholder:text-muted-foreground",
           // Focus states
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
@@ -40,6 +39,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           "focus-visible:shadow-sm focus-visible:shadow-primary/20",
           // Disabled
           "disabled:cursor-not-allowed disabled:opacity-50",
+          // Resize
+          "resize-y",
           className
         )}
         ref={ref}
@@ -48,7 +49,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-Input.displayName = "Input";
+StandardizedTextarea.displayName = "StandardizedTextarea";
 
-export { Input };
+export { StandardizedTextarea };
 
