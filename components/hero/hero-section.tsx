@@ -2,18 +2,21 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { AnimatedBackground } from "./animated-background";
+import { EnhancedBackground } from "./enhanced-background";
+import { NeuralNetwork } from "./neural-network";
+import { TypingAnimation } from "./typing-animation";
 import { ScrollIndicator } from "./scroll-indicator";
 import { ScrollAnimation, ParallaxSection } from "@/components/animations";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { Floating3DShapes, Floating3DCube, Parallax3DLayers } from "./3d-elements";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseXValue = useMotionValue(0);
   const mouseYValue = useMotionValue(0);
+  const [showTyping, setShowTyping] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -52,8 +55,11 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5"
       style={{ perspective: "1000px" }}
     >
-      {/* Animated Background */}
-      <AnimatedBackground />
+      {/* Enhanced Animated Background */}
+      <EnhancedBackground />
+      
+      {/* Neural Network Visualization */}
+      <NeuralNetwork />
       
       {/* 3D Parallax Layers */}
       <Parallax3DLayers />
@@ -65,7 +71,7 @@ export function HeroSection() {
       <Floating3DCube />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background/80 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background/70 z-10" />
       
       {/* Enhanced Geometric Shapes with 3D */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -166,50 +172,68 @@ export function HeroSection() {
             <span className="text-xs sm:text-sm font-medium text-primary">AI & Software Engineering Powerhouse</span>
           </motion.div>
 
-          {/* Main Headline with 3D text effect */}
+          {/* Main Headline with Typing Animation */}
           <motion.h1
-            initial={{ opacity: 0, y: 30, rotateX: -90 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
               y: 0,
-              rotateX: 0,
             }}
-            transition={{ duration: 1, delay: 0.1, type: "spring", stiffness: 80 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-tight"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            onAnimationComplete={() => setShowTyping(true)}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-tight min-h-[1.2em]"
             style={{
               transformStyle: "preserve-3d",
               textShadow: "0 0 30px rgba(0, 102, 255, 0.3)",
             }}
           >
-            <motion.span
-              className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block"
-              whileHover={{
-                scale: 1.05,
-                rotateY: 10,
-                transition: { duration: 0.3 },
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-                display: "inline-block",
-              }}
-            >
-              Building Tomorrow&apos;s
-            </motion.span>
-            <br />
-            <motion.span
-              className="text-foreground inline-block"
-              whileHover={{
-                scale: 1.05,
-                rotateY: -10,
-                transition: { duration: 0.3 },
-              }}
-              style={{
-                transformStyle: "preserve-3d",
-                display: "inline-block",
-              }}
-            >
-              Technology Today
-            </motion.span>
+            {showTyping ? (
+              <>
+                <motion.span
+                  className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 10,
+                    transition: { duration: 0.3 },
+                  }}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    display: "inline-block",
+                  }}
+                >
+                  <TypingAnimation text="Building Tomorrow's" speed={60} />
+                </motion.span>
+                <br />
+                <motion.span
+                  className="text-foreground inline-block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: -10,
+                    transition: { duration: 0.3 },
+                  }}
+                  style={{
+                    transformStyle: "preserve-3d",
+                    display: "inline-block",
+                  }}
+                >
+                  <TypingAnimation text="Technology Today" speed={60} />
+                </motion.span>
+              </>
+            ) : (
+              <>
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block">
+                  Building Tomorrow&apos;s
+                </span>
+                <br />
+                <span className="text-foreground inline-block">Technology Today</span>
+              </>
+            )}
           </motion.h1>
 
           {/* Subheadline */}
@@ -244,11 +268,20 @@ export function HeroSection() {
             style={{ transformStyle: "preserve-3d" }}
           >
             <motion.div
+              animate={{
+                y: [0, -8, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
               whileHover={{
                 scale: 1.05,
                 rotateY: 5,
                 rotateX: 5,
                 z: 20,
+                y: -12,
                 transition: { duration: 0.2 },
               }}
               whileTap={{
@@ -281,11 +314,21 @@ export function HeroSection() {
               </Button>
             </motion.div>
             <motion.div
+              animate={{
+                y: [0, -8, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
               whileHover={{
                 scale: 1.05,
                 rotateY: -5,
                 rotateX: 5,
                 z: 20,
+                y: -12,
                 transition: { duration: 0.2 },
               }}
               whileTap={{
