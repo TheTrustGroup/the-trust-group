@@ -44,9 +44,11 @@ export function ThemeToggle({ className }: { className?: string }) {
         onClick={() => setTheme(isDark ? "light" : "dark")}
         className={cn(
           "min-w-[44px] min-h-[44px] relative overflow-hidden",
+          "hover:bg-muted/50 transition-colors duration-200",
           className
         )}
         aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        title={isDark ? "Switch to light mode" : "Switch to dark mode"}
       >
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
@@ -58,7 +60,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <Sun className="h-5 w-5" />
+          <Sun className="h-5 w-5 text-foreground" />
         </motion.div>
         <motion.div
           className="absolute inset-0 flex items-center justify-center"
@@ -70,7 +72,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <Moon className="h-5 w-5" />
+          <Moon className="h-5 w-5 text-foreground" />
         </motion.div>
       </Button>
     </motion.div>
