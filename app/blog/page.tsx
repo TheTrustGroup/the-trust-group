@@ -1,5 +1,5 @@
 import { getBlogPosts, getBlogTags } from "@/lib/cms";
-import { generateMetadata } from "@/lib/seo";
+import { generateMetadata, generateBreadcrumbs } from "@/lib/seo";
 import type { Metadata } from "next";
 import { BlogPageClient } from "./blog-page-client";
 

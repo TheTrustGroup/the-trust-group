@@ -1,5 +1,5 @@
-"use client";
-
+import type { Metadata } from "next";
+import { generateMetadata as generateSEOMetadata, generateStructuredData, generateBreadcrumbs } from "@/lib/seo";
 import { ServiceHero } from "@/components/services/service-hero";
 import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
@@ -83,9 +83,40 @@ const faqs = [
   },
 ];
 
+export const metadata: Metadata = generateSEOMetadata({
+  title: "Custom Software Development",
+  description: "Tailored software solutions for your business. Enterprise applications, SaaS products, API development, and legacy system modernization from The Trust Group.",
+  keywords: ["custom software", "enterprise software", "SaaS development", "API development", "software solutions"],
+  url: "/services/custom-software",
+});
+
 export default function CustomSoftwarePage() {
+  const breadcrumbs = generateBreadcrumbs([
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "Custom Software Development", url: "/services/custom-software" },
+  ]);
+
+  const serviceSchema = generateStructuredData("Service", {
+    serviceType: "Custom Software Development",
+    description: "We build scalable, secure, and maintainable software solutions designed to meet your unique business requirements.",
+    areaServed: {
+      "@type": "Country",
+      name: "Worldwide",
+    },
+  });
+
   return (
-    <div className="min-h-screen">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <div className="min-h-screen">
       <ServiceHero
         title="Custom Software Development"
         subtitle="Tailored Solutions for Your Business"

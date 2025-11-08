@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
+import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/lib/seo";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { ScrollAnimation } from "@/components/animations";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,9 +17,18 @@ export const metadata: Metadata = generateSEOMetadata({
 
 export default function EcosystemPage() {
   const subsidiaries = siteConfig.navigation.footer.subsidiaries;
+  const breadcrumbs = generateBreadcrumbs([
+    { name: "Home", url: "/" },
+    { name: "Ecosystem", url: "/ecosystem" },
+  ]);
 
   return (
-    <div className="min-h-screen pt-4 md:pt-8">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <div className="min-h-screen pt-4 md:pt-8">
       <AnimatedSection variant="default" size="lg" animation="fade-in">
         <ScrollAnimation variant="fadeInUp">
           <div className="text-center mb-12 md:mb-16">
@@ -94,6 +103,7 @@ export default function EcosystemPage() {
         </ScrollAnimation>
       </AnimatedSection>
     </div>
+    </>
   );
 }
 

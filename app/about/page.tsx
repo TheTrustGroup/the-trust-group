@@ -1,5 +1,5 @@
-"use client";
-
+import type { Metadata } from "next";
+import { generateMetadata as generateSEOMetadata, generateStructuredData, generateBreadcrumbs } from "@/lib/seo";
 import { ServiceHero } from "@/components/services/service-hero";
 import { Section } from "@/components/ui/section";
 import { CompanyTimeline } from "@/components/about/company-timeline";
@@ -166,9 +166,27 @@ const cultureValues = [
   },
 ];
 
+export const metadata: Metadata = generateSEOMetadata({
+  title: "About Us",
+  description: "Learn about The Trust Group - a parent company leading innovation across multiple tech ventures. 10+ years of excellence, 500+ successful projects, and industry recognition.",
+  keywords: ["about", "company", "team", "leadership", "mission", "vision", "values", "The Trust Group"],
+  url: "/about",
+});
+
 export default function AboutPage() {
+  // Breadcrumb structured data
+  const breadcrumbs = generateBreadcrumbs([
+    { name: "Home", url: "/" },
+    { name: "About", url: "/about" },
+  ]);
+
   return (
-    <main className="min-h-screen">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <main className="min-h-screen">
       {/* Hero Section */}
       <ServiceHero
         title="About The Trust Group"
@@ -293,6 +311,7 @@ export default function AboutPage() {
       {/* Career Opportunities */}
       <CareersTeaser />
     </main>
+    </>
   );
 }
 

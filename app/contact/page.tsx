@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
+import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/lib/seo";
 import { ContactSection } from "@/components/contact/contact-section";
 
 export const metadata: Metadata = generateSEOMetadata({
@@ -10,10 +10,21 @@ export const metadata: Metadata = generateSEOMetadata({
 });
 
 export default function ContactPage() {
+  const breadcrumbs = generateBreadcrumbs([
+    { name: "Home", url: "/" },
+    { name: "Contact", url: "/contact" },
+  ]);
+
   return (
-    <div className="min-h-screen pt-4 md:pt-8">
-      <ContactSection />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <div className="min-h-screen pt-4 md:pt-8">
+        <ContactSection />
+      </div>
+    </>
   );
 }
 

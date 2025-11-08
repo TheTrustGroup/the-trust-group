@@ -53,11 +53,11 @@ const timelineEvents = [
 
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Emmanuel A.",
     role: "Founder & CEO",
     expertise: ["Strategy", "Leadership", "Business Development"],
     linkedin: "https://linkedin.com/in/johndoe",
-    email: "john@thetrustgroupsolutions.com",
+    email: "ea@thetrustgroupsolutions.com",
   },
   {
     name: "Jane Smith",

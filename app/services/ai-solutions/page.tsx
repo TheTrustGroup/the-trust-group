@@ -1,5 +1,5 @@
-"use client";
-
+import type { Metadata } from "next";
+import { generateMetadata as generateSEOMetadata, generateStructuredData, generateBreadcrumbs } from "@/lib/seo";
 import { ServiceHero } from "@/components/services/service-hero";
 import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
@@ -118,8 +118,32 @@ const faqs = [
 ];
 
 export default function AISolutionsPage() {
+  const breadcrumbs = generateBreadcrumbs([
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: "AI Solutions", url: "/services/ai-solutions" },
+  ]);
+
+  const serviceSchema = generateStructuredData("Service", {
+    serviceType: "AI Solutions & Implementation",
+    description: "Transform your business with cutting-edge AI solutions. From machine learning models to intelligent automation, we help you harness the power of artificial intelligence.",
+    areaServed: {
+      "@type": "Country",
+      name: "Worldwide",
+    },
+  });
+
   return (
-    <main className="min-h-screen">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <main className="min-h-screen">
       {/* Hero Section */}
       <ServiceHero
         title="AI Solutions & Implementation"

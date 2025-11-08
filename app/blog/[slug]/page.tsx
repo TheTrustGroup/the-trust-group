@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getBlogPost, getBlogPosts } from "@/lib/cms";
-import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
+import { generateMetadata as generateSEOMetadata, generateArticle, generateBreadcrumbs } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Calendar, Clock, User, ArrowLeft, Tag } from "lucide-react";
 import Link from "next/link";
@@ -35,6 +35,11 @@ export async function generateMetadata({
     title: post.title,
     description: post.excerpt,
     keywords: post.tags,
+    type: "article",
+    publishedTime: post.publishedAt,
+    modifiedTime: post.updatedAt || post.publishedAt,
+    author: post.author.name,
+    url: `/blog/${post.slug}`,
   });
 }
 
@@ -59,6 +64,23 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       (p) => p.category === post.category && p.id !== post.id
     )
     .slice(0, 3);
+
+  // Article structured data
+  const articleSchema = generateArticle({
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
+    authorName: post.author.name,
+    url: `/blog/${post.slug}`,
+  });
+
+  // Breadcrumb structured data
+  const breadcrumbs = generateBreadcrumbs([
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]);
 
   // Convert markdown-like content to HTML (simple conversion)
   const formatContent = (content: string) => {
@@ -113,7 +135,16 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <div className="min-h-screen bg-background">
       {/* Back Button */}
       <section className="border-b py-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -238,7 +269,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </section>
       )}
-    </div>
+      </div>
+    </>
   );
 }
 
