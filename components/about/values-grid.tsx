@@ -1,11 +1,13 @@
 "use client";
 
-import { Shield, Sparkles, Users, Target } from "lucide-react";
+import * as React from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ValueIcon } from "./value-icons";
 
 const values = [
   {
-    icon: Shield,
+    type: "trust" as const,
     title: "Trust",
     description: "Building lasting relationships through transparency, reliability, and integrity in every interaction.",
     color: "text-primary",
@@ -13,7 +15,7 @@ const values = [
     borderColor: "border-primary/20",
   },
   {
-    icon: Sparkles,
+    type: "excellence" as const,
     title: "Excellence",
     description: "Delivering exceptional quality and exceeding expectations through meticulous attention to detail.",
     color: "text-accent",
@@ -21,7 +23,7 @@ const values = [
     borderColor: "border-accent/20",
   },
   {
-    icon: Target,
+    type: "innovation" as const,
     title: "Innovation",
     description: "Pushing boundaries and embracing cutting-edge technologies to solve complex challenges.",
     color: "text-primary",
@@ -29,7 +31,7 @@ const values = [
     borderColor: "border-primary/20",
   },
   {
-    icon: Users,
+    type: "collaboration" as const,
     title: "Collaboration",
     description: "Working closely with clients and partners to achieve shared success and mutual growth.",
     color: "text-accent",
@@ -41,34 +43,37 @@ const values = [
 export function ValuesGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {values.map((value, index) => {
-        const Icon = value.icon;
-        return (
-          <div
-            key={index}
+      {values.map((value, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+          className={cn(
+            "p-6 rounded-xl border-2 transition-all duration-300 hover:shadow-xl",
+            value.bgColor,
+            value.borderColor,
+            "group cursor-pointer"
+          )}
+        >
+          <motion.div
             className={cn(
-              "p-6 rounded-xl border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-1",
-              value.bgColor,
-              value.borderColor
+              "w-20 h-20 rounded-lg flex items-center justify-center mb-4 mx-auto",
+              value.bgColor
             )}
-            style={{
-              animationDelay: `${index * 100}ms`,
-            }}
+            whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+            transition={{ duration: 0.5 }}
           >
-            <div
-              className={cn(
-                "w-14 h-14 rounded-lg flex items-center justify-center mb-4",
-                value.bgColor,
-                value.color
-              )}
-            >
-              <Icon className="h-7 w-7" />
-            </div>
-            <h3 className="text-xl font-bold mb-2 text-foreground">{value.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-          </div>
-        );
-      })}
+            <ValueIcon type={value.type} className="w-full h-full" />
+          </motion.div>
+          <h3 className="text-xl font-bold mb-2 text-foreground text-center group-hover:text-primary transition-colors">
+            {value.title}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed text-center">{value.description}</p>
+        </motion.div>
+      ))}
     </div>
   );
 }

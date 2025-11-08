@@ -4,29 +4,84 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { StatisticsSection } from "./statistics-section";
 import { ValuesGrid } from "./values-grid";
 import { EcosystemSection } from "./ecosystem-section";
+import { EnhancedTimeline } from "./enhanced-timeline";
+import { EnhancedTeamSection } from "./enhanced-team-section";
+import { EnhancedWhyChooseUs } from "./enhanced-why-choose-us";
 import { ScrollAnimation } from "@/components/animations";
 import { 
   Target, 
   Eye, 
   Lightbulb,
-  CheckCircle2
+  Rocket,
+  Building2,
+  Users,
+  Award
 } from "lucide-react";
 
-const whyChooseUs = [
+const timelineEvents = [
   {
-    icon: CheckCircle2,
-    title: "Trustworthiness",
-    description: "Proven track record of delivering on promises with transparency and integrity.",
+    year: "2014",
+    title: "Company Founded",
+    description: "The Trust Group was established with a vision to transform businesses through innovative technology solutions.",
+    icon: Building2,
   },
   {
-    icon: CheckCircle2,
-    title: "Expertise",
-    description: "Deep technical knowledge across AI, software engineering, and cloud technologies.",
+    year: "2017",
+    title: "First Major Client",
+    description: "Secured our first enterprise client and delivered a groundbreaking AI-powered analytics platform.",
+    icon: Rocket,
   },
   {
-    icon: CheckCircle2,
-    title: "Innovation",
-    description: "Cutting-edge solutions that keep your business ahead of the competition.",
+    year: "2019",
+    title: "Team Expansion",
+    description: "Grew to 25+ team members and expanded our expertise across AI, cloud, and mobile development.",
+    icon: Users,
+  },
+  {
+    year: "2021",
+    title: "Industry Recognition",
+    description: "Received multiple industry awards for innovation and excellence in software development.",
+    icon: Award,
+  },
+  {
+    year: "2024",
+    title: "Ecosystem Growth",
+    description: "Launched multiple subsidiary companies and reached 500+ successful projects milestone.",
+    icon: Lightbulb,
+  },
+];
+
+const teamMembers = [
+  {
+    name: "John Doe",
+    role: "Founder & CEO",
+    expertise: ["Strategy", "Leadership", "Business Development"],
+    linkedin: "https://linkedin.com/in/johndoe",
+    email: "john@thetrustgroupsolutions.com",
+  },
+  {
+    name: "Jane Smith",
+    role: "CTO",
+    expertise: ["Architecture", "Cloud", "DevOps"],
+    linkedin: "https://linkedin.com/in/janesmith",
+    email: "jane@thetrustgroupsolutions.com",
+    github: "https://github.com/janesmith",
+  },
+  {
+    name: "Mike Johnson",
+    role: "Lead AI Engineer",
+    expertise: ["Machine Learning", "TensorFlow", "Python"],
+    linkedin: "https://linkedin.com/in/mikejohnson",
+    email: "mike@thetrustgroupsolutions.com",
+    github: "https://github.com/mikejohnson",
+  },
+  {
+    name: "Sarah Williams",
+    role: "Senior Developer",
+    expertise: ["React", "Next.js", "TypeScript"],
+    linkedin: "https://linkedin.com/in/sarahwilliams",
+    email: "sarah@thetrustgroupsolutions.com",
+    github: "https://github.com/sarahwilliams",
   },
 ];
 
@@ -142,36 +197,11 @@ export function AboutSection() {
           </div>
           <StatisticsSection />
         </div>
+        </ScrollAnimation>
 
-        {/* Why Choose Us */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Why Clients Choose Us
-            </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We combine trustworthiness, expertise, and innovation to deliver exceptional results
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {whyChooseUs.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={index}
-                  className="p-6 rounded-xl border-2 border-border bg-background hover:border-primary transition-all duration-300 hover:shadow-lg"
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                  }}
-                >
-                  <Icon className="h-8 w-8 text-primary mb-4" />
-                  <h4 className="text-xl font-bold mb-2 text-foreground">{item.title}</h4>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        {/* Company Timeline */}
+        <ScrollAnimation variant="fadeInUp" delay={0.2}>
+          <EnhancedTimeline events={timelineEvents} title="Our Journey" />
         </ScrollAnimation>
 
         {/* Team Values */}
@@ -189,6 +219,12 @@ export function AboutSection() {
           </div>
         </ScrollAnimation>
       </AnimatedSection>
+
+      {/* Why Choose Us Section */}
+      <EnhancedWhyChooseUs />
+
+      {/* Team Section */}
+      <EnhancedTeamSection members={teamMembers} title="Meet Our Team" />
 
       {/* Ecosystem Section */}
       <AnimatedSection 
