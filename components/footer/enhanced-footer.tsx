@@ -191,7 +191,7 @@ export function EnhancedFooter() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin className="h-3.5 w-3.5 text-primary" />
+                    <MapPin className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                   </div>
                   <address className="text-sm text-muted-foreground not-italic leading-relaxed">
                     {contactInfo.address.line1}
@@ -207,7 +207,7 @@ export function EnhancedFooter() {
                     className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-3 group"
                   >
                     <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-3.5 w-3.5 text-primary" />
+                      <Mail className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                     </div>
                     <span className="group-hover:underline">{contactInfo.email}</span>
                   </Link>
@@ -218,14 +218,14 @@ export function EnhancedFooter() {
                     className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-3 group"
                   >
                     <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-3.5 w-3.5 text-primary" />
+                      <Phone className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                     </div>
                     <span className="group-hover:underline">{contactInfo.phone}</span>
                   </Link>
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Clock className="h-3.5 w-3.5 text-primary" />
+                    <Clock className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                   </div>
                   <div className="text-sm text-muted-foreground space-y-1">
                     <p>{contactInfo.businessHours.weekdays}</p>

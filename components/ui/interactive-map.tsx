@@ -70,7 +70,7 @@ export function InteractiveMap() {
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-muted/50 to-muted/30 p-8 z-10">
           <div className="text-center max-w-md">
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <MapPin className="h-8 w-8 text-primary" />
+              <MapPin className="h-8 w-8 text-primary stroke-current" strokeWidth={2} fill="none" />
             </div>
             <h3 className="text-lg font-semibold text-foreground mb-2">
               {hasError ? "Map Loading Error" : "Interactive Map"}
@@ -93,14 +93,14 @@ export function InteractiveMap() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MapPin className="h-4 w-4 mr-2" />
+                <MapPin className="h-4 w-4 mr-2 stroke-current" strokeWidth={2} fill="none" />
                 View on Google Maps
-                <ExternalLink className="h-4 w-4 ml-2" />
+                <ExternalLink className="h-4 w-4 ml-2 stroke-current" strokeWidth={2} fill="none" />
               </a>
             </Button>
             {!apiKey && (
               <p className="text-xs text-muted-foreground mt-4">
-                <AlertCircle className="h-3 w-3 inline mr-1" />
+                <AlertCircle className="h-3 w-3 inline mr-1 stroke-current" strokeWidth={2} fill="none" />
                 API key not configured. Add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to your environment variables.
               </p>
             )}
@@ -108,12 +108,12 @@ export function InteractiveMap() {
         </div>
       )}
 
-      {/* Address overlay card - always visible */}
-      <div className="absolute bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-80 z-20">
+      {/* Address overlay card - positioned to avoid overlap */}
+      <div className="absolute top-4 left-4 right-4 md:left-auto md:right-4 md:top-4 md:w-80 z-20">
         <div className="bg-background/95 backdrop-blur-md rounded-lg p-4 shadow-lg border border-border">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <MapPin className="h-5 w-5 text-primary" />
+              <MapPin className="h-5 w-5 text-primary stroke-current" strokeWidth={2} />
             </div>
             <div className="flex-1 min-w-0">
               <h4 className="font-semibold text-foreground mb-1 text-sm">Our Office</h4>
@@ -137,9 +137,9 @@ export function InteractiveMap() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <MapPin className="h-3.5 w-3.5 mr-2" />
+              <MapPin className="h-3.5 w-3.5 mr-2 stroke-current" strokeWidth={2} />
               Open in Google Maps
-              <ExternalLink className="h-3.5 w-3.5 ml-2" />
+              <ExternalLink className="h-3.5 w-3.5 ml-2 stroke-current" strokeWidth={2} />
             </a>
           </Button>
         </div>

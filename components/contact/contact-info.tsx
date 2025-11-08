@@ -26,7 +26,7 @@ export function ContactInfo() {
       <div className="space-y-4">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <MapPin className="h-6 w-6 text-primary" />
+            <MapPin className="h-6 w-6 text-primary stroke-current" strokeWidth={2} fill="none" />
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-1">Office Address</h4>
@@ -45,7 +45,7 @@ export function ContactInfo() {
         {/* Email */}
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <Mail className="h-6 w-6 text-primary" />
+            <Mail className="h-6 w-6 text-primary stroke-current" strokeWidth={2} fill="none" />
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-1">Email</h4>
@@ -61,7 +61,7 @@ export function ContactInfo() {
         {/* Phone */}
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <Phone className="h-6 w-6 text-primary" />
+            <Phone className="h-6 w-6 text-primary stroke-current" strokeWidth={2} fill="none" />
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-1">Phone</h4>
@@ -77,7 +77,7 @@ export function ContactInfo() {
         {/* Business Hours */}
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <Clock className="h-6 w-6 text-primary" />
+            <Clock className="h-6 w-6 text-primary stroke-current" strokeWidth={2} fill="none" />
           </div>
           <div>
             <h4 className="font-semibold text-foreground mb-1">Business Hours</h4>

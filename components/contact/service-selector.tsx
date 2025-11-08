@@ -93,7 +93,7 @@ export function ServiceSelector({
           <div className="flex items-center gap-3 flex-1 min-w-0">
             {selectedService ? (
               <>
-                <Icon className="h-5 w-5 text-primary flex-shrink-0" />
+                <Icon className="h-5 w-5 text-primary flex-shrink-0 stroke-current" strokeWidth={2} fill="none" />
                 <span className="text-base font-medium text-foreground truncate">
                   {selectedService.label}
                 </span>
@@ -146,7 +146,7 @@ export function ServiceSelector({
                           value === service.value && "bg-primary/10"
                         )}
                       >
-                        <ServiceIcon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                        <ServiceIcon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5 stroke-current" strokeWidth={2} fill="none" />
                         <div className="flex-1 min-w-0">
                           <div className="font-medium text-foreground">
                             {service.label}

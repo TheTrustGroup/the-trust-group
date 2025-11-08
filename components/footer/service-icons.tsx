@@ -9,7 +9,7 @@ interface ServiceIconProps {
   className?: string;
 }
 
-const serviceIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+const serviceIconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
   "AI Solutions & Implementation": Brain,
   "Custom Software Development": Code,
   "Mobile App Development": Smartphone,
@@ -25,9 +25,11 @@ export function ServiceIcon({ name, className }: ServiceIconProps) {
     <Icon
       className={cn(
         "h-4 w-4 text-primary flex-shrink-0 transition-transform duration-200",
-        "group-hover:scale-110",
+        "group-hover:scale-110 stroke-current",
         className
       )}
+      strokeWidth={2}
+      fill="none"
     />
   );
 }
