@@ -72,11 +72,53 @@
       "caseStudyUrl": "/portfolio/ecommerce-ai",
       "client": "Retail Chain",
       "year": "2023",
+      "timeline": "6 months",
+      "teamSize": "8 members",
       "results": [
         "40% increase in average order value",
         "60% improvement in search relevance",
         "2x faster page load times",
         "25% increase in customer retention"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Healthcare Management System",
+      "description": "Comprehensive healthcare management platform with patient records, appointment scheduling, telemedicine, and analytics dashboard.",
+      "longDescription": "Developed a full-featured healthcare management system that streamlines patient care, appointment scheduling, and medical record management. Includes telemedicine capabilities and comprehensive analytics for healthcare providers.",
+      "category": "enterprise",
+      "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker"],
+      "featured": true,
+      "caseStudyUrl": "/portfolio/healthcare-management",
+      "client": "Healthcare Network",
+      "year": "2024",
+      "timeline": "8 months",
+      "teamSize": "12 members",
+      "results": [
+        "50+ healthcare facilities onboarded",
+        "90% reduction in appointment scheduling time",
+        "HIPAA compliant with 100% data security",
+        "Real-time patient data synchronization"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Real Estate Platform",
+      "description": "Modern real estate marketplace with virtual property tours, AI-powered property matching, and seamless transaction management.",
+      "longDescription": "Built an innovative real estate platform featuring 360° virtual property tours, AI-powered property recommendations, and integrated transaction management. Includes mobile apps for agents and buyers.",
+      "category": "web",
+      "technologies": ["Next.js", "React", "Python", "MongoDB", "AWS", "TensorFlow"],
+      "featured": false,
+      "caseStudyUrl": "/portfolio/real-estate-platform",
+      "client": "Real Estate Agency",
+      "year": "2023",
+      "timeline": "7 months",
+      "teamSize": "10 members",
+      "results": [
+        "30% increase in property viewings",
+        "AI matching with 85% accuracy",
+        "Virtual tours reduce site visits by 40%",
+        "500+ properties listed"
       ]
     }
   ]

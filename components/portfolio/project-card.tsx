@@ -18,6 +18,8 @@ export interface Project {
   longDescription?: string;
   client?: string;
   year?: string;
+  timeline?: string;
+  teamSize?: string;
   results?: string[];
 }
 
