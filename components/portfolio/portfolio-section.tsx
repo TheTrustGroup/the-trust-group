@@ -11,6 +11,7 @@ import { ScrollAnimation } from "@/components/animations";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "./project-card";
+import { PortfolioFilterLoader } from "./portfolio-filter-loader";
 
 export function PortfolioSection() {
   const [activeCategory, setActiveCategory] = React.useState("all");
@@ -154,37 +155,39 @@ export function PortfolioSection() {
           </ScrollAnimation>
 
           {/* Projects Grid with Filtering Animation */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                  animate={{ 
-                    opacity: isFiltering ? 0.5 : 1, 
-                    scale: isFiltering ? 0.95 : 1,
-                    y: 0 
-                  }}
-                  exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                  transition={{ 
-                    duration: 0.4,
-                    delay: index * 0.05,
-                    layout: { duration: 0.3 }
-                  }}
-                >
-                  <PremiumProjectCard
-                    project={project}
-                    onViewDetails={handleViewDetails}
-                    index={index}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          <PortfolioFilterLoader isLoading={isFiltering}>
+            <motion.div
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12"
+            >
+              <AnimatePresence mode="popLayout">
+                {filteredProjects.map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ 
+                      opacity: isFiltering ? 0.5 : 1, 
+                      scale: isFiltering ? 0.95 : 1,
+                      y: 0 
+                    }}
+                    exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                    transition={{ 
+                      duration: 0.4,
+                      delay: index * 0.05,
+                      layout: { duration: 0.3 }
+                    }}
+                  >
+                    <PremiumProjectCard
+                      project={project}
+                      onViewDetails={handleViewDetails}
+                      index={index}
+                    />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          </PortfolioFilterLoader>
 
           {/* Empty State */}
           {filteredProjects.length === 0 && (

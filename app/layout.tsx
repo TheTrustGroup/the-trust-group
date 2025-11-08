@@ -12,6 +12,7 @@ import { CustomCursor } from "@/components/ui/custom-cursor";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Chatbot } from "@/components/chatbot";
+import { PageLoader } from "@/components/loading/page-loader";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -53,6 +54,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
+          <PageLoader />
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
           <CustomCursor />
           <ToastProvider>

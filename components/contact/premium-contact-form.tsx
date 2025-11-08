@@ -9,6 +9,7 @@ import { FileUpload } from "./file-upload";
 import { BudgetSlider } from "./budget-slider";
 import { ServiceSelector } from "./service-selector";
 import { SuccessAnimation } from "./success-animation";
+import { AsyncLoadingIndicator } from "@/components/ui/async-loading-indicator";
 import { useToast } from "@/components/ui/toast";
 import { cn } from "@/lib/utils";
 
@@ -212,7 +213,13 @@ export function PremiumContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <>
+      <AsyncLoadingIndicator
+        isLoading={isSubmitting}
+        message="Sending your message..."
+        variant="overlay"
+      />
+      <form onSubmit={handleSubmit} className="space-y-6">
       {/* Progress Indicator */}
       <div className="flex items-center justify-between mb-8">
         {steps.map((step, index) => (
@@ -440,7 +447,8 @@ export function PremiumContactForm() {
           </Button>
         )}
       </div>
-    </form>
+      </form>
+    </>
   );
 }
 
