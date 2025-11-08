@@ -89,13 +89,23 @@ export function ContactInfo() {
         </div>
       </div>
 
-      {/* Google Maps Link */}
+      {/* Google Maps Embed */}
       <div className="pt-4">
         <h4 className="font-semibold text-foreground mb-4">Find Us</h4>
-        <div className="rounded-lg overflow-hidden border-2 border-border bg-muted/30 p-8 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-            <p className="text-muted-foreground mb-4">
+        <div className="rounded-lg overflow-hidden border-2 border-border bg-muted/30">
+          <iframe
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ''}&q=${encodeURIComponent(`${contactInfo.address.line1}, ${contactInfo.address.city}, ${contactInfo.address.country}`)}`}
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full"
+            title="Office Location"
+          />
+          <div className="p-4 bg-muted/50">
+            <p className="text-sm text-muted-foreground mb-3 text-center">
               {contactInfo.address.line1}, {contactInfo.address.line2}
               <br />
               {contactInfo.address.city}, {contactInfo.address.state} {contactInfo.address.zip}
@@ -105,7 +115,7 @@ export function ContactInfo() {
             <Button
               asChild
               variant="outline"
-              className="mt-2"
+              className="w-full"
             >
               <a 
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${contactInfo.address.line1}, ${contactInfo.address.city}, ${contactInfo.address.country}`)}`}

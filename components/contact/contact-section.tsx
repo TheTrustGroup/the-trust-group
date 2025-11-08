@@ -1,8 +1,9 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { ContactForm } from "./contact-form";
+import { PremiumContactForm } from "./premium-contact-form";
 import { ContactInfo } from "./contact-info";
+import { SocialProof } from "./social-proof";
 import { ScrollAnimation } from "@/components/animations";
 
 export function ContactSection() {
@@ -32,13 +33,14 @@ export function ContactSection() {
         {/* Left Side - Contact Form */}
         <ScrollAnimation variant="slideInLeft" delay={0.2}>
           <div className="w-full min-w-0">
-            <ContactForm />
+            <PremiumContactForm />
           </div>
         </ScrollAnimation>
 
-        {/* Right Side - Contact Information */}
+        {/* Right Side - Contact Information & Social Proof */}
         <ScrollAnimation variant="slideInRight" delay={0.3}>
-          <div className="w-full min-w-0">
+          <div className="w-full min-w-0 space-y-8">
+            <SocialProof />
             <ContactInfo />
           </div>
         </ScrollAnimation>
