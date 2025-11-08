@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { generateMetadata as generateSEOMetadata, generateStructuredData, generateBreadcrumbs } from "@/lib/seo";
 import { ServiceHero } from "@/components/services/service-hero";
 import { Section } from "@/components/ui/section";
@@ -135,11 +136,13 @@ export default function AISolutionsPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="breadcrumbs-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <script
+      <Script
+        id="service-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
