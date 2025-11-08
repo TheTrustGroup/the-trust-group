@@ -30,6 +30,7 @@ function LaptopMockup({ imageUrl, className, children }: Omit<DeviceMockupProps,
           <div className="absolute inset-2 rounded overflow-hidden bg-white">
             {/* Screen Content */}
             {imageUrl ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={imageUrl}
                 alt="Project screenshot"
@@ -72,6 +73,7 @@ function PhoneMockup({ imageUrl, className, children }: Omit<DeviceMockupProps, 
             
             {/* Screen Content */}
             {imageUrl ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={imageUrl}
                 alt="Project screenshot"
@@ -109,6 +111,7 @@ function TabletMockup({ imageUrl, className, children }: Omit<DeviceMockupProps,
           <div className="absolute inset-2 rounded-lg overflow-hidden bg-white">
             {/* Screen Content */}
             {imageUrl ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={imageUrl}
                 alt="Project screenshot"

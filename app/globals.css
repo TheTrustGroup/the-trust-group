@@ -59,6 +59,11 @@
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+    /* Performance optimization: use GPU acceleration */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Optimize scrolling performance */
+    overflow-x: hidden;
   }
 
   /* Card hover effects */
@@ -305,27 +310,60 @@
     animation: scaleIn 0.4s ease-out;
   }
 
-  /* Scroll-triggered animations */
+  /* Scroll-triggered animations - Performance optimized with GPU acceleration */
   .scroll-fade-in {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: transform, opacity;
   }
 
   .scroll-fade-in.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
   }
 
   .scroll-slide-up {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translate3d(0, 40px, 0);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: transform, opacity;
   }
 
   .scroll-slide-up.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+  }
+
+  /* Performance: Use transform instead of top/left */
+  .parallax-layer {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Smooth scroll performance */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 

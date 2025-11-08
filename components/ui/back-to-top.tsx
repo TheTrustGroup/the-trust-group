@@ -1,24 +1,31 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
+import { throttle } from "@/lib/smooth-scroll";
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = React.useState(false);
+  const { scrollYProgress } = useScroll();
+  const scale = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   React.useEffect(() => {
-    const toggleVisibility = () => {
+    const toggleVisibility = throttle(() => {
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
-    };
+    }, 100);
 
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 

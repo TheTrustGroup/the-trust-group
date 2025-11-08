@@ -71,8 +71,9 @@ export function EnhancedTeamSection({
                 )}
               >
                 {/* Avatar */}
-                <div className="relative mb-6">
+                  <div className="relative mb-6">
                   <div className="relative w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-colors">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={getAvatarUrl(member.name)}
                       alt={member.name}

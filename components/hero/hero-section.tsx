@@ -6,8 +6,8 @@ import { EnhancedBackground } from "./enhanced-background";
 import { NeuralNetwork } from "./neural-network";
 import { TypingAnimation } from "./typing-animation";
 import { ScrollIndicator } from "./scroll-indicator";
-import { ScrollAnimation, ParallaxSection } from "@/components/animations";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { ScrollAnimation, ParallaxSection, ParallaxBackground } from "@/components/animations";
+import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { Floating3DShapes, Floating3DCube, Parallax3DLayers } from "./3d-elements";
 import { useEffect, useRef, useState } from "react";
@@ -17,19 +17,17 @@ export function HeroSection() {
   const mouseXValue = useMotionValue(0);
   const mouseYValue = useMotionValue(0);
   const [showTyping, setShowTyping] = useState(false);
+  
+  // Parallax scroll effect
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        mouseXValue.set((e.clientX - rect.left - rect.width / 2) / rect.width);
-        mouseYValue.set((e.clientY - rect.top - rect.height / 2) / rect.height);
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseXValue, mouseYValue]);
+  // Parallax transforms for background layers
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const midgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const foregroundY = useTransform(scrollYProgress, [0, 1], [0, -25]);
 
   const mouseXRotate = useSpring(useTransform(mouseXValue, [-1, 1], [-20, 20]), {
     stiffness: 150,
@@ -49,23 +47,42 @@ export function HeroSection() {
   const contentRotateX = useTransform(mouseYRotate, [-20, 20], [-10, 10]);
   const contentRotateY = useTransform(mouseXRotate, [-20, 20], [-10, 10]);
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        mouseXValue.set((e.clientX - rect.left - rect.width / 2) / rect.width);
+        mouseYValue.set((e.clientY - rect.top - rect.height / 2) / rect.height);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseXValue, mouseYValue]);
+
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5"
       style={{ perspective: "1000px" }}
     >
-      {/* Enhanced Animated Background */}
-      <EnhancedBackground />
+      {/* Enhanced Animated Background - Parallax Layer */}
+      <motion.div style={{ y: backgroundY, willChange: "transform" }}>
+        <EnhancedBackground />
+      </motion.div>
       
-      {/* Neural Network Visualization */}
-      <NeuralNetwork />
+      {/* Neural Network Visualization - Parallax Layer */}
+      <motion.div style={{ y: midgroundY, willChange: "transform" }}>
+        <NeuralNetwork />
+      </motion.div>
       
       {/* 3D Parallax Layers */}
       <Parallax3DLayers />
       
-      {/* 3D Floating Shapes */}
-      <Floating3DShapes />
+      {/* 3D Floating Shapes - Parallax Layer */}
+      <motion.div style={{ y: foregroundY, willChange: "transform" }}>
+        <Floating3DShapes />
+      </motion.div>
       
       {/* 3D Cube */}
       <Floating3DCube />

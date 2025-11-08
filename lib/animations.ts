@@ -80,6 +80,55 @@ export const scaleIn: Variants = {
   },
 };
 
+export const rotateIn: Variants = {
+  hidden: {
+    opacity: 0,
+    rotate: -10,
+    scale: 0.9,
+  },
+  visible: {
+    opacity: 1,
+    rotate: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+export const slideUpScale: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+  },
+};
+
+export const fadeInRotate: Variants = {
+  hidden: {
+    opacity: 0,
+    rotate: -5,
+  },
+  visible: {
+    opacity: 1,
+    rotate: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 // Stagger container variants
 export const staggerContainer: Variants = {
   hidden: {

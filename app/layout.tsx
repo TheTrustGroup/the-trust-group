@@ -7,6 +7,7 @@ import { PageTransition } from "@/components/animations";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -61,6 +62,7 @@ export default function RootLayout({
             >
               Skip to main content
             </a>
+            <ScrollProgress />
             <Navigation />
             <main id="main-content">
               <PageTransition>
