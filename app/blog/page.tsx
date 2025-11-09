@@ -11,6 +11,10 @@ export const metadata: Metadata = generateMetadata({
   keywords: ["blog", "AI", "software development", "technology", "tutorials"],
 });
 
+// Force dynamic rendering to prevent timeout
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default function BlogPage() {
   const { posts, categories } = getBlogPosts();
   const allTags = getBlogTags();

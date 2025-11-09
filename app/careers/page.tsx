@@ -10,6 +10,10 @@ export const metadata: Metadata = generateMetadata({
   url: "/careers",
 });
 
+// Force dynamic rendering to prevent timeout
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default function CareersPage() {
   const { jobs, departments } = getJobListings();
   const breadcrumbs = generateBreadcrumbs([
