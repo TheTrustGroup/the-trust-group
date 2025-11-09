@@ -5,7 +5,6 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { TechnologiesSection } from "@/components/technologies";
 import { Brain, CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -116,6 +115,10 @@ const faqs = [
     answer: "Absolutely! We specialize in integrating AI capabilities into existing systems. Whether you're using legacy systems or modern cloud platforms, we can develop APIs and integration solutions that seamlessly connect AI models with your current infrastructure.",
   },
 ];
+
+// Route segment config
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export default function AISolutionsPage() {
   const breadcrumbs = generateBreadcrumbs([
