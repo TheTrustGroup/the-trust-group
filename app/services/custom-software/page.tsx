@@ -90,6 +90,10 @@ export const metadata: Metadata = generateSEOMetadata({
   url: "/services/custom-software",
 });
 
+// Force dynamic rendering to prevent timeout
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default function CustomSoftwarePage() {
   const breadcrumbs = generateBreadcrumbs([
     { name: "Home", url: "/" },

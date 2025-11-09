@@ -145,26 +145,33 @@ const awards = [
 
 const cultureValues = [
   {
-    icon: Lightbulb,
+    iconName: "Lightbulb",
     title: "Innovation First",
     description: "We encourage creative thinking and embrace new technologies to solve complex challenges.",
   },
   {
-    icon: Users,
+    iconName: "Users",
     title: "Collaborative Spirit",
     description: "We believe in the power of teamwork and open communication across all levels.",
   },
   {
-    icon: Heart,
+    iconName: "Heart",
     title: "Work-Life Balance",
     description: "We support our team members with flexible schedules and comprehensive wellness programs.",
   },
   {
-    icon: Building2,
+    iconName: "Building2",
     title: "Growth Opportunities",
     description: "We invest in our people through continuous learning, mentorship, and career development.",
   },
 ];
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Lightbulb,
+  Users,
+  Heart,
+  Building2,
+};
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "About Us",
@@ -196,7 +203,7 @@ export default function AboutPage() {
         title="About The Trust Group"
         subtitle="Our Story"
         description="A parent company leading innovation across multiple tech ventures, transforming businesses through cutting-edge technology solutions."
-        icon={Building2}
+        icon={Building2 as any}
         features={[
           "10+ years of excellence",
           "500+ successful projects",
@@ -284,12 +291,12 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {cultureValues.map((value, index) => {
-            const Icon = value.icon;
+            const Icon = iconMap[value.iconName];
             return (
               <Card key={index} className="border-2 hover:border-primary transition-colors text-center">
                 <CardHeader>
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Icon className="h-8 w-8 text-primary" />
+                    {Icon && <Icon className="h-8 w-8 text-primary" />}
                   </div>
                   <CardTitle className="text-xl">{value.title}</CardTitle>
                 </CardHeader>
