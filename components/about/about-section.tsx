@@ -1,9 +1,5 @@
 "use client";
 
-// Force dynamic rendering to prevent caching
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
-
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { StatisticsSection } from "./statistics-section";
 import { ValuesGrid } from "./values-grid";
