@@ -39,7 +39,8 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        // Static assets (JS, CSS, images) - can cache longer
+        source: '/_next/static/:path*',
         headers: [
           {
             key: 'Cache-Control',
@@ -48,11 +49,22 @@ const nextConfig = {
         ],
       },
       {
+        // Images - cache for 1 year
         source: '/images/:path*',
         headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        // HTML pages - short cache, allow revalidation
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
           },
         ],
       },
