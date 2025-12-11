@@ -35,9 +35,9 @@ export function InteractiveMap() {
 
   return (
     <div className="relative rounded-lg overflow-hidden border-2 border-border bg-muted/30 h-[400px] md:h-[500px]">
-      {!hasError && apiKey ? (
+      {!hasError ? (
         <>
-          {/* Live Google Maps with API Key */}
+          {/* Google Maps Embed (works with or without API key) */}
           <iframe
             src={mapUrl}
             width="100%"
@@ -66,21 +66,17 @@ export function InteractiveMap() {
           )}
         </>
       ) : (
-        /* Fallback: Static map or error message */
+        /* Error fallback: Show error message */
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-muted/50 to-muted/30 p-8 z-10">
           <div className="text-center max-w-md">
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <MapPin className="h-8 w-8 text-primary stroke-current" strokeWidth={2} fill="none" />
             </div>
             <h3 className="text-lg font-semibold text-foreground mb-2">
-              {hasError ? "Map Loading Error" : "Interactive Map"}
+              Map Loading Error
             </h3>
             <p className="text-sm text-muted-foreground mb-6">
-              {hasError
-                ? "We couldn't load the map, but you can still find us using the link below."
-                : !apiKey
-                ? "To enable the interactive map, please configure a Google Maps API key."
-                : "Click the button below to view our location on Google Maps."}
+              We couldn&apos;t load the map, but you can still find us using the link below.
             </p>
             <Button
               asChild
@@ -98,12 +94,6 @@ export function InteractiveMap() {
                 <ExternalLink className="h-4 w-4 ml-2 stroke-current" strokeWidth={2} fill="none" />
               </a>
             </Button>
-            {!apiKey && (
-              <p className="text-xs text-muted-foreground mt-4">
-                <AlertCircle className="h-3 w-3 inline mr-1 stroke-current" strokeWidth={2} fill="none" />
-                API key not configured. Add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to your environment variables.
-              </p>
-            )}
           </div>
         </div>
       )}
