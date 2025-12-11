@@ -78,25 +78,23 @@ export function EnhancedTestimonialCard({
       )}
 
       {/* Rating */}
-      <motion.div 
-        className="flex items-center gap-1.5 sm:gap-2 mb-4 sm:mb-6 relative z-10"
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
+      <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 relative z-10">
+        {/* Stars Container */}
+        <div className="flex items-center gap-0.5 sm:gap-1">
           {stars.map((star, index) => (
             <motion.div
               key={star}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 + index * 0.05, type: "spring" }}
               whileHover={{ scale: 1.2, rotate: 15 }}
-              className="touch-manipulation flex-shrink-0"
+              className="inline-flex items-center justify-center touch-manipulation"
+              style={{ width: "fit-content", height: "fit-content" }}
             >
               <Star
                 className={cn(
-                  "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-all duration-200 flex-shrink-0",
+                  "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-all duration-200",
+                  "flex-shrink-0",
                   star <= testimonial.rating
                     ? "text-warning fill-warning drop-shadow-sm"
                     : "text-muted fill-muted"
@@ -107,15 +105,11 @@ export function EnhancedTestimonialCard({
             </motion.div>
           ))}
         </div>
-        <motion.span 
-          className="ml-2 sm:ml-3 text-sm sm:text-base font-bold text-foreground flex-shrink-0 whitespace-nowrap"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
+        {/* Rating Text */}
+        <span className="text-sm sm:text-base font-bold text-foreground whitespace-nowrap ml-1 sm:ml-2">
           {testimonial.rating}.0
-        </motion.span>
-      </motion.div>
+        </span>
+      </div>
 
       {/* Quote */}
       <motion.div
