@@ -1,10 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayoutGrid, LayoutList, Film, MoveHorizontal } from "lucide-react";
+import { LayoutGrid, LayoutList, Film, MoveHorizontal, Search, Filter, X, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { ScrollAnimation } from "@/components/animations";
 import { TestimonialCarousel } from "./testimonial-carousel";
@@ -22,6 +23,11 @@ type ViewMode = "carousel" | "grid" | "marquee" | "video";
 
 export function EnhancedTestimonialsSection() {
   const [viewMode, setViewMode] = useState<ViewMode>("carousel");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null);
+  const [selectedProjectType, setSelectedProjectType] = useState<string | null>(null);
+  const [selectedCompanySize, setSelectedCompanySize] = useState<string | null>(null);
+  const [showFilters, setShowFilters] = useState(false);
   
   // Convert testimonials to enhanced format
   const enhancedTestimonials: EnhancedTestimonial[] = testimonials.map((t) => ({
@@ -42,8 +48,61 @@ export function EnhancedTestimonialsSection() {
     companyLogo: t.companyLogo,
   }));
 
-  const featuredTestimonials = enhancedTestimonials.filter((t) => t.featured);
-  const videoTestimonials = enhancedTestimonials.slice(0, 3); // First 3 for video placeholders
+  // Get unique filter options
+  const industries = useMemo(() => {
+    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.industry).filter(Boolean)));
+    return unique.sort();
+  }, [enhancedTestimonials]);
+
+  const projectTypes = useMemo(() => {
+    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.projectType).filter(Boolean)));
+    return unique.sort();
+  }, [enhancedTestimonials]);
+
+  const companySizes = useMemo(() => {
+    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.companySize).filter(Boolean)));
+    return unique.sort();
+  }, [enhancedTestimonials]);
+
+  // Filter testimonials
+  const filteredTestimonials = useMemo(() => {
+    return enhancedTestimonials.filter((t) => {
+      // Search filter
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        const matchesSearch = 
+          t.quote.toLowerCase().includes(query) ||
+          t.clientName.toLowerCase().includes(query) ||
+          t.company.toLowerCase().includes(query) ||
+          t.clientTitle.toLowerCase().includes(query);
+        if (!matchesSearch) return false;
+      }
+
+      // Industry filter
+      if (selectedIndustry && t.industry !== selectedIndustry) return false;
+
+      // Project type filter
+      if (selectedProjectType && t.projectType !== selectedProjectType) return false;
+
+      // Company size filter
+      if (selectedCompanySize && t.companySize !== selectedCompanySize) return false;
+
+      return true;
+    });
+  }, [enhancedTestimonials, searchQuery, selectedIndustry, selectedProjectType, selectedCompanySize]);
+
+  const featuredTestimonials = filteredTestimonials.filter((t) => t.featured);
+  const videoTestimonials = filteredTestimonials.slice(0, 3); // First 3 for video placeholders
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchQuery("");
+    setSelectedIndustry(null);
+    setSelectedProjectType(null);
+    setSelectedCompanySize(null);
+  };
+
+  const hasActiveFilters = searchQuery || selectedIndustry || selectedProjectType || selectedCompanySize;
 
   const viewModes: Array<{ mode: ViewMode; icon: React.ElementType; label: string }> = [
     { mode: "carousel", icon: LayoutList, label: "Carousel" },
@@ -79,8 +138,180 @@ export function EnhancedTestimonialsSection() {
             through innovative technology solutions.
           </p>
 
+          {/* Search and Filter Controls */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 w-full max-w-4xl mx-auto">
+            {/* Search Bar */}
+            <div className="relative flex-1 w-full sm:max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Search testimonials..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-10 h-11"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  aria-label="Clear search"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              )}
+            </div>
+
+            {/* Filter Toggle */}
+            <Button
+              variant="outline"
+              onClick={() => setShowFilters(!showFilters)}
+              className={cn(
+                "gap-2",
+                showFilters && "bg-primary/10 border-primary/30"
+              )}
+            >
+              <Filter className="h-4 w-4" />
+              <span className="hidden sm:inline">Filters</span>
+              {hasActiveFilters && (
+                <span className="ml-1 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-bold">
+                  {[selectedIndustry, selectedProjectType, selectedCompanySize].filter(Boolean).length}
+                </span>
+              )}
+            </Button>
+
+            {/* Clear Filters */}
+            {hasActiveFilters && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={clearFilters}
+                className="gap-2 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+                <span className="hidden sm:inline">Clear</span>
+              </Button>
+            )}
+          </div>
+
+          {/* Filter Panel */}
+          <AnimatePresence>
+            {showFilters && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-4xl mx-auto mb-8 overflow-hidden"
+              >
+                <div className="bg-muted/50 rounded-xl p-6 border border-border">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Industry Filter */}
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-3 block">
+                        Industry
+                      </label>
+                      <div className="flex flex-wrap gap-2">
+                        {industries.map((industry) => (
+                          <button
+                            key={industry}
+                            onClick={() => setSelectedIndustry(
+                              selectedIndustry === industry ? null : industry
+                            )}
+                            className={cn(
+                              "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
+                              "border-2",
+                              selectedIndustry === industry
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "bg-background text-foreground border-border hover:border-primary/50"
+                            )}
+                          >
+                            {industry}
+                            {selectedIndustry === industry && (
+                              <Check className="inline-block ml-1.5 h-3.5 w-3.5" />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Project Type Filter */}
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-3 block">
+                        Project Type
+                      </label>
+                      <div className="flex flex-wrap gap-2">
+                        {projectTypes.map((type) => (
+                          <button
+                            key={type}
+                            onClick={() => setSelectedProjectType(
+                              selectedProjectType === type ? null : type
+                            )}
+                            className={cn(
+                              "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
+                              "border-2",
+                              selectedProjectType === type
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "bg-background text-foreground border-border hover:border-primary/50"
+                            )}
+                          >
+                            {type}
+                            {selectedProjectType === type && (
+                              <Check className="inline-block ml-1.5 h-3.5 w-3.5" />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Company Size Filter */}
+                    <div>
+                      <label className="text-sm font-semibold text-foreground mb-3 block">
+                        Company Size
+                      </label>
+                      <div className="flex flex-wrap gap-2">
+                        {companySizes.map((size) => (
+                          <button
+                            key={size}
+                            onClick={() => setSelectedCompanySize(
+                              selectedCompanySize === size ? null : size
+                            )}
+                            className={cn(
+                              "px-3 py-1.5 rounded-md text-sm font-medium transition-all",
+                              "border-2",
+                              selectedCompanySize === size
+                                ? "bg-primary text-primary-foreground border-primary"
+                                : "bg-background text-foreground border-border hover:border-primary/50"
+                            )}
+                          >
+                            {size}
+                            {selectedCompanySize === size && (
+                              <Check className="inline-block ml-1.5 h-3.5 w-3.5" />
+                            )}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Results Count */}
+          {hasActiveFilters && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-6"
+            >
+              <p className="text-sm text-muted-foreground">
+                Showing <span className="font-semibold text-foreground">{filteredTestimonials.length}</span> of {enhancedTestimonials.length} testimonials
+              </p>
+            </motion.div>
+          )}
+
           {/* View Mode Selector */}
-          <div className="flex items-center justify-center gap-2 p-1 bg-muted/50 rounded-lg inline-flex">
+          <div className="inline-flex items-center justify-center gap-2 p-1 bg-muted/50 rounded-lg">
             {viewModes.map(({ mode, icon: Icon, label }) => (
               <button
                 key={mode}
@@ -114,11 +345,20 @@ export function EnhancedTestimonialsSection() {
               transition={{ duration: 0.3 }}
               className="max-w-4xl mx-auto"
             >
-              <TestimonialCarousel
-                testimonials={featuredTestimonials}
-                autoRotate={true}
-                rotationInterval={6000}
-              />
+              {filteredTestimonials.length > 0 ? (
+                <TestimonialCarousel
+                  testimonials={featuredTestimonials.length > 0 ? featuredTestimonials : filteredTestimonials}
+                  autoRotate={true}
+                  rotationInterval={6000}
+                />
+              ) : (
+                <div className="text-center py-16">
+                  <p className="text-lg text-muted-foreground mb-4">No testimonials match your filters.</p>
+                  <Button onClick={clearFilters} variant="outline">
+                    Clear Filters
+                  </Button>
+                </div>
+              )}
             </motion.div>
           )}
 
@@ -130,10 +370,19 @@ export function EnhancedTestimonialsSection() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <TestimonialsGrid
-                testimonials={enhancedTestimonials}
-                columns={3}
-              />
+              {filteredTestimonials.length > 0 ? (
+                <TestimonialsGrid
+                  testimonials={filteredTestimonials}
+                  columns={3}
+                />
+              ) : (
+                <div className="text-center py-16">
+                  <p className="text-lg text-muted-foreground mb-4">No testimonials match your filters.</p>
+                  <Button onClick={clearFilters} variant="outline">
+                    Clear Filters
+                  </Button>
+                </div>
+              )}
             </motion.div>
           )}
 
@@ -145,12 +394,21 @@ export function EnhancedTestimonialsSection() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
             >
-              <TestimonialsMarquee
-                testimonials={enhancedTestimonials}
-                direction="left"
-                speed={50}
-                pauseOnHover={true}
-              />
+              {filteredTestimonials.length > 0 ? (
+                <TestimonialsMarquee
+                  testimonials={filteredTestimonials}
+                  direction="left"
+                  speed={50}
+                  pauseOnHover={true}
+                />
+              ) : (
+                <div className="text-center py-16">
+                  <p className="text-lg text-muted-foreground mb-4">No testimonials match your filters.</p>
+                  <Button onClick={clearFilters} variant="outline">
+                    Clear Filters
+                  </Button>
+                </div>
+              )}
             </motion.div>
           )}
 
@@ -163,12 +421,21 @@ export function EnhancedTestimonialsSection() {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
             >
-              {videoTestimonials.map((testimonial) => (
-                <VideoTestimonialPlaceholder
-                  key={testimonial.id}
-                  testimonial={testimonial}
-                />
-              ))}
+              {filteredTestimonials.length > 0 ? (
+                filteredTestimonials.slice(0, 3).map((testimonial) => (
+                  <VideoTestimonialPlaceholder
+                    key={testimonial.id}
+                    testimonial={testimonial}
+                  />
+                ))
+              ) : (
+                <div className="col-span-full text-center py-16">
+                  <p className="text-lg text-muted-foreground mb-4">No testimonials match your filters.</p>
+                  <Button onClick={clearFilters} variant="outline">
+                    Clear Filters
+                  </Button>
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

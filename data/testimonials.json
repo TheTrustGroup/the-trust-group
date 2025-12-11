@@ -51,7 +51,7 @@
     "rating": 5,
     "date": "2024-03-10",
     "verified": true,
-    "featured": false,
+    "featured": true,
     "metrics": {
       "activeUsers": "100K+",
       "appRating": "4.8/5"
@@ -198,5 +198,305 @@
     },
     "avatar": "https://ui-avatars.com/api/?name=Maria+Garcia&size=200&background=00B8E6&color=ffffff&bold=true",
     "companyLogo": "https://ui-avatars.com/api/?name=Service+Excellence&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "11",
+    "quote": "The Trust Group's data analytics platform gave us real-time insights that transformed our decision-making process. We've seen a 45% improvement in operational efficiency and reduced costs by $2M annually. Their expertise in big data and machine learning is exceptional.",
+    "clientName": "Patricia Brown",
+    "clientTitle": "Chief Data Officer",
+    "company": "Data Insights Global",
+    "companySize": "Enterprise",
+    "industry": "Technology",
+    "projectType": "AI Solutions",
+    "rating": 5,
+    "date": "2024-05-01",
+    "verified": true,
+    "featured": true,
+    "metrics": {
+      "efficiencyImprovement": "45%",
+      "annualSavings": "$2M"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Patricia+Brown&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Data+Insights+Global&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "12",
+    "quote": "Their React Native mobile app development exceeded our expectations. We launched on both iOS and Android simultaneously, and the app reached 50K downloads in the first month. The code quality and performance are outstanding.",
+    "clientName": "Christopher Lee",
+    "clientTitle": "Product Manager",
+    "company": "Mobile First Solutions",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Mobile App Development",
+    "rating": 5,
+    "date": "2024-04-20",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "downloads": "50K+",
+      "launchTime": "Simultaneous iOS/Android"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Christopher+Lee&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Mobile+First+Solutions&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "13",
+    "quote": "The Trust Group's blockchain implementation for our supply chain tracking increased transparency by 90% and reduced fraud incidents to zero. Their innovative approach to solving complex business problems is remarkable.",
+    "clientName": "Amanda Taylor",
+    "clientTitle": "Supply Chain Director",
+    "company": "Global Logistics Network",
+    "companySize": "Enterprise",
+    "industry": "Logistics",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-03-30",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "transparencyIncrease": "90%",
+      "fraudIncidents": "Zero"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Amanda+Taylor&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Global+Logistics+Network&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "14",
+    "quote": "Working with The Trust Group on our digital transformation was the best decision we made. They modernized our entire tech stack, improved system performance by 300%, and reduced maintenance costs by 40%. The ROI has been exceptional.",
+    "clientName": "Daniel White",
+    "clientTitle": "Chief Information Officer",
+    "company": "Legacy Systems Modernization Inc.",
+    "companySize": "Enterprise",
+    "industry": "Technology",
+    "projectType": "Consulting",
+    "rating": 5,
+    "date": "2024-05-10",
+    "verified": true,
+    "featured": true,
+    "metrics": {
+      "performanceImprovement": "300%",
+      "costReduction": "40%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Daniel+White&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Legacy+Systems+Modernization&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "15",
+    "quote": "Their IoT platform for smart manufacturing revolutionized our production line. We've achieved 30% reduction in waste, 25% increase in productivity, and real-time monitoring capabilities. The Trust Group's technical expertise is world-class.",
+    "clientName": "Nicole Harris",
+    "clientTitle": "Manufacturing Technology Lead",
+    "company": "Smart Manufacturing Co.",
+    "companySize": "Mid-Size",
+    "industry": "Manufacturing",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-04-15",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "wasteReduction": "30%",
+      "productivityIncrease": "25%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Nicole+Harris&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Smart+Manufacturing+Co&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "16",
+    "quote": "The Trust Group built our fintech platform from scratch, and it's now processing $50M+ in transactions monthly. Their security implementation and compliance expertise gave us confidence to launch quickly. Outstanding work!",
+    "clientName": "Ryan Moore",
+    "clientTitle": "Co-Founder & CTO",
+    "company": "FinTech Innovations",
+    "companySize": "Startup",
+    "industry": "Finance",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-05-05",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "monthlyTransactions": "$50M+",
+      "complianceStatus": "100%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Ryan+Moore&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=FinTech+Innovations&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "17",
+    "quote": "Their machine learning models for predictive maintenance saved us millions in unplanned downtime costs. The accuracy rate is 95%+, and we've extended equipment lifespan by 20%. The Trust Group's AI capabilities are impressive.",
+    "clientName": "Kevin Jackson",
+    "clientTitle": "Operations Director",
+    "company": "Industrial Equipment Corp",
+    "companySize": "Enterprise",
+    "industry": "Manufacturing",
+    "projectType": "AI Solutions",
+    "rating": 5,
+    "date": "2024-04-25",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "predictionAccuracy": "95%+",
+      "lifespanExtension": "20%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Kevin+Jackson&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Industrial+Equipment+Corp&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "18",
+    "quote": "The Trust Group's microservices architecture transformed our monolithic application into a scalable, maintainable system. Deployment time reduced from hours to minutes, and our team's productivity increased by 50%.",
+    "clientName": "Stephanie Clark",
+    "clientTitle": "Engineering Manager",
+    "company": "ScaleTech Solutions",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-05-15",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "deploymentTime": "Hours to minutes",
+      "productivityIncrease": "50%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Stephanie+Clark&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=ScaleTech+Solutions&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "19",
+    "quote": "Their cybersecurity implementation and penetration testing identified vulnerabilities we didn't know existed. After their security audit and fixes, we passed all compliance checks with flying colors. Highly recommended!",
+    "clientName": "Thomas Lewis",
+    "clientTitle": "Security Officer",
+    "company": "Secure Systems Inc.",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Consulting",
+    "rating": 5,
+    "date": "2024-04-30",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "vulnerabilitiesFixed": "100%",
+      "complianceStatus": "Passed"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Thomas+Lewis&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Secure+Systems+Inc&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "20",
+    "quote": "The Trust Group's React-based dashboard gave our team real-time visibility into all operations. User satisfaction jumped to 98%, and decision-making speed increased by 3x. Their UI/UX design is exceptional.",
+    "clientName": "Rachel Walker",
+    "clientTitle": "Product Director",
+    "company": "Dashboard Pro",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Web Development",
+    "rating": 5,
+    "date": "2024-05-20",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "userSatisfaction": "98%",
+      "decisionSpeed": "3x faster"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Rachel+Walker&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Dashboard+Pro&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "21",
+    "quote": "Their DevOps implementation with CI/CD pipelines transformed our development workflow. We now deploy multiple times per day with zero downtime. The Trust Group's automation expertise is outstanding.",
+    "clientName": "Brian Young",
+    "clientTitle": "DevOps Lead",
+    "company": "Continuous Delivery Systems",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Cloud Solutions",
+    "rating": 5,
+    "date": "2024-05-12",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "deploymentsPerDay": "Multiple",
+      "downtime": "Zero"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Brian+Young&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Continuous+Delivery+Systems&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "22",
+    "quote": "The Trust Group's API integration platform connected 15+ third-party services seamlessly. Our integration time reduced from weeks to days, and API reliability is at 99.99%. Their technical depth is impressive.",
+    "clientName": "Michelle King",
+    "clientTitle": "Integration Architect",
+    "company": "API Connect Solutions",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Custom Software Development",
+    "rating": 5,
+    "date": "2024-05-08",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "integrations": "15+",
+      "apiReliability": "99.99%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Michelle+King&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=API+Connect+Solutions&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "23",
+    "quote": "Their progressive web app increased our mobile engagement by 200% and reduced bounce rate by 45%. The offline capabilities and app-like experience have been game-changers for our business.",
+    "clientName": "Jason Wright",
+    "clientTitle": "Digital Marketing Director",
+    "company": "Mobile Engagement Plus",
+    "companySize": "Mid-Size",
+    "industry": "Retail",
+    "projectType": "Web Development",
+    "rating": 5,
+    "date": "2024-05-18",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "mobileEngagement": "200% increase",
+      "bounceRateReduction": "45%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Jason+Wright&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Mobile+Engagement+Plus&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "24",
+    "quote": "The Trust Group's data warehouse solution consolidated data from 20+ sources into a single source of truth. Our reporting time reduced by 80%, and data-driven decisions are now made in real-time. Exceptional work!",
+    "clientName": "Laura Scott",
+    "clientTitle": "Business Intelligence Manager",
+    "company": "Data Analytics Corp",
+    "companySize": "Enterprise",
+    "industry": "Technology",
+    "projectType": "AI Solutions",
+    "rating": 5,
+    "date": "2024-05-22",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "dataSources": "20+",
+      "reportingTimeReduction": "80%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Laura+Scott&size=200&background=00B8E6&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Data+Analytics+Corp&size=128&background=00B8E6&color=ffffff&bold=true&font-size=0.5"
+  },
+  {
+    "id": "25",
+    "quote": "Their team's expertise in Next.js and React delivered a blazing-fast website that loads in under 1 second. Our SEO rankings improved significantly, and conversion rates increased by 28%. The Trust Group understands modern web performance.",
+    "clientName": "Mark Green",
+    "clientTitle": "Marketing Director",
+    "company": "Fast Web Solutions",
+    "companySize": "Mid-Size",
+    "industry": "Technology",
+    "projectType": "Web Development",
+    "rating": 5,
+    "date": "2024-05-25",
+    "verified": true,
+    "featured": false,
+    "metrics": {
+      "loadTime": "<1 second",
+      "conversionIncrease": "28%"
+    },
+    "avatar": "https://ui-avatars.com/api/?name=Mark+Green&size=200&background=0066FF&color=ffffff&bold=true",
+    "companyLogo": "https://ui-avatars.com/api/?name=Fast+Web+Solutions&size=128&background=0066FF&color=ffffff&bold=true&font-size=0.5"
   }
 ]

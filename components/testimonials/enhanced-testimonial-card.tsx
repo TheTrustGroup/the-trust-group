@@ -51,11 +51,12 @@ export function EnhancedTestimonialCard({
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ duration: 0.3, type: "spring", stiffness: 300, damping: 20 }}
       className={cn(
-        "relative p-6 md:p-8 lg:p-10 rounded-2xl bg-background border-2 border-border",
+        "relative p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl bg-background border-2 border-border",
         "transition-all duration-300",
         "hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10",
+        "active:scale-[0.98] touch-manipulation",
         isHovered && "shadow-lg",
-        variant === "carousel" && "h-full min-h-[550px] md:min-h-[600px]",
+        variant === "carousel" && "h-full min-h-[500px] sm:min-h-[550px] md:min-h-[600px]",
         className
       )}
     >
@@ -78,7 +79,7 @@ export function EnhancedTestimonialCard({
 
       {/* Rating */}
       <motion.div 
-        className="flex items-center gap-1 mb-6 relative z-10"
+        className="flex items-center gap-1 mb-4 sm:mb-6 relative z-10 flex-wrap"
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.1 }}
@@ -90,10 +91,11 @@ export function EnhancedTestimonialCard({
             animate={{ scale: 1 }}
             transition={{ delay: 0.1 + index * 0.05, type: "spring" }}
             whileHover={{ scale: 1.2, rotate: 15 }}
+            className="touch-manipulation"
           >
             <Star
               className={cn(
-                "h-5 w-5 md:h-6 md:w-6 transition-all duration-200",
+                "h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 transition-all duration-200",
                 star <= testimonial.rating
                   ? "text-warning fill-warning drop-shadow-sm"
                   : "text-muted fill-muted"
@@ -104,7 +106,7 @@ export function EnhancedTestimonialCard({
           </motion.div>
         ))}
         <motion.span 
-          className="ml-3 text-base font-bold text-foreground"
+          className="ml-2 sm:ml-3 text-sm sm:text-base font-bold text-foreground"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -116,14 +118,14 @@ export function EnhancedTestimonialCard({
       {/* Quote */}
       <motion.div
         className={cn(
-          "text-foreground leading-relaxed mb-8 relative z-10",
-          variant === "carousel" ? "text-xl md:text-2xl lg:text-3xl" : "text-base md:text-lg"
+          "text-foreground leading-relaxed mb-6 sm:mb-8 relative z-10",
+          variant === "carousel" ? "text-lg sm:text-xl md:text-2xl lg:text-3xl" : "text-sm sm:text-base md:text-lg"
         )}
         animate={isHovered ? { x: 3, scale: 1.01 } : { x: 0, scale: 1 }}
         transition={{ duration: 0.3, type: "spring" }}
       >
         <blockquote className={cn(
-          "italic font-medium",
+          "italic font-medium break-words",
           variant === "carousel" && "font-semibold"
         )}>
           &quot;{testimonial.quote}&quot;
@@ -169,13 +171,14 @@ export function EnhancedTestimonialCard({
       )}
 
       {/* Client Info */}
-      <div className="pt-6 border-t border-border space-y-4">
+      <div className="pt-4 sm:pt-6 border-t border-border space-y-3 sm:space-y-4">
         {/* Top Row: Avatar, Client Details, Company Logo */}
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-3 sm:gap-4">
           {/* Avatar */}
           <motion.div
-            className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0"
+            className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0 touch-manipulation"
             whileHover={{ scale: 1.1, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3 }}
           >
             {testimonial.avatar ? (
@@ -195,11 +198,11 @@ export function EnhancedTestimonialCard({
 
           {/* Client Details */}
           <div className="flex-1 min-w-0">
-            <div className="font-semibold text-foreground mb-0.5">{testimonial.clientName}</div>
-            <div className="text-sm text-muted-foreground truncate">
+            <div className="font-semibold text-sm sm:text-base text-foreground mb-0.5 break-words">{testimonial.clientName}</div>
+            <div className="text-xs sm:text-sm text-muted-foreground break-words">
               {testimonial.clientTitle}
             </div>
-            <div className="text-xs text-muted-foreground/80 truncate">
+            <div className="text-xs text-muted-foreground/80 break-words">
               {testimonial.company}
             </div>
           </div>
@@ -207,8 +210,9 @@ export function EnhancedTestimonialCard({
           {/* Company Logo */}
           {testimonial.companyLogo ? (
             <motion.div
-              className="relative w-12 h-12 md:w-14 md:h-14 rounded-lg bg-muted/50 border border-border flex items-center justify-center overflow-hidden flex-shrink-0"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-muted/50 border border-border flex items-center justify-center overflow-hidden flex-shrink-0 touch-manipulation"
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
               <Image
@@ -221,8 +225,9 @@ export function EnhancedTestimonialCard({
             </motion.div>
           ) : (
             <motion.div
-              className="relative w-12 h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center flex-shrink-0"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 flex items-center justify-center flex-shrink-0 touch-manipulation"
               whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
               <span className="text-xs font-bold text-primary">
@@ -239,19 +244,19 @@ export function EnhancedTestimonialCard({
 
         {/* Bottom Row: Project Type, Date, Industry */}
         <div className="flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
             {testimonial.projectType && (
-              <span className="inline-block px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20 font-medium">
+              <span className="inline-block px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs rounded-md bg-primary/10 text-primary border border-primary/20 font-medium break-words">
                 {testimonial.projectType}
               </span>
             )}
             {testimonial.industry && (
-              <span className="inline-block px-2.5 py-1 text-xs rounded-md bg-muted text-muted-foreground border border-border">
+              <span className="inline-block px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs rounded-md bg-muted text-muted-foreground border border-border break-words">
                 {testimonial.industry}
               </span>
             )}
             {testimonial.companySize && (
-              <span className="inline-block px-2.5 py-1 text-xs rounded-md bg-accent/10 text-accent border border-accent/20">
+              <span className="inline-block px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs rounded-md bg-accent/10 text-accent border border-accent/20 break-words">
                 {testimonial.companySize}
               </span>
             )}
@@ -267,11 +272,16 @@ export function EnhancedTestimonialCard({
         </div>
       </div>
 
-      {/* Hover Glow Effect */}
+      {/* Hover Glow Effect - Optimized for Performance */}
       <motion.div
-        className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 opacity-0 blur-2xl -z-10"
-        animate={isHovered ? { opacity: 1, scale: 1.05 } : { opacity: 0, scale: 1 }}
-        transition={{ duration: 0.4 }}
+        className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20 -z-10"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          transform: isHovered ? "scale(1.05)" : "scale(1)",
+          filter: "blur(20px)",
+          willChange: isHovered ? "opacity, transform" : "auto",
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
       />
 
       {/* Gradient Overlay on Hover */}
