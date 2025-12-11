@@ -63,8 +63,8 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 pb-20 sm:pb-24"
-      style={{ perspective: "1000px" }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 pb-24 sm:pb-28 md:pb-32"
+      style={{ perspective: "1000px", maxWidth: "100vw", overflowX: "hidden" }}
     >
       {/* Enhanced Animated Background - Parallax Layer */}
       <motion.div style={{ y: backgroundY, willChange: "transform" }}>
@@ -150,7 +150,7 @@ export function HeroSection() {
 
       {/* Content with 3D Effects */}
       <motion.div
-        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20 pb-24 sm:pb-28 md:pb-32"
+        className="relative z-20 w-full mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20 pb-32 sm:pb-36 md:pb-40"
         style={{
           translateZ: 200,
           rotateX: contentRotateX,
@@ -158,7 +158,7 @@ export function HeroSection() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="max-w-5xl mx-auto text-center px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto text-center w-full px-2 xs:px-3 sm:px-4">
           {/* Badge with 3D effect */}
           <motion.div
             initial={{ opacity: 0, y: 20, rotateX: -90 }}
@@ -174,7 +174,7 @@ export function HeroSection() {
               rotateX: 5,
               transition: { duration: 0.2 },
             }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8 backdrop-blur-sm"
+            className="inline-flex items-center gap-1.5 xs:gap-2 px-2 xs:px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8 backdrop-blur-sm max-w-full"
             style={{
               transformStyle: "preserve-3d",
               boxShadow: "0 10px 40px rgba(0, 102, 255, 0.2)",
@@ -183,10 +183,11 @@ export function HeroSection() {
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="flex-shrink-0"
             >
               <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
             </motion.div>
-            <span className="text-xs sm:text-sm font-medium text-primary">AI & Software Engineering Powerhouse</span>
+            <span className="text-[10px] xs:text-xs sm:text-sm font-medium text-primary break-words" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>AI & Software Engineering Powerhouse</span>
           </motion.div>
 
           {/* Main Headline with Typing Animation */}
@@ -198,16 +199,18 @@ export function HeroSection() {
             }}
             transition={{ duration: 0.8, delay: 0.1 }}
             onAnimationComplete={() => setShowTyping(true)}
-            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-tight min-h-[1.2em]"
+            className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-[1.2] sm:leading-tight px-1 break-words"
             style={{
               transformStyle: "preserve-3d",
               textShadow: "0 0 30px rgba(0, 102, 255, 0.3)",
+              wordBreak: "break-word",
+              overflowWrap: "break-word",
             }}
           >
             {showTyping ? (
               <>
                 <motion.span
-                  className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block"
+                  className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block break-words"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
@@ -219,13 +222,15 @@ export function HeroSection() {
                   style={{
                     transformStyle: "preserve-3d",
                     display: "inline-block",
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
                   }}
                 >
                   <TypingAnimation text="Building Tomorrow's" speed={60} />
                 </motion.span>
-                <br />
+                <br className="hidden xs:block" />
                 <motion.span
-                  className="text-foreground inline-block"
+                  className="text-foreground inline-block break-words"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1.2 }}
@@ -237,6 +242,8 @@ export function HeroSection() {
                   style={{
                     transformStyle: "preserve-3d",
                     display: "inline-block",
+                    wordBreak: "break-word",
+                    overflowWrap: "break-word",
                   }}
                 >
                   <TypingAnimation text="Technology Today" speed={60} />
@@ -244,11 +251,11 @@ export function HeroSection() {
               </>
             ) : (
               <>
-                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block">
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient inline-block break-words" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>
                   Building Tomorrow&apos;s
                 </span>
-                <br />
-                <span className="text-foreground inline-block">Technology Today</span>
+                <br className="hidden xs:block" />
+                <span className="text-foreground inline-block break-words" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>Technology Today</span>
               </>
             )}
           </motion.h1>
@@ -258,7 +265,8 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto leading-relaxed break-words"
+            className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 w-full px-2 mx-auto leading-relaxed break-words"
+            style={{ wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}
           >
             Transforming businesses through cutting-edge AI solutions and innovative software engineering
           </motion.p>
@@ -267,7 +275,8 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed break-words"
+            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 w-full px-2 mx-auto leading-relaxed break-words"
+            style={{ wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}
           >
             A parent company with multiple businesses under its umbrella, delivering excellence in every project
           </motion.p>
@@ -281,7 +290,7 @@ export function HeroSection() {
               rotateX: 0,
             }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full px-2"
             style={{ transformStyle: "preserve-3d" }}
           >
             <motion.div
@@ -388,7 +397,7 @@ export function HeroSection() {
               rotateX: 0,
             }}
             transition={{ duration: 0.8, delay: 0.6, type: "spring", stiffness: 80 }}
-            className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
+            className="mt-12 sm:mt-16 mb-8 sm:mb-12 grid grid-cols-2 md:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 md:gap-8 w-full px-1"
             style={{ transformStyle: "preserve-3d" }}
           >
             {[
@@ -418,14 +427,14 @@ export function HeroSection() {
                   z: 30,
                   transition: { duration: 0.2 },
                 }}
-                className="text-center p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-primary/20"
+                className="text-center p-3 xs:p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-primary/20 w-full min-w-0"
                 style={{
                   transformStyle: "preserve-3d",
                   boxShadow: "0 10px 30px rgba(0, 102, 255, 0.1)",
                 }}
               >
                 <motion.div
-                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2"
+                  className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2 break-words"
                   animate={{
                     textShadow: [
                       "0 0 10px rgba(0, 102, 255, 0.5)",
@@ -438,10 +447,11 @@ export function HeroSection() {
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
+                  style={{ wordBreak: "break-word", overflowWrap: "break-word" }}
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-xs sm:text-sm md:text-base text-muted-foreground leading-snug break-words">{stat.label}</div>
+                <div className="text-[10px] xs:text-xs sm:text-sm md:text-base text-muted-foreground leading-snug break-words px-1" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
