@@ -16,13 +16,28 @@ interface ProjectModalProps {
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   React.useEffect(() => {
     if (isOpen) {
+      // Store original overflow value
+      const originalOverflow = document.body.style.overflow;
+      const originalPaddingRight = document.body.style.paddingRight;
+      
+      // Calculate scrollbar width to prevent layout shift
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      
       document.body.style.overflow = "hidden";
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+      
+      return () => {
+        // Always restore on cleanup
+        document.body.style.overflow = originalOverflow || "";
+        document.body.style.paddingRight = originalPaddingRight || "";
+      };
     } else {
-      document.body.style.overflow = "unset";
+      // Ensure overflow is reset when modal closes
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
   }, [isOpen]);
 
   if (!project || !isOpen) return null;

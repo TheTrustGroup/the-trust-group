@@ -32,10 +32,12 @@ export function EnhancedNavigation() {
   // Handle scroll for navbar background and visibility
   React.useEffect(() => {
     let ticking = false;
+    let rafId: number | null = null;
     
     const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
+        ticking = true;
+        rafId = window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
           const lastScrollY = lastScrollYRef.current;
           
@@ -56,12 +58,16 @@ export function EnhancedNavigation() {
           lastScrollYRef.current = currentScrollY;
           ticking = false;
         });
-        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   // Close mobile menu on route change
@@ -72,13 +78,28 @@ export function EnhancedNavigation() {
   // Prevent body scroll when mobile menu is open
   React.useEffect(() => {
     if (isOpen) {
+      // Store original overflow value
+      const originalOverflow = document.body.style.overflow;
+      const originalPaddingRight = document.body.style.paddingRight;
+      
+      // Calculate scrollbar width to prevent layout shift
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      
       document.body.style.overflow = "hidden";
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+      
+      return () => {
+        // Always restore on cleanup
+        document.body.style.overflow = originalOverflow || "";
+        document.body.style.paddingRight = originalPaddingRight || "";
+      };
     } else {
+      // Ensure overflow is reset when menu closes
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     }
-    return () => {
-      document.body.style.overflow = "";
-    };
   }, [isOpen]);
 
   const handleNavClick = (href: string) => {

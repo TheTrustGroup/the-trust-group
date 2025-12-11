@@ -49,12 +49,21 @@ export function smoothScrollTo(
   const element = document.getElementById(elementId);
   if (!element) return;
 
+  // Check if body scroll is locked
+  if (document.body.style.overflow === "hidden") {
+    // Don't scroll if body is locked (e.g., modal is open)
+    return;
+  }
+
   const elementPosition = element.getBoundingClientRect().top;
   const offsetPosition = elementPosition + window.pageYOffset - offset;
 
-  window.scrollTo({
-    top: offsetPosition,
-    behavior,
+  // Use requestAnimationFrame for smoother scrolling
+  window.requestAnimationFrame(() => {
+    window.scrollTo({
+      top: offsetPosition,
+      behavior,
+    });
   });
 }
 

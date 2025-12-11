@@ -12,6 +12,7 @@ import { CustomCursor } from "@/components/ui/custom-cursor";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PageLoader } from "@/components/loading/page-loader";
+import { ScrollRestore } from "@/components/scroll-restore";
 import dynamic from "next/dynamic";
 
 // Lazy load non-critical components for better performance
@@ -89,6 +90,7 @@ export default function RootLayout({
           <Chatbot />
           <KonamiCode />
           <ConsoleMessage />
+          <ScrollRestore />
         </ToastProvider>
         </ThemeProvider>
       </body>
