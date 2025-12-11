@@ -15,10 +15,10 @@ export function InteractiveMap() {
 
   const address = `${contactInfo.address.line1}, ${contactInfo.address.city}, ${contactInfo.address.country}`;
   
-  // Use Google Maps embed with API key if available, otherwise use a static map or fallback
+  // Use Google Maps embed with API key if available, otherwise use the provided embed URL
   const mapUrl = apiKey
     ? `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(address)}&zoom=15`
-    : `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5!2d-0.2!3d5.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMzYnMDAuMCJOIDDCsDEyJzAwLjAiVw!5e0!3m2!1sen!2sus!4v1234567890!5m2!1sen!2sus`;
+    : `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7341637958434!2d-0.19098092524126528!3d5.606228794374666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9baaf6841db9%3A0xb1a31d524321abd7!2sTurquaz%20Residence!5e0!3m2!1sen!2sgh!4v1765439397174!5m2!1sen!2sgh`;
 
   const handleMapError = () => {
     setHasError(true);
