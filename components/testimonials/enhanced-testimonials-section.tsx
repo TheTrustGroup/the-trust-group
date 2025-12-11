@@ -50,17 +50,17 @@ export function EnhancedTestimonialsSection() {
 
   // Get unique filter options
   const industries = useMemo(() => {
-    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.industry).filter(Boolean)));
+    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.industry).filter((v): v is string => Boolean(v))));
     return unique.sort();
   }, [enhancedTestimonials]);
 
   const projectTypes = useMemo(() => {
-    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.projectType).filter(Boolean)));
+    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.projectType).filter((v): v is string => Boolean(v))));
     return unique.sort();
   }, [enhancedTestimonials]);
 
   const companySizes = useMemo(() => {
-    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.companySize).filter(Boolean)));
+    const unique = Array.from(new Set(enhancedTestimonials.map(t => t.companySize).filter((v): v is string => Boolean(v))));
     return unique.sort();
   }, [enhancedTestimonials]);
 
