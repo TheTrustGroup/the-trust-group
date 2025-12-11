@@ -115,6 +115,21 @@
     box-sizing: border-box;
   }
 
+  /* Fix navigation shaking during scroll */
+  nav[class*="fixed"] {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  nav[class*="fixed"] > div {
+    will-change: auto;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
   /* Mobile-specific text containment */
   @media (max-width: 640px) {
     /* Ensure all text elements respect container bounds */

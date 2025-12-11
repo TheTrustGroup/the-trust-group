@@ -31,25 +31,33 @@ export function EnhancedNavigation() {
 
   // Handle scroll for navbar background and visibility
   React.useEffect(() => {
-    const handleScroll = throttle(() => {
-      const currentScrollY = window.scrollY;
-      
-      // Update scrolled state for background
-      setIsScrolled(currentScrollY > 20);
+    let ticking = false;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          
+          // Update scrolled state for background
+          setIsScrolled(currentScrollY > 20);
 
-      // Hide/show navbar on scroll
-      if (currentScrollY < 10) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down - hide navbar
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show navbar
-        setIsVisible(true);
+          // Hide/show navbar on scroll
+          if (currentScrollY < 10) {
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down - hide navbar
+            setIsVisible(false);
+          } else if (currentScrollY < lastScrollY) {
+            // Scrolling up - show navbar
+            setIsVisible(true);
+          }
+
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      setLastScrollY(currentScrollY);
-    }, 10);
+    };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -84,7 +92,17 @@ export function EnhancedNavigation() {
         ref={navRef}
         initial={{ y: 0 }}
         animate={{ y: isVisible ? 0 : -100 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ 
+          duration: 0.3, 
+          ease: [0.4, 0, 0.2, 1],
+          type: "tween"
+        }}
+        style={{
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+          transform: "translateZ(0)",
+        }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
           isScrolled
@@ -92,7 +110,13 @@ export function EnhancedNavigation() {
             : "bg-background/60 backdrop-blur-sm border-b border-transparent"
         )}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div 
+          className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
+          style={{
+            willChange: "auto",
+            transform: "translateZ(0)",
+          }}
+        >
           <div className="flex h-16 md:h-20 items-center justify-between gap-4">
             {/* Logo with hover effect */}
             <motion.div
