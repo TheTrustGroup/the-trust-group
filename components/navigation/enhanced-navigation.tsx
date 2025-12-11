@@ -103,7 +103,6 @@ export function EnhancedNavigation() {
               <Link
                 href="/"
                 className="flex items-center flex-shrink-0 min-w-0"
-                aria-label="Home"
               >
                 <Logo variant="full" size="md" className="flex-shrink-0" />
               </Link>

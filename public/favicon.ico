@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0066FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B8E6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Simple rounded square background like GitHub -->
+  <rect x="50" y="50" width="300" height="300" rx="60" fill="url(#faviconGradient)" />
+  
+  <!-- Clean hexagon icon -->
+  <polygon
+    points="200,120 260,150 260,250 200,280 140,250 140,150"
+    fill="#FFFFFF"
+    opacity="1"
+  />
+  
+  <!-- Simple T letter in center -->
+  <rect x="175" y="190" width="50" height="10" rx="2" fill="url(#faviconGradient)" />
+  <rect x="195" y="190" width="10" height="35" rx="2" fill="url(#faviconGradient)" />
+</svg>

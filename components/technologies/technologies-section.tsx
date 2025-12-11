@@ -60,7 +60,10 @@ export function TechnologiesSection() {
         </ScrollAnimation>
 
         {/* Premium Tech Showcase */}
-        <PremiumTechShowcase />
+        <div>
+          <h3 className="sr-only">Technology Stack</h3>
+          <PremiumTechShowcase />
+        </div>
 
         {/* Stats Footer */}
         <ScrollAnimation variant="fadeInUp" delay={0.3}>

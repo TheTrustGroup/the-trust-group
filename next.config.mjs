@@ -23,6 +23,8 @@ const nextConfig = {
   swcMinify: true,
   // Production optimizations
   productionBrowserSourceMaps: false,
+  // Enable source maps for better debugging (optional, can disable in production)
+  // productionBrowserSourceMaps: true, // Uncomment if needed for debugging
   // Note: output: 'standalone' is for Docker deployments, comment out if not needed
   // output: 'standalone',
   // Optimize fonts

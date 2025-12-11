@@ -20,31 +20,31 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
 
   const categoryColors: Record<string, { bg: string; text: string; border: string; gradient: string }> = {
     ai: {
-      bg: "bg-primary/10",
-      text: "text-primary",
-      border: "border-primary/20",
+      bg: "bg-primary/20", // Increased from /10 to /20 for better contrast
+      text: "text-primary", // Using primary color directly for 4.5:1+ contrast
+      border: "border-primary/30", // Increased border opacity
       gradient: "from-primary/20 via-primary/10 to-accent/20",
     },
     web: {
-      bg: "bg-accent/10",
-      text: "text-accent",
-      border: "border-accent/20",
+      bg: "bg-accent/20", // Increased from /10 to /20 for better contrast
+      text: "text-accent", // Using accent color directly
+      border: "border-accent/30", // Increased border opacity
       gradient: "from-accent/20 via-accent/10 to-primary/20",
     },
     mobile: {
-      bg: "bg-green-500/10",
-      text: "text-green-500",
-      border: "border-green-500/20",
-      gradient: "from-green-500/20 via-green-500/10 to-emerald-500/20",
+      bg: "bg-green-600/20", // Using darker green for better contrast
+      text: "text-green-700 dark:text-green-400", // Darker text for contrast
+      border: "border-green-600/30",
+      gradient: "from-green-600/20 via-green-600/10 to-emerald-600/20",
     },
     enterprise: {
-      bg: "bg-purple-500/10",
-      text: "text-purple-500",
-      border: "border-purple-500/20",
-      gradient: "from-purple-500/20 via-purple-500/10 to-pink-500/20",
+      bg: "bg-purple-600/20", // Using darker purple for better contrast
+      text: "text-purple-700 dark:text-purple-400", // Darker text for contrast
+      border: "border-purple-600/30",
+      gradient: "from-purple-600/20 via-purple-600/10 to-pink-600/20",
     },
     all: {
-      bg: "bg-muted/10",
+      bg: "bg-muted/20",
       text: "text-muted-foreground",
       border: "border-border",
       gradient: "from-muted/20 via-muted/10 to-muted/20",

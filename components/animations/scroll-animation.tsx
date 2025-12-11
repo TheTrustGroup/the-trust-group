@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, ReactNode } from "react";
-import { fadeInUp, getAnimationVariants } from "@/lib/animations";
+import { fadeInUp, getAnimationVariants, prefersReducedMotion } from "@/lib/animations";
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -48,13 +48,19 @@ export function ScrollAnimation({
     },
   };
 
+  // Respect reduced motion preference
+  const shouldAnimate = !prefersReducedMotion();
+
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={customVariants}
+      initial={shouldAnimate ? "hidden" : "visible"}
+      animate={isInView || !shouldAnimate ? "visible" : "hidden"}
+      variants={shouldAnimate ? customVariants : { visible: { opacity: 1 } }}
       className={className}
+      style={{
+        willChange: shouldAnimate ? "transform, opacity" : "auto",
+      }}
     >
       {children}
     </motion.div>

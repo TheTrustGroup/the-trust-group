@@ -198,7 +198,7 @@ export function HeroSection() {
             }}
             transition={{ duration: 0.8, delay: 0.1 }}
             onAnimationComplete={() => setShowTyping(true)}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-tight min-h-[1.2em]"
+            className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-[1.1] sm:leading-tight min-h-[1.2em]"
             style={{
               transformStyle: "preserve-3d",
               textShadow: "0 0 30px rgba(0, 102, 255, 0.3)",
@@ -258,7 +258,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed"
+            className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed"
           >
             Transforming businesses through cutting-edge AI solutions and innovative software engineering
           </motion.p>
@@ -267,7 +267,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-4 sm:px-0 leading-relaxed"
+            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-4 sm:px-0 leading-relaxed"
           >
             A parent company with multiple businesses under its umbrella, delivering excellence in every project
           </motion.p>

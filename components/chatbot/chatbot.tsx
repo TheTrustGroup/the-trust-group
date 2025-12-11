@@ -134,7 +134,7 @@ export function Chatbot() {
         )}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        aria-label={isOpen ? "Close chat" : "Open chat"}
+        aria-label={isOpen ? "Close chat" : "Open chat, 1 unread message"}
       >
         <AnimatePresence mode="wait">
           {!isOpen ? (
@@ -145,12 +145,12 @@ export function Chatbot() {
               exit={{ scale: 0, rotate: 180 }}
               transition={{ duration: 0.2 }}
             >
-              <MessageCircle className="h-6 w-6" />
+              <MessageCircle className="h-6 w-6" aria-hidden="true" />
             </motion.div>
           ) : null}
         </AnimatePresence>
         {!isOpen && (
-          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground">
+          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">
             1
           </span>
         )}

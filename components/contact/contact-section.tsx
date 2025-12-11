@@ -20,10 +20,10 @@ export function ContactSection() {
           <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">
             Get In Touch
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
+          <h2 className="text-2xl xs:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
             Let&apos;s Start Your Project
           </h2>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
+          <p className="text-sm xs:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Have a project in mind? Fill out the form below and we&apos;ll get back to you within 24 hours.
           </p>
         </div>

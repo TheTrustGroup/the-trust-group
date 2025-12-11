@@ -51,10 +51,10 @@ export function ServicesSection() {
                   What We Offer
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 Our Services
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base xs:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
                 Comprehensive technology solutions tailored to your business needs. 
                 From AI implementation to cloud infrastructure, we deliver excellence in every project.
               </p>
@@ -84,10 +84,11 @@ export function ServicesSection() {
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-hover transition-colors group"
+                className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-hover transition-colors group min-h-[44px] px-4 py-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                aria-label="Schedule a consultation"
               >
                 Schedule a Consultation
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </a>
             </div>
           </ScrollAnimation>

@@ -45,6 +45,36 @@
     }
   }
 
+  /* Extra small screens (320px - 374px) */
+  @media (max-width: 374px) {
+    /* Ensure text remains readable on very small screens */
+    h1 {
+      font-size: 1.5rem; /* 24px */
+      line-height: 1.2;
+    }
+    h2 {
+      font-size: 1.375rem; /* 22px */
+      line-height: 1.3;
+    }
+    h3 {
+      font-size: 1.25rem; /* 20px */
+      line-height: 1.3;
+    }
+    
+    /* Reduce padding on very small screens */
+    .container-content {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Ensure buttons don't overflow */
+    button {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: 0.875rem;
+    }
+  }
+
   /* Custom cursor styles - only on desktop with fine pointer */
   @media (pointer: fine) and (min-width: 1024px) {
     * {
@@ -104,11 +134,11 @@
     --accent-orange: 25 95% 53%;
     --accent-orange-foreground: 0 0% 100%;
 
-    /* Neutral Grays */
+    /* Neutral Grays - Improved contrast for WCAG AA */
     --background: 0 0% 100%;
     --foreground: 220 15% 15%;
     --muted: 220 15% 96%;
-    --muted-foreground: 220 10% 45%;
+    --muted-foreground: 220 10% 40%; /* Improved from 45% to 40% for better contrast (4.5:1 ratio) */
     --border: 220 15% 90%;
     --input: 220 15% 90%;
     --ring: 214 100% 50%;
@@ -160,9 +190,9 @@
     --accent-orange: 25 95% 58%;
     --accent-orange-foreground: 220 25% 10%;
     
-    /* Surface: Slightly lighter than background */
+    /* Surface: Slightly lighter than background - Improved contrast */
     --muted: 220 20% 15%;
-    --muted-foreground: 220 10% 75%;
+    --muted-foreground: 220 10% 80%; /* Improved from 75% to 80% for better contrast in dark mode */
     --border: 220 20% 20%;
     --input: 220 20% 18%;
     --ring: 214 100% 60%;
@@ -326,6 +356,41 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
+    }
+    
+    /* Disable parallax and complex animations */
+    [class*="parallax"],
+    [class*="animate-"] {
+      transform: none !important;
+      animation: none !important;
+    }
+  }
+  
+  /* Cross-browser compatibility fixes */
+  @supports not (backdrop-filter: blur(10px)) {
+    .backdrop-blur-md,
+    .backdrop-blur-sm {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    .dark .backdrop-blur-md,
+    .dark .backdrop-blur-sm {
+      background-color: rgba(0, 0, 0, 0.95);
+    }
+  }
+  
+  /* Firefox scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+  
+  /* Safari specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    input,
+    textarea,
+    select {
+      font-size: 16px; /* Prevents zoom on iOS */
     }
   }
 }

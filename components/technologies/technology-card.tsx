@@ -81,9 +81,9 @@ export function TechnologyCard({
       </div>
 
       {/* Technology Name */}
-      <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+      <div className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors" role="heading" aria-level={3}>
         {name}
-      </h4>
+      </div>
 
       {/* Category Badge */}
       <p className="text-sm text-muted-foreground mb-3">{category}</p>

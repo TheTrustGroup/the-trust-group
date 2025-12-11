@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface DeviceMockupProps {
@@ -73,11 +74,12 @@ function PhoneMockup({ imageUrl, className, children }: Omit<DeviceMockupProps, 
             
             {/* Screen Content */}
             {imageUrl ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
+              <Image
                 src={imageUrl}
-                alt="Project screenshot"
-                className="w-full h-full object-cover"
+                alt="Mobile phone screen showing project interface"
+                fill
+                sizes="(max-width: 768px) 100vw, 300px"
+                className="object-cover"
                 loading="lazy"
               />
             ) : (
@@ -111,11 +113,12 @@ function TabletMockup({ imageUrl, className, children }: Omit<DeviceMockupProps,
           <div className="absolute inset-2 rounded-lg overflow-hidden bg-white">
             {/* Screen Content */}
             {imageUrl ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
+              <Image
                 src={imageUrl}
-                alt="Project screenshot"
-                className="w-full h-full object-cover"
+                alt="Tablet screen showing project interface"
+                fill
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="object-cover"
                 loading="lazy"
               />
             ) : (

@@ -147,10 +147,10 @@ function TechItem({ tech, index, onSelect }: TechItemProps) {
             </div>
           </motion.div>
 
-          {/* Tech Name */}
-          <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-center break-words">
+          {/* Tech Name - Using div instead of h4 to avoid heading hierarchy issues in grid */}
+          <div className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors text-center break-words" role="heading" aria-level={3}>
             {tech.name}
-          </h4>
+          </div>
 
           {/* Proficiency Indicator */}
           <div className="space-y-2">

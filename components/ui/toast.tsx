@@ -47,6 +47,18 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
     }
   }, [removeToast]);
 
+  // Listen for custom toast events (for file upload errors, etc.)
+  React.useEffect(() => {
+    const handleToastEvent = (event: CustomEvent) => {
+      showToast(event.detail);
+    };
+
+    window.addEventListener('show-toast', handleToastEvent as EventListener);
+    return () => {
+      window.removeEventListener('show-toast', handleToastEvent as EventListener);
+    };
+  }, [showToast]);
+
   return (
     <ToastContext.Provider value={{ showToast, removeToast }}>
       {children}

@@ -81,6 +81,14 @@ const config: Config = {
         "display-2": ["3.75rem", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
         "display-3": ["3rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
       },
+      screens: {
+        "xs": "375px", // Extra small devices
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px",
+      },
       spacing: {
         section: "5rem",
         "section-sm": "3rem",

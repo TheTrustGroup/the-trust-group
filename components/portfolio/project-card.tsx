@@ -32,11 +32,11 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const categoryColors: Record<string, string> = {
-    ai: "bg-primary/10 text-primary border-primary/20",
-    web: "bg-accent/10 text-accent border-accent/20",
-    mobile: "bg-success/10 text-success border-success/20",
-    enterprise: "bg-secondary/10 text-secondary border-secondary/20",
-    all: "bg-muted/10 text-muted-foreground border-border",
+    ai: "bg-primary/20 text-primary border-primary/30", // Improved contrast
+    web: "bg-accent/20 text-accent border-accent/30", // Improved contrast
+    mobile: "bg-green-600/20 text-green-700 dark:text-green-400 border-green-600/30", // Improved contrast
+    enterprise: "bg-purple-600/20 text-purple-700 dark:text-purple-400 border-purple-600/30", // Improved contrast
+    all: "bg-muted/20 text-muted-foreground border-border",
   };
 
   const categoryLabels: Record<string, string> = {

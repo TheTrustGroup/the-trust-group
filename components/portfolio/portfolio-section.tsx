@@ -190,13 +190,47 @@ export function PortfolioSection() {
           </PortfolioFilterLoader>
 
           {/* Empty State */}
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-lg text-muted-foreground">
-                No projects found in this category.
-              </p>
-            </div>
-          )}
+          <AnimatePresence>
+            {filteredProjects.length === 0 && !isFiltering && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="text-center py-16 px-4"
+              >
+                <div className="max-w-md mx-auto">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-muted/50 flex items-center justify-center">
+                    <svg
+                      className="w-12 h-12 text-muted-foreground"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    No projects found
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    We couldn&apos;t find any projects in this category. Try selecting a different filter.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => setActiveCategory("all")}
+                  >
+                    View All Projects
+                  </Button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* See More Button */}
           <ScrollAnimation variant="fadeInUp" delay={0.3}>
@@ -207,9 +241,9 @@ export function PortfolioSection() {
                 className="group"
                 asChild
               >
-                <a href="/portfolio">
+                <a href="/portfolio" aria-label="View all projects in portfolio">
                   See More Projects
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>
               </Button>
             </div>

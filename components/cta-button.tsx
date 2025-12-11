@@ -10,7 +10,13 @@ export function CTAScrollButton() {
       const offset = 80;
       const elementPosition = contactSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      
+      // Respect reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ 
+        top: offsetPosition, 
+        behavior: prefersReducedMotion ? 'auto' : 'smooth' 
+      });
     }
   };
 

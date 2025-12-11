@@ -25,13 +25,16 @@ info@thetrustgroupsolutions.com
 Built with love (and some AI) by The Trust Group
     `.trim();
 
-    console.log(message, styles);
-    
-    // Additional fun message
-    console.log(
-      "%cPro tip: Try the Konami code! (↑↑↓↓←→←→BA)",
-      "color: #00B8E6; font-size: 14px; font-style: italic;"
-    );
+    // Only log in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log(message, styles);
+      
+      // Additional fun message
+      console.log(
+        "%cPro tip: Try the Konami code! (↑↑↓↓←→←→BA)",
+        "color: #00B8E6; font-size: 14px; font-style: italic;"
+      );
+    }
   }, []);
 
   return null;

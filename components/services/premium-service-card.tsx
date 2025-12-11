@@ -266,14 +266,14 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
                   )}
                   asChild
                 >
-                  <Link href={learnMoreHref}>
+                  <Link href={learnMoreHref} aria-label={`Learn more about ${title}`}>
                     <span className="relative z-10 flex items-center justify-center">
-                      Learn More
+                      Learn More About {title}
                       <motion.div
                         animate={isHovered ? { x: [0, 4, 0] } : {}}
                         transition={{ duration: 1.5, repeat: Infinity }}
                       >
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                       </motion.div>
                     </span>
                     <motion.div

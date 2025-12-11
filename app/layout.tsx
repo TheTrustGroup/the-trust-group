@@ -11,10 +11,13 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { CustomCursor } from "@/components/ui/custom-cursor";
 import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Chatbot } from "@/components/chatbot";
 import { PageLoader } from "@/components/loading/page-loader";
-import { KonamiCode } from "@/components/ui/konami-code";
-import { ConsoleMessage } from "@/components/ui/console-message";
+import dynamic from "next/dynamic";
+
+// Lazy load non-critical components for better performance
+const Chatbot = dynamic(() => import("@/components/chatbot").then(mod => ({ default: mod.Chatbot })), { ssr: false });
+const KonamiCode = dynamic(() => import("@/components/ui/konami-code").then(mod => ({ default: mod.KonamiCode })), { ssr: false });
+const ConsoleMessage = dynamic(() => import("@/components/ui/console-message").then(mod => ({ default: mod.ConsoleMessage })), { ssr: false });
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -40,6 +43,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Favicons */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

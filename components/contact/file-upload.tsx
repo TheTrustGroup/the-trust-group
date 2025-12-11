@@ -49,8 +49,19 @@ export function FileUpload({
     });
 
     if (errors.length > 0) {
-      // You can show toast notifications here
-      console.error(errors);
+      // Show user-friendly error messages
+      errors.forEach((error) => {
+        // Dispatch custom event for toast notifications
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new CustomEvent('show-toast', {
+            detail: {
+              type: 'error',
+              title: 'File Upload Error',
+              message: error,
+            },
+          }));
+        }
+      });
     }
 
     const updatedFiles = [...files, ...validFiles].slice(0, maxFiles);
