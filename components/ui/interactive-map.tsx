@@ -1,16 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { MapPin, ExternalLink, AlertCircle } from "lucide-react";
+import { MapPin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/cms-client";
-import { cn } from "@/lib/utils";
 
 const contactInfo = siteConfig.contact;
 
 export function InteractiveMap() {
   const [isLoaded, setIsLoaded] = React.useState(false);
-  const [hasError, setHasError] = React.useState(false);
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   const address = `${contactInfo.address.line1}, ${contactInfo.address.city}, ${contactInfo.address.country}`;
@@ -20,14 +18,17 @@ export function InteractiveMap() {
     ? `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(address)}&zoom=15`
     : `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7341637958434!2d-0.19098092524126528!3d5.606228794374666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9baaf6841db9%3A0xb1a31d524321abd7!2sTurquaz%20Residence!5e0!3m2!1sen!2sgh!4v1765439397174!5m2!1sen!2sgh`;
 
-  const handleMapError = () => {
-    setHasError(true);
-    setIsLoaded(false);
-  };
+  React.useEffect(() => {
+    // Set a timeout to show the map even if onLoad doesn't fire (for cross-origin iframes)
+    const timeout = setTimeout(() => {
+      setIsLoaded(true);
+    }, 2000);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   const handleMapLoad = () => {
     setIsLoaded(true);
-    setHasError(false);
   };
 
   // Fallback: Direct link to Google Maps
@@ -35,65 +36,28 @@ export function InteractiveMap() {
 
   return (
     <div className="relative rounded-lg overflow-hidden border-2 border-border bg-muted/30 h-[400px] md:h-[500px]">
-      {!hasError ? (
-        <>
-          {/* Google Maps Embed (works with or without API key) */}
-          <iframe
-            src={mapUrl}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className={cn(
-              "w-full h-full transition-opacity duration-500",
-              isLoaded ? "opacity-100" : "opacity-0"
-            )}
-            onLoad={handleMapLoad}
-            onError={handleMapError}
-            title="Office Location - The Trust Group"
-          />
-          
-          {/* Loading overlay */}
-          {!isLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-muted/50 backdrop-blur-sm z-10">
-              <div className="text-center">
-                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent mb-4" />
-                <p className="text-sm text-muted-foreground">Loading map...</p>
-              </div>
-            </div>
-          )}
-        </>
-      ) : (
-        /* Error fallback: Show error message */
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-muted/50 to-muted/30 p-8 z-10">
-          <div className="text-center max-w-md">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <MapPin className="h-8 w-8 text-primary stroke-current" strokeWidth={2} fill="none" />
-            </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2">
-              Map Loading Error
-            </h3>
-            <p className="text-sm text-muted-foreground mb-6">
-              We couldn&apos;t load the map, but you can still find us using the link below.
-            </p>
-            <Button
-              asChild
-              variant="default"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              <a 
-                href={googleMapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MapPin className="h-4 w-4 mr-2 stroke-current" strokeWidth={2} fill="none" />
-                View on Google Maps
-                <ExternalLink className="h-4 w-4 ml-2 stroke-current" strokeWidth={2} fill="none" />
-              </a>
-            </Button>
+      {/* Google Maps Embed (works with or without API key) */}
+      <iframe
+        src={mapUrl}
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className={`w-full h-full transition-opacity duration-500 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        onLoad={handleMapLoad}
+        title="Office Location - The Trust Group"
+      />
+      
+      {/* Loading overlay - only show briefly */}
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-muted/50 backdrop-blur-sm z-10">
+          <div className="text-center">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent mb-4" />
+            <p className="text-sm text-muted-foreground">Loading map...</p>
           </div>
         </div>
       )}
