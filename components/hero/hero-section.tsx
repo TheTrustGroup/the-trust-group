@@ -63,7 +63,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 pb-20 sm:pb-24"
       style={{ perspective: "1000px" }}
     >
       {/* Enhanced Animated Background - Parallax Layer */}
@@ -150,7 +150,7 @@ export function HeroSection() {
 
       {/* Content with 3D Effects */}
       <motion.div
-        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20"
+        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20 pb-24 sm:pb-28 md:pb-32"
         style={{
           translateZ: 200,
           rotateX: contentRotateX,
@@ -158,7 +158,7 @@ export function HeroSection() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="max-w-5xl mx-auto text-center px-4">
+        <div className="max-w-5xl mx-auto text-center px-4 sm:px-6">
           {/* Badge with 3D effect */}
           <motion.div
             initial={{ opacity: 0, y: 20, rotateX: -90 }}
@@ -258,7 +258,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed"
+            className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground mb-3 sm:mb-4 max-w-3xl mx-auto leading-relaxed break-words"
           >
             Transforming businesses through cutting-edge AI solutions and innovative software engineering
           </motion.p>
@@ -267,7 +267,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-4 sm:px-0 leading-relaxed"
+            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed break-words"
           >
             A parent company with multiple businesses under its umbrella, delivering excellence in every project
           </motion.p>
@@ -281,7 +281,7 @@ export function HeroSection() {
               rotateX: 0,
             }}
             transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 100 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
             style={{ transformStyle: "preserve-3d" }}
           >
             <motion.div
@@ -388,7 +388,7 @@ export function HeroSection() {
               rotateX: 0,
             }}
             transition={{ duration: 0.8, delay: 0.6, type: "spring", stiffness: 80 }}
-            className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4 sm:px-0"
+            className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
             style={{ transformStyle: "preserve-3d" }}
           >
             {[

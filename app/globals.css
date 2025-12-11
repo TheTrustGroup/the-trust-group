@@ -75,6 +75,37 @@
     }
   }
 
+  /* Text wrapping and overflow prevention */
+  p, span, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Prevent text truncation in hero section */
+  section p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Ensure proper spacing for fixed elements */
+  section {
+    position: relative;
+  }
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure containers don't overflow */
+  .container,
+  .container-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   /* Custom cursor styles - only on desktop with fine pointer */
   @media (pointer: fine) and (min-width: 1024px) {
     * {
