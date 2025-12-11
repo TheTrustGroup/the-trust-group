@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 interface ScrollIndicatorProps {
@@ -11,15 +11,29 @@ interface ScrollIndicatorProps {
 
 export function ScrollIndicator({ targetId = "services" }: ScrollIndicatorProps) {
   const [isVisible, setIsVisible] = useState(true);
+  const rafIdRef = useRef<number | null>(null);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsVisible(scrollPosition < window.innerHeight * 0.8);
+      if (!tickingRef.current) {
+        tickingRef.current = true;
+        rafIdRef.current = window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY;
+          const threshold = window.innerHeight * 0.8;
+          setIsVisible(scrollPosition < threshold);
+          tickingRef.current = false;
+        });
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafIdRef.current !== null) {
+        window.cancelAnimationFrame(rafIdRef.current);
+      }
+    };
   }, []);
 
   const handleClick = () => {

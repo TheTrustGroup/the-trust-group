@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, MotionValue } from "framer-motion";
 import { Code2, Cpu, Zap, Network, LucideIcon } from "lucide-react";
 
@@ -245,28 +245,77 @@ export function Floating3DCube() {
 
 export function Parallax3DLayers() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const layersRef = useRef<Array<HTMLDivElement | null>>([]);
+  const mousePositionRef = useRef({ x: 0, y: 0 });
+  const rafIdRef = useRef<number | null>(null);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
+    // Optimized scroll handler using RAF and direct DOM manipulation
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / rect.width,
-          y: (e.clientY - rect.top - rect.height / 2) / rect.height,
+      if (!tickingRef.current) {
+        tickingRef.current = true;
+        rafIdRef.current = window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          
+          // Directly update transforms without React state
+          layersRef.current.forEach((layerEl, index) => {
+            if (layerEl) {
+              const speed = [0.3, 0.5, 0.7][index] || 0.5;
+              const translateY = scrollY * speed;
+              layerEl.style.transform = `translateZ(${[50, 100, 150][index]}px) translateY(${translateY}px)`;
+            }
+          });
+          
+          tickingRef.current = false;
         });
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
+    // Optimized mouse handler with throttling
+    let mouseRafId: number | null = null;
+    let mouseTicking = false;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!mouseTicking && containerRef.current) {
+        mouseTicking = true;
+        mouseRafId = window.requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            mousePositionRef.current = {
+              x: (e.clientX - rect.left - rect.width / 2) / rect.width,
+              y: (e.clientY - rect.top - rect.height / 2) / rect.height,
+            };
+            
+            // Update gradient background directly
+            layersRef.current.forEach((layerEl) => {
+              if (layerEl) {
+                const gradientEl = layerEl.querySelector('.parallax-gradient') as HTMLElement;
+                if (gradientEl) {
+                  const x = 50 + mousePositionRef.current.x * 20;
+                  const y = 50 + mousePositionRef.current.y * 20;
+                  gradientEl.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 102, 255, 0.1) 0%, transparent 70%)`;
+                }
+              }
+            });
+          }
+          mouseTicking = false;
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
+      if (rafIdRef.current !== null) {
+        window.cancelAnimationFrame(rafIdRef.current);
+      }
+      if (mouseRafId !== null) {
+        window.cancelAnimationFrame(mouseRafId);
+      }
     };
   }, []);
 
@@ -285,22 +334,25 @@ export function Parallax3DLayers() {
       {layers.map((layer, index) => (
         <motion.div
           key={index}
+          ref={(el) => {
+            layersRef.current[index] = el;
+          }}
           className="absolute inset-0"
           style={{
-            transform: `translateZ(${layer.depth}px) translateY(${scrollY * layer.speed}px)`,
             transformStyle: "preserve-3d",
             opacity: layer.opacity,
+            willChange: "transform",
           }}
           animate={{
-            rotateX: mousePosition.y * 5,
-            rotateY: mousePosition.x * 5,
+            rotateX: mousePositionRef.current.y * 5,
+            rotateY: mousePositionRef.current.x * 5,
           }}
           transition={{ type: "spring", stiffness: 50, damping: 15 }}
         >
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 parallax-gradient"
             style={{
-              background: `radial-gradient(circle at ${50 + mousePosition.x * 20}% ${50 + mousePosition.y * 20}%, rgba(0, 102, 255, 0.1) 0%, transparent 70%)`,
+              background: `radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.1) 0%, transparent 70%)`,
             }}
           />
         </motion.div>

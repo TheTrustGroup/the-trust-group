@@ -368,6 +368,40 @@
     }
   }
   
+  /* Performance optimizations - CSS containment */
+  section {
+    contain: layout style paint;
+  }
+  
+  /* Optimize animations - only use transform and opacity */
+  [class*="animate-"],
+  [class*="motion-"],
+  [data-animate] {
+    will-change: transform, opacity;
+  }
+  
+  /* Remove will-change after animations complete */
+  @keyframes animation-complete {
+    to {
+      will-change: auto;
+    }
+  }
+  
+  /* GPU acceleration for fixed/sticky elements */
+  nav[class*="fixed"],
+  [class*="sticky"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Optimize parallax elements */
+  [class*="parallax"],
+  [data-parallax] {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
   /* Smooth theme transitions */
   * {
     transition-property: background-color, border-color, color, fill, stroke;
