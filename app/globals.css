@@ -117,17 +117,16 @@
 
   /* Fix navigation shaking during scroll */
   nav[class*="fixed"] {
-    will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  nav[class*="fixed"] > div {
-    will-change: auto;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+  /* Prevent layout shifts in navigation container */
+  nav[class*="fixed"] > div[class*="container"] {
+    position: relative;
+    isolation: isolate;
   }
 
   /* Mobile-specific text containment */

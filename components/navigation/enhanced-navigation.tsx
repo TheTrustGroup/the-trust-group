@@ -19,7 +19,7 @@ export function EnhancedNavigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isVisible, setIsVisible] = React.useState(true);
-  const [lastScrollY, setLastScrollY] = React.useState(0);
+  const lastScrollYRef = React.useRef(0);
   const navRef = React.useRef<HTMLElement>(null);
 
   const navItems = siteConfig.navigation.main.map((item) => ({
@@ -37,22 +37,23 @@ export function EnhancedNavigation() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const currentScrollY = window.scrollY;
+          const lastScrollY = lastScrollYRef.current;
           
           // Update scrolled state for background
           setIsScrolled(currentScrollY > 20);
 
-          // Hide/show navbar on scroll
+          // Hide/show navbar on scroll - faster response
           if (currentScrollY < 10) {
             setIsVisible(true);
-          } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            // Scrolling down - hide navbar
+          } else if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            // Scrolling down - hide navbar (reduced threshold from 100 to 50)
             setIsVisible(false);
           } else if (currentScrollY < lastScrollY) {
-            // Scrolling up - show navbar
+            // Scrolling up - show navbar immediately
             setIsVisible(true);
           }
 
-          setLastScrollY(currentScrollY);
+          lastScrollYRef.current = currentScrollY;
           ticking = false;
         });
         ticking = true;
@@ -61,7 +62,7 @@ export function EnhancedNavigation() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   // Close mobile menu on route change
   React.useEffect(() => {
@@ -93,30 +94,23 @@ export function EnhancedNavigation() {
         initial={{ y: 0 }}
         animate={{ y: isVisible ? 0 : -100 }}
         transition={{ 
-          duration: 0.3, 
-          ease: [0.4, 0, 0.2, 1],
+          duration: 0.2, 
+          ease: "easeInOut",
           type: "tween"
         }}
         style={{
-          willChange: "transform",
+          willChange: isVisible ? "auto" : "transform",
           backfaceVisibility: "hidden",
           WebkitBackfaceVisibility: "hidden",
-          transform: "translateZ(0)",
         }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300",
           isScrolled
             ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-background/60 backdrop-blur-sm border-b border-transparent"
         )}
       >
-        <div 
-          className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"
-          style={{
-            willChange: "auto",
-            transform: "translateZ(0)",
-          }}
-        >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="flex h-16 md:h-20 items-center justify-between gap-4">
             {/* Logo with hover effect */}
             <motion.div
