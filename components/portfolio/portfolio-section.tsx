@@ -241,7 +241,7 @@ export function PortfolioSection() {
                 className="group"
                 asChild
               >
-                <a href="/portfolio" aria-label="View all projects in portfolio">
+                <a href="/#portfolio" aria-label="View all projects in portfolio">
                   See More Projects
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                 </a>

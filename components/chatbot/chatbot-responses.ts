@@ -35,7 +35,7 @@ const responseDatabase: ResponseMatch[] = [
   {
     keywords: ["portfolio", "projects", "work", "examples", "case study"],
     response: "We've completed 500+ projects across various industries. Our portfolio includes AI solutions, web applications, mobile apps, and enterprise software.\n\nYou can browse our featured projects to see examples of our work.",
-    links: [{ text: "View portfolio", href: "/portfolio" }],
+    links: [{ text: "View portfolio", href: "/#portfolio" }],
   },
   {
     keywords: ["price", "cost", "pricing", "how much", "budget", "quote"],
@@ -45,7 +45,7 @@ const responseDatabase: ResponseMatch[] = [
   {
     keywords: ["technology", "tech stack", "technologies", "tools", "stack"],
     response: "We work with a wide range of modern technologies including:\n\n• Frontend: React, Next.js, TypeScript\n• Backend: Node.js, Python, Java\n• AI/ML: TensorFlow, PyTorch, OpenAI\n• Cloud: AWS, Azure, GCP\n• Mobile: React Native, Flutter\n\nAnd many more! Check our technologies page for the complete list.",
-    links: [{ text: "View technologies", href: "/technologies" }],
+    links: [{ text: "View technologies", href: "/#technologies" }],
   },
   {
     keywords: ["hello", "hi", "hey", "greetings"],

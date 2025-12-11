@@ -157,17 +157,6 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
           )}
         </div>
 
-        {/* Case Study Link */}
-        {project.caseStudyUrl && (
-          <a
-            href={project.caseStudyUrl}
-            onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-hover transition-colors group/link"
-          >
-            View Case Study
-            <ExternalLink className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-          </a>
-        )}
       </div>
     </article>
   );

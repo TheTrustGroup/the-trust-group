@@ -17,8 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/web-development",
     "/services/cloud-solutions",
     "/services/consulting",
-    "/portfolio",
-    "/technologies",
     "/contact",
     "/blog",
     "/careers",

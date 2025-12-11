@@ -180,18 +180,6 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border">
-            {project.caseStudyUrl && (
-              <Button
-                size="lg"
-                className="flex-1 group"
-                asChild
-              >
-                <a href={project.caseStudyUrl}>
-                  View Full Case Study
-                  <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
-            )}
             <Button
               size="lg"
               variant="outline"

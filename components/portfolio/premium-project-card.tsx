@@ -197,20 +197,6 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
                     View Details
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>
-                  {project.caseStudyUrl && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="flex-1 group/btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.caseStudyUrl, "_blank");
-                      }}
-                    >
-                      Case Study
-                      <ExternalLink className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
-                  )}
                 </div>
               </motion.div>
             </motion.div>
