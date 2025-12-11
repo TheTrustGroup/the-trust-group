@@ -180,7 +180,7 @@ export function generateStructuredData(
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1 Nortei Ababio Street, Suite 37",
+      streetAddress: "1, Nortei Abio St, Airport Residential Area",
       addressLocality: "Accra",
       addressRegion: "Greater Accra",
       postalCode: "00233",

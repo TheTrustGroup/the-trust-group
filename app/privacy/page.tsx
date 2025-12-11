@@ -103,7 +103,7 @@ export default function PrivacyPage() {
               </p>
               <p>
                 <strong>Email:</strong> info@thetrustgroupsolutions.com<br />
-                <strong>Address:</strong> 1 Nortei Ababio Street, Suite 37, Accra, Greater Accra, 00233, Ghana
+                <strong>Address:</strong> 1, Nortei Abio St, Airport Residential Area, Accra, Greater Accra, 00233, Ghana
               </p>
             </CardContent>
           </Card>
