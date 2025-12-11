@@ -31,11 +31,12 @@ function LaptopMockup({ imageUrl, className, children }: Omit<DeviceMockupProps,
           <div className="absolute inset-2 rounded overflow-hidden bg-white">
             {/* Screen Content */}
             {imageUrl ? (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
+              <Image
                 src={imageUrl}
                 alt="Project screenshot"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className="object-cover"
                 loading="lazy"
               />
             ) : (

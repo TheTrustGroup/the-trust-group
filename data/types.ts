@@ -20,8 +20,12 @@ export interface Project {
   featured: boolean;
   caseStudyUrl?: string;
   image?: string;
+  images?: string[];
   client?: string;
   year?: string;
+  timeline?: string;
+  teamSize?: string;
+  industry?: string;
   results?: string[];
 }
 

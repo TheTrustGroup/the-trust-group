@@ -120,6 +120,62 @@
         "Virtual tours reduce site visits by 40%",
         "500+ properties listed"
       ]
+    },
+    {
+      "id": "7",
+      "title": "Velora - Premium Ride-Hailing Platform",
+      "description": "Modern ride-hailing mobile application for Ghana with real-time location tracking, seamless booking, and premium ride options.",
+      "longDescription": "Developed a comprehensive ride-hailing platform specifically designed for the Ghanaian market. The app features real-time GPS tracking, interactive map integration with Google Maps, multiple ride tiers (Economy and Comfort), and a complete ride history system. Built with a focus on user experience, the app includes intuitive location selection, driver information display, and transparent pricing in Ghanaian Cedis.",
+      "category": "mobile",
+      "technologies": ["React Native", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Google Maps API"],
+      "featured": true,
+      "image": "/images/projects/velora-booking.png",
+      "images": [
+        "/images/projects/velora-booking.png",
+        "/images/projects/velora-rides.png"
+      ],
+      "caseStudyUrl": "/portfolio/velora",
+      "client": "Transportation Startup",
+      "year": "2024",
+      "timeline": "5 months",
+      "teamSize": "6 members",
+      "industry": "Transportation & Logistics",
+      "results": [
+        "Seamless real-time location tracking",
+        "Multiple ride tiers (Economy & Comfort)",
+        "Complete ride history with driver details",
+        "Transparent pricing in GHS",
+        "Interactive map-based booking"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Wellness Tracker - Health & Wellness Platform",
+      "description": "Comprehensive wellness tracking and booking mobile application with progress monitoring, session scheduling, and membership management.",
+      "longDescription": "Created a full-featured wellness application that empowers users to track their health journey. The app includes daily wellness tips, progress tracking for hydration, meditation, and sleep with beautiful circular progress indicators. Features include session booking for wellness services (Detox, Massage, Yoga), membership management with tiered plans (Silver and Gold), and comprehensive tracking dashboards. The intuitive UI uses pastel colors and clean design to create a calming, health-focused experience.",
+      "category": "mobile",
+      "technologies": ["React Native", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+      "featured": true,
+      "image": "/images/projects/wellness-home.png",
+      "images": [
+        "/images/projects/wellness-home.png",
+        "/images/projects/wellness-tracker.png",
+        "/images/projects/wellness-booking.png",
+        "/images/projects/wellness-membership.png"
+      ],
+      "caseStudyUrl": "/portfolio/wellness-tracker",
+      "client": "Wellness & Spa Company",
+      "year": "2024",
+      "timeline": "6 months",
+      "teamSize": "7 members",
+      "industry": "Health & Wellness",
+      "results": [
+        "Comprehensive wellness tracking (hydration, meditation, sleep)",
+        "Multi-step session booking system",
+        "Tiered membership management",
+        "Beautiful progress visualization",
+        "Daily wellness tips and guidance"
+      ]
     }
   ]
 }
