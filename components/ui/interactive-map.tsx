@@ -1,8 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { MapPin, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/cms-client";
 
 const contactInfo = siteConfig.contact;
@@ -31,9 +29,6 @@ export function InteractiveMap() {
     setIsLoaded(true);
   };
 
-  // Fallback: Direct link to Google Maps
-  const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-
   return (
     <div className="relative rounded-lg overflow-hidden border-2 border-border bg-muted/30 h-[400px] md:h-[500px]">
       {/* Google Maps Embed (works with or without API key) */}
@@ -61,43 +56,6 @@ export function InteractiveMap() {
           </div>
         </div>
       )}
-
-      {/* Address overlay card - positioned to avoid overlap */}
-      <div className="absolute top-4 left-4 right-4 md:left-auto md:right-4 md:top-4 md:w-80 z-20">
-        <div className="bg-background/95 backdrop-blur-md rounded-lg p-4 shadow-lg border border-border">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-              <MapPin className="h-5 w-5 text-primary stroke-current" strokeWidth={2} />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h4 className="font-semibold text-foreground mb-1 text-sm">Our Office</h4>
-              <address className="text-xs text-muted-foreground not-italic leading-relaxed break-words">
-                {contactInfo.address.line1}
-                <br />
-                {contactInfo.address.line2}
-                <br />
-                {contactInfo.address.city}, {contactInfo.address.state}
-              </address>
-            </div>
-          </div>
-          <Button
-            asChild
-            variant="outline"
-            size="sm"
-            className="w-full mt-3"
-          >
-            <a 
-              href={googleMapsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <MapPin className="h-3.5 w-3.5 mr-2 stroke-current" strokeWidth={2} />
-              Open in Google Maps
-              <ExternalLink className="h-3.5 w-3.5 ml-2 stroke-current" strokeWidth={2} />
-            </a>
-          </Button>
-        </div>
-      </div>
     </div>
   );
 }
