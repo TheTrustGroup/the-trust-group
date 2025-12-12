@@ -1,0 +1,60 @@
+==========================================
+EMAILJS TEMPLATE - COPY & PASTE READY
+==========================================
+
+STEP 1: In EmailJS Template Editor, fill these fields:
+
+To Email:
+info@thetrustgroupsolutions.com
+
+From Name:
+{{from_name}}
+
+Reply To:
+{{reply_to}}
+
+Subject:
+New Contact Form Submission from {{from_name}}
+
+==========================================
+STEP 2: Copy everything below and paste into the Content/Message field:
+==========================================
+
+Hello,
+
+You have received a new contact form submission from your website.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTACT INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Name: {{from_name}}
+Email: {{from_email}}
+Company: {{company}}
+Phone: {{phone}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROJECT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Service: {{service}}
+Budget: {{budget}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MESSAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{{message}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+{{files_info}}
+Total Files: {{files_count}}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Reply to: {{reply_to}}
+
+This email was sent from your website contact form.
+
+==========================================
+STEP 3: Save the template and copy the Template ID
+==========================================

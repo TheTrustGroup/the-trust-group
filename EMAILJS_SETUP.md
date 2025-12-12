@@ -29,16 +29,24 @@ Follow these steps to complete the setup:
 
 ## ✅ Step 3: Create Email Template
 
-1. Go to **Email Templates** in EmailJS dashboard
-2. Click **Create New Template**
-3. Use this template structure:
+**📖 For detailed step-by-step instructions, see: `EMAILJS_TEMPLATE_SETUP.md`**
+
+1. Go to **Email Templates** in EmailJS dashboard (left sidebar)
+2. Click **"Create New Template"** or **"Add New Template"**
+3. Fill in the template:
+
+**Template Settings:**
+- **Service:** Select the email service you created
+- **To Email:** `info@thetrustgroupsolutions.com`
+- **From Name:** `{{from_name}}`
+- **Reply To:** `{{reply_to}}`
 
 **Subject:**
 ```
 New Contact Form Submission from {{from_name}}
 ```
 
-**Content:**
+**Content (paste this entire block):**
 ```
 Hello,
 
@@ -76,10 +84,10 @@ Reply to: {{reply_to}}
 This email was sent from your website contact form.
 ```
 
-4. Set **To Email** to: `info@thetrustgroupsolutions.com`
-5. Set **From Name** to: `{{from_name}}`
-6. Set **Reply To** to: `{{reply_to}}`
-7. Copy your **Template ID**
+4. Click **"Save"** or **"Create Template"**
+5. **IMPORTANT:** Copy your **Template ID** (shown after saving, usually like `template_xxxxxxx`)
+
+**💡 Having trouble?** See `EMAILJS_TEMPLATE_SETUP.md` for detailed troubleshooting and visual guide.
 
 ## ✅ Step 4: Get Your Public Key
 
