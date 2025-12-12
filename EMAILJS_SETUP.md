@@ -1,6 +1,13 @@
 # EmailJS Setup Instructions
 
-The contact form is now configured to use EmailJS for sending emails to **info@thetrustgroupsolutions.com**. Follow these steps to complete the setup:
+✅ **EmailJS is already integrated!** The contact forms are configured to use EmailJS for sending emails to **info@thetrustgroupsolutions.com**. 
+
+You just need to:
+1. Create an EmailJS account
+2. Set up your email service and template
+3. Add your credentials to environment variables
+
+Follow these steps to complete the setup:
 
 ## ✅ Step 1: Create EmailJS Account
 
