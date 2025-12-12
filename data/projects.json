@@ -176,6 +176,35 @@
         "Beautiful progress visualization",
         "Daily wellness tips and guidance"
       ]
+    },
+    {
+      "id": "9",
+      "title": "Chez Amis Bar and Grill - Premium Restaurant Website",
+      "description": "Elegant and sophisticated restaurant website featuring online reservations, food ordering, menu display, and an immersive culinary experience showcase.",
+      "longDescription": "Designed and developed a premium restaurant website for Chez Amis Bar and Grill, an upscale dining establishment in Accra, Ghana. The website features a luxurious dark theme with golden accents, creating an intimate and sophisticated atmosphere that reflects the restaurant's culinary excellence. Key features include seamless online table reservations, food ordering for delivery, comprehensive menu display with signature dishes, photo gallery showcasing culinary artistry, private dining information, and guest testimonials. The design emphasizes elegance and premium hospitality, with carefully crafted typography and spacing that creates a memorable first impression.",
+      "category": "web",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
+      "featured": true,
+      "image": "/images/projects/chez-amis-homepage.png",
+      "images": [
+        "/images/projects/chez-amis-homepage.png"
+      ],
+      "caseStudyUrl": "/portfolio/chez-amis",
+      "client": "Chez Amis Bar and Grill",
+      "year": "2024",
+      "timeline": "4 months",
+      "teamSize": "5 members",
+      "industry": "Hospitality & Fine Dining",
+      "link": "https://www.chezamisrestaurant.com",
+      "results": [
+        "Elegant dark theme with premium golden accents",
+        "Seamless online reservation system",
+        "Food ordering and delivery integration",
+        "Comprehensive menu with signature dishes",
+        "Immersive gallery showcasing culinary artistry",
+        "Private dining and event booking",
+        "24/7 operational information display"
+      ]
     }
   ]
 }

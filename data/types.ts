@@ -26,6 +26,7 @@ export interface Project {
   timeline?: string;
   teamSize?: string;
   industry?: string;
+  link?: string;
   results?: string[];
 }
 
