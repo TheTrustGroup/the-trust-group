@@ -131,13 +131,14 @@ export function EnhancedNavigation() {
             : "bg-background/60 backdrop-blur-sm border-b border-transparent"
         )}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="flex h-16 md:h-20 items-center justify-between gap-4">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="flex h-16 md:h-20 items-center justify-between gap-2">
             {/* Logo with hover effect */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="flex-shrink-0 min-w-0 flex-1 sm:flex-initial"
             >
               <Link
                 href="/"
@@ -227,12 +228,12 @@ export function EnhancedNavigation() {
             </div>
 
             {/* Mobile Menu Button & Theme Toggle */}
-            <div className="md:hidden flex items-center space-x-2">
+            <div className="md:hidden flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
               <ThemeToggle />
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-3 min-w-[44px] min-h-[44px] rounded-md bg-muted active:bg-accent focus:outline-none focus:ring-2 focus:ring-primary touch-manipulation relative"
+                className="p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-md bg-muted active:bg-accent focus:outline-none focus:ring-2 focus:ring-primary touch-manipulation relative"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isOpen}

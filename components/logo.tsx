@@ -18,9 +18,9 @@ export function Logo({
   showText = true 
 }: LogoProps) {
   const sizeClasses = {
-    sm: { icon: "h-12 w-12", text: "text-lg md:text-xl" },
-    md: { icon: "h-14 w-14 md:h-16 md:w-16", text: "text-xl md:text-2xl" },
-    lg: { icon: "h-16 w-16 md:h-20 md:w-20", text: "text-2xl md:text-3xl" },
+    sm: { icon: "h-10 w-10 sm:h-12 sm:w-12", text: "text-base sm:text-lg md:text-xl" },
+    md: { icon: "h-10 w-10 xs:h-12 xs:w-12 sm:h-14 sm:w-14 md:h-16 md:w-16", text: "text-base xs:text-lg sm:text-xl md:text-2xl" },
+    lg: { icon: "h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20", text: "text-lg sm:text-2xl md:text-3xl" },
   };
 
   const currentSize = sizeClasses[size];
@@ -42,7 +42,7 @@ export function Logo({
   }
 
   return (
-    <div className={cn("flex items-center gap-2 md:gap-3 lg:gap-4 min-w-0", className)}>
+    <div className={cn("flex items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 min-w-0", className)}>
       <div className={cn("flex items-center justify-center flex-shrink-0", currentSize.icon)}>
         <LogoIcon className="w-full h-full" />
       </div>
