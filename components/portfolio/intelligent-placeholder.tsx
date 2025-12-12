@@ -63,21 +63,55 @@ const categoryConfig = {
   },
 };
 
-const techIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+const techIcons: Record<string, React.ComponentType<any>> = {
+  // Frontend
   React: Code2,
   "React Native": Smartphone,
   "Next.js": Globe,
+  Vue: Code2,
+  Angular: Code2,
   TypeScript: Code2,
+  JavaScript: Code2,
+  HTML: Code2,
+  CSS: Code2,
+  Tailwind: Code2,
+  // Backend
   Python: Code2,
   "Node.js": Code2,
+  Java: Code2,
+  "C#": Code2,
+  Go: Code2,
+  PHP: Code2,
+  Ruby: Code2,
+  // Databases
   PostgreSQL: Database,
   MongoDB: Database,
+  MySQL: Database,
+  Redis: Database,
+  Firebase: Database,
+  // Cloud & DevOps
   AWS: Cloud,
   Azure: Cloud,
+  "Google Cloud": Cloud,
+  GCP: Cloud,
   Docker: Layers,
   Kubernetes: Layers,
+  Terraform: Layers,
+  // AI/ML
   TensorFlow: Brain,
+  PyTorch: Brain,
+  "Machine Learning": Brain,
+  "Deep Learning": Brain,
+  // APIs & Services
   "Google Maps API": Globe,
+  "REST API": Globe,
+  GraphQL: Globe,
+  // Mobile
+  iOS: Smartphone,
+  Android: Smartphone,
+  Flutter: Smartphone,
+  Swift: Smartphone,
+  Kotlin: Smartphone,
 };
 
 export function IntelligentPlaceholder({
@@ -100,7 +134,7 @@ export function IntelligentPlaceholder({
       );
       return iconKey ? { tech, Icon: techIcons[iconKey] } : null;
     })
-    .filter((item): item is { tech: string; Icon: React.ComponentType<{ className?: string }> } =>
+    .filter((item): item is { tech: string; Icon: React.ComponentType<any> } =>
       item !== null
     );
 
@@ -131,7 +165,7 @@ export function IntelligentPlaceholder({
             "shadow-lg"
           )}
         >
-          <Icon className="h-10 w-10 md:h-12 md:w-12 text-white stroke-current" />
+          <Icon className="h-10 w-10 md:h-12 md:w-12 text-white stroke-current dark:stroke-current" strokeWidth={2} />
         </div>
 
         {/* Title */}
@@ -149,7 +183,7 @@ export function IntelligentPlaceholder({
                 className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center border border-border/50 shadow-sm"
                 title={tech}
               >
-                <TechIcon className="h-5 w-5 md:h-6 md:w-6 text-muted-foreground stroke-current" />
+                <TechIcon className="h-5 w-5 md:h-6 md:w-6 text-muted-foreground dark:text-foreground/80 stroke-current dark:stroke-current" strokeWidth={2} />
               </div>
             ))}
             {technologies.length > relevantTechIcons.length && (
