@@ -118,17 +118,17 @@ export function AboutSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
               <div className="p-6 rounded-xl bg-primary/5 border border-primary/20">
                 <div className="flex items-center gap-3 mb-3">
-                  <Target className="h-6 w-6 text-primary" />
+                  <Target className="h-6 w-6 text-primary dark:text-primary stroke-current" strokeWidth={2} />
                   <h4 className="text-xl font-bold text-foreground">Our Mission</h4>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed break-words">
                   To empower businesses through innovative technology solutions that drive 
                   growth, efficiency, and competitive advantage.
                 </p>
               </div>
               <div className="p-6 rounded-xl bg-accent/5 border border-accent/20">
                 <div className="flex items-center gap-3 mb-3">
-                  <Eye className="h-6 w-6 text-accent" />
+                  <Eye className="h-6 w-6 text-accent dark:text-accent stroke-current" strokeWidth={2} />
                   <h4 className="text-xl font-bold text-foreground">Our Vision</h4>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -162,7 +162,7 @@ export function AboutSection() {
 
               {/* Content Overlay */}
               <div className="relative z-10 h-full flex flex-col items-center justify-center p-8 text-center">
-                <Lightbulb className="h-24 w-24 text-primary mb-6 animate-float" />
+                <Lightbulb className="h-24 w-24 text-primary dark:text-primary mb-6 animate-float stroke-current" strokeWidth={2} />
                 <h3 className="text-2xl font-bold text-foreground mb-4">
                   Innovation at Scale
                 </h3>

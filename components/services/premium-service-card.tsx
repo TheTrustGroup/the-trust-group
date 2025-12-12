@@ -209,7 +209,7 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
                       animate={{ rotate: isExpanded ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <ChevronDown className="h-4 w-4" />
+                      <ChevronDown className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                     </motion.div>
                   </button>
 
@@ -239,7 +239,7 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
                             }}
                             className="flex items-start gap-2 text-sm text-muted-foreground"
                           >
-                            <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                            <Check className="h-4 w-4 text-primary dark:text-primary mt-0.5 flex-shrink-0 stroke-current" strokeWidth={2} />
                             <span className="break-words">{feature}</span>
                           </motion.li>
                         ))}
@@ -273,7 +273,7 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
                         animate={isHovered ? { x: [0, 4, 0] } : {}}
                         transition={{ duration: 1.5, repeat: Infinity }}
                       >
-                        <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                        <ArrowRight className="ml-2 h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
                       </motion.div>
                     </span>
                     <motion.div

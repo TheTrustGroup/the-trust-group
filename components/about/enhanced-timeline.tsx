@@ -90,7 +90,7 @@ export function EnhancedTimeline({ events, title = "Our Journey" }: EnhancedTime
                         "backdrop-blur-sm"
                       )}
                     >
-                      <Icon className="h-8 w-8 md:h-10 md:w-10 text-primary" />
+                      <Icon className="h-8 w-8 md:h-10 md:w-10 text-primary dark:text-primary stroke-current" strokeWidth={2} />
                     </motion.div>
                     {/* Pulsing Ring */}
                     <motion.div

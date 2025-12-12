@@ -64,7 +64,7 @@ export function StatisticsSection() {
             <div
               className={`${stat.bgColor} ${stat.color} w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110`}
             >
-              <Icon className="h-8 w-8 md:h-10 md:w-10" />
+              <Icon className="h-8 w-8 md:h-10 md:w-10 stroke-current dark:stroke-current" strokeWidth={2} />
             </div>
             <div className={`text-3xl md:text-4xl lg:text-5xl font-bold ${stat.color} mb-2`}>
               <AnimatedCounter

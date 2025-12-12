@@ -170,7 +170,7 @@ export function Chatbot() {
             <div className="flex items-center justify-between border-b border-border bg-primary/5 px-4 py-3">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Bot className="h-5 w-5" />
+                  <Bot className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Trust Group Assistant</h3>
@@ -182,7 +182,7 @@ export function Chatbot() {
                 className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 aria-label="Close chat"
               >
-                <X className="h-5 w-5" />
+                <X className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
               </button>
             </div>
 
@@ -208,9 +208,9 @@ export function Chatbot() {
                     )}
                   >
                     {message.sender === "user" ? (
-                      <User className="h-4 w-4" />
+                      <User className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                     ) : (
-                      <Bot className="h-4 w-4" />
+                      <Bot className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                     )}
                   </div>
                   <div
@@ -240,7 +240,7 @@ export function Chatbot() {
                   className="flex gap-3"
                 >
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground">
-                    <Bot className="h-4 w-4" />
+                    <Bot className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                   </div>
                   <div className="rounded-2xl bg-muted px-4 py-2">
                     <div className="flex gap-1">
@@ -296,7 +296,7 @@ export function Chatbot() {
                   disabled={!inputValue.trim() || isTyping}
                   className="shrink-0"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                 </Button>
               </div>
               <p className="mt-2 text-xs text-muted-foreground">

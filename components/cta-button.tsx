@@ -28,7 +28,7 @@ export function CTAScrollButton() {
       onClick={handleClick}
     >
       Contact Us Today
-      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current dark:stroke-current" strokeWidth={2} />
     </Button>
   );
 }

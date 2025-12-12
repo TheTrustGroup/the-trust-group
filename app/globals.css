@@ -473,13 +473,64 @@
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
   }
   
-  /* Icons and illustrations in dark mode */
+  /* Icons and illustrations in dark mode - Enhanced visibility */
   .dark svg {
     color: hsl(var(--foreground));
   }
   
   .dark svg[fill] {
     fill: currentColor;
+  }
+  
+  /* Ensure icons with muted colors are still visible in dark mode */
+  .dark svg.text-muted-foreground,
+  .dark svg.text-muted {
+    color: hsl(var(--muted-foreground));
+    opacity: 1;
+  }
+  
+  /* Prevent icon shadowing - ensure stroke is always visible */
+  .dark svg[stroke] {
+    stroke: currentColor;
+  }
+  
+  /* Icons in cards/containers should have sufficient contrast */
+  .dark [class*="card"] svg,
+  .dark [class*="Card"] svg {
+    color: hsl(var(--foreground));
+  }
+  
+  /* Social icons maintain visibility */
+  .dark [class*="social"] svg,
+  .dark [aria-label*="social"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Service icons maintain visibility */
+  .dark [class*="service"] svg,
+  .dark [class*="Service"] svg {
+    color: hsl(var(--primary));
+    opacity: 1;
+  }
+  
+  /* Technology icons maintain visibility */
+  .dark [class*="tech"] svg,
+  .dark [class*="Tech"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Footer icons maintain visibility */
+  .dark footer svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Navigation icons maintain visibility */
+  .dark nav svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
   }
   
   /* Navigation in dark mode */
@@ -492,6 +543,94 @@
   .dark footer {
     background-color: hsl(var(--secondary) / 0.3);
     border-color: hsl(var(--border));
+  }
+  
+  /* Enhanced icon visibility in dark mode - prevent shadowing */
+  .dark svg[class*="lucide"],
+  .dark [class*="icon"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Icons in buttons maintain visibility */
+  .dark button svg,
+  .dark [role="button"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Icons in links maintain visibility */
+  .dark a svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Prevent icon opacity issues in dark mode */
+  .dark svg[class*="opacity"] {
+    opacity: 1 !important;
+  }
+  
+  /* Icons in muted contexts still visible */
+  .dark .text-muted-foreground svg,
+  .dark [class*="muted"] svg {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.9;
+  }
+  
+  /* Icons in cards/containers */
+  .dark [class*="card"] svg,
+  .dark [class*="Card"] svg,
+  .dark [class*="container"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Hero section icons */
+  .dark section[class*="hero"] svg,
+  .dark [id*="hero"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Testimonial icons */
+  .dark [class*="testimonial"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Portfolio icons */
+  .dark [class*="portfolio"] svg,
+  .dark [class*="Portfolio"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Contact icons */
+  .dark [class*="contact"] svg,
+  .dark [class*="Contact"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* About icons */
+  .dark [class*="about"] svg,
+  .dark [class*="About"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Blog icons */
+  .dark [class*="blog"] svg,
+  .dark [class*="Blog"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
+  }
+  
+  /* Careers icons */
+  .dark [class*="career"] svg,
+  .dark [class*="Career"] svg {
+    color: hsl(var(--foreground));
+    opacity: 1;
   }
   
   /* Accessibility: Focus indicators */
@@ -636,6 +775,153 @@
   
   .text-center-responsive {
     @apply text-center md:text-left;
+  }
+  
+  /* Text alignment utilities for consistent alignment across devices */
+  .text-align-center {
+    text-align: center;
+  }
+  
+  .text-align-left {
+    text-align: left;
+  }
+  
+  .text-align-right {
+    text-align: right;
+  }
+  
+  /* Responsive text alignment */
+  @media (max-width: 767px) {
+    .text-align-responsive {
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .text-align-responsive {
+      text-align: left;
+    }
+  }
+  
+  /* Ensure consistent text alignment in containers */
+  .container,
+  [class*="container"] {
+    text-align: inherit;
+  }
+  
+  /* Section text alignment consistency */
+  section {
+    text-align: inherit;
+  }
+  
+  /* Headings alignment consistency - center on mobile, inherit on desktop */
+  h1, h2, h3, h4, h5, h6 {
+    text-align: inherit;
+  }
+  
+  /* Paragraph alignment consistency */
+  p {
+    text-align: inherit;
+  }
+  
+  /* List alignment consistency */
+  ul, ol {
+    text-align: inherit;
+  }
+  
+  /* Ensure flex containers maintain alignment */
+  .flex {
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  
+  /* Grid alignment consistency */
+  .grid {
+    align-items: inherit;
+    justify-items: inherit;
+  }
+  
+  /* Responsive text alignment - ensure center alignment on mobile for hero sections */
+  @media (max-width: 767px) {
+    section[class*="hero"] h1,
+    section[class*="hero"] h2,
+    section[class*="hero"] h3,
+    section[class*="hero"] p,
+    [id*="hero"] h1,
+    [id*="hero"] h2,
+    [id*="hero"] h3,
+    [id*="hero"] p {
+      text-align: center;
+    }
+  }
+  
+  /* Ensure text-center classes work consistently */
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .text-left {
+    text-align: left !important;
+  }
+  
+  .text-right {
+    text-align: right !important;
+  }
+  
+  /* Ensure mx-auto centers content properly */
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Fix alignment for flex items */
+  .items-center {
+    align-items: center;
+  }
+  
+  .items-start {
+    align-items: flex-start;
+  }
+  
+  .items-end {
+    align-items: flex-end;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .justify-start {
+    justify-content: flex-start;
+  }
+  
+  .justify-end {
+    justify-content: flex-end;
+  }
+  
+  /* Ensure text alignment in cards and containers */
+  [class*="card"] h1,
+  [class*="card"] h2,
+  [class*="card"] h3,
+  [class*="card"] h4,
+  [class*="card"] h5,
+  [class*="card"] h6,
+  [class*="card"] p {
+    text-align: inherit;
+  }
+  
+  /* Fix alignment for address elements */
+  address {
+    text-align: inherit;
+  }
+  
+  /* Ensure consistent alignment in forms */
+  form,
+  form label,
+  form input,
+  form textarea,
+  form select {
+    text-align: inherit;
   }
   
   .section-spacing {

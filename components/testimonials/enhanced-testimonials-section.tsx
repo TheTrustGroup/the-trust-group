@@ -142,7 +142,7 @@ export function EnhancedTestimonialsSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6 w-full max-w-4xl mx-auto">
             {/* Search Bar */}
             <div className="relative flex-1 w-full sm:max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground dark:text-foreground/70 stroke-current" strokeWidth={2} />
               <Input
                 type="text"
                 placeholder="Search testimonials..."
@@ -156,7 +156,7 @@ export function EnhancedTestimonialsSection() {
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   aria-label="Clear search"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                 </button>
               )}
             </div>
@@ -170,7 +170,7 @@ export function EnhancedTestimonialsSection() {
                 showFilters && "bg-primary/10 border-primary/30"
               )}
             >
-              <Filter className="h-4 w-4" />
+              <Filter className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
               <span className="hidden sm:inline">Filters</span>
               {hasActiveFilters && (
                 <span className="ml-1 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-bold">
@@ -187,7 +187,7 @@ export function EnhancedTestimonialsSection() {
                 onClick={clearFilters}
                 className="gap-2 text-muted-foreground hover:text-foreground"
               >
-                <X className="h-4 w-4" />
+                <X className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                 <span className="hidden sm:inline">Clear</span>
               </Button>
             )}
@@ -227,7 +227,7 @@ export function EnhancedTestimonialsSection() {
                           >
                             {industry}
                             {selectedIndustry === industry && (
-                              <Check className="inline-block ml-1.5 h-3.5 w-3.5" />
+                              <Check className="inline-block ml-1.5 h-3.5 w-3.5 stroke-current dark:stroke-current" strokeWidth={3} />
                             )}
                           </button>
                         ))}
@@ -256,7 +256,7 @@ export function EnhancedTestimonialsSection() {
                           >
                             {type}
                             {selectedProjectType === type && (
-                              <Check className="inline-block ml-1.5 h-3.5 w-3.5" />
+                              <Check className="inline-block ml-1.5 h-3.5 w-3.5 stroke-current dark:stroke-current" strokeWidth={3} />
                             )}
                           </button>
                         ))}
@@ -285,7 +285,7 @@ export function EnhancedTestimonialsSection() {
                           >
                             {size}
                             {selectedCompanySize === size && (
-                              <Check className="inline-block ml-1.5 h-3.5 w-3.5" />
+                              <Check className="inline-block ml-1.5 h-3.5 w-3.5 stroke-current dark:stroke-current" strokeWidth={3} />
                             )}
                           </button>
                         ))}
@@ -325,7 +325,7 @@ export function EnhancedTestimonialsSection() {
                 )}
                 aria-label={`Switch to ${label} view`}
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
                 <span className="hidden sm:inline">{label}</span>
               </button>
             ))}

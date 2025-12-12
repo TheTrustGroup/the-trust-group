@@ -46,7 +46,7 @@ export function NotificationBadge({
           className="p-1 rounded hover:bg-primary/20 transition-colors"
           aria-label="Dismiss notification"
         >
-          <X className="h-4 w-4" />
+          <X className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
         </button>
       )}
     </motion.div>

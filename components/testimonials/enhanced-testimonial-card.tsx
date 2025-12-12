@@ -72,7 +72,7 @@ export function EnhancedTestimonialCard({
       {/* Verified Badge */}
       {testimonial.verified && (
         <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success/10 border border-success/20">
-          <CheckCircle2 className="h-3.5 w-3.5 text-success" strokeWidth={2} fill="currentColor" />
+          <CheckCircle2 className="h-3.5 w-3.5 text-success dark:text-success stroke-current" strokeWidth={2} fill="currentColor" />
           <span className="text-xs font-semibold text-success">Verified Client</span>
         </div>
       )}
@@ -97,7 +97,7 @@ export function EnhancedTestimonialCard({
                   "flex-shrink-0",
                   star <= testimonial.rating
                     ? "text-warning fill-warning drop-shadow-sm"
-                    : "text-muted fill-muted"
+                    : "text-muted-foreground/50 dark:text-muted-foreground/70 fill-none dark:fill-muted-foreground/20"
                 )}
                 strokeWidth={2}
                 fill={star <= testimonial.rating ? "currentColor" : "none"}

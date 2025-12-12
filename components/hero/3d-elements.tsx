@@ -63,7 +63,7 @@ function FloatingShape({ icon: Icon, position, rotation, delay, size, index, mou
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-2xl backdrop-blur-sm border border-primary/20 shadow-2xl" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <Icon className="h-10 w-10 text-primary" />
+          <Icon className="h-10 w-10 text-primary dark:text-primary stroke-current" strokeWidth={2} />
         </div>
         {/* Glow effect */}
         <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl -z-10" />

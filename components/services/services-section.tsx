@@ -88,7 +88,7 @@ export function ServicesSection() {
                 aria-label="Schedule a consultation"
               >
                 Schedule a Consultation
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
               </a>
             </div>
           </ScrollAnimation>

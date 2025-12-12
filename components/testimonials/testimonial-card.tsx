@@ -46,7 +46,7 @@ export function TestimonialCard({ testimonial, isActive = false }: TestimonialCa
               "h-5 w-5 transition-colors",
               star <= testimonial.rating
                 ? "text-warning fill-warning"
-                : "text-muted fill-muted"
+                : "text-muted-foreground/50 dark:text-muted-foreground/70 fill-none dark:fill-muted-foreground/20"
             )}
           />
         ))}

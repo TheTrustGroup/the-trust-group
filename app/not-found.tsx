@@ -72,7 +72,7 @@ export default function NotFound() {
             }}
             className="mb-8"
           >
-            <Rocket className="h-24 w-24 text-primary mx-auto" />
+            <Rocket className="h-24 w-24 text-primary dark:text-primary mx-auto stroke-current" strokeWidth={2} />
           </motion.div>
 
           <motion.h2
@@ -103,13 +103,13 @@ export default function NotFound() {
           >
             <Button size="lg" asChild>
               <Link href="/">
-                <Home className="h-5 w-5 mr-2" />
+                <Home className="h-5 w-5 mr-2 stroke-current dark:stroke-current" strokeWidth={2} />
                 Go Home
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/services">
-                <Search className="h-5 w-5 mr-2" />
+                <Search className="h-5 w-5 mr-2 stroke-current dark:stroke-current" strokeWidth={2} />
                 Explore Services
               </Link>
             </Button>
@@ -118,7 +118,7 @@ export default function NotFound() {
               variant="ghost"
               onClick={() => window.history.back()}
             >
-              <ArrowLeft className="h-5 w-5 mr-2" />
+              <ArrowLeft className="h-5 w-5 mr-2 stroke-current dark:stroke-current" strokeWidth={2} />
               Go Back
             </Button>
           </motion.div>

@@ -157,7 +157,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                   className="p-2 rounded-lg hover:bg-accent transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label="Close menu"
                 >
-                  <X className="h-6 w-6" />
+                  <X className="h-6 w-6 stroke-current dark:stroke-current" strokeWidth={2} />
                 </motion.button>
               </div>
 

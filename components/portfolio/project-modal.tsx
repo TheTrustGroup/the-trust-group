@@ -75,7 +75,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
           className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
           aria-label="Close modal"
         >
-          <X className="h-5 w-5" />
+          <X className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
         </button>
 
         {/* Image */}
@@ -170,7 +170,7 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               <ul className="space-y-2">
                 {project.results.map((result, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-success mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-success dark:text-success mt-0.5 flex-shrink-0 stroke-current" strokeWidth={2} fill="currentColor" />
                     <span className="text-muted-foreground">{result}</span>
                   </li>
                 ))}

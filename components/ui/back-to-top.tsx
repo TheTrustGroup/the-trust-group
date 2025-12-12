@@ -52,7 +52,7 @@ export function BackToTop() {
             onClick={scrollToTop}
             aria-label="Back to top"
           >
-            <ArrowUp className="h-5 w-5 group-hover:-translate-y-1 transition-transform duration-200" />
+            <ArrowUp className="h-5 w-5 group-hover:-translate-y-1 transition-transform duration-200 stroke-current dark:stroke-current" strokeWidth={2} />
           </Button>
         </motion.div>
       )}

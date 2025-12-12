@@ -185,7 +185,7 @@ export function HeroSection() {
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="flex-shrink-0"
             >
-              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
+              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary dark:text-primary stroke-current" strokeWidth={2} />
             </motion.div>
             <span className="text-[10px] xs:text-xs sm:text-sm font-medium text-primary break-words" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>AI & Software Engineering Powerhouse</span>
           </motion.div>
@@ -335,7 +335,7 @@ export function HeroSection() {
                 />
                 <span className="relative z-10 flex items-center">
                   Get Started
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-active:translate-x-2 transition-transform duration-200" aria-hidden="true" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-active:translate-x-2 transition-transform duration-200 stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
                 </span>
               </Button>
             </motion.div>
@@ -383,7 +383,7 @@ export function HeroSection() {
                 />
                 <span className="relative z-10 flex items-center">
                   View Our Work
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-active:translate-x-2 transition-transform duration-200" aria-hidden="true" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 group-active:translate-x-2 transition-transform duration-200 stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
                 </span>
               </Button>
             </motion.div>

@@ -99,7 +99,7 @@ const EnhancedServiceCard = React.forwardRef<HTMLDivElement, EnhancedServiceCard
                         opacity: isHovered ? 1 : 0,
                       }}
                     >
-                      <Check className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      <Check className="h-4 w-4 text-primary dark:text-primary mt-0.5 flex-shrink-0 stroke-current" strokeWidth={2} />
                       <span className="break-words">{feature}</span>
                     </li>
                   ))}
@@ -124,7 +124,7 @@ const EnhancedServiceCard = React.forwardRef<HTMLDivElement, EnhancedServiceCard
             >
               <a href={learnMoreHref} aria-label={`Learn more about ${title}`}>
                 Learn More About {title}
-                <ArrowRight className="ml-2 h-4 w-4 group-active/btn:translate-x-1 transition-transform" aria-hidden="true" />
+                <ArrowRight className="ml-2 h-4 w-4 group-active/btn:translate-x-1 transition-transform stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
               </a>
             </Button>
           </div>

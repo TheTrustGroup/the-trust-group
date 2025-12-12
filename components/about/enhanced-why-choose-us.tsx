@@ -127,7 +127,7 @@ export function EnhancedWhyChooseUs() {
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Icon className="h-8 w-8" />
+                  <Icon className="h-8 w-8 stroke-current dark:stroke-current" strokeWidth={2} />
                 </motion.div>
                 <h3 className="text-xl md:text-2xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {advantage.title}

@@ -243,7 +243,7 @@ export function PortfolioSection() {
               >
                 <a href="/#portfolio" aria-label="View all projects in portfolio">
                   See More Projects
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
                 </a>
               </Button>
             </div>

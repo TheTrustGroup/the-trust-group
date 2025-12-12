@@ -9,12 +9,13 @@ import { siteConfig } from "@/lib/cms-client";
 
 interface SocialIconProps {
   href: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<any>;
   label: string;
   brandColor?: string;
 }
 
 function SocialIcon({ href, icon: Icon, label, brandColor }: SocialIconProps) {
+  const IconComponent = Icon as React.ComponentType<any>;
   return (
     <motion.div
       whileHover={{ scale: 1.1, y: -2 }}
@@ -36,11 +37,11 @@ function SocialIcon({ href, icon: Icon, label, brandColor }: SocialIconProps) {
         <div
           className={cn(
             "transition-colors duration-300",
-            brandColor ? "" : "text-muted-foreground group-hover:text-primary"
+            brandColor ? "" : "text-muted-foreground dark:text-foreground/80 group-hover:text-primary dark:group-hover:text-primary"
           )}
           style={brandColor ? { color: brandColor } : undefined}
         >
-          <Icon className="h-5 w-5" />
+          <Icon className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
         </div>
         {/* Hover glow effect */}
         <motion.div
@@ -56,7 +57,7 @@ function SocialIcon({ href, icon: Icon, label, brandColor }: SocialIconProps) {
 export function SocialIcons() {
   const socialLinks = siteConfig.socialLinks;
 
-  const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  const iconMap: Record<string, React.ComponentType<any>> = {
     Linkedin,
     Twitter,
     Github,
