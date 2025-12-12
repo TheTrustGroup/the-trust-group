@@ -17,6 +17,7 @@ import {
   errorMessages, 
   getRandomSuccessMessage 
 } from "@/components/ui/personality-placeholders";
+import emailjs from "@emailjs/browser";
 
 interface FormData {
   name: string;
@@ -139,14 +140,35 @@ export function PremiumContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // EmailJS integration
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      // In production, use EmailJS or your API
-      /*
-      import emailjs from '@emailjs/browser';
-      await emailjs.send(...);
-      */
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
+      }
+
+      // Prepare file attachments info (EmailJS doesn't support file attachments directly)
+      const filesInfo = formData.files.length > 0 
+        ? formData.files.map(f => `${f.name} (${(f.size / 1024).toFixed(2)} KB)`).join(", ")
+        : "No files attached";
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || "Not provided",
+        phone: formData.phone || "Not provided",
+        service: formData.service,
+        message: formData.description,
+        budget: formData.budget || "Not specified",
+        files_info: filesInfo,
+        files_count: formData.files.length.toString(),
+        to_email: "info@thetrustgroupsolutions.com",
+        reply_to: formData.email,
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
       setSubmitStatus("success");
       showToast({

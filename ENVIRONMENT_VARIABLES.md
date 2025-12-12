@@ -17,9 +17,29 @@ NEXT_PUBLIC_COMPANY_WEBSITE=https://thetrustgroup.com
 ### Contact Information
 
 ```bash
-NEXT_PUBLIC_CONTACT_EMAIL=info@thetrustgroup.com
-NEXT_PUBLIC_CONTACT_PHONE=+1 (555) 123-4567
+NEXT_PUBLIC_CONTACT_EMAIL=info@thetrustgroupsolutions.com
+NEXT_PUBLIC_CONTACT_PHONE=+233 (057) 589-5601
 ```
+
+### EmailJS Configuration (Required for Contact Forms)
+
+The contact forms use EmailJS to send messages to your email. Get these values from [EmailJS.com](https://www.emailjs.com/):
+
+```bash
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id_here
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id_here
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key_here
+```
+
+**Setup Instructions:**
+1. Sign up at [EmailJS.com](https://www.emailjs.com/) (free tier: 200 emails/month)
+2. Create an email service (connect Gmail/Outlook)
+3. Create an email template (see `EMAILJS_SETUP.md` for template structure)
+4. Set receiving email to: `info@thetrustgroupsolutions.com`
+5. Copy your Service ID, Template ID, and Public Key
+6. Add them to `.env.local` file
+
+**For detailed setup, see:** `EMAILJS_SETUP.md`
 
 ### Office Address
 

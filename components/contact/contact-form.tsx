@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useToast } from "@/components/ui/toast";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const services = [
   "AI Solutions & Implementation",
@@ -99,32 +100,26 @@ export function ContactForm() {
 
     try {
       // EmailJS integration
-      // You'll need to install: npm install @emailjs/browser
-      // And configure your EmailJS service
-      
-      // For now, simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      // In production, use EmailJS like this:
-      /*
-      import emailjs from '@emailjs/browser';
-      
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
+      }
+
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
-        company: formData.company,
+        company: formData.company || "Not provided",
         service: formData.service,
         message: formData.description,
-        budget: formData.budget,
+        budget: formData.budget || "Not specified",
+        to_email: "info@thetrustgroupsolutions.com",
+        reply_to: formData.email,
       };
 
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        templateParams,
-        'YOUR_PUBLIC_KEY'
-      );
-      */
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
       setSubmitStatus("success");
       setSubmitMessage("Thank you! We'll get back to you within 24 hours.");
