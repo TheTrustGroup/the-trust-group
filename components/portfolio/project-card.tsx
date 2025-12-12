@@ -5,6 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { IntelligentPlaceholder } from "./intelligent-placeholder";
 
 export interface Project {
   id: string;
@@ -82,11 +83,12 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center" aria-hidden="true">
-            <div className="text-6xl font-bold text-primary/20">
-              {project.title.charAt(0)}
-            </div>
-          </div>
+          <IntelligentPlaceholder
+            title={project.title}
+            category={project.category}
+            technologies={project.technologies}
+            className="w-full h-full"
+          />
         )}
         
         {/* Overlay on Hover */}

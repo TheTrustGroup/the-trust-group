@@ -6,6 +6,7 @@ import { X, ExternalLink, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Project } from "./project-card";
+import { IntelligentPlaceholder } from "./intelligent-placeholder";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -90,11 +91,12 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               loading="lazy"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center" aria-hidden="true">
-              <div className="text-8xl font-bold text-primary/20">
-                {project.title.charAt(0)}
-              </div>
-            </div>
+            <IntelligentPlaceholder
+              title={project.title}
+              category={project.category}
+              technologies={project.technologies}
+              className="w-full h-full"
+            />
           )}
         </div>
 

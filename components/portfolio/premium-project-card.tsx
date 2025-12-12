@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ExternalLink, ArrowRight, Calendar, Users, TrendingUp, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DeviceMockup, getPlaceholderImage } from "./device-mockups";
+import { DeviceMockup } from "./device-mockups";
 import type { Project } from "./project-card";
 
 interface PremiumProjectCardProps {
@@ -61,7 +61,7 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
 
   const colors = categoryColors[project.category] || categoryColors.all;
   const deviceType = project.category === "mobile" ? "phone" : "laptop";
-  const imageUrl = project.image || getPlaceholderImage(project.title, project.category);
+  const imageUrl = project.image;
 
   return (
     <motion.article
@@ -112,7 +112,14 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="h-full"
         >
-          <DeviceMockup type={deviceType} imageUrl={imageUrl} className="h-full" />
+          <DeviceMockup 
+            type={deviceType} 
+            imageUrl={imageUrl} 
+            className="h-full"
+            placeholderTitle={!imageUrl ? project.title : undefined}
+            placeholderCategory={!imageUrl ? project.category : undefined}
+            placeholderTechnologies={!imageUrl ? project.technologies : undefined}
+          />
         </motion.div>
 
         {/* Category Badge */}
