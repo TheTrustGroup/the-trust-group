@@ -125,31 +125,33 @@ export function EnhancedNavigation() {
           WebkitBackfaceVisibility: "hidden",
         }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 w-full transition-colors duration-300",
+          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          "supports-[backdrop-filter]:bg-background/80 supports-[backdrop-filter]:backdrop-blur-md",
           isScrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-            : "bg-background/60 backdrop-blur-sm border-b border-transparent"
+            ? "bg-background/95 backdrop-blur-lg border-b border-border/60 shadow-lg shadow-black/5"
+            : "bg-background/80 backdrop-blur-sm border-b border-transparent"
         )}
       >
-        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="flex h-16 md:h-20 items-center justify-between gap-2">
-            {/* Logo with hover effect */}
+        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 max-w-7xl">
+          <div className="flex h-16 md:h-20 items-center justify-between relative">
+            {/* Logo Section - Left Aligned with proper spacing */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex-shrink-0 min-w-0 flex-1 sm:flex-initial"
+              className="flex-shrink-0 z-10"
             >
               <Link
                 href="/"
-                className="flex items-center flex-shrink-0 min-w-0"
+                className="flex items-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-lg"
+                aria-label="The Trust Group - Home"
               >
-                <Logo variant="full" size="md" className="flex-shrink-0" />
+                <Logo variant="full" size="md" className="flex-shrink-0 transition-opacity group-hover:opacity-90" />
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1 lg:space-x-2 flex-shrink-0">
+            {/* Desktop Navigation - Center/Right Aligned */}
+            <div className="hidden md:flex items-center gap-1 lg:gap-2 flex-shrink-0 ml-auto">
               {navItems.map((item) => {
                 const isActive =
                   pathname === item.href ||
@@ -182,8 +184,9 @@ export function EnhancedNavigation() {
                       }}
                       className={cn(
                         "text-sm font-medium transition-all duration-200 relative group px-3 py-2 rounded-md",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                         isActive
-                          ? "text-foreground bg-accent/50"
+                          ? "text-foreground bg-accent/50 shadow-sm"
                           : "text-foreground/80 hover:text-foreground hover:bg-accent/30"
                       )}
                     >
@@ -204,15 +207,15 @@ export function EnhancedNavigation() {
                 );
               })}
 
-              <div className="ml-2 flex items-center gap-2">
+              <div className="ml-4 lg:ml-6 flex items-center gap-2 lg:gap-3">
                 <ThemeToggle />
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
                   <Button
                     size="sm"
-                    className="relative overflow-hidden group"
+                    className="relative overflow-hidden group font-semibold shadow-sm hover:shadow-md transition-shadow"
                     onClick={() => handleNavClick("/contact")}
                   >
                     <span className="relative z-10">Get Started</span>
@@ -227,13 +230,13 @@ export function EnhancedNavigation() {
               </div>
             </div>
 
-            {/* Mobile Menu Button & Theme Toggle */}
-            <div className="md:hidden flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
-              <ThemeToggle />
+            {/* Mobile Menu Button & Theme Toggle - Right Aligned with perfect spacing */}
+            <div className="md:hidden flex items-center gap-2.5 sm:gap-3 flex-shrink-0 z-10">
+              <ThemeToggle className="scale-95 sm:scale-100" />
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-md bg-muted active:bg-accent focus:outline-none focus:ring-2 focus:ring-primary touch-manipulation relative"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isOpen}

@@ -803,6 +803,11 @@
     }
   }
   
+  /* Navigation header optimization */
+  nav[class*="fixed"] {
+    isolation: isolate;
+  }
+  
   /* Ensure consistent text alignment in containers */
   .container,
   [class*="container"] {
