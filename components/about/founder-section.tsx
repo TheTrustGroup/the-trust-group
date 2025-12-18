@@ -149,10 +149,14 @@ export function FounderSection({ className }: FounderSectionProps) {
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   
-                  {/* Status Badge */}
-                  <div className="absolute bottom-4 right-1/2 translate-x-1/2 flex items-center gap-2 px-4 py-2 rounded-full bg-background border-2 border-primary/30 shadow-lg">
-                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-xs font-semibold text-foreground">Available</span>
+                  {/* Minimal Status Indicator */}
+                  <div className="absolute bottom-2 right-1/2 translate-x-1/2 flex items-center justify-center">
+                    <div className="relative">
+                      {/* Outer glow ring */}
+                      <div className="absolute inset-0 w-4 h-4 rounded-full bg-green-500/30 animate-ping" />
+                      {/* Status dot */}
+                      <div className="relative w-2.5 h-2.5 rounded-full bg-green-500 shadow-sm" />
+                    </div>
                   </div>
                 </div>
 
