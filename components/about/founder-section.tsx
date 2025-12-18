@@ -12,7 +12,9 @@ import {
   TrendingUp,
   Globe,
   Rocket,
-  CheckCircle2
+  CheckCircle2,
+  Server,
+  Database
 } from "lucide-react";
 
 interface FounderSectionProps {
@@ -45,19 +47,27 @@ const expertise = [
     title: "Senior Frontend Engineer",
     description: "Building world-class applications with cutting-edge technologies and best practices",
   },
+  {
+    icon: Server,
+    title: "Backend Engineering Expert",
+    description: "Architecting robust, scalable server-side solutions and APIs that power enterprise applications",
+  },
 ];
 
 const achievements = [
   "Led design and development of 500+ successful digital projects",
   "Transformed user experiences for Fortune 500 companies",
   "Pioneered innovative UX patterns adopted industry-wide",
-  "Built scalable frontend architectures serving millions of users",
+  "Built scalable frontend and backend architectures serving millions of users",
+  "Architected high-performance APIs and microservices for enterprise applications",
   "Mentored and led high-performing design and engineering teams",
 ];
 
 const technologies = [
   "React", "Next.js", "TypeScript", "Tailwind CSS", 
-  "Framer Motion", "Three.js", "WebGL", "Design Systems"
+  "Framer Motion", "Three.js", "WebGL", "Design Systems",
+  "Node.js", "PostgreSQL", "MongoDB", "Redis", 
+  "AWS", "Docker", "Kubernetes", "GraphQL", "REST APIs"
 ];
 
 export function FounderSection({ className }: FounderSectionProps) {
@@ -106,7 +116,7 @@ export function FounderSection({ className }: FounderSectionProps) {
           </h2>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A world-class digital creative director, UX strategist, and senior frontend engineer 
+            A world-class digital creative director, UX strategist, senior frontend engineer, and backend engineering expert 
             who transforms ideas into extraordinary digital experiences that drive business success.
           </p>
         </motion.div>
@@ -183,8 +193,8 @@ export function FounderSection({ className }: FounderSectionProps) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-2 order-1 lg:order-2 space-y-8"
           >
-            {/* Three Core Expertise Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Four Core Expertise Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {expertise.map((item, index) => {
                 const Icon = item.icon;
                 return (
