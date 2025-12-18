@@ -132,14 +132,14 @@ export function EnhancedNavigation() {
             : "bg-background/80 backdrop-blur-sm border-b border-transparent"
         )}
       >
-        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 max-w-7xl">
-          <div className="flex h-16 md:h-20 items-center justify-between relative">
-            {/* Logo Section - Left Aligned with proper spacing */}
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="flex h-16 md:h-20 items-center justify-between gap-3 sm:gap-4 relative">
+            {/* Logo Section - Left Aligned */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex-shrink-0 z-10"
+              className="flex-shrink-0 z-10 min-w-0"
             >
               <Link
                 href="/"
@@ -151,7 +151,7 @@ export function EnhancedNavigation() {
             </motion.div>
 
             {/* Desktop Navigation - Center/Right Aligned */}
-            <div className="hidden md:flex items-center gap-1 lg:gap-2 flex-shrink-0 ml-auto">
+            <div className="hidden md:flex items-center gap-1 lg:gap-2 flex-shrink-0 ml-auto flex-1 justify-end max-w-3xl">
               {navItems.map((item) => {
                 const isActive =
                   pathname === item.href ||
@@ -207,7 +207,7 @@ export function EnhancedNavigation() {
                 );
               })}
 
-              <div className="ml-4 lg:ml-6 flex items-center gap-2 lg:gap-3">
+              <div className="ml-4 lg:ml-6 flex items-center gap-2 lg:gap-3 flex-shrink-0">
                 <ThemeToggle />
                 <motion.div
                   whileHover={{ scale: 1.02 }}
@@ -215,7 +215,7 @@ export function EnhancedNavigation() {
                 >
                   <Button
                     size="sm"
-                    className="relative overflow-hidden group font-semibold shadow-sm hover:shadow-md transition-shadow"
+                    className="relative overflow-hidden group font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
                     onClick={() => handleNavClick("/contact")}
                   >
                     <span className="relative z-10">Get Started</span>
@@ -230,13 +230,13 @@ export function EnhancedNavigation() {
               </div>
             </div>
 
-            {/* Mobile Menu Button & Theme Toggle - Right Aligned with perfect spacing */}
-            <div className="md:hidden flex items-center gap-2.5 sm:gap-3 flex-shrink-0 z-10">
+            {/* Mobile Menu Button & Theme Toggle - Right Aligned */}
+            <div className="md:hidden flex items-center gap-2 sm:gap-2.5 flex-shrink-0 z-10 ml-auto">
               <ThemeToggle className="scale-95 sm:scale-100" />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm"
+                className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm flex items-center justify-center"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isOpen}
