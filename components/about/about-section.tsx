@@ -5,7 +5,7 @@ import { StatisticsSection } from "./statistics-section";
 import { ValuesGrid } from "./values-grid";
 import { EcosystemSection } from "./ecosystem-section";
 import { EnhancedTimeline } from "./enhanced-timeline";
-import { EnhancedTeamSection } from "./enhanced-team-section";
+import { FounderSection } from "./founder-section";
 import { EnhancedWhyChooseUs } from "./enhanced-why-choose-us";
 import { ScrollAnimation } from "@/components/animations";
 import { 
@@ -51,28 +51,6 @@ const timelineEvents = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Emmanuel A.",
-    role: "Founder & CEO",
-    expertise: ["Strategy", "Leadership", "Business Development"],
-  },
-  {
-    name: "Jane Smith",
-    role: "CTO",
-    expertise: ["Architecture", "Cloud", "DevOps"],
-  },
-  {
-    name: "Mike Johnson",
-    role: "Lead AI Engineer",
-    expertise: ["Machine Learning", "TensorFlow", "Python"],
-  },
-  {
-    name: "Sarah Williams",
-    role: "Senior Developer",
-    expertise: ["React", "Next.js", "TypeScript"],
-  },
-];
 
 export function AboutSection() {
   return (
@@ -212,8 +190,8 @@ export function AboutSection() {
       {/* Why Choose Us Section */}
       <EnhancedWhyChooseUs />
 
-      {/* Team Section */}
-      <EnhancedTeamSection members={teamMembers} title="Meet Our Team" />
+      {/* Founder Section */}
+      <FounderSection />
 
       {/* Ecosystem Section */}
       <AnimatedSection 
