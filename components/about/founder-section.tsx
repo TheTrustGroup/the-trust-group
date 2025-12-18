@@ -21,15 +21,8 @@ interface FounderSectionProps {
   className?: string;
 }
 
-// Generate avatar URL from UI Avatars
-function getAvatarUrl(name: string): string {
-  const initials = name
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .toUpperCase();
-  return `https://ui-avatars.com/api/?name=${encodeURIComponent(initials)}&size=400&background=0066FF&color=ffffff&bold=true`;
-}
+// Professional office/portrait placeholder image
+const FOUNDER_IMAGE_URL = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces&auto=format&q=80";
 
 const expertise = [
   {
@@ -142,10 +135,15 @@ export function FounderSection({ className }: FounderSectionProps) {
                   <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/30 group-hover:border-primary/60 transition-colors duration-300 shadow-2xl">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={getAvatarUrl(founderName)}
-                      alt={founderName}
+                      src={FOUNDER_IMAGE_URL}
+                      alt={`${founderName} - Founder & CEO`}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      onError={(e) => {
+                        // Fallback to a professional placeholder if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces&auto=format&q=80";
+                      }}
                     />
                     {/* Animated Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
