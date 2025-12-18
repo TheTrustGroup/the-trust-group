@@ -21,8 +21,8 @@ interface FounderSectionProps {
   className?: string;
 }
 
-// Professional office/portrait placeholder image
-const FOUNDER_IMAGE_URL = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=faces&auto=format&q=80";
+// Professional office space image
+const FOUNDER_IMAGE_URL = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop&auto=format&q=80";
 
 const expertise = [
   {
@@ -130,19 +130,19 @@ export function FounderSection({ className }: FounderSectionProps) {
                 {/* Glow Effect */}
                 <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
                 
-                {/* Avatar */}
+                {/* Office Space Image */}
                 <div className="relative mb-6">
                   <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/30 group-hover:border-primary/60 transition-colors duration-300 shadow-2xl">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={FOUNDER_IMAGE_URL}
-                      alt={`${founderName} - Founder & CEO`}
+                      alt="Professional office space - The Trust Group"
                       className="w-full h-full object-cover"
                       loading="lazy"
                       onError={(e) => {
-                        // Fallback to a professional placeholder if image fails to load
+                        // Fallback to another office space image if primary fails to load
                         const target = e.target as HTMLImageElement;
-                        target.src = "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=faces&auto=format&q=80";
+                        target.src = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop&auto=format&q=80";
                       }}
                     />
                     {/* Animated Overlay */}
