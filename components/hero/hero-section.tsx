@@ -152,7 +152,7 @@ export function HeroSection() {
 
       {/* Content with 3D Effects */}
       <motion.div
-        className="relative z-20 w-full mx-auto px-3 xs:px-4 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20 pb-32 sm:pb-36 md:pb-40"
+        className="relative z-20 w-full mx-auto px-4 xs:px-5 sm:px-6 lg:px-8 max-w-7xl py-12 sm:py-16 md:py-20 pb-32 sm:pb-36 md:pb-40"
         style={{
           translateZ: 200,
           rotateX: contentRotateX,
@@ -160,7 +160,7 @@ export function HeroSection() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="max-w-5xl mx-auto text-center w-full px-2 xs:px-3 sm:px-4">
+        <div className="max-w-5xl mx-auto text-center w-full px-2 xs:px-3 sm:px-4 md:px-6">
           {/* Badge with 3D effect */}
           <motion.div
             initial={{ opacity: 0, y: 20, rotateX: -90 }}
@@ -399,7 +399,7 @@ export function HeroSection() {
               rotateX: 0,
             }}
             transition={{ duration: 0.8, delay: 0.6, type: "spring", stiffness: 80 }}
-            className="mt-12 sm:mt-16 mb-8 sm:mb-12 grid grid-cols-2 md:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 md:gap-8 w-full px-1"
+            className="mt-12 sm:mt-16 mb-8 sm:mb-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 w-full max-w-full px-2 sm:px-4 md:px-6 justify-items-center"
             style={{ transformStyle: "preserve-3d" }}
           >
             {[
@@ -429,14 +429,15 @@ export function HeroSection() {
                   z: 30,
                   transition: { duration: 0.2 },
                 }}
-                className="text-center p-3 xs:p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-primary/20 w-full min-w-0"
+                className="text-center p-3 sm:p-4 md:p-5 rounded-xl bg-background/50 backdrop-blur-sm border border-primary/20 w-full max-w-full flex flex-col items-center justify-center"
                 style={{
                   transformStyle: "preserve-3d",
                   boxShadow: "0 10px 30px rgba(0, 102, 255, 0.1)",
+                  minWidth: 0,
                 }}
               >
                 <motion.div
-                  className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2 break-words"
+                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-1 sm:mb-2 break-words text-center"
                   animate={{
                     textShadow: [
                       "0 0 10px rgba(0, 102, 255, 0.5)",
@@ -453,7 +454,7 @@ export function HeroSection() {
                 >
                   {stat.value}
                 </motion.div>
-                <div className="text-[10px] xs:text-xs sm:text-sm md:text-base text-muted-foreground leading-snug break-words px-1" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>{stat.label}</div>
+                <div className="text-[10px] xs:text-xs sm:text-sm md:text-base text-muted-foreground leading-snug break-words text-center px-1" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

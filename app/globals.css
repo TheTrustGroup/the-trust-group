@@ -571,6 +571,28 @@
   section {
     contain: layout style paint;
   }
+
+  /* Fix grid alignment on mobile devices */
+  .grid {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Ensure grid items are properly aligned */
+  .grid > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Fix stat cards alignment on mobile */
+  @media (max-width: 767px) {
+    .grid.grid-cols-2 > * {
+      width: 100%;
+      max-width: 100%;
+      justify-self: center;
+    }
+  }
   
   /* Optimize animations - only use transform and opacity */
   [class*="animate-"],
