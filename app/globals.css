@@ -234,8 +234,10 @@
   /* Optimized sticky navigation - Prevent repaints and layout thrashing */
   .navbar-optimized,
   nav[class*="fixed"] {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: var(--z-sticky);
     
     /* Force GPU layer */
@@ -250,6 +252,28 @@
     /* Smooth font rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Add spacer to prevent content from going under fixed nav */
+  body:has(nav[class*="fixed"]) main {
+    padding-top: 0;
+  }
+
+  /* Ensure hero section starts right after fixed navigation */
+  section[class*="hero"] {
+    margin-top: 0;
+    padding-top: 5rem; /* h-20 = 5rem = 80px - matches fixed nav height */
+  }
+
+  @media (min-width: 640px) {
+    section[class*="hero"] {
+      padding-top: 5rem;
+    }
+  }
+
+  /* Remove any default spacing that creates gaps */
+  main > section:first-child {
+    margin-top: 0;
   }
   
   /* Scrolled state - Visual changes only, no layout reflow */

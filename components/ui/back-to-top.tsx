@@ -65,11 +65,11 @@ export function BackToTop() {
           <Button
             type="button"
             size="icon"
-            className="rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 bg-primary text-primary-foreground group touch-manipulation cursor-pointer"
+            className="rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 bg-primary text-white group touch-manipulation cursor-pointer"
             onClick={scrollToTop}
             aria-label="Back to top"
           >
-            <ArrowUp className="h-5 w-5 group-hover:-translate-y-1 transition-transform duration-200 stroke-current dark:stroke-current" strokeWidth={2} />
+            <ArrowUp className="h-5 w-5 text-white group-hover:-translate-y-1 transition-transform duration-200 stroke-current" strokeWidth={2.5} fill="none" />
           </Button>
         </motion.div>
       )}

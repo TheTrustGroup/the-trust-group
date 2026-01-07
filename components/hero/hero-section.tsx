@@ -2,8 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { EnhancedBackground } from "./enhanced-background";
-import { NeuralNetwork } from "./neural-network";
 import { TypingAnimation } from "./typing-animation";
 import { ScrollIndicator } from "./scroll-indicator";
 import { ScrollAnimation, ParallaxSection, ParallaxBackground } from "@/components/animations";
@@ -11,8 +9,15 @@ import { ScrollAnimation, ParallaxSection, ParallaxBackground } from "@/componen
 import { motion } from "framer-motion";
 import { useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
-import { Floating3DShapes, Floating3DCube, Parallax3DLayers } from "./3d-elements";
 import { useEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy animation components for better performance
+const EnhancedBackground = dynamic(() => import("./enhanced-background").then(mod => ({ default: mod.EnhancedBackground })), { ssr: false });
+const NeuralNetwork = dynamic(() => import("./neural-network").then(mod => ({ default: mod.NeuralNetwork })), { ssr: false });
+const Floating3DShapes = dynamic(() => import("./3d-elements").then(mod => ({ default: mod.Floating3DShapes })), { ssr: false });
+const Floating3DCube = dynamic(() => import("./3d-elements").then(mod => ({ default: mod.Floating3DCube })), { ssr: false });
+const Parallax3DLayers = dynamic(() => import("./3d-elements").then(mod => ({ default: mod.Parallax3DLayers })), { ssr: false });
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,28 +70,28 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 pb-24 sm:pb-28 md:pb-32"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 pt-20 pb-24 sm:pb-28 md:pb-32"
       style={{ perspective: "1000px", maxWidth: "100vw", overflowX: "hidden" }}
     >
-      {/* Enhanced Animated Background - Parallax Layer */}
+      {/* Enhanced Animated Background - Parallax Layer - Lazy Loaded */}
       <motion.div style={{ y: backgroundY, willChange: "transform" }}>
         <EnhancedBackground />
       </motion.div>
       
-      {/* Neural Network Visualization - Parallax Layer */}
+      {/* Neural Network Visualization - Parallax Layer - Lazy Loaded */}
       <motion.div style={{ y: midgroundY, willChange: "transform" }}>
         <NeuralNetwork />
       </motion.div>
       
-      {/* 3D Parallax Layers */}
+      {/* 3D Parallax Layers - Lazy Loaded */}
       <Parallax3DLayers />
       
-      {/* 3D Floating Shapes - Parallax Layer */}
+      {/* 3D Floating Shapes - Parallax Layer - Lazy Loaded */}
       <motion.div style={{ y: foregroundY, willChange: "transform" }}>
         <Floating3DShapes />
       </motion.div>
       
-      {/* 3D Cube */}
+      {/* 3D Cube - Lazy Loaded */}
       <Floating3DCube />
       
       {/* Gradient Overlay */}

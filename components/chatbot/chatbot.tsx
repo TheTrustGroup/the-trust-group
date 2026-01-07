@@ -134,7 +134,7 @@ export function Chatbot() {
           setIsOpen(!isOpen);
         }}
         className={cn(
-          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl touch-manipulation cursor-pointer",
+          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl touch-manipulation cursor-pointer",
           isOpen && "hidden"
         )}
         style={{ 
@@ -154,7 +154,7 @@ export function Chatbot() {
               exit={{ scale: 0, rotate: 180 }}
               transition={{ duration: 0.2 }}
             >
-              <MessageCircle className="h-6 w-6" aria-hidden="true" />
+              <MessageCircle className="h-6 w-6 text-white stroke-white fill-white" strokeWidth={2} aria-hidden="true" />
             </motion.div>
           ) : null}
         </AnimatePresence>
