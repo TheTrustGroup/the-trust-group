@@ -633,6 +633,36 @@
     pointer-events: auto !important;
     cursor: pointer !important;
     touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Specific fixes for chatbot and scroll-up buttons */
+  button[aria-label*="chat"] svg,
+  button[aria-label*="Back to top"] svg,
+  button[aria-label*="top"] svg {
+    pointer-events: none;
+    display: block;
+    stroke: white !important;
+    color: white !important;
+    opacity: 1 !important;
+  }
+
+  /* Ensure buttons are above all other content */
+  button[aria-label*="chat"],
+  button[aria-label*="Back to top"] {
+    z-index: 1200 !important;
+    position: fixed !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+  
+  /* Force icon visibility */
+  button[aria-label*="chat"] svg,
+  button[aria-label*="Back to top"] svg {
+    stroke: white !important;
+    fill: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   /* Optimize animations - only use transform and opacity */

@@ -49,3 +49,4 @@
 [data-parallax]:not([data-parallax-active]) {
   will-change: auto;
 }
+

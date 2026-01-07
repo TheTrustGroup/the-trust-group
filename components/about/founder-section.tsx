@@ -141,8 +141,6 @@ export function FounderSection({ className }: FounderSectionProps) {
                       sizes="192px"
                       className="object-cover"
                       loading="lazy"
-                      width={400}
-                      height={400}
                       onError={(e) => {
                         // Fallback to placeholder on error
                         const target = e.target as HTMLImageElement;

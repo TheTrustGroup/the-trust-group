@@ -130,3 +130,4 @@ export function useMultipleIntersectionObserver<T extends HTMLElement = HTMLDivE
 
   return { observe, unobserve, isVisible };
 }
+

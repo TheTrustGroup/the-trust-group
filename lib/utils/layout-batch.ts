@@ -98,3 +98,4 @@ export function batchUpdateStyles<T extends HTMLElement>(
  *   el.style.marginTop = `${heights[i]}px`;
  * });
  */
+

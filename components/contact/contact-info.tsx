@@ -1,8 +1,6 @@
 "use client";
 
 import { MapPin, Mail, Phone, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
 // Lazy load map - heavy component
@@ -18,16 +16,6 @@ const contactInfo = siteConfig.contact;
 export function ContactInfo() {
   return (
     <div className="space-y-8">
-      {/* CTA */}
-      <div className="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border-2 border-primary/20">
-        <h3 className="text-2xl font-bold mb-2 text-foreground">
-          Let&apos;s Build Something Amazing Together
-        </h3>
-        <p className="text-muted-foreground">
-          Ready to transform your business? Get in touch and let&apos;s discuss how we can help.
-        </p>
-      </div>
-
       {/* Address */}
       <div className="space-y-4">
         <div className="flex items-start gap-4">

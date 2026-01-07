@@ -123,47 +123,41 @@ export function Chatbot() {
     "Do you have job openings?",
   ];
 
+  const handleToggleChat = React.useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsOpen((prev) => !prev);
+  }, []);
+
   return (
     <>
       {/* Chat Toggle Button */}
-      <motion.button
-        type="button"
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setIsOpen(!isOpen);
-        }}
-        className={cn(
-          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl touch-manipulation cursor-pointer",
-          isOpen && "hidden"
-        )}
-        style={{ 
-          zIndex: "var(--z-fixed)",
-          pointerEvents: "auto",
-        }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label={isOpen ? "Close chat" : "Open chat, 1 unread message"}
-      >
-        <AnimatePresence mode="wait">
-          {!isOpen ? (
-            <motion.div
-              key="message"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              exit={{ scale: 0, rotate: 180 }}
-              transition={{ duration: 0.2 }}
-            >
-              <MessageCircle className="h-6 w-6 text-white stroke-white fill-white" strokeWidth={2} aria-hidden="true" />
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
-        {!isOpen && (
+      {!isOpen && (
+        <motion.button
+          type="button"
+          onClick={handleToggleChat}
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200] rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
+          style={{
+            pointerEvents: "auto",
+            WebkitTapHighlightColor: "transparent",
+            zIndex: 1200,
+            position: "fixed",
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Open chat, 1 unread message"
+        >
+          <MessageCircle 
+            className="h-6 w-6 sm:h-7 sm:w-7 stroke-white" 
+            strokeWidth={2.5} 
+            fill="none"
+            aria-hidden="true" 
+          />
           <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">
             1
           </span>
-        )}
-      </motion.button>
+        </motion.button>
+      )}
 
       {/* Chat Window */}
       <AnimatePresence>

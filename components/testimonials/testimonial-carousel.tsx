@@ -65,8 +65,11 @@ export function TestimonialCarousel({
             className={cn(
               index === activeIndex
                 ? "relative z-10"
-                : "absolute inset-0 z-0"
+                : "absolute inset-0 z-0 pointer-events-none"
             )}
+            style={{ 
+              isolation: index === activeIndex ? "isolate" : "auto"
+            }}
           >
             <EnhancedTestimonialCard
               testimonial={testimonial}

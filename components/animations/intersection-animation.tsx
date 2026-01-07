@@ -111,3 +111,4 @@ export function IntersectionAnimation({
     </motion.div>
   );
 }
+

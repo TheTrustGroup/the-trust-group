@@ -87,8 +87,6 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               sizes="(max-width: 768px) 100vw, 80vw"
               className="object-cover"
               loading="lazy"
-              width={1920}
-              height={1080}
             />
           ) : (
             <IntelligentPlaceholder

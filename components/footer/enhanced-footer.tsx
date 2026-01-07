@@ -285,14 +285,6 @@ export function EnhancedFooter() {
                 </motion.span>
                 <span>by The Trust Group</span>
               </div>
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-xs text-muted-foreground/70 italic"
-              >
-                Made by humans (and some AI)
-              </motion.p>
             </div>
 
             {/* Back to Top Button */}

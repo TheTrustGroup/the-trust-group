@@ -249,13 +249,13 @@ export function PremiumContactForm() {
       />
       <form onSubmit={handleSubmit} className="space-y-6">
       {/* Progress Indicator */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6 sm:mb-8 pb-4 border-b border-border/30">
         {steps.map((step, index) => (
           <React.Fragment key={step.number}>
-            <div className="flex items-center">
+            <div className="flex items-center flex-shrink-0">
               <div
                 className={cn(
-                  "w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all duration-300",
+                  "w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-semibold text-sm sm:text-base transition-all duration-300",
                   currentStep > step.number
                     ? "bg-primary text-primary-foreground"
                     : currentStep === step.number
@@ -264,14 +264,14 @@ export function PremiumContactForm() {
                 )}
               >
                 {currentStep > step.number ? (
-                  <CheckCircle2 className="h-5 w-5" />
+                  <CheckCircle2 className="h-4 w-4 sm:h-5 sm:w-5" />
                 ) : (
                   step.number
                 )}
               </div>
               <span
                 className={cn(
-                  "ml-2 text-sm font-medium hidden sm:block",
+                  "ml-2 text-xs sm:text-sm font-medium hidden sm:block whitespace-nowrap",
                   currentStep >= step.number ? "text-foreground" : "text-muted-foreground"
                 )}
               >
@@ -281,8 +281,8 @@ export function PremiumContactForm() {
             {index < steps.length - 1 && (
               <div
                 className={cn(
-                  "flex-1 h-1 mx-2 transition-all duration-300",
-                  currentStep > step.number ? "bg-primary" : "bg-muted"
+                  "flex-1 h-0.5 sm:h-1 mx-2 sm:mx-3 transition-all duration-300 rounded-full",
+                  currentStep > step.number ? "bg-primary" : "bg-muted/50"
                 )}
               />
             )}
@@ -349,7 +349,7 @@ export function PremiumContactForm() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="space-y-5"
+            className="space-y-4 sm:space-y-5"
           >
             <ServiceSelector
               value={formData.service}
@@ -370,7 +370,7 @@ export function PremiumContactForm() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            className="space-y-5"
+            className="space-y-4 sm:space-y-5"
           >
             <FloatingTextarea
               id="description"
@@ -441,32 +441,32 @@ export function PremiumContactForm() {
       </AnimatePresence>
 
       {/* Navigation Buttons */}
-      <div className="flex items-center justify-between gap-4 pt-4 border-t border-border">
+      <div className="flex items-center justify-between gap-3 sm:gap-4 pt-6 mt-6 border-t border-border/50">
         <Button
           type="button"
           variant="outline"
           onClick={handleBack}
           disabled={currentStep === 1 || isSubmitting}
-          className="min-w-[120px]"
+          className="min-w-[100px] sm:min-w-[120px]"
         >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back
+          <ArrowLeft className="h-4 w-4 mr-1.5 sm:mr-2" />
+          <span className="hidden sm:inline">Back</span>
         </Button>
 
         {currentStep < 4 ? (
           <Button
             type="button"
             onClick={handleNext}
-            className="min-w-[120px]"
+            className="min-w-[100px] sm:min-w-[120px]"
           >
-            Next
-            <ArrowRight className="h-4 w-4 ml-2" />
+            <span className="hidden sm:inline">Next</span>
+            <ArrowRight className="h-4 w-4 sm:ml-2" />
           </Button>
         ) : (
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="min-w-[120px]"
+            className="min-w-[100px] sm:min-w-[140px]"
           >
             {isSubmitting ? (
               <>

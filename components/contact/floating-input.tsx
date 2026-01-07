@@ -53,7 +53,7 @@ export function FloatingInput({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className={cn(
-            "peer w-full px-4 pt-6 pb-2 text-base bg-background border rounded-lg",
+            "peer w-full px-4 pt-6 pb-3 text-base bg-background border rounded-xl",
             "transition-all duration-200 focus:outline-none",
             "placeholder:text-transparent",
             error
@@ -172,7 +172,7 @@ export function FloatingTextarea({
           onBlur={() => setIsFocused(false)}
           maxLength={maxLength}
           className={cn(
-            "peer w-full px-4 pt-6 pb-2 text-base bg-background border rounded-lg resize-none",
+            "peer w-full px-4 pt-6 pb-3 text-base bg-background border rounded-xl resize-none",
             "transition-all duration-200 focus:outline-none",
             "placeholder:text-transparent min-h-[120px]",
             error

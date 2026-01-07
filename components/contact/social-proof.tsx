@@ -7,33 +7,33 @@ import { cn } from "@/lib/utils";
 
 export function SocialProof({ className }: { className?: string }) {
   return (
-    <div className={cn("space-y-6", className)}>
+    <div className={cn("space-y-5 sm:space-y-6", className)}>
       {/* Stats */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="p-4 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+          className="p-4 sm:p-5 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 transition-all duration-200 hover:border-primary/30 hover:shadow-sm"
         >
-          <div className="flex items-center gap-3 mb-2">
-            <Users className="h-5 w-5 text-primary" />
-            <span className="text-2xl font-bold text-foreground">500+</span>
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <Users className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+            <span className="text-xl sm:text-2xl font-bold text-foreground">500+</span>
           </div>
-          <p className="text-sm text-muted-foreground">Satisfied Clients</p>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">Satisfied Clients</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="p-4 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+          className="p-4 sm:p-5 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20 transition-all duration-200 hover:border-primary/30 hover:shadow-sm"
         >
-          <div className="flex items-center gap-3 mb-2">
-            <Clock className="h-5 w-5 text-primary" />
-            <span className="text-2xl font-bold text-foreground">&lt;24h</span>
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <Clock className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+            <span className="text-xl sm:text-2xl font-bold text-foreground">&lt;24h</span>
           </div>
-          <p className="text-sm text-muted-foreground">Avg Response Time</p>
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">Avg Response Time</p>
         </motion.div>
       </div>
 
@@ -42,10 +42,10 @@ export function SocialProof({ className }: { className?: string }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="p-4 rounded-lg bg-muted/30 border border-border"
+        className="p-4 sm:p-5 rounded-xl bg-muted/30 border border-border/50 transition-all duration-200 hover:border-border hover:shadow-sm"
       >
-        <p className="text-sm font-medium text-foreground mb-3 flex items-center gap-2">
-          <Star className="h-4 w-4 text-primary" />
+        <p className="text-xs sm:text-sm font-medium text-foreground mb-3 flex items-center gap-2">
+          <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
           Trusted by Industry Leaders
         </p>
         <div className="flex items-center justify-center gap-6 opacity-60">
@@ -61,13 +61,13 @@ export function SocialProof({ className }: { className?: string }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="p-4 rounded-lg bg-success/10 border border-success/20 text-center"
+        className="p-4 sm:p-5 rounded-xl bg-success/10 border border-success/20 text-center transition-all duration-200 hover:border-success/30 hover:shadow-sm"
       >
         <div className="flex items-center justify-center gap-2 mb-2">
-          <Star className="h-5 w-5 text-success fill-success" />
-          <span className="text-lg font-bold text-foreground">4.9/5</span>
+          <Star className="h-4 w-4 sm:h-5 sm:w-5 text-success fill-success flex-shrink-0" />
+          <span className="text-base sm:text-lg font-bold text-foreground">4.9/5</span>
         </div>
-        <p className="text-sm text-muted-foreground">Average Client Rating</p>
+        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">Average Client Rating</p>
       </motion.div>
     </div>
   );

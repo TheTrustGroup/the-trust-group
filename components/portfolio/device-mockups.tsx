@@ -85,8 +85,6 @@ function LaptopMockup(props: MockupProps) {
                 sizes="(max-width: 768px) 100vw, 600px"
                 className="object-cover"
                 loading="lazy"
-                width={1920}
-                height={1080}
                 onError={() => {
                   setImageError(true);
                 }}
@@ -148,8 +146,6 @@ function PhoneMockup(props: MockupProps) {
                 sizes="(max-width: 768px) 100vw, 300px"
                 className="object-cover"
                 loading="lazy"
-                width={1080}
-                height={2340}
                 onError={() => {
                   setImageError(true);
                 }}
@@ -206,8 +202,6 @@ function TabletMockup(props: MockupProps) {
                 sizes="(max-width: 768px) 100vw, 500px"
                 className="object-cover"
                 loading="lazy"
-                width={2048}
-                height={1536}
                 onError={() => {
                   setImageError(true);
                 }}

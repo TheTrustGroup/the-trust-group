@@ -62,7 +62,7 @@ export function EnhancedTestimonialCard({
     >
       {/* Quote Icon with Animation */}
       <motion.div
-        className="absolute top-6 right-6 text-primary/10 z-0"
+        className="absolute top-6 right-6 text-primary/10 z-[1] pointer-events-none"
         animate={isHovered ? { scale: 1.15, rotate: 8, opacity: 0.15 } : { scale: 1, rotate: 0, opacity: 0.1 }}
         transition={{ duration: 0.4, type: "spring" }}
       >
@@ -71,14 +71,17 @@ export function EnhancedTestimonialCard({
 
       {/* Verified Badge */}
       {testimonial.verified && (
-        <div className="absolute top-4 left-4 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success/10 border border-success/20">
+        <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-success/10 border border-success/20 backdrop-blur-sm">
           <CheckCircle2 className="h-3.5 w-3.5 text-success dark:text-success stroke-current" strokeWidth={2} fill="currentColor" />
           <span className="text-xs font-semibold text-success">Verified Client</span>
         </div>
       )}
 
       {/* Rating */}
-      <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 relative z-10">
+      <div className={cn(
+        "flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6 relative z-10",
+        testimonial.verified && "mt-12 sm:mt-14"
+      )}>
         {/* Stars Container */}
         <div className="flex items-center gap-0.5 sm:gap-1">
           {stars.map((star, index) => (
@@ -119,6 +122,7 @@ export function EnhancedTestimonialCard({
         )}
         animate={isHovered ? { x: 3, scale: 1.01 } : { x: 0, scale: 1 }}
         transition={{ duration: 0.3, type: "spring" }}
+        style={{ isolation: "isolate" }}
       >
         <blockquote className={cn(
           "italic font-medium break-words",
@@ -217,7 +221,6 @@ export function EnhancedTestimonialCard({
                 fill
                 sizes="56px"
                 className="object-contain p-2"
-                width={56}
                 onError={(e) => {
                   // Hide image and show company initial on error
                   const target = e.target as HTMLImageElement;
@@ -230,7 +233,6 @@ export function EnhancedTestimonialCard({
                     container.appendChild(fallback);
                   }
                 }}
-                height={56}
               />
             </motion.div>
           ) : (
