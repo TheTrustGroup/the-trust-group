@@ -1,0 +1,49 @@
+/* ============================================
+   SCROLL BEHAVIOR OPTIMIZATION
+   Smooth scrolling with accessibility support
+   ============================================ */
+
+/* ✅ Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ✅ Allow instant scroll for skip links */
+a[href^="#skip"],
+a[href^="#main-content"],
+.skip-link,
+[data-skip-link] {
+  scroll-behavior: auto;
+}
+
+/* ✅ Optimize scrolling on mobile */
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none; /* Prevent pull-to-refresh bounce */
+}
+
+/* ✅ Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  /* Ensure all scrolls are instant */
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ✅ Prevent overscroll bounce on all devices */
+html,
+body {
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+}
+
+/* ✅ Optimize scroll containers */
+.scroll-container,
+[data-scroll-container] {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
