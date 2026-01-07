@@ -17,16 +17,27 @@ export function BackToTop() {
   });
 
   React.useEffect(() => {
-    const toggleVisibility = throttle(() => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+    let ticking = false;
+    let rafId: number | null = null;
+
+    const toggleVisibility = () => {
+      if (!ticking) {
+        ticking = true;
+        rafId = window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setIsVisible(scrollY > 300);
+          ticking = false;
+        });
       }
-    }, 100);
+    };
 
     window.addEventListener("scroll", toggleVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   const scrollToTop = () => {

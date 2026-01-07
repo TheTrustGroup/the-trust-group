@@ -89,7 +89,7 @@ export function EnhancedFooter() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 items-start">
             {/* Column 1: Logo, Tagline, Social */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -112,12 +112,14 @@ export function EnhancedFooter() {
                   <Logo variant="full" size="md" className="group-hover:opacity-90 transition-opacity" showText={true} />
                 </motion.div>
               </Link>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed break-words">
                 {siteConfig.company.tagline}
               </p>
               <div>
                 <p className="text-sm font-medium text-foreground mb-3">Follow Us</p>
-                <SocialIcons />
+                <div className="flex items-center justify-start">
+                  <SocialIcons />
+                </div>
               </div>
             </motion.div>
 
@@ -137,11 +139,11 @@ export function EnhancedFooter() {
                       className={cn(
                         "text-sm text-muted-foreground hover:text-primary",
                         "transition-all duration-200 flex items-center group",
-                        "min-h-[32px]"
+                        "min-h-[32px] break-words"
                       )}
                     >
-                      <span className="w-0 group-hover:w-1.5 h-0.5 bg-primary transition-all duration-200 mr-0 group-hover:mr-2" />
-                      {link.name}
+                      <span className="w-0 group-hover:w-1.5 h-0.5 bg-primary transition-all duration-200 mr-0 group-hover:mr-2 flex-shrink-0" />
+                      <span className="truncate">{link.name}</span>
                     </Link>
                   </li>
                 ))}
@@ -168,9 +170,9 @@ export function EnhancedFooter() {
                       )}
                     >
                       <ServiceIcon name={service.name} />
-                      <span className="flex-1">{service.name}</span>
+                      <span className="flex-1 truncate break-words">{service.name}</span>
                       <motion.span
-                        className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-200"
+                        className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0"
                       >
                         →
                       </motion.span>
@@ -193,7 +195,7 @@ export function EnhancedFooter() {
                   <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                   </div>
-                  <address className="text-sm text-muted-foreground not-italic leading-relaxed">
+                  <address className="text-sm text-muted-foreground not-italic leading-relaxed break-words">
                     {contactInfo.address.line1}
                     <br />
                     {contactInfo.address.line2}
@@ -209,7 +211,7 @@ export function EnhancedFooter() {
                     <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Mail className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                     </div>
-                    <span className="group-hover:underline">{contactInfo.email}</span>
+                    <span className="group-hover:underline break-all">{contactInfo.email}</span>
                   </Link>
                 </li>
                 <li>
@@ -220,7 +222,7 @@ export function EnhancedFooter() {
                     <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                     </div>
-                    <span className="group-hover:underline">{contactInfo.phone}</span>
+                    <span className="group-hover:underline break-words">{contactInfo.phone}</span>
                   </Link>
                 </li>
                 <li className="flex items-start gap-3">

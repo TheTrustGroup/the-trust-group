@@ -108,8 +108,8 @@ export function NewsletterSection() {
               Get the latest insights on AI, software development, and technology innovation delivered to your inbox.
             </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-              <div className="flex-1">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto items-stretch sm:items-center">
+              <div className="flex-1 min-w-0">
                 <FloatingInput
                   id="newsletter-email"
                   label="Enter your email"
@@ -117,17 +117,21 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="bg-background/50 backdrop-blur-sm"
+                  className="bg-background/50 backdrop-blur-sm w-full focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:border-primary transition-all duration-200"
                   success={isSuccess}
                 />
               </div>
               
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div 
+                whileHover={{ scale: 1.05 }} 
+                whileTap={{ scale: 0.95 }}
+                className="flex-shrink-0"
+              >
                 <Button
                   type="submit"
                   disabled={isSubmitting || isSuccess}
                   size="lg"
-                  className="min-w-[140px] sm:min-w-[160px]"
+                  className="min-w-[140px] sm:min-w-[160px] w-full sm:w-auto"
                 >
                   {isSubmitting ? (
                     <>

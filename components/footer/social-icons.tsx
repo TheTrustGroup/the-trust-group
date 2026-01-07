@@ -72,7 +72,7 @@ export function SocialIcons() {
   };
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center justify-center gap-3 flex-wrap">
       {socialLinks.map((link) => {
         const Icon = iconMap[link.icon] || Mail;
         const brandColor = brandColors[link.icon];
