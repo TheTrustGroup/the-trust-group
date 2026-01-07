@@ -120,19 +120,21 @@ export function EnhancedNavigation() {
           type: "tween"
         }}
         style={{
-          willChange: isVisible ? "auto" : "transform",
+          willChange: "transform",
           backfaceVisibility: "hidden",
           WebkitBackfaceVisibility: "hidden",
+          transform: "translateZ(0)",
         }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          "navbar-optimized fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
           "supports-[backdrop-filter]:bg-background/80 supports-[backdrop-filter]:backdrop-blur-md",
+          "h-20", // Fixed height to prevent layout reflow
           isScrolled
-            ? "bg-background/95 backdrop-blur-lg border-b border-border/60 shadow-lg shadow-black/5 h-16"
-            : "bg-background/80 backdrop-blur-sm border-b border-transparent h-20"
+            ? "navbar-scrolled bg-background/95 backdrop-blur-lg border-b border-border/60 shadow-lg shadow-black/5"
+            : "bg-background/80 backdrop-blur-sm border-b border-transparent"
         )}
       >
-        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 max-w-7xl">
+        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 max-w-7xl h-full">
           <div className="flex h-full items-center justify-between gap-3 sm:gap-4 relative">
             {/* Logo Section - Left Aligned */}
             <motion.div
@@ -278,8 +280,8 @@ export function EnhancedNavigation() {
         servicesItems={servicesItems}
       />
 
-      {/* Spacer to prevent content from going under fixed nav */}
-      <div className={cn("transition-all duration-300", isScrolled ? "h-16" : "h-20")} />
+      {/* Spacer to prevent content from going under fixed nav - Fixed height to prevent reflow */}
+      <div className="h-20 transition-opacity duration-300" />
     </>
   );
 }
