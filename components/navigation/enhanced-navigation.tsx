@@ -76,8 +76,6 @@ export function EnhancedNavigation() {
     setIsOpen(false);
   }, [pathname]);
 
-import { lockBodyScroll } from "@/lib/utils/scroll-lock";
-
   // Prevent body scroll when mobile menu is open
   React.useEffect(() => {
     if (isOpen) {
