@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { 
   Sparkles, 
@@ -133,11 +134,12 @@ export function FounderSection({ className }: FounderSectionProps) {
                 {/* Office Space Image */}
                 <div className="relative mb-6">
                   <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/30 group-hover:border-primary/60 transition-colors duration-300 shadow-2xl">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                       src={FOUNDER_IMAGE_URL}
                       alt="Professional office space - The Trust Group"
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="192px"
+                      className="object-cover"
                       loading="lazy"
                       onError={(e) => {
                         // Fallback to another office space image if primary fails to load
