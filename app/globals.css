@@ -593,6 +593,23 @@
       justify-self: center;
     }
   }
+
+  /* Ensure fixed buttons are always clickable */
+  button[type="button"][style*="z-index"],
+  button.fixed,
+  [role="button"].fixed {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+  }
+
+  /* Ensure chatbot and back-to-top buttons are clickable */
+  button[aria-label*="chat"],
+  button[aria-label*="Back to top"],
+  button[aria-label*="top"] {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation;
+  }
   
   /* Optimize animations - only use transform and opacity */
   [class*="animate-"],

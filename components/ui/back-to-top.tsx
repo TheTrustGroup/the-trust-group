@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
-import { throttle } from "@/lib/smooth-scroll";
+import { smoothScrollToTop } from "@/lib/smooth-scroll";
 
 export function BackToTop() {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -40,12 +40,13 @@ export function BackToTop() {
     };
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const scrollToTop = React.useCallback((e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    smoothScrollToTop("smooth");
+  }, []);
 
   return (
     <AnimatePresence>
@@ -55,12 +56,16 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
-          className="fixed bottom-24 right-6"
-          style={{ zIndex: "var(--z-fixed)" }}
+          className="fixed bottom-20 sm:bottom-28 right-4 sm:right-6"
+          style={{ 
+            zIndex: "var(--z-fixed)",
+            pointerEvents: "auto",
+          }}
         >
           <Button
+            type="button"
             size="icon"
-            className="rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 bg-primary text-primary-foreground group"
+            className="rounded-full w-12 h-12 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 bg-primary text-primary-foreground group touch-manipulation cursor-pointer"
             onClick={scrollToTop}
             aria-label="Back to top"
           >

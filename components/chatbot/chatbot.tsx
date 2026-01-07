@@ -128,12 +128,19 @@ export function Chatbot() {
       {/* Chat Toggle Button */}
       <motion.button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setIsOpen(!isOpen);
+        }}
         className={cn(
-          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl",
+          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl touch-manipulation cursor-pointer",
           isOpen && "hidden"
         )}
-        style={{ zIndex: "var(--z-fixed)" }}
+        style={{ 
+          zIndex: "var(--z-fixed)",
+          pointerEvents: "auto",
+        }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         aria-label={isOpen ? "Close chat" : "Open chat, 1 unread message"}
