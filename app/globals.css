@@ -93,6 +93,25 @@
     
     /* Prevent text size adjustment on iOS - Applied globally via @supports below */
     /* Note: iOS-specific fixes are handled in @supports (-webkit-touch-callout: none) */
+    
+    /* Improve mobile scrolling */
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevent horizontal scroll on mobile */
+    body, html {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    
+    /* Better touch targets for mobile */
+    button[aria-label*="chat"],
+    button[aria-label*="Back to top"] {
+      min-width: 48px;
+      min-height: 48px;
+    }
   }
 
   /* Extra small screens (320px - 374px) */
@@ -164,6 +183,8 @@
     overflow-y: auto;
     /* Prevent scroll chaining issues */
     overscroll-behavior-y: contain;
+    /* Improve scrolling performance on mobile */
+    -webkit-overflow-scrolling: touch;
   }
 
   /* ✅ Find and fix horizontal scroll - Ensure all elements respect viewport */

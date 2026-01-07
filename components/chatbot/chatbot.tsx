@@ -123,10 +123,13 @@ export function Chatbot() {
     "Do you have job openings?",
   ];
 
-  const handleToggleChat = React.useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleToggleChat = React.useCallback((e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsOpen((prev) => !prev);
+    setIsOpen((prev) => {
+      const newValue = !prev;
+      return newValue;
+    });
   }, []);
 
   return (
@@ -136,12 +139,14 @@ export function Chatbot() {
         <motion.button
           type="button"
           onClick={handleToggleChat}
+          onTouchEnd={handleToggleChat}
           className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200] rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
           style={{
             pointerEvents: "auto",
             WebkitTapHighlightColor: "transparent",
             zIndex: 1200,
             position: "fixed",
+            isolation: "isolate",
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
@@ -168,7 +173,10 @@ export function Chatbot() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl md:h-[600px] md:w-[420px]"
-            style={{ zIndex: "var(--z-modal)" }}
+            style={{ 
+              zIndex: 1400,
+              position: "fixed",
+            }}
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-border bg-primary/5 px-4 py-3">

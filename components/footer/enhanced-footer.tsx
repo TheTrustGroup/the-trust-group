@@ -88,8 +88,8 @@ export function EnhancedFooter() {
           />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 items-start">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-8 sm:py-12 md:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-start">
             {/* Column 1: Logo, Tagline, Social */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -112,11 +112,11 @@ export function EnhancedFooter() {
                   <Logo variant="full" size="md" className="group-hover:opacity-90 transition-opacity" showText={true} />
                 </motion.div>
               </Link>
-              <p className="text-sm text-muted-foreground leading-relaxed break-words">
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed break-words">
                 {siteConfig.company.tagline}
               </p>
               <div>
-                <p className="text-sm font-medium text-foreground mb-3">Follow Us</p>
+                <p className="text-xs sm:text-sm font-medium text-foreground mb-2 sm:mb-3">Follow Us</p>
                 <div className="flex items-center justify-start">
                   <SocialIcons />
                 </div>
@@ -130,14 +130,14 @@ export function EnhancedFooter() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h4 className="text-base font-semibold text-foreground mb-6">Quick Links</h4>
-              <ul className="space-y-3">
+              <h4 className="text-sm sm:text-base font-semibold text-foreground mb-4 sm:mb-6">Quick Links</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-sm text-muted-foreground hover:text-primary",
+                        "text-xs sm:text-sm text-muted-foreground hover:text-primary",
                         "transition-all duration-200 flex items-center group",
                         "min-h-[32px] break-words"
                       )}
@@ -157,22 +157,22 @@ export function EnhancedFooter() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h4 className="text-base font-semibold text-foreground mb-6">Services</h4>
-              <ul className="space-y-3">
+              <h4 className="text-sm sm:text-base font-semibold text-foreground mb-4 sm:mb-6">Services</h4>
+              <ul className="space-y-2 sm:space-y-3">
                 {services.map((service) => (
                   <li key={service.href}>
                     <Link
                       href={service.href}
                       className={cn(
-                        "text-sm text-muted-foreground hover:text-primary",
-                        "transition-all duration-200 flex items-center gap-3 group",
+                        "text-xs sm:text-sm text-muted-foreground hover:text-primary",
+                        "transition-all duration-200 flex items-center gap-2 sm:gap-3 group",
                         "min-h-[32px]"
                       )}
                     >
                       <ServiceIcon name={service.name} />
                       <span className="flex-1 truncate break-words">{service.name}</span>
                       <motion.span
-                        className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0"
+                        className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0 hidden sm:inline"
                       >
                         →
                       </motion.span>
@@ -189,13 +189,13 @@ export function EnhancedFooter() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h4 className="text-base font-semibold text-foreground mb-6">Contact</h4>
-              <ul className="space-y-4">
+              <h4 className="text-sm sm:text-base font-semibold text-foreground mb-4 sm:mb-6">Contact</h4>
+              <ul className="space-y-3 sm:space-y-4">
                 <li className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <MapPin className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                   </div>
-                  <address className="text-sm text-muted-foreground not-italic leading-relaxed break-words">
+                  <address className="text-xs sm:text-sm text-muted-foreground not-italic leading-relaxed break-words">
                     {contactInfo.address.line1}
                     <br />
                     {contactInfo.address.line2}
@@ -211,13 +211,13 @@ export function EnhancedFooter() {
                     <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Mail className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                     </div>
-                    <span className="group-hover:underline break-all">{contactInfo.email}</span>
+                    <span className="group-hover:underline break-all text-xs sm:text-sm">{contactInfo.email}</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-3 group"
+                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 sm:gap-3 group"
                   >
                     <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Phone className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
@@ -225,11 +225,11 @@ export function EnhancedFooter() {
                     <span className="group-hover:underline break-words">{contactInfo.phone}</span>
                   </Link>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-2 sm:gap-3">
                   <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Clock className="h-3.5 w-3.5 text-primary stroke-current" strokeWidth={2} fill="none" />
                   </div>
-                  <div className="text-sm text-muted-foreground space-y-1">
+                  <div className="text-xs sm:text-sm text-muted-foreground space-y-1">
                     <p>{contactInfo.businessHours.weekdays}</p>
                     <p>{contactInfo.businessHours.weekends}</p>
                   </div>
@@ -242,66 +242,66 @@ export function EnhancedFooter() {
 
       {/* Bottom Bar */}
       <div className="relative border-t border-border/50 bg-secondary/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
             {/* Copyright */}
             <div className="text-sm text-muted-foreground text-center md:text-left">
               <p>© {currentYear} The Trust Group. All rights reserved.</p>
             </div>
 
             {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm">
               <Link
                 href="/privacy"
                 className="text-muted-foreground hover:text-primary transition-colors min-h-[32px] flex items-center px-2"
               >
                 Privacy Policy
               </Link>
-              <span className="text-muted-foreground/50">•</span>
+              <span className="text-muted-foreground/50 hidden sm:inline">•</span>
               <Link
                 href="/terms"
                 className="text-muted-foreground hover:text-primary transition-colors min-h-[32px] flex items-center px-2"
               >
-                Terms of Service
+                Terms
               </Link>
-              <span className="text-muted-foreground/50">•</span>
+              <span className="text-muted-foreground/50 hidden sm:inline">•</span>
               <Link
                 href="/cookies"
                 className="text-muted-foreground hover:text-primary transition-colors min-h-[32px] flex items-center px-2"
               >
-                Cookie Policy
+                Cookies
               </Link>
             </div>
 
-            {/* Made with Love */}
-            <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <span>Made with</span>
+            {/* Made with Love & Back to Top */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+                <span className="hidden sm:inline">Made with</span>
+                <span className="sm:hidden">Made with</span>
                 <motion.span
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
                 >
-                  <Heart className="h-4 w-4 text-error fill-error" />
+                  <Heart className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-error fill-error" />
                 </motion.span>
-                <span>by The Trust Group</span>
+                <span className="hidden sm:inline">by The Trust Group</span>
+                <span className="sm:hidden">by TTG</span>
               </div>
-            </div>
-
-            {/* Back to Top Button */}
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => smoothScrollToTop()}
-                className="rounded-full w-10 h-10 border border-border hover:border-primary hover:bg-primary/10"
-                aria-label="Back to top"
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <ArrowUp className="h-5 w-5" />
-              </Button>
-            </motion.div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => smoothScrollToTop()}
+                  className="rounded-full w-9 h-9 sm:w-10 sm:h-10 border border-border hover:border-primary hover:bg-primary/10"
+                  aria-label="Back to top"
+                >
+                  <ArrowUp className="h-4 w-4 sm:h-5 sm:w-5" />
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
