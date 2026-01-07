@@ -164,3 +164,5 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=3cv5xhklDMxUuZh5Y
 **You're all set!** Once you add these variables and redeploy, your contact forms will be fully functional on production! 🚀
 
 
+
+

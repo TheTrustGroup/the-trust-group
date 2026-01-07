@@ -122,3 +122,5 @@ All contact form submissions will be sent to:
 **Everything is ready!** Just add those variables in Vercel and redeploy! 🎉
 
 
+
+

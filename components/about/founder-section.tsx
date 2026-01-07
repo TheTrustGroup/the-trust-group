@@ -312,3 +312,5 @@ export function FounderSection({ className }: FounderSectionProps) {
     </section>
   );
 }
+
+

@@ -128,12 +128,12 @@ export function EnhancedNavigation() {
           "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
           "supports-[backdrop-filter]:bg-background/80 supports-[backdrop-filter]:backdrop-blur-md",
           isScrolled
-            ? "bg-background/95 backdrop-blur-lg border-b border-border/60 shadow-lg shadow-black/5"
-            : "bg-background/80 backdrop-blur-sm border-b border-transparent"
+            ? "bg-background/95 backdrop-blur-lg border-b border-border/60 shadow-lg shadow-black/5 h-16"
+            : "bg-background/80 backdrop-blur-sm border-b border-transparent h-20"
         )}
       >
-        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl">
-          <div className="flex h-16 md:h-20 items-center justify-between gap-3 sm:gap-4 relative">
+        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 max-w-7xl">
+          <div className="flex h-full items-center justify-between gap-3 sm:gap-4 relative">
             {/* Logo Section - Left Aligned */}
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -183,11 +183,11 @@ export function EnhancedNavigation() {
                         }
                       }}
                       className={cn(
-                        "text-sm font-medium transition-all duration-200 relative group px-3 py-2 rounded-md",
+                        "text-[0.9375rem] font-medium transition-all duration-200 relative group px-3 py-2 rounded-md",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
                         isActive
                           ? "text-foreground bg-accent/50 shadow-sm"
-                          : "text-foreground/80 hover:text-foreground hover:bg-accent/30"
+                          : "text-slate-700 hover:text-primary hover:bg-accent/30"
                       )}
                     >
                       {item.label}
@@ -279,7 +279,7 @@ export function EnhancedNavigation() {
       />
 
       {/* Spacer to prevent content from going under fixed nav */}
-      <div className="h-16 md:h-20" />
+      <div className={cn("transition-all duration-300", isScrolled ? "h-16" : "h-20")} />
     </>
   );
 }
