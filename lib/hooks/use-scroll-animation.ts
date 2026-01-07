@@ -8,12 +8,16 @@ interface UseScrollAnimationOptions {
   triggerOnce?: boolean;
 }
 
+/**
+ * Optimized scroll animation hook using Intersection Observer
+ * Replaces scroll event listeners with Intersection Observer API for better performance
+ */
 export function useScrollAnimation(
   options: UseScrollAnimationOptions = {}
 ) {
   const {
     threshold = 0.1,
-    rootMargin = "0px",
+    rootMargin = "0px 0px -50px 0px", // Trigger slightly before element enters viewport
     triggerOnce = true,
   } = options;
 
@@ -25,15 +29,18 @@ export function useScrollAnimation(
     if (!element) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (triggerOnce) {
-            observer.unobserve(element);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            // Optional: unobserve after animation triggers
+            if (triggerOnce) {
+              observer.unobserve(entry.target);
+            }
+          } else if (!triggerOnce) {
+            setIsVisible(false);
           }
-        } else if (!triggerOnce) {
-          setIsVisible(false);
-        }
+        });
       },
       {
         threshold,
