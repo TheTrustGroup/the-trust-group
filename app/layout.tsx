@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./design-system-2025.css";
 import "./footer-fixes.css";
+import "./parallax-optimization.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { PageTransition } from "@/components/animations";

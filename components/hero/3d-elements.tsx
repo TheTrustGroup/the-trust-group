@@ -259,11 +259,14 @@ export function Parallax3DLayers() {
           const scrollY = window.scrollY;
           
           // Directly update transforms without React state
+          // Use translate3d for GPU acceleration (better than translateY)
           layersRef.current.forEach((layerEl, index) => {
             if (layerEl) {
               const speed = [0.3, 0.5, 0.7][index] || 0.5;
-              const translateY = scrollY * speed;
-              layerEl.style.transform = `translateZ(${[50, 100, 150][index]}px) translateY(${translateY}px)`;
+              const yPos = -(scrollY * speed);
+              const zDepth = [50, 100, 150][index];
+              // ✅ GOOD - Use translate3d for GPU acceleration
+              layerEl.style.transform = `translate3d(0, ${yPos}px, ${zDepth}px)`;
             }
           });
           
@@ -342,6 +345,10 @@ export function Parallax3DLayers() {
             transformStyle: "preserve-3d",
             opacity: layer.opacity,
             willChange: "transform",
+            // Force GPU acceleration
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
           }}
           animate={{
             rotateX: mousePositionRef.current.y * 5,

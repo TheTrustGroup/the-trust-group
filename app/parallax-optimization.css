@@ -1,0 +1,51 @@
+/* ============================================
+   PARALLAX OPTIMIZATION - GPU ACCELERATION
+   ============================================ */
+
+/* Optimize all parallax elements */
+[data-parallax],
+[class*="parallax"],
+.parallax-element {
+  /* Force GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  
+  /* Prevent layout thrashing */
+  contain: layout style paint;
+  
+  /* Use transform3d for better performance */
+  /* Note: Actual transform values set via JavaScript */
+}
+
+/* Ensure parallax layers don't cause repaints */
+.parallax-layer,
+[class*="parallax-layer"] {
+  /* Isolate rendering */
+  isolation: isolate;
+  
+  /* GPU acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+  
+  /* Prevent overflow issues */
+  overflow: hidden;
+}
+
+/* Optimize parallax containers */
+.parallax-container {
+  /* Contain layout calculations */
+  contain: layout style paint;
+  
+  /* GPU acceleration */
+  transform: translateZ(0);
+  
+  /* Prevent scroll issues */
+  overflow: hidden;
+}
+
+/* Remove will-change after animation completes */
+[data-parallax]:not([data-parallax-active]) {
+  will-change: auto;
+}
