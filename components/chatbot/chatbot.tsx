@@ -127,11 +127,13 @@ export function Chatbot() {
     <>
       {/* Chat Toggle Button */}
       <motion.button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl",
+          "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl",
           isOpen && "hidden"
         )}
+        style={{ zIndex: "var(--z-fixed)" }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         aria-label={isOpen ? "Close chat" : "Open chat, 1 unread message"}
@@ -164,7 +166,8 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl md:h-[600px] md:w-[420px]"
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl md:h-[600px] md:w-[420px]"
+            style={{ zIndex: "var(--z-modal)" }}
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-border bg-primary/5 px-4 py-3">
@@ -178,6 +181,7 @@ export function Chatbot() {
                 </div>
               </div>
               <button
+                type="button"
                 onClick={() => setIsOpen(false)}
                 className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 aria-label="Close chat"

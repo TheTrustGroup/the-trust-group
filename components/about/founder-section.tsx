@@ -133,7 +133,7 @@ export function FounderSection({ className }: FounderSectionProps) {
                 
                 {/* Office Space Image */}
                 <div className="relative mb-6">
-                  <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/30 group-hover:border-primary/60 transition-colors duration-300 shadow-2xl">
+                  <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/30 group-hover:border-primary/60 transition-colors duration-300 shadow-2xl aspect-square">
                     <Image
                       src={FOUNDER_IMAGE_URL}
                       alt="Professional office space - The Trust Group"
@@ -141,10 +141,24 @@ export function FounderSection({ className }: FounderSectionProps) {
                       sizes="192px"
                       className="object-cover"
                       loading="lazy"
+                      width={400}
+                      height={400}
                       onError={(e) => {
-                        // Fallback to another office space image if primary fails to load
+                        // Fallback to placeholder on error
                         const target = e.target as HTMLImageElement;
-                        target.src = "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop&auto=format&q=80";
+                        const container = target.parentElement;
+                        if (container) {
+                          target.style.display = "none";
+                          // Show fallback placeholder
+                          if (!container.querySelector(".fallback-placeholder")) {
+                            const fallback = document.createElement("div");
+                            fallback.className = "fallback-placeholder absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 flex items-center justify-center";
+                            const icon = document.createElement("div");
+                            icon.className = "w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent opacity-50";
+                            fallback.appendChild(icon);
+                            container.appendChild(fallback);
+                          }
+                        }
                       }}
                     />
                     {/* Animated Overlay */}

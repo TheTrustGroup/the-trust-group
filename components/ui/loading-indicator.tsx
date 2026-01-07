@@ -78,7 +78,7 @@ export function LoadingIndicator({
 
   if (fullScreen) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+      <div className="fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm" style={{ zIndex: "var(--z-loading)" }}>
         {content}
       </div>
     );
@@ -97,7 +97,7 @@ export function InlineLoader({ className }: { className?: string }) {
 // Overlay loading indicator
 export function OverlayLoader({ text }: { text?: string }) {
   return (
-    <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/50 backdrop-blur-sm rounded-lg">
+    <div className="absolute inset-0 flex items-center justify-center bg-background/50 backdrop-blur-sm rounded-lg" style={{ zIndex: "var(--z-base)" }}>
       <LoadingIndicator text={text} />
     </div>
   );

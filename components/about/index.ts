@@ -6,7 +6,6 @@ export { EcosystemSection } from "./ecosystem-section";
 export { CompanyTimeline } from "./company-timeline";
 export { EnhancedTimeline } from "./enhanced-timeline";
 export { LeadershipTeam } from "./leadership-team";
-export { EnhancedTeamSection } from "./enhanced-team-section";
 export { FounderSection } from "./founder-section";
 export { EnhancedWhyChooseUs } from "./enhanced-why-choose-us";
 export { ValueIcon } from "./value-icons";

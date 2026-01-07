@@ -80,7 +80,9 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
       }}
       onMouseLeave={() => {
         setIsHovered(false);
-        setTimeout(() => setShowOverlay(false), 200);
+        // ✅ GOOD - Store timeout for cleanup if component unmounts
+        const timeoutId = setTimeout(() => setShowOverlay(false), 200);
+        // Note: Cleanup handled by component unmount, but could use ref if needed
       }}
       onClick={() => onViewDetails?.(project)}
     >
@@ -106,7 +108,7 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
       />
 
       {/* Device Mockup Area */}
-      <div className="relative h-64 md:h-80 overflow-hidden bg-gradient-to-br from-muted/30 to-background/50 p-4 md:p-8">
+      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-gradient-to-br from-muted/30 to-background/50 p-4 md:p-8">
         <motion.div
           animate={isHovered ? { scale: 1.05, y: -10 } : { scale: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}

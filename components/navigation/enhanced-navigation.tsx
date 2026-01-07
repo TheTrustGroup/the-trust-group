@@ -110,9 +110,10 @@ export function EnhancedNavigation() {
           backfaceVisibility: "hidden",
           WebkitBackfaceVisibility: "hidden",
           transform: "translateZ(0)",
+          zIndex: "var(--z-sticky)",
         }}
         className={cn(
-          "navbar-optimized fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+          "navbar-optimized fixed top-0 left-0 right-0 w-full transition-all duration-300",
           "supports-[backdrop-filter]:bg-background/80 supports-[backdrop-filter]:backdrop-blur-md",
           "h-20", // Fixed height to prevent layout reflow
           isScrolled
@@ -173,6 +174,7 @@ export function EnhancedNavigation() {
                       className={cn(
                         "text-[0.9375rem] font-medium transition-all duration-200 relative group px-3 py-2 rounded-md",
                         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+                        item.href.startsWith("#") && "smooth-scroll",
                         isActive
                           ? "text-foreground bg-accent/50 shadow-sm"
                           : "text-slate-700 hover:text-primary hover:bg-accent/30"
@@ -222,6 +224,7 @@ export function EnhancedNavigation() {
             <div className="md:hidden flex items-center gap-2 sm:gap-2.5 flex-shrink-0 z-10 ml-auto">
               <ThemeToggle className="scale-95 sm:scale-100" />
               <motion.button
+                type="button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm flex items-center justify-center"

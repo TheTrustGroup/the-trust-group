@@ -22,17 +22,33 @@ export function FloatingInput({
   className,
   value,
   id,
+  type,
+  name,
   ...props
 }: FloatingInputProps) {
   const [isFocused, setIsFocused] = React.useState(false);
   const hasValue = Boolean(value && String(value).trim());
   const shouldFloat = isFocused || hasValue;
+  const errorId = id ? `${id}-error` : undefined;
+  const helperId = id && helperText ? `${id}-helper` : undefined;
+
+  // ✅ Determine autocomplete attribute based on input type and name
+  const getAutocomplete = (): string | undefined => {
+    if (type === "email") return "email";
+    if (type === "tel") return "tel";
+    if (name === "name" || name === "full-name") return "name";
+    if (name === "company" || name === "organization") return "organization";
+    if (name === "phone" || name === "tel") return "tel";
+    return undefined;
+  };
 
   return (
     <div className="relative">
       <div className="relative">
         <input
           id={id}
+          name={name}
+          type={type}
           value={value}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -48,6 +64,11 @@ export function FloatingInput({
             className
           )}
           placeholder=" "
+          required={required}
+          autoComplete={getAutocomplete()}
+          aria-describedby={error ? errorId : helperId}
+          aria-invalid={error ? true : undefined}
+          aria-required={required}
           {...props}
         />
         <label
@@ -90,16 +111,20 @@ export function FloatingInput({
       </div>
       {error && (
         <motion.p
+          id={errorId}
+          role="alert"
           initial={{ opacity: 0, y: -5 }}
           animate={{ opacity: 1, y: 0 }}
           className="mt-1.5 text-sm text-error flex items-center gap-1.5"
         >
-          <AlertCircle className="h-4 w-4 flex-shrink-0" />
+          <AlertCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
           {error}
         </motion.p>
       )}
       {helperText && !error && (
-        <p className="mt-1.5 text-xs text-muted-foreground">{helperText}</p>
+        <p id={helperId} className="mt-1.5 text-xs text-muted-foreground">
+          {helperText}
+        </p>
       )}
     </div>
   );
@@ -126,18 +151,22 @@ export function FloatingTextarea({
   className,
   value,
   id,
+  name,
   ...props
 }: FloatingTextareaProps) {
   const [isFocused, setIsFocused] = React.useState(false);
   const hasValue = Boolean(value && String(value).trim());
   const shouldFloat = isFocused || hasValue;
   const charCount = String(value || "").length;
+  const errorId = id ? `${id}-error` : undefined;
+  const helperId = id && helperText ? `${id}-helper` : undefined;
 
   return (
     <div className="relative">
       <div className="relative">
         <textarea
           id={id}
+          name={name}
           value={value}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -154,6 +183,10 @@ export function FloatingTextarea({
             className
           )}
           placeholder=" "
+          required={required}
+          aria-describedby={error ? errorId : helperId}
+          aria-invalid={error ? true : undefined}
+          aria-required={required}
           {...props}
         />
         <label
@@ -197,17 +230,21 @@ export function FloatingTextarea({
       <div className="flex items-center justify-between mt-1.5">
         {error ? (
           <motion.p
+            id={errorId}
+            role="alert"
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-sm text-error flex items-center gap-1.5"
           >
-            <AlertCircle className="h-4 w-4 flex-shrink-0" />
+            <AlertCircle className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
             {error}
           </motion.p>
         ) : (
           <>
             {helperText && (
-              <p className="text-xs text-muted-foreground">{helperText}</p>
+              <p id={helperId} className="text-xs text-muted-foreground">
+                {helperText}
+              </p>
             )}
             {characterCount && maxLength && (
               <p
@@ -217,6 +254,7 @@ export function FloatingTextarea({
                     ? "text-warning"
                     : "text-muted-foreground"
                 )}
+                aria-live="polite"
               >
                 {charCount} / {maxLength}
               </p>

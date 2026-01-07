@@ -31,7 +31,7 @@ function SocialIcon({ href, icon: Icon, label, brandColor }: SocialIconProps) {
           "border border-border hover:border-primary/30",
           "group relative overflow-hidden"
         )}
-        aria-label={label}
+        aria-label={`${label} (Opens in new window)`}
         style={brandColor ? ({ "--icon-color": brandColor } as React.CSSProperties) : undefined}
       >
         <div
@@ -43,6 +43,7 @@ function SocialIcon({ href, icon: Icon, label, brandColor }: SocialIconProps) {
         >
           <Icon className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
         </div>
+        <span className="sr-only">Opens in new window</span>
         {/* Hover glow effect */}
         <motion.div
           className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100"

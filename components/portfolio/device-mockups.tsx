@@ -67,16 +67,17 @@ type MockupProps = Omit<DeviceMockupProps, "type">;
 
 function LaptopMockup(props: MockupProps) {
   const { imageUrl, className, children, placeholderTitle, placeholderCategory, placeholderTechnologies } = props;
+  const [imageError, setImageError] = React.useState(false);
   
   return (
     <div className={cn("relative", className)}>
       {/* Laptop Frame */}
-      <div className="relative mx-auto" style={{ width: "100%", maxWidth: "600px" }}>
+      <div className="relative mx-auto w-full max-w-[600px]">
         {/* Screen */}
-        <div className="relative bg-gray-900 rounded-t-lg p-2 shadow-2xl" style={{ paddingBottom: "56.25%" }}>
+        <div className="relative bg-gray-900 rounded-t-lg p-2 shadow-2xl aspect-[16/9]">
           <div className="absolute inset-2 rounded overflow-hidden bg-white">
             {/* Screen Content */}
-            {imageUrl ? (
+            {imageUrl && !imageError ? (
               <Image
                 src={imageUrl}
                 alt="Project screenshot"
@@ -84,6 +85,11 @@ function LaptopMockup(props: MockupProps) {
                 sizes="(max-width: 768px) 100vw, 600px"
                 className="object-cover"
                 loading="lazy"
+                width={1920}
+                height={1080}
+                onError={() => {
+                  setImageError(true);
+                }}
               />
             ) : (
               children || (
@@ -121,19 +127,20 @@ function LaptopMockup(props: MockupProps) {
 
 function PhoneMockup(props: MockupProps) {
   const { imageUrl, className, children, placeholderTitle, placeholderCategory, placeholderTechnologies } = props;
+  const [imageError, setImageError] = React.useState(false);
   
   return (
     <div className={cn("relative", className)}>
       {/* Phone Frame */}
-      <div className="relative mx-auto" style={{ width: "100%", maxWidth: "300px" }}>
+      <div className="relative mx-auto w-full max-w-[300px]">
         {/* Screen */}
-        <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl" style={{ paddingBottom: "200%" }}>
+        <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl aspect-[9/19.5]">
           <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-white">
             {/* Notch */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-10" />
             
             {/* Screen Content */}
-            {imageUrl ? (
+            {imageUrl && !imageError ? (
               <Image
                 src={imageUrl}
                 alt="Mobile phone screen showing project interface"
@@ -141,6 +148,11 @@ function PhoneMockup(props: MockupProps) {
                 sizes="(max-width: 768px) 100vw, 300px"
                 className="object-cover"
                 loading="lazy"
+                width={1080}
+                height={2340}
+                onError={() => {
+                  setImageError(true);
+                }}
               />
             ) : (
               children || (
@@ -176,16 +188,17 @@ function PhoneMockup(props: MockupProps) {
 
 function TabletMockup(props: MockupProps) {
   const { imageUrl, className, children, placeholderTitle, placeholderCategory, placeholderTechnologies } = props;
+  const [imageError, setImageError] = React.useState(false);
   
   return (
     <div className={cn("relative", className)}>
       {/* Tablet Frame */}
-      <div className="relative mx-auto" style={{ width: "100%", maxWidth: "500px" }}>
+      <div className="relative mx-auto w-full max-w-[500px]">
         {/* Screen */}
-        <div className="relative bg-gray-900 rounded-xl p-2 shadow-2xl" style={{ paddingBottom: "133.33%" }}>
+        <div className="relative bg-gray-900 rounded-xl p-2 shadow-2xl aspect-[4/3]">
           <div className="absolute inset-2 rounded-lg overflow-hidden bg-white">
             {/* Screen Content */}
-            {imageUrl ? (
+            {imageUrl && !imageError ? (
               <Image
                 src={imageUrl}
                 alt="Tablet screen showing project interface"
@@ -193,6 +206,11 @@ function TabletMockup(props: MockupProps) {
                 sizes="(max-width: 768px) 100vw, 500px"
                 className="object-cover"
                 loading="lazy"
+                width={2048}
+                height={1536}
+                onError={() => {
+                  setImageError(true);
+                }}
               />
             ) : (
               children || (

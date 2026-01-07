@@ -119,7 +119,8 @@ export function ServiceSelector({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-10"
+                className="fixed inset-0"
+                style={{ zIndex: "var(--z-modal-backdrop)" }}
                 onClick={() => setIsOpen(false)}
               />
               <motion.div
@@ -127,7 +128,8 @@ export function ServiceSelector({
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="absolute z-20 w-full mt-2 bg-background border border-border rounded-lg shadow-lg overflow-hidden"
+                className="absolute w-full mt-2 bg-background border border-border rounded-lg shadow-lg overflow-hidden"
+                style={{ zIndex: "var(--z-dropdown)" }}
               >
                 <div className="max-h-96 overflow-y-auto">
                   {services.map((service) => {

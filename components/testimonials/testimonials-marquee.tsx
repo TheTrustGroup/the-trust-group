@@ -48,7 +48,7 @@ export function TestimonialsMarquee({
         {duplicatedTestimonials.map((testimonial, index) => (
           <div
             key={`${testimonial.id}-${index}`}
-            className="flex-shrink-0 w-[350px] md:w-[400px]"
+            className="flex-shrink-0 w-[350px] md:w-[400px] max-w-[90vw]"
           >
             <EnhancedTestimonialCard
               testimonial={testimonial}

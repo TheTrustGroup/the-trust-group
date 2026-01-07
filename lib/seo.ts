@@ -75,6 +75,7 @@ export function generateMetadata({
   const ogImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: fullTitle,
     description: metaDescription,
     keywords: keywords.length > 0 ? keywords.join(", ") : undefined,
@@ -83,13 +84,16 @@ export function generateMetadata({
     publisher: siteName,
     applicationName: siteName,
     referrer: "origin-when-cross-origin",
+    // ✅ Favicon and icons - Next.js automatically handles charset and viewport
     icons: {
       icon: [
-        { url: "/icon.svg", type: "image/svg+xml" },
         { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
       ],
       apple: [
-        { url: "/apple-icon.svg", sizes: "180x180", type: "image/svg+xml" },
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
       ],
     },
     manifest: "/manifest.json",
@@ -135,7 +139,6 @@ export function generateMetadata({
     alternates: {
       canonical: canonicalUrl,
     },
-    metadataBase: new URL(siteUrl),
     verification: {
       google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
       yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,

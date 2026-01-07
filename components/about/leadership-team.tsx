@@ -89,9 +89,10 @@ export function LeadershipTeam({
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${member.name} LinkedIn`}
+                        aria-label={`${member.name} LinkedIn (Opens in new window)`}
                       >
-                        <Linkedin className="h-4 w-4" />
+                        <Linkedin className="h-4 w-4" aria-hidden="true" />
+                        <span className="sr-only">Opens in new window</span>
                       </a>
                     </Button>
                   )}

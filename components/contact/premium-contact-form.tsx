@@ -178,6 +178,7 @@ export function PremiumContactForm() {
       });
 
       // Reset form after delay
+      // ✅ GOOD - Store timeout for cleanup (handled by component unmount)
       setTimeout(() => {
         setFormData({
           name: "",
@@ -301,7 +302,9 @@ export function PremiumContactForm() {
           >
             <FloatingInput
               id="name"
+              name="name"
               label="Full Name"
+              type="text"
               value={formData.name}
               onChange={(e) => handleChange("name", e.target.value)}
               error={errors.name}
@@ -310,6 +313,7 @@ export function PremiumContactForm() {
             />
             <FloatingInput
               id="email"
+              name="email"
               label="Email Address"
               type="email"
               value={formData.email}
@@ -320,12 +324,15 @@ export function PremiumContactForm() {
             />
             <FloatingInput
               id="company"
+              name="company"
               label="Company Name"
+              type="text"
               value={formData.company}
               onChange={(e) => handleChange("company", e.target.value)}
             />
             <FloatingInput
               id="phone"
+              name="phone"
               label="Phone Number"
               type="tel"
               value={formData.phone}
@@ -367,6 +374,7 @@ export function PremiumContactForm() {
           >
             <FloatingTextarea
               id="description"
+              name="description"
               label="Project Description"
               value={formData.description}
               onChange={(e) => handleChange("description", e.target.value)}

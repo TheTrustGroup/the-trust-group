@@ -31,6 +31,7 @@ export function AnimatedCounter({
 
     const startTime = Date.now();
     const startValue = 0;
+    let rafId: number | null = null;
 
     const animate = () => {
       const now = Date.now();
@@ -44,13 +45,20 @@ export function AnimatedCounter({
       setCount(currentValue);
 
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(animate);
       } else {
         setCount(end);
       }
     };
 
-    animate();
+    rafId = requestAnimationFrame(animate);
+    
+    // ✅ GOOD - Cleanup RAF on unmount
+    return () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [isVisible, end, duration]);
 
   const displayValue = decimals > 0 ? count.toFixed(decimals) : Math.floor(count);

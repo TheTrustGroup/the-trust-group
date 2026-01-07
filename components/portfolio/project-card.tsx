@@ -31,6 +31,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
   const [isHovered, setIsHovered] = React.useState(false);
+  const [imageError, setImageError] = React.useState(false);
 
   const categoryColors: Record<string, string> = {
     ai: "bg-primary/20 text-primary border-primary/30", // Improved contrast
@@ -72,8 +73,15 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
       data-interactive="true"
     >
       {/* Image/Mockup Area */}
-      <div className="relative h-48 md:h-56 overflow-hidden bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
-        {project.image ? (
+      <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
+        {!project.image || imageError ? (
+          <IntelligentPlaceholder
+            title={project.title}
+            category={project.category}
+            technologies={project.technologies}
+            className="w-full h-full"
+          />
+        ) : (
           <Image
             src={project.image}
             alt={project.title}
@@ -81,13 +89,11 @@ export function ProjectCard({ project, onViewDetails }: ProjectCardProps) {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
-          />
-        ) : (
-          <IntelligentPlaceholder
-            title={project.title}
-            category={project.category}
-            technologies={project.technologies}
-            className="w-full h-full"
+            width={800}
+            height={500}
+            onError={() => {
+              setImageError(true);
+            }}
           />
         )}
         

@@ -9,6 +9,24 @@ import { ContactSection } from "@/components/contact";
 import { ScrollAnimation } from "@/components/animations";
 import { CTAScrollButton } from "@/components/cta-button";
 import { CheckCircle2 } from "lucide-react";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy sections below the fold
+const TechnologiesSectionLazy = dynamic(() => import("@/components/technologies").then(mod => ({ default: mod.TechnologiesSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+});
+const PortfolioSectionLazy = dynamic(() => import("@/components/portfolio").then(mod => ({ default: mod.PortfolioSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+});
+const AboutSectionLazy = dynamic(() => import("@/components/about").then(mod => ({ default: mod.AboutSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+});
+const TestimonialsSectionLazy = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.TestimonialsSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+});
+const ContactSectionLazy = dynamic(() => import("@/components/contact").then(mod => ({ default: mod.ContactSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+});
 
 export default function Home() {
   const values = [
@@ -31,17 +49,17 @@ export default function Home() {
       {/* Services Section */}
       <ServicesSection />
 
-      {/* Technologies Section */}
-      <TechnologiesSection />
+      {/* Technologies Section - Lazy loaded */}
+      <TechnologiesSectionLazy />
 
-      {/* Portfolio Section */}
-      <PortfolioSection />
+      {/* Portfolio Section - Lazy loaded */}
+      <PortfolioSectionLazy />
 
-      {/* About Section */}
-      <AboutSection />
+      {/* About Section - Lazy loaded */}
+      <AboutSectionLazy />
 
-      {/* Testimonials Section */}
-      <TestimonialsSection />
+      {/* Testimonials Section - Lazy loaded */}
+      <TestimonialsSectionLazy />
 
       {/* Why Choose Us Section */}
       <AnimatedSection variant="muted" size="default" animation="fade-in">
@@ -84,8 +102,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Contact Section */}
-      <ContactSection />
+      {/* Contact Section - Lazy loaded */}
+      <ContactSectionLazy />
     </>
   );
 }

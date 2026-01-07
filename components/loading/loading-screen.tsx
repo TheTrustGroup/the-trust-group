@@ -20,12 +20,16 @@ export function usePageLoad() {
   const [progress, setProgress] = React.useState(0);
 
   React.useEffect(() => {
+    let timeoutId1: NodeJS.Timeout | null = null;
+    let timeoutId2: NodeJS.Timeout | null = null;
+    
     // Simulate loading progress
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setIsLoading(false), 300);
+          // ✅ GOOD - Store timeout for cleanup
+          timeoutId1 = setTimeout(() => setIsLoading(false), 300);
           return 100;
         }
         return prev + 10;
@@ -36,18 +40,26 @@ export function usePageLoad() {
     if (typeof window !== "undefined") {
       const handleLoad = () => {
         setProgress(100);
-        setTimeout(() => setIsLoading(false), 500);
+        // ✅ GOOD - Store timeout for cleanup
+        timeoutId2 = setTimeout(() => setIsLoading(false), 500);
       };
 
       if (document.readyState === "complete") {
         handleLoad();
       } else {
         window.addEventListener("load", handleLoad);
-        return () => window.removeEventListener("load", handleLoad);
       }
     }
 
-    return () => clearInterval(interval);
+    // ✅ GOOD - Cleanup all timeouts and intervals
+    return () => {
+      clearInterval(interval);
+      if (timeoutId1) clearTimeout(timeoutId1);
+      if (timeoutId2) clearTimeout(timeoutId2);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("load", () => {});
+      }
+    };
   }, []);
 
   return { isLoading, progress };

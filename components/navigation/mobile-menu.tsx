@@ -38,16 +38,22 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
       }
     };
 
+    let focusTimeoutId: NodeJS.Timeout | null = null;
+
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
       // Focus first element when menu opens
-      setTimeout(() => {
+      focusTimeoutId = setTimeout(() => {
         firstFocusableRef.current?.focus();
       }, 100);
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
+      // ✅ GOOD - Cleanup timeout
+      if (focusTimeoutId) {
+        clearTimeout(focusTimeoutId);
+      }
     };
   }, [isOpen, onClose]);
 
@@ -129,7 +135,8 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-background/80 backdrop-blur-sm"
+            style={{ zIndex: "var(--z-modal-backdrop)" }}
             onClick={onClose}
           />
 
@@ -140,7 +147,8 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-background border-l border-border shadow-2xl z-50 overflow-y-auto"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-background border-l border-border shadow-2xl overflow-y-auto"
+            style={{ zIndex: "var(--z-modal)" }}
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -150,6 +158,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
               <div className="flex items-center justify-between p-6 border-b border-border">
                 <h2 className="text-lg font-semibold">Menu</h2>
                 <motion.button
+                  type="button"
                   ref={firstFocusableRef}
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
@@ -180,6 +189,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                             onClick={() => handleLinkClick(item.href)}
                             className={cn(
                               "block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200",
+                              item.href.startsWith("#") && "smooth-scroll",
                               isActive
                                 ? "bg-primary text-primary-foreground"
                                 : "text-foreground/80 hover:text-foreground hover:bg-accent"
@@ -193,7 +203,10 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                                 key={service.href}
                                 href={service.href}
                                 onClick={() => handleLinkClick(service.href)}
-                                className="block px-4 py-2 text-sm text-foreground/70 hover:text-foreground hover:bg-accent/50 rounded-lg transition-colors min-h-[44px] flex items-center"
+                                className={cn(
+                                  "block px-4 py-2 text-sm text-foreground/70 hover:text-foreground hover:bg-accent/50 rounded-lg transition-colors min-h-[44px] flex items-center",
+                                  service.href.startsWith("#") && "smooth-scroll"
+                                )}
                                 role="menuitem"
                               >
                                 {service.name}
@@ -207,6 +220,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                           onClick={() => handleLinkClick(item.href)}
                           className={cn(
                             "block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 min-h-[44px] flex items-center",
+                            item.href.startsWith("#") && "smooth-scroll",
                             isActive
                               ? "bg-primary text-primary-foreground"
                               : "text-foreground/80 hover:text-foreground hover:bg-accent"

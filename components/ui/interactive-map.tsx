@@ -21,6 +21,9 @@ export function InteractiveMap() {
     const timeout = setTimeout(() => {
       setIsLoaded(true);
     }, 2000);
+    
+    // ✅ GOOD - Cleanup timeout
+    return () => clearTimeout(timeout);
 
     return () => clearTimeout(timeout);
   }, []);

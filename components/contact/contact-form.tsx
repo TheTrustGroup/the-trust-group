@@ -181,10 +181,13 @@ export function ContactForm() {
           className={cn("min-h-[44px] text-base", errors.name && "border-error")}
           placeholder="John Doe"
           required
+          autoComplete="name"
+          aria-describedby={errors.name ? "name-error" : undefined}
+          aria-invalid={errors.name ? true : undefined}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-error flex items-center gap-1">
-            <AlertCircle className="h-4 w-4" />
+          <p id="name-error" role="alert" className="mt-1 text-sm text-error flex items-center gap-1">
+            <AlertCircle className="h-4 w-4" aria-hidden="true" />
             {errors.name}
           </p>
         )}
@@ -204,10 +207,13 @@ export function ContactForm() {
           className={cn("min-h-[44px] text-base", errors.email && "border-error focus-visible:border-error focus-visible:ring-error/20")}
           placeholder="john@company.com"
           required
+          autoComplete="email"
+          aria-describedby={errors.email ? "email-error" : undefined}
+          aria-invalid={errors.email ? true : undefined}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-error flex items-center gap-1">
-            <AlertCircle className="h-4 w-4" />
+          <p id="email-error" role="alert" className="mt-1 text-sm text-error flex items-center gap-1">
+            <AlertCircle className="h-4 w-4" aria-hidden="true" />
             {errors.email}
           </p>
         )}
@@ -226,6 +232,7 @@ export function ContactForm() {
           onChange={handleChange}
           className="min-h-[44px] text-base"
           placeholder="Your Company"
+          autoComplete="organization"
         />
       </div>
 
@@ -247,6 +254,8 @@ export function ContactForm() {
             errors.service && "border-error focus-visible:border-error focus-visible:ring-error/20"
           )}
           required
+          aria-describedby={errors.service ? "service-error" : undefined}
+          aria-invalid={errors.service ? true : undefined}
         >
           <option value="">Select a service...</option>
           {services.map((service) => (
@@ -256,8 +265,8 @@ export function ContactForm() {
           ))}
         </select>
         {errors.service && (
-          <p className="mt-1 text-sm text-error flex items-center gap-1">
-            <AlertCircle className="h-4 w-4" />
+          <p id="service-error" role="alert" className="mt-1 text-sm text-error flex items-center gap-1">
+            <AlertCircle className="h-4 w-4" aria-hidden="true" />
             {errors.service}
           </p>
         )}
@@ -284,10 +293,12 @@ export function ContactForm() {
           )}
           placeholder="Tell us about your project..."
           required
+          aria-describedby={errors.description ? "description-error" : undefined}
+          aria-invalid={errors.description ? true : undefined}
         />
         {errors.description && (
-          <p className="mt-1 text-sm text-error flex items-center gap-1">
-            <AlertCircle className="h-4 w-4" />
+          <p id="description-error" role="alert" className="mt-1 text-sm text-error flex items-center gap-1">
+            <AlertCircle className="h-4 w-4" aria-hidden="true" />
             {errors.description}
           </p>
         )}

@@ -55,6 +55,8 @@ export function EnhancedBackground() {
     };
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
+    
+    // ✅ GOOD - Cleanup will be handled in return statement below
 
     // Enhanced particle system
     interface Particle {

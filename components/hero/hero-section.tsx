@@ -7,7 +7,9 @@ import { NeuralNetwork } from "./neural-network";
 import { TypingAnimation } from "./typing-animation";
 import { ScrollIndicator } from "./scroll-indicator";
 import { ScrollAnimation, ParallaxSection, ParallaxBackground } from "@/components/animations";
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
+// Tree-shake framer-motion imports
+import { motion } from "framer-motion";
+import { useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { Floating3DShapes, Floating3DCube, Parallax3DLayers } from "./3d-elements";
 import { useEffect, useRef, useState } from "react";

@@ -13,8 +13,8 @@ export function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-primary/20 z-50 origin-left"
-      style={{ scaleX }}
+      className="fixed top-0 left-0 right-0 h-1 bg-primary/20 origin-left"
+      style={{ zIndex: "var(--z-sticky)", scaleX }}
     >
       <motion.div
         className="h-full bg-gradient-to-r from-primary via-accent to-primary"

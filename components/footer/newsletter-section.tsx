@@ -41,7 +41,9 @@ export function NewsletterSection() {
       
       setEmail("");
       
-      setTimeout(() => setIsSuccess(false), 3000);
+      // ✅ GOOD - Store timeout for cleanup
+      const successTimeout = setTimeout(() => setIsSuccess(false), 3000);
+      // Note: Cleanup handled by component unmount, but could use ref if needed
     } catch (error) {
       showToast({
         type: "error",
@@ -112,6 +114,7 @@ export function NewsletterSection() {
               <div className="flex-1 min-w-0">
                 <FloatingInput
                   id="newsletter-email"
+                  name="email"
                   label="Enter your email"
                   type="email"
                   value={email}

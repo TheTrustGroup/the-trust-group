@@ -206,7 +206,7 @@ export function EnhancedTestimonialCard({
           {/* Company Logo */}
           {testimonial.companyLogo ? (
             <motion.div
-              className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-muted/50 border border-border flex items-center justify-center overflow-hidden flex-shrink-0 touch-manipulation"
+              className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg bg-muted/50 border border-border flex items-center justify-center overflow-hidden flex-shrink-0 touch-manipulation aspect-square"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
@@ -217,6 +217,20 @@ export function EnhancedTestimonialCard({
                 fill
                 sizes="56px"
                 className="object-contain p-2"
+                width={56}
+                onError={(e) => {
+                  // Hide image and show company initial on error
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = "none";
+                  const container = target.parentElement;
+                  if (container && !container.querySelector(".fallback-initial")) {
+                    const fallback = document.createElement("div");
+                    fallback.className = "fallback-initial absolute inset-0 flex items-center justify-center text-muted-foreground font-bold text-xs sm:text-sm";
+                    fallback.textContent = testimonial.company.charAt(0).toUpperCase();
+                    container.appendChild(fallback);
+                  }
+                }}
+                height={56}
               />
             </motion.div>
           ) : (

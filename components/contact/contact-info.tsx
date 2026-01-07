@@ -3,7 +3,13 @@
 import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { InteractiveMap } from "@/components/ui/interactive-map";
+import dynamic from "next/dynamic";
+
+// Lazy load map - heavy component
+const InteractiveMap = dynamic(() => import("@/components/ui/interactive-map").then(mod => ({ default: mod.InteractiveMap })), {
+  loading: () => <div className="h-[400px] md:h-[500px] bg-muted/30 rounded-lg flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>,
+  ssr: false
+});
 
 import { siteConfig } from "@/lib/cms-client";
 

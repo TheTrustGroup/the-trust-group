@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import { Home, Search, ArrowLeft, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import type { Metadata } from "next";
+import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
+
+// Note: Metadata export doesn't work in "use client" components
+// This is handled by Next.js automatically for not-found pages
+// But we can still ensure proper heading hierarchy
 
 export default function NotFound() {
   const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });

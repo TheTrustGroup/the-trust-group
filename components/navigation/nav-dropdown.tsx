@@ -70,7 +70,8 @@ export function NavDropdown({ label, items, onItemClick }: NavDropdownProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-full left-0 mt-2 w-56 rounded-lg bg-background/95 backdrop-blur-md border border-border shadow-lg z-50 overflow-hidden"
+            className="absolute top-full left-0 mt-2 w-56 rounded-lg bg-background/95 backdrop-blur-md border border-border shadow-lg overflow-hidden"
+            style={{ zIndex: "var(--z-dropdown)" }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >

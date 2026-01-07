@@ -6,12 +6,19 @@ import { cn } from "@/lib/utils";
 import { TechLogo } from "./tech-logos";
 import { technologyCategories, technologies } from "@/lib/cms-client";
 import type { Technology } from "@/data/types";
-import * as Icons from "lucide-react";
-import { X } from "lucide-react";
+import { 
+  Layers, Brain, Globe, Smartphone, Building2, Code2, Database, Cloud,
+  X
+} from "lucide-react";
+
+// Icon mapping to avoid wildcard import
+const iconMap: Record<string, React.ComponentType<any>> = {
+  Layers, Brain, Globe, Smartphone, Building2, Code2, Database, Cloud
+};
 
 function getIconComponent(iconName: string): React.ComponentType<any> {
-  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<any>>)[iconName];
-  return IconComponent || Icons.Layers;
+  const IconComponent = iconMap[iconName];
+  return IconComponent || Layers;
 }
 
 interface TechItemProps {
@@ -241,7 +248,8 @@ function TechDetailModal({ tech, onClose }: TechDetailModalProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+        style={{ zIndex: "var(--z-modal)" }}
         onClick={onClose}
       >
         <motion.div
@@ -252,6 +260,7 @@ function TechDetailModal({ tech, onClose }: TechDetailModalProps) {
           className="relative max-w-md w-full p-8 rounded-2xl bg-background border-2 border-primary/20 shadow-2xl"
         >
           <button
+            type="button"
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted transition-colors"
             aria-label="Close"
@@ -328,7 +337,7 @@ export function PremiumTechShowcase() {
     }, 150);
 
     return () => clearTimeout(timer);
-  }, [activeCategory]);
+  }, [activeCategory]); // technologies is from props/context, not needed in deps
 
   return (
     <div className="relative">
@@ -339,6 +348,7 @@ export function PremiumTechShowcase() {
           const isActive = activeCategory === category.id;
           return (
             <motion.button
+              type="button"
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
               whileHover={{ scale: 1.05 }}

@@ -72,13 +72,27 @@ export function TestimonialCard({ testimonial, isActive = false }: TestimonialCa
           </div>
         </div>
         {testimonial.companyLogo && (
-          <div className="relative w-16 h-16 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
+          <div className="relative w-16 h-16 rounded-lg bg-muted flex items-center justify-center overflow-hidden aspect-square">
             <Image
               src={testimonial.companyLogo}
               alt={testimonial.company}
               fill
+              onError={(e) => {
+                // Hide image and show company initial on error
+                const target = e.target as HTMLImageElement;
+                target.style.display = "none";
+                const container = target.parentElement;
+                if (container && !container.querySelector(".fallback-initial")) {
+                  const fallback = document.createElement("div");
+                  fallback.className = "fallback-initial absolute inset-0 flex items-center justify-center text-muted-foreground font-bold text-lg";
+                  fallback.textContent = testimonial.company.charAt(0).toUpperCase();
+                  container.appendChild(fallback);
+                }
+              }}
               sizes="64px"
               className="object-contain p-2"
+              width={64}
+              height={64}
             />
           </div>
         )}

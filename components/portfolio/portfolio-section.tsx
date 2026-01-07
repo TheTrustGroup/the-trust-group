@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Button } from "@/components/ui/button";
 import { PremiumProjectCard } from "./premium-project-card";
-import { ProjectModal } from "./project-modal";
+import dynamic from "next/dynamic";
+
+// Lazy load modal - only loads when opened
+const ProjectModal = dynamic(() => import("./project-modal").then(mod => ({ default: mod.ProjectModal })), {
+  ssr: false
+});
 import { projects, projectCategories } from "@/lib/cms-client";
 import { ScrollAnimation } from "@/components/animations";
 import { cn } from "@/lib/utils";
@@ -35,17 +40,35 @@ export function PortfolioSection() {
     }, 300);
 
     return () => clearTimeout(timer);
-  }, [activeCategory]);
+  }, [activeCategory]); // projects is a prop, not needed in deps
 
   const handleViewDetails = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
 
+  const timeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setTimeout(() => setSelectedProject(null), 300);
+    // ✅ GOOD - Clear any existing timeout
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setSelectedProject(null);
+      timeoutRef.current = null;
+    }, 300);
   };
+
+  // ✅ GOOD - Cleanup timeout on unmount
+  React.useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -241,7 +264,7 @@ export function PortfolioSection() {
                 className="group"
                 asChild
               >
-                <a href="/#portfolio" aria-label="View all projects in portfolio">
+                <a href="/#portfolio" className="smooth-scroll" aria-label="View all projects in portfolio">
                   See More Projects
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current dark:stroke-current" strokeWidth={2} aria-hidden="true" />
                 </a>

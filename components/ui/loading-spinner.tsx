@@ -38,7 +38,7 @@ export function LoadingSpinner({
 
 export function LoadingOverlay({ text }: { text?: string }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
+    <div className="fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm" style={{ zIndex: "var(--z-loading)" }}>
       <LoadingSpinner size="lg" text={text} />
     </div>
   );

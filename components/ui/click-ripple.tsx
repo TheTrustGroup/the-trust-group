@@ -11,6 +11,16 @@ interface ClickRippleProps {
 
 export function ClickRipple({ children, className, color = "rgba(0, 102, 255, 0.3)" }: ClickRippleProps) {
   const [ripples, setRipples] = React.useState<Array<{ x: number; y: number; id: number }>>([]);
+  const timeoutRefs = React.useRef<Map<number, NodeJS.Timeout>>(new Map());
+
+  // ✅ GOOD - Cleanup all timeouts on unmount
+  React.useEffect(() => {
+    const refs = timeoutRefs.current;
+    return () => {
+      refs.forEach((timeout) => clearTimeout(timeout));
+      refs.clear();
+    };
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -20,10 +30,13 @@ export function ClickRipple({ children, className, color = "rgba(0, 102, 255, 0.
 
     setRipples((prev) => [...prev, { x, y, id }]);
 
-    // Remove ripple after animation
-    setTimeout(() => {
+    // ✅ GOOD - Remove ripple after animation with cleanup
+    const timeoutId = setTimeout(() => {
       setRipples((prev) => prev.filter((ripple) => ripple.id !== id));
+      timeoutRefs.current.delete(id);
     }, 600);
+    
+    timeoutRefs.current.set(id, timeoutId);
   };
 
   return (

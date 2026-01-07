@@ -1,5 +1,4 @@
 export { PortfolioSection } from "./portfolio-section";
-export { ProjectCard } from "./project-card";
 export { PremiumProjectCard } from "./premium-project-card";
 export { DeviceMockup, getPlaceholderImage } from "./device-mockups";
 export { ProjectModal } from "./project-modal";

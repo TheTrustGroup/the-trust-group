@@ -13,6 +13,9 @@ import { designTokens } from "@/lib/design-tokens";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { Separator } from "@/components/ui/separator";
 
+// Note: Style guide is an internal page, metadata not critical
+// But we ensure proper heading hierarchy (H1 for main title)
+
 export default function StyleGuidePage() {
   return (
     <div className="min-h-screen bg-background">
@@ -73,8 +76,8 @@ export default function StyleGuidePage() {
             <StandardizedCard variant="default" padding="lg">
               <div className="space-y-4">
                 <div>
-                  <h1 className="text-4xl md:text-5xl font-bold">Heading 1</h1>
-                  <p className="text-sm text-muted-foreground mt-2">Display heading</p>
+                  <h2 className="text-4xl md:text-5xl font-bold">Heading 1 Style</h2>
+                  <p className="text-sm text-muted-foreground mt-2">Display heading (example only - not actual H1)</p>
                 </div>
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold">Heading 2</h2>

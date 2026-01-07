@@ -10,6 +10,8 @@
   margin-right: auto;
   padding-left: clamp(1rem, 5vw, 3rem);
   padding-right: clamp(1rem, 5vw, 3rem);
+  overflow-x: clip; /* ✅ Prevent horizontal overflow */
+  box-sizing: border-box;
 }
 
 /* Container variants */

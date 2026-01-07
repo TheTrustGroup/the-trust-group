@@ -16,6 +16,15 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
+  const [imageError, setImageError] = React.useState(false);
+
+  React.useEffect(() => {
+    // Reset error state when project changes
+    if (project) {
+      setImageError(false);
+    }
+  }, [project]);
+
   React.useEffect(() => {
     if (isOpen) {
       // ✅ GOOD - Use optimized scroll lock utility (handles iOS and layout shift)
@@ -40,11 +49,12 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center p-4",
+        "fixed inset-0 flex items-center justify-center p-4",
         "bg-background/80 backdrop-blur-sm",
         "transition-opacity duration-300",
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       )}
+      style={{ zIndex: "var(--z-modal)" }}
       onClick={onClose}
     >
       <div
@@ -58,15 +68,17 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
       >
         {/* Close Button */}
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+          style={{ zIndex: "var(--z-popover)" }}
           aria-label="Close modal"
         >
           <X className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
         </button>
 
         {/* Image */}
-        <div className="relative h-64 md:h-80 overflow-hidden bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
+        <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
           {project.image ? (
             <Image
               src={project.image}
@@ -75,6 +87,8 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
               sizes="(max-width: 768px) 100vw, 80vw"
               className="object-cover"
               loading="lazy"
+              width={1920}
+              height={1080}
             />
           ) : (
             <IntelligentPlaceholder

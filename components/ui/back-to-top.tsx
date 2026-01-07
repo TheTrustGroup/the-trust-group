@@ -55,7 +55,8 @@ export function BackToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
-          className="fixed bottom-24 right-6 z-30"
+          className="fixed bottom-24 right-6"
+          style={{ zIndex: "var(--z-fixed)" }}
         >
           <Button
             size="icon"

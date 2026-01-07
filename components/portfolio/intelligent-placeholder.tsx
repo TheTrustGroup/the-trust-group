@@ -141,10 +141,11 @@ export function IntelligentPlaceholder({
   return (
     <div
       className={cn(
-        "relative w-full h-full overflow-hidden",
+        "relative w-full h-full overflow-hidden aspect-[16/10]",
         `bg-gradient-to-br ${config.bgGradient}`,
         className
       )}
+      style={{ minHeight: "300px" }}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">

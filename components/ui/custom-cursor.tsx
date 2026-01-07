@@ -56,8 +56,9 @@ export function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-6 h-6 rounded-full bg-primary/10 pointer-events-none z-50 mix-blend-difference transition-all duration-300 cursor-hover:w-8 cursor-hover:h-8"
+        className="fixed top-0 left-0 w-6 h-6 rounded-full bg-primary/10 pointer-events-none mix-blend-difference transition-all duration-300 cursor-hover:w-8 cursor-hover:h-8"
         style={{
+          zIndex: "var(--z-tooltip)",
           x: cursorXSpring,
           y: cursorYSpring,
           translateX: "-50%",
@@ -65,8 +66,9 @@ export function CustomCursor() {
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none z-50 transition-all duration-200 cursor-hover:scale-150"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-primary pointer-events-none transition-all duration-200 cursor-hover:scale-150"
         style={{
+          zIndex: "var(--z-tooltip)",
           x: cursorX,
           y: cursorY,
           translateX: "-50%",

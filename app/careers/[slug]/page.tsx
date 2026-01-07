@@ -224,9 +224,9 @@ export default function JobPage({ params }: JobPageProps) {
               <div className="flex flex-wrap gap-4">
                 {job.applicationUrl ? (
                   <Button asChild size="lg" className="gap-2">
-                    <a href={job.applicationUrl} target="_blank" rel="noopener noreferrer">
+                    <a href={job.applicationUrl} target="_blank" rel="noopener noreferrer" aria-label="Apply Now (Opens in new window)">
                       Apply Now
-                      <ExternalLink className="h-4 w-4" />
+                      <ExternalLink className="h-4 w-4" aria-label="Opens in new window" />
                     </a>
                   </Button>
                 ) : job.applicationEmail ? (

@@ -56,7 +56,8 @@ export function KonamiCode() {
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+          className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
+          style={{ zIndex: "var(--z-loading)" }}
           onClick={() => setIsUnlocked(false)}
         >
           <motion.div

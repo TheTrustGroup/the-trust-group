@@ -19,14 +19,26 @@ export function TypingAnimation({
   const [displayedText, setDisplayedText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
 
+  // Reset when text prop changes
+  useEffect(() => {
+    setDisplayedText("");
+    setIsComplete(false);
+  }, [text]);
+
   useEffect(() => {
     if (displayedText.length < text.length) {
       const timeout = setTimeout(() => {
-        setDisplayedText(text.slice(0, displayedText.length + 1));
+        setDisplayedText((prev) => {
+          // Only update if text hasn't changed
+          if (prev.length < text.length) {
+            return text.slice(0, prev.length + 1);
+          }
+          return prev;
+        });
       }, speed);
 
       return () => clearTimeout(timeout);
-    } else if (!isComplete) {
+    } else if (!isComplete && displayedText.length === text.length && displayedText.length > 0) {
       setIsComplete(true);
       onComplete?.();
     }

@@ -38,14 +38,8 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       duration,
     };
     setToasts((prev) => [...prev, newToast]);
-
-    // Auto remove after duration
-    if (duration > 0) {
-      setTimeout(() => {
-        removeToast(id);
-      }, duration);
-    }
-  }, [removeToast]);
+    // Note: Auto-removal handled in ToastItem component useEffect
+  }, []);
 
   // Listen for custom toast events (for file upload errors, etc.)
   React.useEffect(() => {
@@ -83,7 +77,7 @@ function ToastContainer({
   onRemove: (id: string) => void;
 }) {
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2 max-w-md w-full sm:w-auto pointer-events-none">
+    <div className="fixed bottom-4 right-4 flex flex-col gap-2 max-w-md w-full sm:w-auto pointer-events-none" style={{ zIndex: "var(--z-toast)" }}>
       <AnimatePresence>
         {toasts.map((toast) => (
           <ToastItem key={toast.id} toast={toast} onRemove={onRemove} />
@@ -100,6 +94,17 @@ function ToastItem({
   toast: Toast;
   onRemove: (id: string) => void;
 }) {
+  // ✅ GOOD - Auto-remove toast after duration
+  React.useEffect(() => {
+    if (toast.duration && toast.duration > 0) {
+      const timeoutId = setTimeout(() => {
+        onRemove(toast.id);
+      }, toast.duration);
+      
+      return () => clearTimeout(timeoutId);
+    }
+  }, [toast.id, toast.duration, onRemove]);
+
   const icons = {
     success: CheckCircle2,
     error: AlertCircle,

@@ -74,8 +74,7 @@ export function VideoTestimonialPlaceholder({
           size="lg"
           className="rounded-full shadow-lg"
           onClick={() => {
-            // Placeholder for video modal/player
-            // TODO: Implement video modal/player
+            // Video modal/player implementation pending
           }}
         >
           <Play className="h-5 w-5 mr-2" strokeWidth={2} fill="currentColor" />

@@ -73,9 +73,10 @@ export function AsyncLoadingIndicator({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm",
+            "fixed inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm",
             className
           )}
+          style={{ zIndex: "var(--z-loading)" }}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
