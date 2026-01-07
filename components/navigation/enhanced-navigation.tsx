@@ -78,13 +78,16 @@ export function EnhancedNavigation() {
   // Prevent body scroll when mobile menu is open
   React.useEffect(() => {
     if (isOpen) {
-      // Store original overflow value
+      // ✅ GOOD - Batch all reads first
       const originalOverflow = document.body.style.overflow;
       const originalPaddingRight = document.body.style.paddingRight;
+      const windowWidth = window.innerWidth;
+      const documentWidth = document.documentElement.clientWidth;
       
-      // Calculate scrollbar width to prevent layout shift
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      // ✅ GOOD - Calculate after all reads
+      const scrollbarWidth = windowWidth - documentWidth;
       
+      // ✅ GOOD - Then batch all writes
       document.body.style.overflow = "hidden";
       if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;

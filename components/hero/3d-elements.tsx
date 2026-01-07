@@ -246,6 +246,7 @@ export function Floating3DCube() {
 export function Parallax3DLayers() {
   const containerRef = useRef<HTMLDivElement>(null);
   const layersRef = useRef<Array<HTMLDivElement | null>>([]);
+  const gradientElementsRef = useRef<Array<HTMLElement | null>>([]);
   const mousePositionRef = useRef({ x: 0, y: 0 });
   const rafIdRef = useRef<number | null>(null);
   const tickingRef = useRef(false);
@@ -284,21 +285,22 @@ export function Parallax3DLayers() {
         mouseTicking = true;
         mouseRafId = window.requestAnimationFrame(() => {
           if (containerRef.current) {
+            // ✅ GOOD - Batch read layout properties first
             const rect = containerRef.current.getBoundingClientRect();
-            mousePositionRef.current = {
-              x: (e.clientX - rect.left - rect.width / 2) / rect.width,
-              y: (e.clientY - rect.top - rect.height / 2) / rect.height,
-            };
+            const mouseX = (e.clientX - rect.left - rect.width / 2) / rect.width;
+            const mouseY = (e.clientY - rect.top - rect.height / 2) / rect.height;
             
-            // Update gradient background directly
-            layersRef.current.forEach((layerEl) => {
-              if (layerEl) {
-                const gradientEl = layerEl.querySelector('.parallax-gradient') as HTMLElement;
-                if (gradientEl) {
-                  const x = 50 + mousePositionRef.current.x * 20;
-                  const y = 50 + mousePositionRef.current.y * 20;
-                  gradientEl.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 102, 255, 0.1) 0%, transparent 70%)`;
-                }
+            mousePositionRef.current = { x: mouseX, y: mouseY };
+            
+            // ✅ GOOD - Batch calculate all values
+            const x = 50 + mouseX * 20;
+            const y = 50 + mouseY * 20;
+            const backgroundValue = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 102, 255, 0.1) 0%, transparent 70%)`;
+            
+            // ✅ GOOD - Batch write all styles (no reads in loop)
+            gradientElementsRef.current.forEach((gradientEl) => {
+              if (gradientEl) {
+                gradientEl.style.background = backgroundValue;
               }
             });
           }
@@ -339,6 +341,10 @@ export function Parallax3DLayers() {
           key={index}
           ref={(el) => {
             layersRef.current[index] = el;
+            // ✅ GOOD - Cache gradient elements to avoid querySelector in loops
+            if (el) {
+              gradientElementsRef.current[index] = el.querySelector('.parallax-gradient') as HTMLElement;
+            }
           }}
           className="absolute inset-0"
           style={{
