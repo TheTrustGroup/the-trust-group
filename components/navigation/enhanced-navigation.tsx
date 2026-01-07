@@ -13,6 +13,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Logo } from "@/components/logo";
 import { NavDropdown } from "./nav-dropdown";
 import { MobileMenu } from "./mobile-menu";
+import { lockBodyScroll } from "@/lib/utils/scroll-lock";
 
 export function EnhancedNavigation() {
   const pathname = usePathname();
@@ -75,33 +76,17 @@ export function EnhancedNavigation() {
     setIsOpen(false);
   }, [pathname]);
 
+import { lockBodyScroll } from "@/lib/utils/scroll-lock";
+
   // Prevent body scroll when mobile menu is open
   React.useEffect(() => {
     if (isOpen) {
-      // ✅ GOOD - Batch all reads first
-      const originalOverflow = document.body.style.overflow;
-      const originalPaddingRight = document.body.style.paddingRight;
-      const windowWidth = window.innerWidth;
-      const documentWidth = document.documentElement.clientWidth;
-      
-      // ✅ GOOD - Calculate after all reads
-      const scrollbarWidth = windowWidth - documentWidth;
-      
-      // ✅ GOOD - Then batch all writes
-      document.body.style.overflow = "hidden";
-      if (scrollbarWidth > 0) {
-        document.body.style.paddingRight = `${scrollbarWidth}px`;
-      }
+      // ✅ GOOD - Use optimized scroll lock utility (handles iOS and layout shift)
+      const unlock = lockBodyScroll();
       
       return () => {
-        // Always restore on cleanup
-        document.body.style.overflow = originalOverflow || "";
-        document.body.style.paddingRight = originalPaddingRight || "";
+        unlock();
       };
-    } else {
-      // Ensure overflow is reset when menu closes
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
     }
   }, [isOpen]);
 

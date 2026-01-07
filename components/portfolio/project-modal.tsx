@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Project } from "./project-card";
 import { IntelligentPlaceholder } from "./intelligent-placeholder";
+import { lockBodyScroll } from "@/lib/utils/scroll-lock";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -17,30 +18,12 @@ interface ProjectModalProps {
 export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
   React.useEffect(() => {
     if (isOpen) {
-      // ✅ GOOD - Batch all reads first
-      const originalOverflow = document.body.style.overflow;
-      const originalPaddingRight = document.body.style.paddingRight;
-      const windowWidth = window.innerWidth;
-      const documentWidth = document.documentElement.clientWidth;
-      
-      // ✅ GOOD - Calculate after all reads
-      const scrollbarWidth = windowWidth - documentWidth;
-      
-      // ✅ GOOD - Then batch all writes
-      document.body.style.overflow = "hidden";
-      if (scrollbarWidth > 0) {
-        document.body.style.paddingRight = `${scrollbarWidth}px`;
-      }
+      // ✅ GOOD - Use optimized scroll lock utility (handles iOS and layout shift)
+      const unlock = lockBodyScroll();
       
       return () => {
-        // Always restore on cleanup
-        document.body.style.overflow = originalOverflow || "";
-        document.body.style.paddingRight = originalPaddingRight || "";
+        unlock();
       };
-    } else {
-      // Ensure overflow is reset when modal closes
-      document.body.style.overflow = "";
-      document.body.style.paddingRight = "";
     }
   }, [isOpen]);
 
