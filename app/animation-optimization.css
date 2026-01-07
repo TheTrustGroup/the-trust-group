@@ -1,0 +1,120 @@
+/* ============================================
+   ANIMATION OPTIMIZATION - GPU ACCELERATED
+   Only use transform and opacity for animations
+   ============================================ */
+
+/* ✅ GOOD - Only animate transform and opacity */
+* {
+  /* Prevent expensive property animations */
+  transition-property: transform, opacity, background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* ❌ BAD - Don't animate these properties */
+/* top, left, right, bottom, width, height, margin, padding */
+
+/* Exception: Allow background-color, border-color, color for theme transitions */
+/* These are already handled in globals.css */
+
+/* Optimize will-change - only set during animations */
+[class*="animate-"],
+[class*="motion-"],
+[data-animate],
+.animate-on-scroll {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+[class*="animate-"].animated,
+[class*="motion-"].animated,
+[data-animate].animated,
+.animate-on-scroll.animated {
+  will-change: auto;
+}
+
+/* Slide animations - use translate instead of position */
+.slide-in {
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.slide-in.active {
+  transform: translateX(0);
+}
+
+.slide-in:not(.active) {
+  will-change: auto;
+}
+
+/* Fade animations - use opacity */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
+.fade-in:not(.active) {
+  will-change: auto;
+}
+
+/* Scale animations - use transform */
+.scale-in {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.scale-in.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.scale-in:not(.active) {
+  will-change: auto;
+}
+
+/* Prevent layout-triggering animations */
+@supports (transform: translateZ(0)) {
+  /* Force GPU acceleration for animated elements */
+  [class*="animate-"],
+  [class*="motion-"],
+  [data-animate] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+/* Optimize hover states */
+[class*="hover"]:hover {
+  will-change: transform;
+}
+
+[class*="hover"]:not(:hover) {
+  will-change: auto;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-property: none !important;
+  }
+  
+  /* Keep essential transitions */
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+  }
+}

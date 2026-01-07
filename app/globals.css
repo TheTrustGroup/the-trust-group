@@ -433,12 +433,16 @@
     transform: translateZ(0);
   }
   
-  /* Smooth theme transitions */
+  /* Smooth theme transitions - only non-layout properties */
   * {
-    transition-property: background-color, border-color, color, fill, stroke;
+    /* ✅ GOOD - Only animate non-layout properties */
+    transition-property: background-color, border-color, color, fill, stroke, opacity, transform;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
   }
+  
+  /* ❌ BAD - Don't animate these (causes layout reflow) */
+  /* top, left, right, bottom, width, height, margin, padding */
   
   /* Dark mode specific adjustments */
   .dark {
