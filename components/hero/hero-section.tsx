@@ -282,11 +282,34 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 sm:mb-12 w-full px-2 mx-auto leading-relaxed break-words"
+            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 w-full px-2 mx-auto leading-relaxed break-words"
             style={{ wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}
           >
             A parent company with multiple businesses under its umbrella, delivering excellence in every project
           </motion.p>
+
+          {/* Trust Indicators */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 px-2"
+          >
+            <div className="text-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1">500+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Projects Delivered</div>
+            </div>
+            <div className="hidden sm:block w-px h-12 bg-border" />
+            <div className="text-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-success mb-1">98%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Client Satisfaction</div>
+            </div>
+            <div className="hidden sm:block w-px h-12 bg-border" />
+            <div className="text-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-1">10+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
+            </div>
+          </motion.div>
 
           {/* CTAs with 3D hover effects */}
           <motion.div

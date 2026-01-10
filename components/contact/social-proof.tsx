@@ -8,6 +8,16 @@ import { cn } from "@/lib/utils";
 export function SocialProof({ className }: { className?: string }) {
   return (
     <div className={cn("space-y-5 sm:space-y-6", className)}>
+      {/* Trust Badge */}
+      <div className="p-4 sm:p-5 rounded-xl bg-success/10 border border-success/20 text-center transition-all duration-200 hover:border-success/30 hover:shadow-sm">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Star className="h-4 w-4 sm:h-5 sm:w-5 text-success fill-success flex-shrink-0" />
+          <span className="text-base sm:text-lg font-bold text-foreground">4.9/5</span>
+        </div>
+        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-3">Average Client Rating</p>
+        <p className="text-xs text-muted-foreground/80">Based on 100+ verified reviews</p>
+      </div>
+
       {/* Stats */}
       <div className="grid grid-cols-2 gap-3 sm:gap-4">
         <motion.div

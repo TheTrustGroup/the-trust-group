@@ -23,7 +23,7 @@ interface FounderSectionProps {
 }
 
 // Professional office space image
-const FOUNDER_IMAGE_URL = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop&auto=format&q=80";
+const FOUNDER_IMAGE_URL = "/images/founder-profile.png";
 
 const expertise = [
   {
@@ -133,13 +133,33 @@ export function FounderSection({ className }: FounderSectionProps) {
                 
                 {/* Office Space Image */}
                 <div className="relative mb-6">
-                  <div className="relative w-48 h-48 mx-auto rounded-full overflow-hidden border-4 border-primary/30 group-hover:border-primary/60 transition-colors duration-300 shadow-2xl aspect-square">
+                  {/* Aura Glow Effect */}
+                  <div 
+                    className="absolute inset-0 mx-auto w-48 h-48 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"
+                    style={{ 
+                      clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
+                      background: 'linear-gradient(135deg, rgba(0, 102, 255, 0.4), rgba(0, 184, 230, 0.4))',
+                      transform: 'scale(1.1)',
+                    }}
+                  />
+                  {/* Outer Glow Ring */}
+                  <div 
+                    className="absolute inset-0 mx-auto w-52 h-52 opacity-30 group-hover:opacity-60 transition-opacity duration-500"
+                    style={{ 
+                      clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)',
+                      background: 'linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 184, 230, 0.2))',
+                      filter: 'blur(8px)',
+                      transform: 'scale(1.05)',
+                    }}
+                  />
+                  {/* Hexagon Container */}
+                  <div className="relative w-48 h-48 mx-auto overflow-hidden shadow-2xl aspect-square transition-all duration-500 group-hover:scale-105" style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)' }}>
                     <Image
                       src={FOUNDER_IMAGE_URL}
-                      alt="Professional office space - The Trust Group"
+                      alt="Emmanuel A. - Founder & CEO of The Trust Group"
                       fill
                       sizes="192px"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                       onError={(e) => {
                         // Fallback to placeholder on error
@@ -159,8 +179,6 @@ export function FounderSection({ className }: FounderSectionProps) {
                         }
                       }}
                     />
-                    {/* Animated Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   
                   {/* Minimal Status Indicator */}

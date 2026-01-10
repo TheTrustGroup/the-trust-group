@@ -10,6 +10,9 @@ import { ScrollAnimation } from "@/components/animations";
 import { CTAScrollButton } from "@/components/cta-button";
 import { CheckCircle2 } from "lucide-react";
 import dynamic from "next/dynamic";
+import { ValuePropositionSection } from "@/components/ui/value-proposition-section";
+import { ProcessSection } from "@/components/ui/process-section";
+import { FAQSection } from "@/components/ui/faq-section";
 
 // Lazy load heavy sections below the fold
 const TechnologiesSectionLazy = dynamic(() => import("@/components/technologies").then(mod => ({ default: mod.TechnologiesSection })), {
@@ -49,6 +52,9 @@ export default function Home() {
       {/* Services Section */}
       <ServicesSection />
 
+      {/* Value Proposition Section */}
+      <ValuePropositionSection />
+
       {/* Technologies Section - Lazy loaded */}
       <TechnologiesSectionLazy />
 
@@ -60,6 +66,12 @@ export default function Home() {
 
       {/* Testimonials Section - Lazy loaded */}
       <TestimonialsSectionLazy />
+
+      {/* Process Section */}
+      <ProcessSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* Why Choose Us Section */}
       <AnimatedSection variant="muted" size="default" animation="fade-in">
