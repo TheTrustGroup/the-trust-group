@@ -166,37 +166,6 @@ export function HeroSection() {
         }}
       >
         <div className="max-w-5xl mx-auto text-center w-full px-2 xs:px-3 sm:px-4 md:px-6">
-          {/* Badge with 3D effect */}
-          <motion.div
-            initial={{ opacity: 0, y: 20, rotateX: -90 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              rotateX: 0,
-            }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-            whileHover={{
-              scale: 1.05,
-              rotateY: 5,
-              rotateX: 5,
-              transition: { duration: 0.2 },
-            }}
-            className="inline-flex items-center gap-1.5 xs:gap-2 px-2 xs:px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 sm:mb-8 backdrop-blur-sm max-w-full"
-            style={{
-              transformStyle: "preserve-3d",
-              boxShadow: "0 10px 40px rgba(0, 102, 255, 0.2)",
-            }}
-          >
-            <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="flex-shrink-0"
-            >
-              <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary dark:text-primary stroke-current" strokeWidth={2} />
-            </motion.div>
-            <span className="text-[10px] xs:text-xs sm:text-sm font-medium text-primary break-words" style={{ wordBreak: "break-word", overflowWrap: "break-word" }}>AI & Software Engineering Powerhouse</span>
-          </motion.div>
-
           {/* Main Headline with Typing Animation */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -266,19 +235,6 @@ export function HeroSection() {
               </>
             )}
           </motion.h1>
-
-          {/* Hero Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6"
-          >
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">
-              AI, Software Engineering & Defense Technology Solutions
-            </span>
-          </motion.div>
 
           {/* Subheadline */}
           <motion.p

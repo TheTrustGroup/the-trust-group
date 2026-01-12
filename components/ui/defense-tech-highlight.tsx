@@ -87,15 +87,16 @@ export function DefenseTechHighlight() {
               
               {/* CTA */}
               <div className="pt-4">
-                <Link href="/services/defense-technology">
-                  <Button
-                    size="lg"
-                    className="group bg-primary hover:bg-primary-hover text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
+                <Button
+                  size="lg"
+                  className="group bg-primary hover:bg-primary-hover text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
+                  asChild
+                >
+                  <Link href="/services/defense-technology" prefetch={true}>
                     Explore Defense Capabilities
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </ScrollAnimation>
