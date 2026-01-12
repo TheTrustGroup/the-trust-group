@@ -94,6 +94,23 @@
     ],
     "variant": "accent",
     "href": "/services/consulting"
+  },
+  {
+    "id": "defense-technology",
+    "icon": "Shield",
+    "title": "Defense Technology",
+    "description": "Mission-critical systems for defense and intelligence operations. Secure, compliant, and battle-tested software solutions that protect national interests and support defense operations worldwide.",
+    "features": [
+      "Cybersecurity & Threat Detection",
+      "AI-Powered Defense Systems",
+      "Secure Communication Platforms",
+      "Intelligence Data Analytics",
+      "Mission Planning Software",
+      "Autonomous Systems Integration"
+    ],
+    "variant": "primary",
+    "href": "/services/defense-technology",
+    "featured": true
   }
 ]
 

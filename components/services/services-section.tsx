@@ -56,7 +56,7 @@ export function ServicesSection() {
               </h2>
               <p className="text-base xs:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
                 Comprehensive technology solutions tailored to your business needs. 
-                From AI implementation to cloud infrastructure, we deliver excellence in every project.
+                From commercial applications to classified defense systems, we engineer software for the world&apos;s most demanding missions.
               </p>
             </div>
           </ScrollAnimation>
@@ -64,14 +64,21 @@ export function ServicesSection() {
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => (
               <StaggerItem key={service.id || index}>
-                <PremiumServiceCard
-                  serviceId={service.id}
-                  title={service.title}
-                  description={service.description}
-                  features={service.features}
-                  learnMoreHref={service.href || `/services/${service.id}`}
-                  variant={service.variant}
-                />
+                <div className="relative">
+                  {service.featured && (
+                    <div className="absolute -top-3 right-4 z-20 px-3 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold rounded-full shadow-lg">
+                      Strategic
+                    </div>
+                  )}
+                  <PremiumServiceCard
+                    serviceId={service.id}
+                    title={service.title}
+                    description={service.description}
+                    features={service.features}
+                    learnMoreHref={service.href || `/services/${service.id}`}
+                    variant={service.variant}
+                  />
+                </div>
               </StaggerItem>
             ))}
           </StaggerGrid>

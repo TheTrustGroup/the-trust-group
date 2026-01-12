@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Brain, Code, Smartphone, Globe, Cloud, Lightbulb } from "lucide-react";
+import { ChevronDown, Brain, Code, Smartphone, Globe, Cloud, Lightbulb, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AlertCircle } from "lucide-react";
 
@@ -42,6 +42,12 @@ const services = [
     label: "Consulting & Strategy",
     icon: Lightbulb,
     description: "Technology strategy and digital transformation",
+  },
+  {
+    value: "defense-technology",
+    label: "Defense Technology",
+    icon: Shield,
+    description: "Mission-critical defense and intelligence systems",
   },
   {
     value: "other",

@@ -23,6 +23,8 @@ export function ServiceIllustration({ serviceId, className = "" }: ServiceIllust
       return <CloudServerIllustration id={uniqueId} className={className} />;
     case "consulting":
       return <StrategyIllustration id={uniqueId} className={className} />;
+    case "defense-technology":
+      return <DefenseShieldIllustration id={uniqueId} className={className} />;
     default:
       return <CodeEditorIllustration id={uniqueId} className={className} />;
   }
@@ -333,6 +335,80 @@ function StrategyIllustration({ id, className }: { id: string; className: string
         <line x1="100" y1="140" x2="85" y2="160" />
         <line x1="100" y1="140" x2="115" y2="160" />
       </g>
+    </svg>
+  );
+}
+
+// Defense Technology - Shield with Security Network
+function DefenseShieldIllustration({ id, className }: { id: string; className: string }) {
+  const gradientId = `defenseGradient-${id}`;
+  const filterId = `defenseGlow-${id}`;
+  
+  return (
+    <svg
+      viewBox="0 0 200 200"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0066FF" stopOpacity="1" />
+          <stop offset="50%" stopColor="#00B8E6" stopOpacity="1" />
+          <stop offset="100%" stopColor="#0066FF" stopOpacity="1" />
+        </linearGradient>
+        <filter id={filterId}>
+          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      
+      {/* Shield outline */}
+      <path
+        d="M 100 40 Q 120 50, 130 70 Q 135 90, 130 110 Q 125 130, 115 145 Q 105 160, 100 165 Q 95 160, 85 145 Q 75 130, 70 110 Q 65 90, 70 70 Q 80 50, 100 40 Z"
+        fill={`url(#${gradientId})`}
+        opacity="0.2"
+      />
+      <path
+        d="M 100 50 Q 115 58, 122 75 Q 128 92, 125 108 Q 122 124, 115 137 Q 108 150, 100 155 Q 92 150, 85 137 Q 78 124, 75 108 Q 72 92, 78 75 Q 85 58, 100 50 Z"
+        fill="none"
+        stroke={`url(#${gradientId})`}
+        strokeWidth="2.5"
+        opacity="0.7"
+      />
+      
+      {/* Security nodes */}
+      <g filter={`url(#${filterId})`}>
+        <circle cx="100" cy="70" r="5" fill="#0066FF" />
+        <circle cx="85" cy="90" r="4" fill="#00B8E6" />
+        <circle cx="115" cy="90" r="4" fill="#00B8E6" />
+        <circle cx="100" cy="110" r="6" fill="#0066FF" />
+        <circle cx="90" cy="125" r="4" fill="#00B8E6" />
+        <circle cx="110" cy="125" r="4" fill="#00B8E6" />
+      </g>
+      
+      {/* Security connections */}
+      <g stroke={`url(#${gradientId})`} strokeWidth="1.5" opacity="0.5">
+        <line x1="100" y1="70" x2="85" y2="90" />
+        <line x1="100" y1="70" x2="115" y2="90" />
+        <line x1="100" y1="70" x2="100" y2="110" />
+        <line x1="85" y1="90" x2="100" y2="110" />
+        <line x1="115" y1="90" x2="100" y2="110" />
+        <line x1="100" y1="110" x2="90" y2="125" />
+        <line x1="100" y1="110" x2="110" y2="125" />
+      </g>
+      
+      {/* Lock icon in center */}
+      <rect x="92" y="100" width="16" height="18" rx="2" fill="none" stroke={`url(#${gradientId})`} strokeWidth="2" opacity="0.6" />
+      <path
+        d="M 100 100 Q 96 100, 96 104 L 96 110 Q 96 114, 100 114 Q 104 114, 104 110 L 104 104 Q 104 100, 100 100 Z"
+        fill={`url(#${gradientId})`}
+        opacity="0.4"
+      />
     </svg>
   );
 }

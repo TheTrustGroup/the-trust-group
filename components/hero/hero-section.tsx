@@ -267,6 +267,19 @@ export function HeroSection() {
             )}
           </motion.h1>
 
+          {/* Hero Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4 sm:mb-6"
+          >
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold text-primary uppercase tracking-wider">
+              AI, Software Engineering & Defense Technology Solutions
+            </span>
+          </motion.div>
+
           {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -275,7 +288,7 @@ export function HeroSection() {
             className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 w-full px-2 mx-auto leading-relaxed break-words"
             style={{ wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}
           >
-            Transforming businesses through cutting-edge AI solutions and innovative software engineering
+            From commercial applications to defense systems, we deliver AI-powered solutions, enterprise software, and secure technology for organizations that can&apos;t afford to fail.
           </motion.p>
           
           <motion.p
@@ -308,6 +321,11 @@ export function HeroSection() {
             <div className="text-center">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold text-accent mb-1">10+</div>
               <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
+            </div>
+            <div className="hidden md:block w-px h-12 bg-border" />
+            <div className="hidden md:block text-center">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary mb-1">100%</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Security Compliance</div>
             </div>
           </motion.div>
 

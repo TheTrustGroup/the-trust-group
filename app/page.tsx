@@ -13,6 +13,7 @@ import dynamic from "next/dynamic";
 import { ValuePropositionSection } from "@/components/ui/value-proposition-section";
 import { ProcessSection } from "@/components/ui/process-section";
 import { FAQSection } from "@/components/ui/faq-section";
+import { DefenseTechHighlight } from "@/components/ui/defense-tech-highlight";
 
 // Lazy load heavy sections below the fold
 const TechnologiesSectionLazy = dynamic(() => import("@/components/technologies").then(mod => ({ default: mod.TechnologiesSection })), {
@@ -45,6 +46,9 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Defense Tech Highlight Section */}
+      <DefenseTechHighlight />
 
       {/* Tech Stack Section */}
       <TechStack />

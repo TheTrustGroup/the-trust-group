@@ -15,7 +15,8 @@ import {
   Rocket,
   CheckCircle2,
   Server,
-  Database
+  Database,
+  Shield
 } from "lucide-react";
 
 interface FounderSectionProps {
@@ -45,6 +46,12 @@ const expertise = [
     icon: Server,
     title: "Backend Engineering Expert",
     description: "Architecting robust, scalable server-side solutions and APIs that power enterprise applications",
+  },
+  {
+    icon: Shield,
+    title: "Defense Technology Specialist",
+    description: "Developing mission-critical systems for defense and intelligence operations with security-first architecture",
+    featured: true,
   },
 ];
 
@@ -227,8 +234,8 @@ export function FounderSection({ className }: FounderSectionProps) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-2 order-1 lg:order-2 space-y-8"
           >
-            {/* Four Core Expertise Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Core Expertise Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {expertise.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -240,10 +247,21 @@ export function FounderSection({ className }: FounderSectionProps) {
                     transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                     className="group relative"
                   >
-                    <div className="relative p-6 rounded-2xl border-2 border-border bg-background/60 backdrop-blur-sm hover:border-primary/40 hover:bg-background/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <div className={cn(
+                      "relative p-6 rounded-2xl border-2 border-border bg-background/60 backdrop-blur-sm hover:border-primary/40 hover:bg-background/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl",
+                      item.featured && "border-primary/30 bg-primary/5"
+                    )}>
+                      {item.featured && (
+                        <div className="absolute -top-2 -right-2 px-2 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold rounded-full">
+                          Strategic
+                        </div>
+                      )}
                       {/* Icon */}
                       <div className="relative mb-4">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className={cn(
+                          "w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300",
+                          item.featured && "from-primary/30 to-accent/30"
+                        )}>
                           <Icon className="h-7 w-7 text-primary stroke-current" strokeWidth={2} />
                         </div>
                       </div>

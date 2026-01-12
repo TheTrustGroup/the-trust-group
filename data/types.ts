@@ -8,6 +8,7 @@ export interface Service {
   features: string[];
   variant: "default" | "primary" | "accent";
   href?: string;
+  featured?: boolean; // For highlighting strategic capabilities
 }
 
 export interface Project {
