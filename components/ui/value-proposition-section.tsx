@@ -28,13 +28,13 @@ const differentiators = [
   {
     icon: Target,
     title: "Business-Focused",
-    description: "We don&apos;t just build technology—we solve business problems and drive measurable results.",
+    description: "We don&apos;t just build technology. We solve business problems and drive measurable results.",
     benefit: "Solutions aligned with your business objectives",
   },
   {
     icon: Users,
     title: "Dedicated Partnership",
-    description: "From concept to launch and beyond, we&apos;re with you every step of the way with ongoing support.",
+    description: "From concept to launch and beyond, we&apos;re with you every step of the way, providing ongoing support.",
     benefit: "Long-term partnership, not just a one-time project",
   },
 ];
@@ -59,12 +59,6 @@ export function ValuePropositionSection() {
         <div className="relative z-10">
           <ScrollAnimation variant="fadeInUp">
             <div className="text-center mb-12 md:mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-                <Sparkles className="h-4 w-4 text-primary" />
-                <span className="text-sm font-semibold text-primary uppercase tracking-wider">
-                  Why Choose The Trust Group
-                </span>
-              </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
                 What Makes Us Different
               </h2>
