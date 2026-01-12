@@ -108,10 +108,9 @@ export function FounderSection({ className }: FounderSectionProps) {
             </span>
           </motion.div>
           
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-            Meet the Visionary Behind
-            <br />
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight">
+            <span className="block mb-2">Meet the Visionary Behind</span>
+            <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               The Trust Group
             </span>
           </h2>
