@@ -55,16 +55,30 @@ export function HeroSection() {
   const contentRotateY = useTransform(mouseXRotate, [-20, 20], [-10, 10]);
 
   useEffect(() => {
+    let rafId: number | null = null;
+    let ticking = false;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        mouseXValue.set((e.clientX - rect.left - rect.width / 2) / rect.width);
-        mouseYValue.set((e.clientY - rect.top - rect.height / 2) / rect.height);
+      if (!ticking && containerRef.current) {
+        ticking = true;
+        rafId = window.requestAnimationFrame(() => {
+          const rect = containerRef.current?.getBoundingClientRect();
+          if (rect) {
+            mouseXValue.set((e.clientX - rect.left - rect.width / 2) / rect.width);
+            mouseYValue.set((e.clientY - rect.top - rect.height / 2) / rect.height);
+          }
+          ticking = false;
+        });
       }
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+    };
   }, [mouseXValue, mouseYValue]);
 
   return (

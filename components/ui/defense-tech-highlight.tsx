@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
-import { Shield, Lock, Brain, Radio, BarChart3, Rocket } from "lucide-react";
+import { Shield, Lock, Brain, Radio, BarChart3 } from "lucide-react";
 import { ScrollAnimation } from "@/components/animations";
 import { AnimatedSection } from "./animated-section";
 import { Button } from "./button";
@@ -68,19 +67,15 @@ export function DefenseTechHighlight() {
                 {capabilities.map((capability, index) => {
                   const Icon = capability.icon;
                   return (
-                    <motion.div
+                    <div
                       key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="group flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all duration-300"
+                      className="group flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all duration-200"
                     >
                       <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                         <Icon className="h-5 w-5 text-primary" strokeWidth={2} />
                       </div>
                       <span className="text-sm font-medium text-white">{capability.name}</span>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
@@ -107,66 +102,21 @@ export function DefenseTechHighlight() {
               {/* Abstract Secure Network Visualization */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-full h-full">
-                  {/* Network Nodes */}
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div
+                  {/* Network Nodes - Simplified for performance */}
+                  {[...Array(4)].map((_, i) => (
+                    <div
                       key={i}
-                      className="absolute w-4 h-4 rounded-full bg-primary"
+                      className="absolute w-3 h-3 rounded-full bg-primary/60"
                       style={{
-                        left: `${20 + (i * 15)}%`,
-                        top: `${30 + (i % 3) * 20}%`,
-                      }}
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.6, 1, 0.6],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.3,
+                        left: `${25 + (i * 20)}%`,
+                        top: `${35 + (i % 2) * 25}%`,
                       }}
                     />
                   ))}
                   
-                  {/* Connection Lines */}
-                  <svg className="absolute inset-0 w-full h-full opacity-30">
-                    {[...Array(5)].map((_, i) => (
-                      <motion.line
-                        key={i}
-                        x1={`${25 + i * 15}%`}
-                        y1="35%"
-                        x2={`${35 + i * 15}%`}
-                        y2="50%"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        className="text-primary"
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{
-                          duration: 1.5,
-                          delay: i * 0.2,
-                          repeat: Infinity,
-                          repeatType: "reverse",
-                        }}
-                      />
-                    ))}
-                  </svg>
-                  
-                  {/* Shield Icon Center */}
+                  {/* Shield Icon Center - Static for performance */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.1, 1],
-                        rotate: [0, 5, -5, 0],
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <Shield className="h-32 w-32 md:h-48 md:w-48 text-primary/20" strokeWidth={1} />
-                    </motion.div>
+                    <Shield className="h-32 w-32 md:h-48 md:w-48 text-primary/20" strokeWidth={1} />
                   </div>
                 </div>
               </div>

@@ -42,10 +42,10 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
 
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
-      // Focus first element when menu opens
+      // Focus first element when menu opens - reduced delay for faster response
       focusTimeoutId = setTimeout(() => {
         firstFocusableRef.current?.focus();
-      }, 100);
+      }, 50);
     }
 
     return () => {
@@ -94,18 +94,18 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
       opacity: 0,
       x: "100%",
       transition: {
-        duration: 0.3,
-        ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
+        duration: 0.2,
+        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
       },
     },
     open: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.4,
-        ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
+        duration: 0.25,
+        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
+        staggerChildren: 0.02,
+        delayChildren: 0,
       },
     },
   };
@@ -113,14 +113,14 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
   const itemVariants = {
     closed: {
       opacity: 0,
-      x: 20,
+      x: 10,
     },
     open: {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.3,
-        ease: [0.32, 0.72, 0, 1] as [number, number, number, number],
+        duration: 0.2,
+        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
       },
     },
   };
@@ -134,7 +134,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.15 }}
             className="fixed inset-0 bg-background/80 backdrop-blur-sm"
             style={{ zIndex: "var(--z-modal-backdrop)" }}
             onClick={onClose}

@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
 import { Mail, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FloatingInput } from "@/components/contact/floating-input";
@@ -74,31 +73,10 @@ export function NewsletterSection() {
         />
       </div>
 
-      {/* Wave Separator */}
-      <div className="absolute top-0 left-0 right-0 h-12 overflow-hidden">
-        <svg
-          className="absolute top-0 left-0 w-full h-full"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"
-            fill="currentColor"
-            className="text-background"
-          />
-        </svg>
-      </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-6">
               <Mail className="h-8 w-8 text-primary" />
             </div>
@@ -125,11 +103,7 @@ export function NewsletterSection() {
                 />
               </div>
               
-              <motion.div 
-                whileHover={{ scale: 1.05 }} 
-                whileTap={{ scale: 0.95 }}
-                className="flex-shrink-0"
-              >
+              <div className="flex-shrink-0">
                 <Button
                   type="submit"
                   disabled={isSubmitting || isSuccess}
@@ -153,13 +127,13 @@ export function NewsletterSection() {
                     </>
                   )}
                 </Button>
-              </motion.div>
+              </div>
             </form>
 
             <p className="text-xs text-muted-foreground mt-4">
               We respect your privacy. Unsubscribe at any time.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

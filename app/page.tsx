@@ -1,11 +1,6 @@
 import { Section, AnimatedSection } from "@/components/ui";
-import { HeroSection, TechStack } from "@/components/hero";
+import { HeroSection } from "@/components/hero";
 import { ServicesSection } from "@/components/services";
-import { AboutSection } from "@/components/about";
-import { TechnologiesSection } from "@/components/technologies";
-import { PortfolioSection } from "@/components/portfolio";
-import { TestimonialsSection } from "@/components/testimonials";
-import { ContactSection } from "@/components/contact";
 import { ScrollAnimation } from "@/components/animations";
 import { CTAScrollButton } from "@/components/cta-button";
 import { CheckCircle2 } from "lucide-react";
@@ -13,23 +8,28 @@ import dynamic from "next/dynamic";
 import { ValuePropositionSection } from "@/components/ui/value-proposition-section";
 import { ProcessSection } from "@/components/ui/process-section";
 import { FAQSection } from "@/components/ui/faq-section";
-import { DefenseTechHighlight } from "@/components/ui/defense-tech-highlight";
 
 // Lazy load heavy sections below the fold
 const TechnologiesSectionLazy = dynamic(() => import("@/components/technologies").then(mod => ({ default: mod.TechnologiesSection })), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+  loading: () => <div className="min-h-[400px]" />
 });
 const PortfolioSectionLazy = dynamic(() => import("@/components/portfolio").then(mod => ({ default: mod.PortfolioSection })), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+  loading: () => <div className="min-h-[400px]" />
 });
 const AboutSectionLazy = dynamic(() => import("@/components/about").then(mod => ({ default: mod.AboutSection })), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+  loading: () => <div className="min-h-[400px]" />
 });
 const TestimonialsSectionLazy = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.TestimonialsSection })), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+  loading: () => <div className="min-h-[400px]" />
 });
 const ContactSectionLazy = dynamic(() => import("@/components/contact").then(mod => ({ default: mod.ContactSection })), {
-  loading: () => <div className="min-h-[400px] flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" /></div>
+  loading: () => <div className="min-h-[400px]" />
+});
+const DefenseTechHighlightLazy = dynamic(() => import("@/components/ui/defense-tech-highlight").then(mod => ({ default: mod.DefenseTechHighlight })), {
+  loading: () => <div className="min-h-[300px]" />
+});
+const TechStackLazy = dynamic(() => import("@/components/hero").then(mod => ({ default: mod.TechStack })), {
+  loading: () => <div className="min-h-[200px]" />
 });
 
 export default function Home() {
@@ -47,11 +47,11 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Defense Tech Highlight Section */}
-      <DefenseTechHighlight />
+      {/* Defense Tech Highlight Section - Lazy loaded */}
+      <DefenseTechHighlightLazy />
 
-      {/* Tech Stack Section */}
-      <TechStack />
+      {/* Tech Stack Section - Lazy loaded */}
+      <TechStackLazy />
 
       {/* Services Section */}
       <ServicesSection />

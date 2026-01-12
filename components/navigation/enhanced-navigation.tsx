@@ -228,7 +228,11 @@ export function EnhancedNavigation() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm flex items-center justify-center"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setIsOpen((prev) => !prev);
+                }}
                 aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isOpen}
               >

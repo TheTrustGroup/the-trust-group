@@ -9,22 +9,14 @@ import "./scroll-optimization.css";
 import "./grid-system.css";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
-import { PageTransition } from "@/components/animations";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
 import { BackToTop } from "@/components/ui/back-to-top";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
-import { CustomCursor } from "@/components/ui/custom-cursor";
-import { GoogleAnalytics } from "@/components/analytics/google-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
-import { PageLoader } from "@/components/loading/page-loader";
-import { ScrollRestore } from "@/components/scroll-restore";
 import dynamic from "next/dynamic";
 
 // Lazy load non-critical components for better performance
 const Chatbot = dynamic(() => import("@/components/chatbot").then(mod => ({ default: mod.Chatbot })), { ssr: false });
-const KonamiCode = dynamic(() => import("@/components/ui/konami-code").then(mod => ({ default: mod.KonamiCode })), { ssr: false });
-const ConsoleMessage = dynamic(() => import("@/components/ui/console-message").then(mod => ({ default: mod.ConsoleMessage })), { ssr: false });
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -83,9 +75,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <PageLoader />
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-          <CustomCursor />
           <ToastProvider>
             <a
               href="#main-content"
@@ -94,19 +83,13 @@ export default function RootLayout({
             >
               Skip to main content
             </a>
-            <ScrollProgress />
             <Navigation />
             <main id="main-content">
-              <PageTransition>
-                {children}
-              </PageTransition>
+              {children}
             </main>
           <Footer />
           <BackToTop />
           <Chatbot />
-          <KonamiCode />
-          <ConsoleMessage />
-          <ScrollRestore />
         </ToastProvider>
         </ThemeProvider>
       </body>
