@@ -28,13 +28,13 @@ const differentiators = [
   {
     icon: Target,
     title: "Business-Focused",
-    description: "We don&apos;t just build technology. We solve business problems and drive measurable results.",
+    description: "We don't just build technology. We solve business problems and drive measurable results.",
     benefit: "Solutions aligned with your business objectives",
   },
   {
     icon: Users,
     title: "Dedicated Partnership",
-    description: "From concept to launch and beyond, we&apos;re with you every step of the way, providing ongoing support.",
+    description: "From concept to launch and beyond, we are with you every step of the way, providing ongoing support.",
     benefit: "Long-term partnership, not just a one-time project",
   },
 ];
