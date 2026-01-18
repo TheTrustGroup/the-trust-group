@@ -214,6 +214,10 @@
       "category": "web",
       "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
       "featured": true,
+      "image": "/images/projects/extreme-dept-kidz-homepage.png",
+      "images": [
+        "/images/projects/extreme-dept-kidz-homepage.png"
+      ],
       "caseStudyUrl": "/portfolio/extreme-dept-kidz",
       "client": "Extreme Dept Kidz",
       "year": "2024",

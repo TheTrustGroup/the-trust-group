@@ -128,7 +128,7 @@ export function EnhancedNavigation() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex-shrink-0 z-10 min-w-0"
+              className="flex-shrink-0 z-10 min-w-0 flex items-center"
             >
               <Link
                 href="/"
@@ -204,7 +204,7 @@ export function EnhancedNavigation() {
                 type="button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-accent/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm flex items-center justify-center"
+                className="relative p-2.5 sm:p-3 min-w-[44px] min-h-[44px] rounded-lg bg-muted/90 hover:bg-muted active:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background touch-manipulation transition-all duration-200 border border-border/60 hover:border-border hover:shadow-sm flex items-center justify-center"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -221,8 +221,9 @@ export function EnhancedNavigation() {
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: 90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
+                      className="flex items-center justify-center"
                     >
-                      <X className="h-6 w-6 stroke-current dark:stroke-current" strokeWidth={2} />
+                      <X className="h-6 w-6 text-foreground" strokeWidth={2} />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -231,8 +232,9 @@ export function EnhancedNavigation() {
                       animate={{ rotate: 0, opacity: 1 }}
                       exit={{ rotate: -90, opacity: 0 }}
                       transition={{ duration: 0.2 }}
+                      className="flex items-center justify-center"
                     >
-                      <Menu className="h-6 w-6 stroke-current dark:stroke-current" strokeWidth={2} />
+                      <Menu className="h-6 w-6 text-foreground" strokeWidth={2} />
                     </motion.div>
                   )}
                 </AnimatePresence>
