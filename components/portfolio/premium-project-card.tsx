@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ExternalLink, ArrowRight, Calendar, Users, TrendingUp, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DeviceMockup } from "./device-mockups";
 import type { Project } from "./project-card";
@@ -15,8 +14,6 @@ interface PremiumProjectCardProps {
 }
 
 export function PremiumProjectCard({ project, onViewDetails, index = 0 }: PremiumProjectCardProps) {
-  const [isHovered, setIsHovered] = React.useState(false);
-  const [showOverlay, setShowOverlay] = React.useState(false);
 
   const categoryColors: Record<string, { bg: string; text: string; border: string; gradient: string }> = {
     ai: {
@@ -64,153 +61,37 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
   const imageUrl = project.image;
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+    <article
       className={cn(
-        "group relative rounded-2xl overflow-hidden border-2 bg-background/80 backdrop-blur-sm",
-        "transition-all duration-500 cursor-pointer",
-        colors.border,
-        isHovered && "shadow-2xl shadow-primary/20 scale-[1.02]"
+        "group relative rounded-lg overflow-hidden border bg-background/50",
+        "transition-all duration-200 cursor-pointer hover:border-primary/40 hover:shadow-md",
+        colors.border
       )}
-      onMouseEnter={() => {
-        setIsHovered(true);
-        setShowOverlay(true);
-      }}
-      onMouseLeave={() => {
-        setIsHovered(false);
-        // ✅ GOOD - Store timeout for cleanup if component unmounts
-        const timeoutId = setTimeout(() => setShowOverlay(false), 200);
-        // Note: Cleanup handled by component unmount, but could use ref if needed
-      }}
       onClick={() => onViewDetails?.(project)}
     >
-      {/* Animated Gradient Border */}
-      <motion.div
-        className={cn(
-          "absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500",
-          "bg-gradient-to-r",
-          colors.gradient,
-          "blur-sm"
-        )}
-        animate={isHovered ? {
-          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-        } : {}}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        style={{
-          backgroundSize: "200% 200%",
-        }}
-      />
 
       {/* Device Mockup Area */}
-      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-gradient-to-br from-muted/30 to-background/50 p-4 md:p-8">
-        <motion.div
-          animate={isHovered ? { scale: 1.05, y: -10 } : { scale: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-muted/30 p-4 md:p-8">
+        <DeviceMockup 
+          type={deviceType} 
+          imageUrl={imageUrl} 
           className="h-full"
-        >
-          <DeviceMockup 
-            type={deviceType} 
-            imageUrl={imageUrl} 
-            className="h-full"
-            placeholderTitle={!imageUrl ? project.title : undefined}
-            placeholderCategory={!imageUrl ? project.category : undefined}
-            placeholderTechnologies={!imageUrl ? project.technologies : undefined}
-          />
-        </motion.div>
+          placeholderTitle={!imageUrl ? project.title : undefined}
+          placeholderCategory={!imageUrl ? project.category : undefined}
+          placeholderTechnologies={!imageUrl ? project.technologies : undefined}
+        />
 
         {/* Category Badge */}
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: index * 0.1 + 0.2 }}
+        <div
           className={cn(
-            "absolute top-6 left-6 px-3 py-1.5 rounded-full text-xs font-semibold border-2 backdrop-blur-md",
+            "absolute top-4 left-4 px-3 py-1 rounded-md text-xs font-medium border",
             colors.bg,
             colors.text,
             colors.border
           )}
         >
           {categoryLabels[project.category]}
-        </motion.div>
-
-        {/* Featured Badge */}
-        {project.featured && (
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: index * 0.1 + 0.3 }}
-            className="absolute top-6 right-6 px-3 py-1.5 rounded-full text-xs font-semibold bg-accent text-accent-foreground border-2 border-accent/30 backdrop-blur-md"
-          >
-            ⭐ Featured
-          </motion.div>
-        )}
-
-        {/* Hover Overlay with Details */}
-        <AnimatePresence>
-          {showOverlay && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className={cn(
-                "absolute inset-0 bg-gradient-to-t from-background/95 via-background/80 to-transparent",
-                "flex flex-col justify-end p-6"
-              )}
-            >
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 20, opacity: 0 }}
-                transition={{ delay: 0.1 }}
-                className="space-y-4"
-              >
-                {/* Project Stats */}
-                <div className="grid grid-cols-2 gap-3 text-xs">
-                  {project.timeline && (
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="h-3 w-3" />
-                      <span>{project.timeline}</span>
-                    </div>
-                  )}
-                  {project.teamSize && (
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Users className="h-3 w-3" />
-                      <span>{project.teamSize}</span>
-                    </div>
-                  )}
-                  {project.results && project.results.length > 0 && (
-                    <div className="flex items-center gap-2 text-muted-foreground col-span-2">
-                      <TrendingUp className="h-3 w-3" />
-                      <span>{project.results.length} Key Results</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    className="flex-1 group/btn"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onViewDetails?.(project);
-                    }}
-                  >
-                    View Details
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        </div>
       </div>
 
       {/* Content Section */}
@@ -227,19 +108,15 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
         {/* Technology Tags */}
         <div className="flex flex-wrap gap-2">
           {project.technologies.slice(0, 5).map((tech, idx) => (
-            <motion.span
+            <span
               key={idx}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: index * 0.1 + idx * 0.05 }}
               className={cn(
-                "px-2.5 py-1 text-xs rounded-md font-medium border backdrop-blur-sm",
-                "bg-background/80 text-foreground border-border",
-                "group-hover:border-primary/30 group-hover:text-primary transition-colors"
+                "px-2.5 py-1 text-xs rounded-md font-medium border",
+                "bg-background/80 text-foreground border-border"
               )}
             >
               {tech}
-            </motion.span>
+            </span>
           ))}
           {project.technologies.length > 5 && (
             <span className="px-2.5 py-1 text-xs rounded-md bg-muted text-muted-foreground border border-border">
@@ -252,30 +129,28 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
         {project.results && project.results.length > 0 && (
           <div className="pt-2 border-t border-border">
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <TrendingUp className="h-3 w-3" />
               <span className="font-medium">Impact: {project.results[0]}</span>
             </div>
           </div>
         )}
-      </div>
 
-      {/* Glow Effect */}
-      <motion.div
-        className={cn(
-          "absolute -inset-0.5 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10",
-          "bg-gradient-to-r",
-          colors.gradient
-        )}
-        animate={isHovered ? {
-          opacity: [0.3, 0.6, 0.3],
-        } : {}}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-    </motion.article>
+        {/* View Details Button */}
+        <div className="pt-2">
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full"
+            onClick={(e) => {
+              e.stopPropagation();
+              onViewDetails?.(project);
+            }}
+          >
+            View Details
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </div>
+    </article>
   );
 }
 

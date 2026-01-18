@@ -140,7 +140,7 @@ export function EnhancedNavigation() {
             </motion.div>
 
             {/* Desktop Navigation - Center/Right Aligned */}
-            <div className="hidden md:flex items-center gap-1 lg:gap-2 flex-shrink-0 ml-auto flex-1 justify-end max-w-3xl">
+            <nav className="hidden md:flex items-center gap-6 flex-shrink-0 ml-auto" aria-label="Main navigation">
               {navItems.map((item) => {
                 const isActive =
                   pathname === item.href ||
@@ -158,66 +158,43 @@ export function EnhancedNavigation() {
                 }
 
                 return (
-                  <motion.div
+                  <Link
                     key={item.href}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    href={item.href}
+                    onClick={(e) => {
+                      if (item.href.startsWith("#")) {
+                        e.preventDefault();
+                        handleNavClick(item.href);
+                      }
+                    }}
+                    className={cn(
+                      "text-sm font-medium transition-colors duration-200 relative group",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded",
+                      item.href.startsWith("#") && "smooth-scroll",
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={(e) => {
-                        if (item.href.startsWith("#")) {
-                          e.preventDefault();
-                          handleNavClick(item.href);
-                        }
-                      }}
-                      className={cn(
-                        "text-[0.9375rem] font-medium transition-all duration-200 relative group px-3 py-2 rounded-md",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-                        item.href.startsWith("#") && "smooth-scroll",
-                        isActive
-                          ? "text-foreground bg-accent/50 shadow-sm"
-                          : "text-slate-700 hover:text-primary hover:bg-accent/30"
-                      )}
-                    >
-                      {item.label}
-                      {isActive && (
-                        <motion.span
-                          layoutId="activeIndicator"
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
-                          initial={false}
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
-                      {!isActive && (
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full" />
-                      )}
-                    </Link>
-                  </motion.div>
+                    {item.label}
+                    {!isActive && (
+                      <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                    )}
+                  </Link>
                 );
               })}
+            </nav>
 
-              <div className="ml-4 lg:ml-6 flex items-center gap-2 lg:gap-3 flex-shrink-0">
-                <ThemeToggle />
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button
-                    size="sm"
-                    className="relative overflow-hidden group font-semibold shadow-sm hover:shadow-md transition-shadow whitespace-nowrap"
-                    onClick={() => handleNavClick("/contact")}
-                  >
-                    <span className="relative z-10">Get Started</span>
-                    <motion.span
-                      className="absolute inset-0 bg-primary/20"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: 0 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Button>
-                </motion.div>
-              </div>
+            {/* CTA Button - Far Right */}
+            <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-6">
+              <ThemeToggle />
+              <Button
+                size="sm"
+                className="font-medium"
+                onClick={() => handleNavClick("/contact")}
+              >
+                Request Consultation
+              </Button>
             </div>
 
             {/* Mobile Menu Button & Theme Toggle - Right Aligned */}
