@@ -29,7 +29,7 @@ const capabilities = [
 
 export function DefenseTechHighlight() {
   return (
-    <AnimatedSection variant="default" size="default" animation="fade-in" className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+    <AnimatedSection variant="default" size="default" animation="fade-in" className="relative overflow-hidden bg-gradient-to-br from-secondary via-secondary/90 to-secondary text-foreground">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
@@ -69,12 +69,12 @@ export function DefenseTechHighlight() {
                   return (
                     <div
                       key={index}
-                      className="group flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-primary/30 transition-all duration-200"
+                      className="group flex items-center gap-3 p-4 rounded-xl bg-background/10 border border-border/50 hover:bg-background/20 hover:border-primary/30 transition-all duration-200"
                     >
                       <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                         <Icon className="h-5 w-5 text-primary" strokeWidth={2} />
                       </div>
-                      <span className="text-sm font-medium text-white">{capability.name}</span>
+                      <span className="text-sm font-medium text-foreground">{capability.name}</span>
                     </div>
                   );
                 })}

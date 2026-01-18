@@ -251,7 +251,7 @@ export function FounderSection({ className }: FounderSectionProps) {
                       item.featured && "border-primary/30 bg-primary/5"
                     )}>
                       {item.featured && (
-                        <div className="absolute -top-2 -right-2 px-2 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold rounded-full">
+                        <div className="absolute -top-2 -right-2 px-2 py-1 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs font-bold rounded-full">
                           Strategic
                         </div>
                       )}

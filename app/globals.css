@@ -454,11 +454,11 @@
     --accent-orange: 25 95% 53%;
     --accent-orange-foreground: 0 0% 100%;
 
-    /* Neutral Grays - Improved contrast for WCAG AA */
-    --background: 0 0% 100%;
+    /* Neutral Grays - Softened tones, WCAG AA compliant */
+    --background: 0 0% 98%; /* Softened from pure white */
     --foreground: 220 15% 15%;
     --muted: 220 15% 96%;
-    --muted-foreground: 220 10% 40%; /* Improved from 45% to 40% for better contrast (4.5:1 ratio) */
+    --muted-foreground: 220 10% 40%; /* WCAG AA: 4.5:1 contrast ratio */
     --border: 220 15% 90%;
     --input: 220 15% 90%;
     --ring: 214 100% 50%;
@@ -474,10 +474,10 @@
     --error-foreground: 0 0% 100%;
     --error-light: 0 84% 95%;
 
-    /* Card & Popover */
-    --card: 0 0% 100%;
+    /* Card & Popover - Softened backgrounds */
+    --card: 0 0% 98%;
     --card-foreground: 220 15% 15%;
-    --popover: 0 0% 100%;
+    --popover: 0 0% 98%;
     --popover-foreground: 220 15% 15%;
 
     /* Border Radius */
@@ -485,9 +485,9 @@
   }
 
   .dark {
-    /* Background: Deep navy/charcoal */
+    /* Background: Deep navy/charcoal - Softened, not pure black */
     --background: 220 25% 10%;
-    --foreground: 0 0% 95%;
+    --foreground: 0 0% 92%; /* Softened from 95% for calmer appearance */
     
     /* Primary: Brighter version of brand blue for better visibility */
     --primary: 214 100% 60%;

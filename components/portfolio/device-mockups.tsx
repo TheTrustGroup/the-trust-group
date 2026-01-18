@@ -74,8 +74,8 @@ function LaptopMockup(props: MockupProps) {
       {/* Laptop Frame */}
       <div className="relative mx-auto w-full max-w-[600px]">
         {/* Screen */}
-        <div className="relative bg-gray-900 rounded-t-lg p-2 shadow-2xl aspect-[16/9]">
-          <div className="absolute inset-2 rounded overflow-hidden bg-white">
+        <div className="relative bg-muted rounded-t-lg p-2 shadow-2xl aspect-[16/9]">
+          <div className="absolute inset-2 rounded overflow-hidden bg-background">
             {/* Screen Content */}
             {imageUrl && !imageError ? (
               <Image
@@ -115,8 +115,8 @@ function LaptopMockup(props: MockupProps) {
         </div>
         
         {/* Keyboard Base */}
-        <div className="relative bg-gray-800 rounded-b-lg" style={{ height: "20px", marginTop: "-1px" }}>
-          <div className="absolute inset-x-0 top-0 h-1 bg-gray-700 rounded-b-lg" />
+        <div className="relative bg-muted/80 rounded-b-lg" style={{ height: "20px", marginTop: "-1px" }}>
+          <div className="absolute inset-x-0 top-0 h-1 bg-border rounded-b-lg" />
         </div>
       </div>
     </div>
@@ -132,10 +132,10 @@ function PhoneMockup(props: MockupProps) {
       {/* Phone Frame */}
       <div className="relative mx-auto w-full max-w-[300px]">
         {/* Screen */}
-        <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl aspect-[9/19.5]">
-          <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-white">
+        <div className="relative bg-muted rounded-[2.5rem] p-2 shadow-2xl aspect-[9/19.5]">
+          <div className="absolute inset-2 rounded-[2rem] overflow-hidden bg-background">
             {/* Notch */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-gray-900 rounded-b-2xl z-10" />
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-muted rounded-b-2xl z-10" />
             
             {/* Screen Content */}
             {imageUrl && !imageError ? (
@@ -176,7 +176,7 @@ function PhoneMockup(props: MockupProps) {
         </div>
         
         {/* Home Indicator */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-700 rounded-full" />
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-border rounded-full" />
       </div>
     </div>
   );
@@ -191,8 +191,8 @@ function TabletMockup(props: MockupProps) {
       {/* Tablet Frame */}
       <div className="relative mx-auto w-full max-w-[500px]">
         {/* Screen */}
-        <div className="relative bg-gray-900 rounded-xl p-2 shadow-2xl aspect-[4/3]">
-          <div className="absolute inset-2 rounded-lg overflow-hidden bg-white">
+        <div className="relative bg-muted rounded-xl p-2 shadow-2xl aspect-[4/3]">
+          <div className="absolute inset-2 rounded-lg overflow-hidden bg-background">
             {/* Screen Content */}
             {imageUrl && !imageError ? (
               <Image

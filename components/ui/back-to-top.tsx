@@ -50,7 +50,7 @@ export function BackToTop() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           transition={{ type: "spring", damping: 20, stiffness: 300 }}
           onClick={handleClick}
-          className="fixed bottom-20 sm:bottom-28 right-4 sm:right-6 z-[1200] rounded-full w-12 h-12 bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
+          className="fixed bottom-20 sm:bottom-28 right-4 sm:right-6 z-[1200] rounded-full w-12 h-12 bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
           style={{
             pointerEvents: "auto",
             WebkitTapHighlightColor: "transparent",
@@ -61,7 +61,7 @@ export function BackToTop() {
           whileTap={{ scale: 0.95 }}
           aria-label="Back to top"
         >
-          <ArrowUp className="h-5 w-5 stroke-white" strokeWidth={2.5} fill="none" />
+          <ArrowUp className="h-5 w-5 stroke-primary-foreground" strokeWidth={2.5} fill="none" />
         </motion.button>
       )}
     </AnimatePresence>

@@ -205,6 +205,29 @@
         "Private dining and event booking",
         "24/7 operational information display"
       ]
+    },
+    {
+      "id": "10",
+      "title": "Extreme Dept Kidz - Web Platform",
+      "description": "High-performance web platform designed for scalability, reliability, and optimal user experience with modern architecture and efficient content delivery.",
+      "longDescription": "Engineered a production-ready web platform for Extreme Dept Kidz, focusing on performance, scalability, and reliability. The system architecture emphasizes fast page loads, efficient content management, and seamless user interactions. Built with modern web technologies and best practices for maintainability and future growth. The platform delivers consistent performance under varying load conditions and provides a solid foundation for ongoing content and feature expansion.",
+      "category": "web",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
+      "featured": true,
+      "caseStudyUrl": "/portfolio/extreme-dept-kidz",
+      "client": "Extreme Dept Kidz",
+      "year": "2024",
+      "timeline": "3 months",
+      "teamSize": "4 members",
+      "industry": "Digital Platform",
+      "link": "https://extremedeptkidz.com",
+      "results": [
+        "Optimized performance with fast page load times",
+        "Scalable architecture supporting growth",
+        "Reliable infrastructure with consistent uptime",
+        "Modern, responsive user interface",
+        "Efficient content management and delivery"
+      ]
     }
   ]
 }

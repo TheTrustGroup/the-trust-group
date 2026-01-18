@@ -48,17 +48,17 @@ export function VideoTestimonialPlaceholder({
       </div>
 
       {/* Overlay with Testimonial Info */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-        <div className="text-white">
+      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent flex flex-col justify-end p-6">
+        <div className="text-foreground">
           <div className="flex items-center gap-2 mb-2">
             <Video className="h-4 w-4" strokeWidth={2} fill="none" />
             <span className="text-xs font-semibold uppercase tracking-wider">Video Review</span>
           </div>
           <h3 className="text-lg font-bold mb-1">{testimonial.clientName}</h3>
-          <p className="text-sm text-white/80 mb-2">
+          <p className="text-sm text-muted-foreground mb-2">
             {testimonial.clientTitle} at {testimonial.company}
           </p>
-          <p className="text-sm text-white/90 line-clamp-2">
+          <p className="text-sm text-foreground/90 line-clamp-2">
             &quot;{testimonial.quote.substring(0, 120)}...&quot;
           </p>
         </div>

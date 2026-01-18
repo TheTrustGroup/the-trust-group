@@ -30,7 +30,7 @@ export function ServicesSection() {
               <StaggerItem key={service.id || index}>
                 <div className="relative">
                   {service.featured && (
-                    <div className="absolute -top-3 right-4 z-20 px-3 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold rounded-full shadow-lg">
+                    <div className="absolute -top-3 right-4 z-20 px-3 py-1 bg-gradient-to-r from-primary to-accent text-primary-foreground text-xs font-bold rounded-full shadow-lg">
                       Strategic
                     </div>
                   )}

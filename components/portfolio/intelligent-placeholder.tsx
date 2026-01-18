@@ -166,7 +166,7 @@ export function IntelligentPlaceholder({
             "shadow-lg"
           )}
         >
-          <Icon className="h-10 w-10 md:h-12 md:w-12 text-white stroke-current dark:stroke-current" strokeWidth={2} />
+          <Icon className="h-10 w-10 md:h-12 md:w-12 text-primary-foreground stroke-current" strokeWidth={2} />
         </div>
 
         {/* Title */}
@@ -214,8 +214,8 @@ export function IntelligentPlaceholder({
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-4 right-4 w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/5 blur-xl" />
-      <div className="absolute bottom-4 left-4 w-12 h-12 md:w-16 md:16 rounded-full bg-white/5 blur-xl" />
+      <div className="absolute top-4 right-4 w-16 h-16 md:w-20 md:h-20 rounded-full bg-foreground/5 blur-xl" />
+      <div className="absolute bottom-4 left-4 w-12 h-12 md:w-16 md:16 rounded-full bg-foreground/5 blur-xl" />
     </div>
   );
 }

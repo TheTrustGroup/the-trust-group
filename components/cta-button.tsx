@@ -24,7 +24,7 @@ export function CTAScrollButton() {
     <Button 
       size="lg" 
       variant="secondary" 
-      className="group bg-white text-slate-900 hover:bg-slate-100 border border-slate-200"
+      className="group bg-background text-foreground hover:bg-muted border border-border"
       onClick={handleClick}
     >
       Start a Conversation

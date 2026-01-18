@@ -140,7 +140,7 @@ export function Chatbot() {
           type="button"
           onClick={handleToggleChat}
           onTouchEnd={handleToggleChat}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200] rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-primary text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200] rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
           style={{
             pointerEvents: "auto",
             WebkitTapHighlightColor: "transparent",
@@ -153,7 +153,7 @@ export function Chatbot() {
           aria-label="Open chat, 1 unread message"
         >
           <MessageCircle 
-            className="h-6 w-6 sm:h-7 sm:w-7 stroke-white" 
+            className="h-6 w-6 sm:h-7 sm:w-7 stroke-primary-foreground" 
             strokeWidth={2.5} 
             fill="none"
             aria-hidden="true" 
