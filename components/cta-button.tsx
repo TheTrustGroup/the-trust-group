@@ -24,11 +24,11 @@ export function CTAScrollButton() {
     <Button 
       size="lg" 
       variant="secondary" 
-      className="group"
+      className="group bg-white text-slate-900 hover:bg-slate-100 border border-slate-200"
       onClick={handleClick}
     >
-      Contact Us Today
-      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform stroke-current dark:stroke-current" strokeWidth={2} />
+      Start a Conversation
+      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
     </Button>
   );
 }

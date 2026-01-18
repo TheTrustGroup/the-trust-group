@@ -261,15 +261,6 @@ export function HeroSection() {
             From commercial applications to defense systems, we deliver AI-powered solutions, enterprise software, and secure technology for organizations that can&apos;t afford to fail.
           </motion.p>
           
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-4 sm:mb-6 w-full px-2 mx-auto leading-relaxed break-words"
-            style={{ wordBreak: "break-word", overflowWrap: "break-word", maxWidth: "100%" }}
-          >
-            A parent company with multiple businesses under its umbrella, delivering excellence in every project
-          </motion.p>
 
           {/* Trust Indicators */}
           <motion.div

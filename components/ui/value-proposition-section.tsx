@@ -1,41 +1,34 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
-import { CheckCircle2, Sparkles, Shield, Zap, Target, Users } from "lucide-react";
+import { CheckCircle2, Shield, Zap, Target, Users } from "lucide-react";
 import { ScrollAnimation } from "@/components/animations";
 import { AnimatedSection } from "./animated-section";
 
 const differentiators = [
   {
-    icon: Sparkles,
-    title: "Innovation First",
-    description: "We leverage cutting-edge AI and modern technologies to deliver solutions that give you a competitive edge.",
-    benefit: "Stay ahead of the competition with future-proof solutions",
-  },
-  {
     icon: Shield,
-    title: "Proven Track Record",
-    description: "500+ successful projects, 98% client satisfaction, and 10+ years of delivering excellence.",
-    benefit: "Work with a trusted partner with demonstrated results",
-  },
-  {
-    icon: Zap,
-    title: "Rapid Delivery",
-    description: "Agile methodologies and experienced teams mean faster time-to-market without compromising quality.",
-    benefit: "Launch faster and start seeing ROI sooner",
+    title: "Reliability by Design",
+    description: "Systems engineered for mission-critical operations. Every component is designed, tested, and deployed with reliability as the primary requirement.",
+    benefit: "Systems that operate without failure under critical conditions",
   },
   {
     icon: Target,
-    title: "Business-Focused",
-    description: "We don't just build technology. We solve business problems and drive measurable results.",
-    benefit: "Solutions aligned with your business objectives",
+    title: "Outcome-Driven Engineering",
+    description: "We solve specific problems with measurable results. Every technical decision is evaluated against business objectives and system requirements.",
+    benefit: "Solutions that deliver defined outcomes, not just features",
+  },
+  {
+    icon: Zap,
+    title: "Systematic Approach",
+    description: "Methodical engineering processes ensure consistent quality, predictable timelines, and maintainable systems.",
+    benefit: "Predictable delivery with clear milestones and deliverables",
   },
   {
     icon: Users,
-    title: "Dedicated Partnership",
-    description: "From concept to launch and beyond, we are with you every step of the way, providing ongoing support.",
-    benefit: "Long-term partnership, not just a one-time project",
+    title: "Long-Term Partnership",
+    description: "We maintain and evolve systems over time. Ongoing support, security updates, and performance optimization are part of the commitment.",
+    benefit: "Systems that improve over time, not degrade",
   },
 ];
 
@@ -63,7 +56,7 @@ export function ValuePropositionSection() {
                 What Makes Us Different
               </h2>
               <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-                We combine technical excellence with business acumen to deliver solutions that don&apos;t just work—they transform your business.
+                Engineering-led approach to building systems that solve real problems and deliver measurable outcomes.
               </p>
             </div>
           </ScrollAnimation>
@@ -73,65 +66,33 @@ export function ValuePropositionSection() {
               const Icon = item.icon;
               return (
                 <ScrollAnimation key={index} variant="fadeInUp" delay={index * 0.1}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group relative p-6 md:p-8 rounded-2xl border-2 border-border bg-background/60 backdrop-blur-sm hover:border-primary/40 hover:bg-background/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  >
-                    {/* Glow Effect */}
-                    <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
-                    
+                  <div className="group relative p-6 md:p-8 rounded-lg border border-border bg-background/50 hover:bg-background/80 hover:border-primary/30 transition-all duration-200">
                     {/* Icon */}
                     <div className="relative mb-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="h-7 w-7 text-primary stroke-current" strokeWidth={2} />
+                      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" strokeWidth={2} />
                       </div>
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold mb-3 text-foreground">
                       {item.title}
                     </h3>
                     <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
                       {item.description}
                     </p>
                     <div className="flex items-start gap-2 pt-4 border-t border-border/50">
-                      <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5 stroke-current" strokeWidth={2} fill="currentColor" />
-                      <p className="text-sm text-success font-medium leading-relaxed">
+                      <CheckCircle2 className="h-5 w-5 text-primary/70 flex-shrink-0 mt-0.5" strokeWidth={2} />
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {item.benefit}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 </ScrollAnimation>
               );
             })}
           </div>
 
-          {/* Trust Indicators */}
-          <ScrollAnimation variant="fadeInUp" delay={0.6}>
-            <div className="mt-12 md:mt-16 pt-8 md:pt-12 border-t border-border">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">500+</div>
-                  <p className="text-sm md:text-base text-muted-foreground">Projects Delivered</p>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-success mb-2">98%</div>
-                  <p className="text-sm md:text-base text-muted-foreground">Client Satisfaction</p>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-accent mb-2">10+</div>
-                  <p className="text-sm md:text-base text-muted-foreground">Years Experience</p>
-                </div>
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
-                  <p className="text-sm md:text-base text-muted-foreground">Team Members</p>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
         </div>
       </div>
     </AnimatedSection>
