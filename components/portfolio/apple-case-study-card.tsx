@@ -86,7 +86,7 @@ export function AppleCaseStudyCard({
       {caseStudy.industry && (
         <div className="absolute top-4 right-4 z-10">
           <div className="glass-subtle px-3 py-1.5 rounded-full backdrop-blur-sm">
-            <span className="text-xs font-medium text-medium-contrast uppercase tracking-wider">
+            <span className="text-xs font-medium text-medium-contrast dark:text-medium-contrast uppercase tracking-wider">
               {caseStudy.industry}
             </span>
           </div>
@@ -109,12 +109,12 @@ export function AppleCaseStudyCard({
         {/* Client Section */}
         <div className="mb-6">
           <p 
-            className="text-xs font-semibold text-medium-contrast uppercase tracking-wider mb-2"
+            className="text-xs font-semibold text-medium-contrast dark:text-medium-contrast uppercase tracking-wider mb-2"
             aria-label="Client"
           >
             Client
           </p>
-          <h3 className="text-base md:text-lg font-semibold text-high-contrast leading-relaxed">
+          <h3 className="text-base md:text-lg font-semibold text-high-contrast dark:text-high-contrast leading-relaxed">
             {caseStudy.client}
           </h3>
         </div>
@@ -122,12 +122,12 @@ export function AppleCaseStudyCard({
         {/* Challenge */}
         <div className="mb-6 pb-6 border-b border-hairline">
           <p 
-            className="text-xs font-semibold text-medium-contrast uppercase tracking-wider mb-2"
+            className="text-xs font-semibold text-medium-contrast dark:text-medium-contrast uppercase tracking-wider mb-2"
             aria-label="Challenge"
           >
             Challenge
           </p>
-          <p className="text-sm md:text-base text-medium-contrast leading-relaxed">
+          <p className="text-sm md:text-base text-medium-contrast dark:text-medium-contrast leading-relaxed">
             {caseStudy.challenge}
           </p>
         </div>
@@ -135,12 +135,12 @@ export function AppleCaseStudyCard({
         {/* Solution - Highlighted */}
         <div className="mb-6 pb-6 border-b border-hairline">
           <p 
-            className="text-xs font-semibold text-medium-contrast uppercase tracking-wider mb-2"
+            className="text-xs font-semibold text-medium-contrast dark:text-medium-contrast uppercase tracking-wider mb-2"
             aria-label="Solution"
           >
             Solution
           </p>
-          <p className="text-sm md:text-base text-high-contrast leading-relaxed font-medium">
+          <p className="text-sm md:text-base text-high-contrast dark:text-high-contrast leading-relaxed font-medium">
             {caseStudy.solution}
           </p>
         </div>
@@ -148,13 +148,13 @@ export function AppleCaseStudyCard({
         {/* Outcome */}
         <div className="mt-auto">
           <p 
-            className="text-xs font-semibold text-medium-contrast uppercase tracking-wider mb-2 flex items-center gap-2"
+            className="text-xs font-semibold text-medium-contrast dark:text-medium-contrast uppercase tracking-wider mb-2 flex items-center gap-2"
             aria-label="Results"
           >
-            <CheckCircle2 className="h-3 w-3 text-primary flex-shrink-0" aria-hidden="true" />
+            <CheckCircle2 className="h-3 w-3 text-primary dark:text-primary flex-shrink-0" aria-hidden="true" />
             Results
           </p>
-          <p className="text-sm md:text-base text-medium-contrast leading-relaxed">
+          <p className="text-sm md:text-base text-medium-contrast dark:text-medium-contrast leading-relaxed">
             {caseStudy.outcome}
           </p>
         </div>
@@ -175,7 +175,7 @@ export function AppleCaseStudyCard({
                 e.stopPropagation();
                 onViewDetails(caseStudy);
               }}
-              className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
+              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-primary hover:text-primary/80 dark:hover:text-primary/80 transition-colors min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
               aria-label={`View details for ${caseStudy.client} case study`}
             >
               View details

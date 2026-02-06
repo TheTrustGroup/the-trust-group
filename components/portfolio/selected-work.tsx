@@ -2,41 +2,53 @@
 
 import { Section } from "@/components/ui";
 import { AppleCaseStudyCard, type AppleCaseStudy } from "./apple-case-study-card";
+import { getFeaturedProjects } from "@/lib/cms-client";
 
-// Case studies following Apple template: Client Context → Challenge → Solution → Outcome
-const caseStudies: AppleCaseStudy[] = [
-  {
-    id: "1",
-    client: "Mid-sized enterprise operating in a regulated environment",
-    challenge: "Legacy systems were unstable under load, creating operational and security risk.",
-    solution: "We redesigned the system architecture and deployed a secure, scalable platform.",
-    outcome: "Improved system reliability, reduced operational incidents, and enabled future growth.",
-  },
-  {
-    id: "2",
-    client: "Financial services organization requiring high availability",
-    challenge: "Existing infrastructure could not support increasing transaction volume without performance degradation.",
-    solution: "We migrated critical systems to a cloud-native architecture with automated scaling and redundancy.",
-    outcome: "System handles peak loads without degradation, maintains 99.9% uptime, and supports planned growth.",
-  },
-  {
-    id: "3",
-    client: "Healthcare provider managing patient data across multiple facilities",
-    challenge: "Fragmented data systems prevented real-time access to patient information, impacting care coordination.",
-    solution: "We integrated disparate systems into a unified platform with secure data access and compliance controls.",
-    outcome: "Care teams have real-time access to patient information, improved coordination, and maintained regulatory compliance.",
-  },
-];
+// Convert real projects to Apple case study format
+function convertProjectToCaseStudy(project: any): AppleCaseStudy {
+  // Extract key results/impact from results array
+  const resultsSummary = project.results && project.results.length > 0
+    ? project.results.slice(0, 2).join(", ")
+    : project.description;
+
+  // Create concise solution description
+  const solutionText = project.longDescription 
+    ? (project.longDescription.length > 150 
+        ? project.longDescription.substring(0, 150) + "..." 
+        : project.longDescription)
+    : project.description;
+
+  return {
+    id: project.id,
+    client: project.client || "Enterprise client",
+    challenge: project.description || "Required a reliable, scalable solution to support business growth.",
+    solution: solutionText,
+    outcome: resultsSummary,
+    industry: project.industry,
+    featured: project.featured,
+  };
+}
 
 export function SelectedWork() {
+  // Get featured projects (limit to 3-4 for clean display)
+  const featuredProjects = getFeaturedProjects().slice(0, 4);
+  
+  // Convert to case study format
+  const caseStudies: AppleCaseStudy[] = featuredProjects.map(convertProjectToCaseStudy);
+
+  // If no featured projects, show a message or return null
+  if (caseStudies.length === 0) {
+    return null;
+  }
+
   return (
     <Section variant="default" size="default" container={false} className="border-t border-hairline">
       <div className="max-w-6xl mx-auto container-padding-apple section-padding-apple">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-headline mb-4 md:mb-6">
+          <h2 className="text-headline dark:text-headline mb-4 md:mb-6">
             Selected work
           </h2>
-          <p className="text-body text-medium-contrast max-w-2xl mx-auto">
+          <p className="text-body text-medium-contrast dark:text-medium-contrast max-w-2xl mx-auto">
             A small sample of systems designed for reliability and scale.
           </p>
         </div>

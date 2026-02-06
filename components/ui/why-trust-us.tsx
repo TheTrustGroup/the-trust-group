@@ -35,10 +35,10 @@ export function WhyTrustUs() {
               transition={{ duration: 0.4, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] }}
               className="card-apple glass-card p-6 md:p-8"
             >
-              <h3 className="text-title mb-3 text-high-contrast">
+              <h3 className="text-title mb-3 text-high-contrast dark:text-high-contrast">
                 {point.title}
               </h3>
-              <p className="text-body text-medium-contrast">
+              <p className="text-body text-medium-contrast dark:text-medium-contrast">
                 {point.description}
               </p>
             </motion.div>

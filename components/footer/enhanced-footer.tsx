@@ -34,7 +34,7 @@ const currentYear = new Date().getFullYear();
 
 export function EnhancedFooter() {
   return (
-    <footer className="relative bg-background border-t border-hairline">
+    <footer className="relative bg-background dark:bg-background border-t border-hairline dark:border-hairline">
       {/* Newsletter Section */}
       <NewsletterSection />
 
@@ -149,7 +149,7 @@ export function EnhancedFooter() {
       </div>
 
       {/* Bottom Bar - Minimal, Premium */}
-      <div className="relative border-t border-hairline bg-background/50 backdrop-blur-sm">
+      <div className="relative border-t border-hairline dark:border-hairline bg-background/50 dark:bg-background/50 backdrop-blur-sm">
         <div className="container mx-auto container-padding-apple py-6 md:py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Copyright */}

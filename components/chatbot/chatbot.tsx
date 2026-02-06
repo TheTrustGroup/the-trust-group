@@ -134,13 +134,24 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Chat Toggle Button */}
+      {/* Chat Toggle Button - Premium Styling */}
       {!isOpen && (
         <motion.button
           type="button"
           onClick={handleToggleChat}
           onTouchEnd={handleToggleChat}
-          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200] rounded-full w-12 h-12 sm:w-14 sm:h-14 bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center touch-manipulation cursor-pointer"
+          className={cn(
+            "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200]",
+            "rounded-2xl w-14 h-14 sm:w-16 sm:h-16",
+            "bg-primary text-primary-foreground",
+            "shadow-lg hover:shadow-2xl",
+            "backdrop-blur-sm",
+            "border border-primary/20 dark:border-primary/30",
+            "transition-all duration-300",
+            "flex items-center justify-center",
+            "touch-manipulation cursor-pointer",
+            "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          )}
           style={{
             pointerEvents: "auto",
             WebkitTapHighlightColor: "transparent",
@@ -148,19 +159,16 @@ export function Chatbot() {
             position: "fixed",
             isolation: "isolate",
           }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          aria-label="Open chat, 1 unread message"
+          aria-label="Open chat"
         >
           <MessageCircle 
-            className="h-6 w-6 sm:h-7 sm:w-7 stroke-primary-foreground" 
+            className="h-6 w-6 sm:h-7 sm:w-7 stroke-primary-foreground dark:stroke-primary-foreground" 
             strokeWidth={2.5} 
             fill="none"
             aria-hidden="true" 
           />
-          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-xs font-bold text-accent-foreground" aria-hidden="true">
-            1
-          </span>
         </motion.button>
       )}
 
@@ -172,30 +180,30 @@ export function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border bg-background shadow-2xl md:h-[600px] md:w-[420px]"
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex h-[500px] w-[90vw] max-w-[400px] flex-col overflow-hidden rounded-2xl border border-border dark:border-border/60 bg-background dark:bg-background shadow-2xl dark:shadow-2xl md:h-[600px] md:w-[420px]"
             style={{ 
               zIndex: 1400,
               position: "fixed",
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-border bg-primary/5 px-4 py-3">
+            <div className="flex items-center justify-between border-b border-border dark:border-border/60 bg-primary/5 dark:bg-primary/10 px-4 py-3">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <Bot className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground dark:bg-primary dark:text-primary-foreground">
+                  <Bot className="h-5 w-5 stroke-current" strokeWidth={2} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Trust Group Assistant</h3>
-                  <p className="text-xs text-muted-foreground">We&apos;re here to help</p>
+                  <h3 className="font-semibold text-foreground dark:text-foreground">Trust Group Assistant</h3>
+                  <p className="text-xs text-muted-foreground dark:text-muted-foreground">We&apos;re here to help</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="rounded-lg p-1.5 text-muted-foreground dark:text-muted-foreground transition-colors hover:bg-muted dark:hover:bg-muted/80 hover:text-foreground dark:hover:text-foreground"
                 aria-label="Close chat"
               >
-                <X className="h-5 w-5 stroke-current dark:stroke-current" strokeWidth={2} />
+                <X className="h-5 w-5 stroke-current" strokeWidth={2} />
               </button>
             </div>
 
@@ -230,12 +238,12 @@ export function Chatbot() {
                     className={cn(
                       "max-w-[80%] rounded-2xl px-4 py-2",
                       message.sender === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-foreground"
+                        ? "bg-primary text-primary-foreground dark:bg-primary dark:text-primary-foreground"
+                        : "bg-muted text-foreground dark:bg-muted/80 dark:text-foreground"
                     )}
                   >
-                    <p className="text-sm leading-relaxed">{message.text}</p>
-                    <p className="mt-1 text-xs opacity-70">
+                    <p className="text-sm leading-relaxed dark:text-foreground">{message.text}</p>
+                    <p className="mt-1 text-xs opacity-70 dark:opacity-80">
                       {message.timestamp.toLocaleTimeString([], {
                         hour: "2-digit",
                         minute: "2-digit",
@@ -292,7 +300,7 @@ export function Chatbot() {
             </div>
 
             {/* Input */}
-            <form onSubmit={handleSendMessage} className="border-t border-border p-4">
+            <form onSubmit={handleSendMessage} className="border-t border-border dark:border-border/60 p-4 bg-background dark:bg-background">
               <div className="flex gap-2">
                 <Input
                   ref={inputRef}
@@ -300,19 +308,19 @@ export function Chatbot() {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Type your message..."
-                  className="flex-1"
+                  className="flex-1 bg-background dark:bg-background text-foreground dark:text-foreground border-border dark:border-border/60"
                   disabled={isTyping}
                 />
                 <Button
                   type="submit"
                   size="icon"
                   disabled={!inputValue.trim() || isTyping}
-                  className="shrink-0"
+                  className="shrink-0 bg-primary dark:bg-primary text-primary-foreground dark:text-primary-foreground hover:bg-primary/90 dark:hover:bg-primary/90"
                 >
-                  <Send className="h-4 w-4 stroke-current dark:stroke-current" strokeWidth={2} />
+                  <Send className="h-4 w-4 stroke-current" strokeWidth={2} />
                 </Button>
               </div>
-              <p className="mt-2 text-xs text-muted-foreground">
+              <p className="mt-2 text-xs text-muted-foreground dark:text-muted-foreground">
                 Press Enter to send • Esc to close
               </p>
             </form>
