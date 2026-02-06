@@ -148,47 +148,49 @@ export function EnhancedFooter() {
         </div>
       </div>
 
-      {/* Bottom Bar - Minimal, Premium */}
+      {/* Bottom Bar - Minimal, Premium, Centered */}
       <div className="relative border-t border-hairline dark:border-hairline bg-background/50 dark:bg-background/50 backdrop-blur-sm">
         <div className="container mx-auto container-padding-apple py-6 md:py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Copyright */}
-            <div className="text-sm text-medium-contrast text-center md:text-left">
-              <p>© {currentYear} The Trust Group. All rights reserved.</p>
+          <div className="flex flex-col items-center justify-center gap-4 text-center">
+            {/* Copyright and Legal Links - Centered */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-sm">
+              <p className="text-medium-contrast dark:text-medium-contrast font-normal tracking-tight">
+                © {currentYear} The Trust Group. All rights reserved.
+              </p>
+              
+              {/* Legal Links - Subtle, sleek typography */}
+              <div className="flex items-center justify-center gap-3 text-sm">
+                <Link
+                  href="/privacy"
+                  className="text-medium-contrast dark:text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 font-normal tracking-tight"
+                >
+                  Privacy Policy
+                </Link>
+                <span className="text-medium-contrast/40 dark:text-medium-contrast/50">•</span>
+                <Link
+                  href="/terms"
+                  className="text-medium-contrast dark:text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 font-normal tracking-tight"
+                >
+                  Terms
+                </Link>
+                <span className="text-medium-contrast/40 dark:text-medium-contrast/50">•</span>
+                <Link
+                  href="/cookies"
+                  className="text-medium-contrast dark:text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 font-normal tracking-tight"
+                >
+                  Cookies
+                </Link>
+              </div>
             </div>
 
-            {/* Legal Links - Subtle hover interactions */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-              <Link
-                href="/privacy"
-                className="text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 px-2 py-1 min-h-[44px] flex items-center"
-              >
-                Privacy Policy
-              </Link>
-              <span className="text-medium-contrast/40 dark:text-medium-contrast/50">•</span>
-              <Link
-                href="/terms"
-                className="text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 px-2 py-1 min-h-[44px] flex items-center"
-              >
-                Terms
-              </Link>
-              <span className="text-medium-contrast/40 dark:text-medium-contrast/50">•</span>
-              <Link
-                href="/cookies"
-                className="text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 px-2 py-1 min-h-[44px] flex items-center"
-              >
-                Cookies
-              </Link>
-            </div>
-
-            {/* Back to Top - Refined */}
-            <div className="flex items-center justify-end">
+            {/* Back to Top - Centered below */}
+            <div className="flex items-center justify-center pt-2">
               <button
                 onClick={() => smoothScrollToTop()}
-                className="rounded-full w-10 h-10 min-w-[44px] min-h-[44px] border border-hairline hover:border-primary dark:hover:border-primary/60 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-200 flex items-center justify-center group"
+                className="rounded-full w-10 h-10 min-w-[44px] min-h-[44px] border border-hairline dark:border-hairline/60 hover:border-primary dark:hover:border-primary/60 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-200 flex items-center justify-center group"
                 aria-label="Back to top"
               >
-                <ArrowUp className="h-4 w-4 text-medium-contrast group-hover:text-primary dark:group-hover:text-primary transition-colors" />
+                <ArrowUp className="h-4 w-4 text-medium-contrast dark:text-medium-contrast group-hover:text-primary dark:group-hover:text-primary transition-colors" />
               </button>
             </div>
           </div>
