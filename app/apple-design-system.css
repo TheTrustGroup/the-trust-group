@@ -525,25 +525,41 @@
 
 .dark .btn-apple {
   background: rgba(15, 23, 42, 0.9);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: hsl(var(--foreground)); /* Ensure text is readable */
 }
 
 .dark .btn-apple:hover {
   background: rgba(15, 23, 42, 1);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: hsl(var(--foreground)); /* Maintain text readability */
 }
 
 /* Links inside glass cards - subtle interactions */
 .glass-card a:not(.btn-apple),
 .glass-container a:not(.btn-apple) {
   transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: hsl(var(--foreground)); /* Ensure links are visible */
+}
+
+.dark .glass-card a:not(.btn-apple),
+.dark .glass-container a:not(.btn-apple) {
+  color: hsl(var(--foreground)); /* High contrast in dark mode */
 }
 
 .glass-card a:not(.btn-apple):hover,
 .glass-container a:not(.btn-apple):hover {
-  opacity: 0.8;
+  opacity: 0.85; /* Slightly more visible on hover */
   transform: translateX(2px);
+  color: hsl(var(--primary)); /* Use primary color on hover for clarity */
+}
+
+.dark .glass-card a:not(.btn-apple):hover,
+.dark .glass-container a:not(.btn-apple):hover {
+  color: hsl(var(--primary)); /* Primary color for visibility in dark mode */
+  opacity: 1; /* Full opacity for better visibility */
 }
 
 /* ============================================
@@ -678,8 +694,17 @@
   color: hsl(var(--foreground));
 }
 
+.dark .text-high-contrast {
+  color: hsl(var(--foreground)); /* Ensure high contrast in dark mode */
+}
+
 .text-medium-contrast {
   color: hsl(var(--muted-foreground));
+}
+
+.dark .text-medium-contrast {
+  color: hsl(var(--muted-foreground)); /* Ensure readable contrast in dark mode */
+  opacity: 0.9; /* Slightly reduce opacity for subtle hierarchy */
 }
 
 /* Low contrast UI chrome */
@@ -691,6 +716,48 @@
 .dark .chrome-low-contrast {
   border-color: rgba(255, 255, 255, 0.08);
   background: rgba(15, 23, 42, 0.5);
+}
+
+/* ============================================
+   DARK MODE TEXT ENHANCEMENTS
+   Ensure all text elements are readable
+   ============================================ */
+
+/* Headings in dark mode - ensure high contrast */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: hsl(var(--foreground));
+}
+
+/* Links in dark mode - ensure visibility */
+.dark a {
+  color: hsl(var(--foreground));
+}
+
+.dark a:hover {
+  color: hsl(var(--primary));
+}
+
+/* Buttons in dark mode - ensure text is readable */
+.dark button {
+  color: hsl(var(--foreground));
+}
+
+.dark .btn-apple-primary {
+  color: hsl(var(--primary-foreground)); /* Use primary-foreground for primary buttons */
+}
+
+/* Icons in dark mode - ensure visibility */
+.dark svg {
+  color: inherit;
+}
+
+.dark .text-primary svg {
+  color: hsl(var(--primary));
 }
 
 /* ============================================

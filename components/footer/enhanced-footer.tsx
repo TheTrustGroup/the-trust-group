@@ -3,7 +3,6 @@
 import * as React from "react";
 import Link from "next/link";
 import {
-  Heart,
   ArrowUp,
   MapPin,
   Mail,
@@ -63,12 +62,12 @@ export function EnhancedFooter() {
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-medium-contrast hover:text-primary transition-colors duration-200 flex items-center group min-h-[44px]"
-                    >
-                      <span>{link.name}</span>
-                    </Link>
+              <Link
+                href={link.href}
+                className="text-sm text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 flex items-center group min-h-[44px]"
+              >
+                <span>{link.name}</span>
+              </Link>
                   </li>
                 ))}
               </ul>
@@ -82,7 +81,7 @@ export function EnhancedFooter() {
                   <li key={service.href}>
                     <Link
                       href={service.href}
-                      className="text-sm text-medium-contrast hover:text-primary transition-colors duration-200 flex items-center gap-2 group min-h-[44px]"
+                      className="text-sm text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 flex items-center gap-2 group min-h-[44px]"
                     >
                       <ServiceIcon name={service.name} />
                       <span className="flex-1">{service.name}</span>
@@ -97,8 +96,8 @@ export function EnhancedFooter() {
               <h4 className="text-sm font-semibold text-high-contrast mb-5">Contact</h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                  <div className="w-5 h-5 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <MapPin className="h-3.5 w-3.5 text-primary dark:text-primary" strokeWidth={2} />
                   </div>
                   <address className="text-sm text-medium-contrast not-italic">
                     {contactInfo.address.line1}
@@ -115,10 +114,10 @@ export function EnhancedFooter() {
                 <li>
                   <Link
                     href={`mailto:${contactInfo.email}`}
-                    className="text-sm text-medium-contrast hover:text-primary transition-colors flex items-center gap-3 group min-h-[44px]"
+                    className="text-sm text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-3 group min-h-[44px]"
                   >
-                    <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                    <div className="w-5 h-5 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-3.5 w-3.5 text-primary dark:text-primary" strokeWidth={2} />
                     </div>
                     <span className="group-hover:underline break-all">{contactInfo.email}</span>
                   </Link>
@@ -126,17 +125,17 @@ export function EnhancedFooter() {
                 <li>
                   <Link
                     href={`tel:${contactInfo.phone.replace(/\s/g, "")}`}
-                    className="text-sm text-medium-contrast hover:text-primary transition-colors flex items-center gap-3 group min-h-[44px]"
+                    className="text-sm text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-3 group min-h-[44px]"
                   >
-                    <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                    <div className="w-5 h-5 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-3.5 w-3.5 text-primary dark:text-primary" strokeWidth={2} />
                     </div>
                     <span className="group-hover:underline">{contactInfo.phone}</span>
                   </Link>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Clock className="h-3.5 w-3.5 text-primary" strokeWidth={2} />
+                  <div className="w-5 h-5 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Clock className="h-3.5 w-3.5 text-primary dark:text-primary" strokeWidth={2} />
                   </div>
                   <div className="text-sm text-medium-contrast space-y-1">
                     <p>{contactInfo.businessHours.weekdays}</p>
@@ -149,52 +148,47 @@ export function EnhancedFooter() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="relative border-t border-hairline">
-        <div className="container mx-auto container-padding-apple py-5 sm:py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      {/* Bottom Bar - Minimal, Premium */}
+      <div className="relative border-t border-hairline bg-background/50 backdrop-blur-sm">
+        <div className="container mx-auto container-padding-apple py-6 md:py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Copyright */}
-            <div className="text-sm text-medium-contrast text-center md:text-left order-3 md:order-1">
+            <div className="text-sm text-medium-contrast text-center md:text-left">
               <p>© {currentYear} The Trust Group. All rights reserved.</p>
             </div>
 
-            {/* Legal Links */}
-            <div className="flex flex-wrap items-center justify-center gap-3 text-sm order-2">
+            {/* Legal Links - Subtle hover interactions */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
               <Link
                 href="/privacy"
-                className="text-medium-contrast hover:text-primary transition-colors px-2 py-1 min-h-[44px] flex items-center"
+                className="text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 px-2 py-1 min-h-[44px] flex items-center"
               >
                 Privacy Policy
               </Link>
-              <span className="text-medium-contrast/50">•</span>
+              <span className="text-medium-contrast/40 dark:text-medium-contrast/50">•</span>
               <Link
                 href="/terms"
-                className="text-medium-contrast hover:text-primary transition-colors px-2 py-1 min-h-[44px] flex items-center"
+                className="text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 px-2 py-1 min-h-[44px] flex items-center"
               >
                 Terms
               </Link>
-              <span className="text-medium-contrast/50">•</span>
+              <span className="text-medium-contrast/40 dark:text-medium-contrast/50">•</span>
               <Link
                 href="/cookies"
-                className="text-medium-contrast hover:text-primary transition-colors px-2 py-1 min-h-[44px] flex items-center"
+                className="text-medium-contrast hover:text-primary dark:hover:text-primary transition-colors duration-200 px-2 py-1 min-h-[44px] flex items-center"
               >
                 Cookies
               </Link>
             </div>
 
-            {/* Made with Love & Back to Top */}
-            <div className="flex items-center gap-4 order-1 md:order-3">
-              <div className="flex items-center gap-2 text-sm text-medium-contrast">
-                <span>Made with</span>
-                <Heart className="h-4 w-4 text-error fill-error" />
-                <span className="hidden sm:inline">by The Trust Group</span>
-              </div>
+            {/* Back to Top - Refined */}
+            <div className="flex items-center justify-end">
               <button
                 onClick={() => smoothScrollToTop()}
-                className="rounded-full w-10 h-10 min-w-[44px] min-h-[44px] border border-hairline hover:border-primary hover:bg-primary/10 transition-all duration-200 flex items-center justify-center"
+                className="rounded-full w-10 h-10 min-w-[44px] min-h-[44px] border border-hairline hover:border-primary dark:hover:border-primary/60 hover:bg-primary/10 dark:hover:bg-primary/20 transition-all duration-200 flex items-center justify-center group"
                 aria-label="Back to top"
               >
-                <ArrowUp className="h-4 w-4" />
+                <ArrowUp className="h-4 w-4 text-medium-contrast group-hover:text-primary dark:group-hover:text-primary transition-colors" />
               </button>
             </div>
           </div>
