@@ -4,15 +4,13 @@ import * as React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Check, ChevronDown } from "lucide-react";
-import Link from "next/link";
+import { Check, ChevronDown } from "lucide-react";
 
 export interface PremiumServiceCardProps extends React.HTMLAttributes<HTMLDivElement> {
   serviceId: string;
   title: string;
   description: string;
   features?: string[];
-  learnMoreHref?: string;
   variant?: "default" | "primary" | "accent";
 }
 
@@ -23,7 +21,6 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
     title, 
     description, 
     features = [],
-    learnMoreHref = "#",
     variant = "default",
   }, ref) => {
     const [isExpanded, setIsExpanded] = React.useState(false);
@@ -108,18 +105,6 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
               </div>
             </div>
           )}
-
-          {/* Learn More Button */}
-          <div className="pt-2">
-            <Link 
-              href={learnMoreHref} 
-              aria-label={`Learn more about ${title}`}
-              className="btn-apple w-full inline-flex"
-            >
-              Learn More
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
         </CardContent>
       </Card>
     );

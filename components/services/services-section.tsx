@@ -61,7 +61,6 @@ export function ServicesSection({
                   title={service.title}
                   description={service.description}
                   features={service.features}
-                  learnMoreHref={service.href || `/services/${service.id}`}
                   variant={service.variant}
                 />
               </div>
