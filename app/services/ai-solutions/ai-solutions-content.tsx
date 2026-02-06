@@ -139,7 +139,7 @@ export function AISolutionsContent() {
         title="AI Solutions & Implementation"
         subtitle="Artificial Intelligence Services"
         description="Harness the power of artificial intelligence to transform your business operations, drive innovation, and gain a competitive edge."
-        icon={Brain}
+        iconName="Brain"
         features={[
           "Custom ML Model Development",
           "AI Integration & Automation",

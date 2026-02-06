@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { Shield, CheckCircle2, ArrowRight, Lock, Brain, Radio, BarChart3, Rocket, Cloud } from "lucide-react";
+import { CheckCircle2, ArrowRight, Lock, Brain, Radio, BarChart3, Rocket, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -242,7 +242,7 @@ export default function DefenseTechnologyPage() {
         title="Defense Technology Solutions"
         subtitle="Mission-Critical Defense Systems"
         description="Building mission-critical software systems that protect national interests and support defense operations. Secure. Compliant. Battle-tested."
-        icon={Shield}
+        iconName="Shield"
         features={[
           "Cybersecurity & Threat Detection",
           "AI-Powered Defense Systems",

@@ -89,39 +89,17 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
     return () => document.removeEventListener("keydown", handleTab);
   }, [isOpen]);
 
+  /* Single-panel animation only - no staggerChildren/item variants to avoid freeze */
   const menuVariants = {
     closed: {
       opacity: 0,
       x: "100%",
-      transition: {
-        duration: 0.2,
-        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
-      },
+      transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
     },
     open: {
       opacity: 1,
       x: 0,
-      transition: {
-        duration: 0.25,
-        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
-        staggerChildren: 0.02,
-        delayChildren: 0,
-      },
-    },
-  };
-
-  const itemVariants = {
-    closed: {
-      opacity: 0,
-      x: 10,
-    },
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.2,
-        ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
-      },
+      transition: { duration: 0.25, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] },
     },
   };
 
@@ -129,13 +107,13 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop - no backdrop-blur to avoid main-thread freeze on open */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-background/90"
             style={{ zIndex: "var(--z-modal-backdrop)" }}
             onClick={onClose}
           />
@@ -148,7 +126,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
             animate="open"
             exit="closed"
             className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-background border-l border-border shadow-2xl overflow-y-auto"
-            style={{ zIndex: "var(--z-modal)" }}
+            style={{ zIndex: "var(--z-modal)", contain: "layout paint" }}
             role="dialog"
             aria-modal="true"
             aria-label="Navigation menu"
@@ -170,18 +148,14 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                 </motion.button>
               </div>
 
-              {/* Menu Items */}
+              {/* Menu Items - static (no per-item animation to prevent freeze) */}
               <nav className="flex-1 px-6 py-8 space-y-2" aria-label="Main navigation">
-                {items.map((item, index) => {
+                {items.map((item) => {
                   const isActive = pathname === item.href || (item.href === "/" && pathname === "/");
                   const isServices = item.href === "/services";
 
                   return (
-                    <motion.div
-                      key={item.href}
-                      variants={itemVariants}
-                      custom={index}
-                    >
+                    <div key={item.href}>
                       {isServices && servicesItems ? (
                         <div className="space-y-2">
                           <Link
@@ -231,7 +205,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                           {item.label}
                         </Link>
                       )}
-                    </motion.div>
+                    </div>
                   );
                 })}
               </nav>

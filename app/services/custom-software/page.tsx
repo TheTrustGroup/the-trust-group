@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { Code, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whatWeOffer = [
@@ -125,7 +125,7 @@ export default function CustomSoftwarePage() {
         title="Custom Software Development"
         subtitle="Tailored Solutions for Your Business"
         description="We build scalable, secure, and maintainable software solutions designed to meet your unique business requirements. From enterprise applications to SaaS products, we deliver excellence."
-        icon={Code}
+        iconName="Code"
         features={[
           "Enterprise software solutions",
           "SaaS product development",

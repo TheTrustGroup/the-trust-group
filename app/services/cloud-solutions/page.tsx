@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { Cloud, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whatWeOffer = [
@@ -94,7 +94,7 @@ export default function CloudSolutionsPage() {
         title="Cloud Solutions"
         subtitle="Scalable Cloud Infrastructure"
         description="Comprehensive cloud infrastructure and deployment services across AWS, Azure, and GCP. We help you migrate, optimize, and manage your cloud infrastructure for maximum efficiency."
-        icon={Cloud}
+        iconName="Cloud"
         features={[
           "AWS deployment & management",
           "Azure cloud services",

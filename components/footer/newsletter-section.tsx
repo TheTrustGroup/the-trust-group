@@ -56,17 +56,17 @@ export function NewsletterSection() {
 
   return (
     <div className="relative overflow-hidden border-t border-hairline">
-      <div className="relative z-10 container mx-auto container-padding-apple max-w-7xl section-padding-apple-sm">
+      <div className="relative z-10 container mx-auto container-padding-apple max-w-7xl py-5 md:py-6">
         <div className="max-w-2xl mx-auto text-center">
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-high-contrast mb-3">
-              Stay Updated with Tech Trends
+            <h3 className="text-base md:text-lg font-semibold text-high-contrast mb-1.5">
+              Stay Updated
             </h3>
-            <p className="text-medium-contrast mb-8 text-sm md:text-base">
-              Get the latest insights on AI, software development, and technology innovation delivered to your inbox.
+            <p className="text-medium-contrast mb-4 text-xs md:text-sm">
+              Tech insights on AI, software, and innovation—delivered to your inbox.
             </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-apple-sm max-w-lg mx-auto items-stretch sm:items-center">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto items-stretch sm:items-center">
               <div className="flex-1 min-w-0">
                 <FloatingInput
                   id="newsletter-email"
@@ -107,8 +107,8 @@ export function NewsletterSection() {
               </div>
             </form>
 
-            <p className="text-xs text-medium-contrast mt-4">
-              We respect your privacy. Unsubscribe at any time.
+            <p className="text-[11px] text-medium-contrast/80 mt-2.5">
+              We respect your privacy. Unsubscribe anytime.
             </p>
           </div>
         </div>

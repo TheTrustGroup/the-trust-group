@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { Globe, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whatWeOffer = [
@@ -90,7 +90,7 @@ export default function WebDevelopmentPage() {
         title="Web Development"
         subtitle="Modern Websites & Web Applications"
         description="Modern, responsive websites and web applications that combine stunning design with cutting-edge functionality. From sophisticated corporate sites to complex e-commerce platforms."
-        icon={Globe}
+        iconName="Globe"
         features={[
           "Sophisticated website development",
           "E-commerce solutions",

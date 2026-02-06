@@ -55,46 +55,9 @@ const timelineEvents = [
 
 const leadershipTeam = [
   {
-    name: "Alexandra Chen",
-    role: "Chief Executive Officer",
-    bio: "With over 15 years of experience in technology leadership, Alexandra has been instrumental in shaping The Trust Group's vision and strategic direction. She holds an MBA from Stanford and previously led technology initiatives at major tech companies.",
-    linkedin: "https://linkedin.com/in/alexandrachen",
-    email: "alexandra@thetrustgroup.com",
-  },
-  {
-    name: "Marcus Rodriguez",
-    role: "Chief Technology Officer",
-    bio: "Marcus is a renowned expert in AI and machine learning with a PhD in Computer Science from MIT. He has published over 50 research papers and led the development of several groundbreaking AI solutions.",
-    linkedin: "https://linkedin.com/in/marcusrodriguez",
-    email: "marcus@thetrustgroup.com",
-  },
-  {
-    name: "Sarah Johnson",
-    role: "Chief Operating Officer",
-    bio: "Sarah brings extensive experience in operations and business strategy. She has successfully scaled multiple technology companies and is passionate about building high-performing teams and operational excellence.",
-    linkedin: "https://linkedin.com/in/sarahjohnson",
-    email: "sarah@thetrustgroup.com",
-  },
-  {
-    name: "David Kim",
-    role: "VP of Engineering",
-    bio: "David leads our engineering teams with a focus on innovation and quality. With expertise in cloud architecture and scalable systems, he has been key to our technical excellence and delivery success.",
-    linkedin: "https://linkedin.com/in/davidkim",
-    email: "david@thetrustgroup.com",
-  },
-  {
-    name: "Emily Martinez",
-    role: "VP of Client Success",
-    bio: "Emily ensures our clients achieve exceptional results. Her background in consulting and customer success has helped us maintain a 98% client satisfaction rate and build lasting partnerships.",
-    linkedin: "https://linkedin.com/in/emilymartinez",
-    email: "emily@thetrustgroup.com",
-  },
-  {
-    name: "James Wilson",
-    role: "VP of Business Development",
-    bio: "James drives our growth strategy and partnerships. His extensive network and business acumen have been crucial in expanding our client base and establishing strategic alliances across industries.",
-    linkedin: "https://linkedin.com/in/jameswilson",
-    email: "james@thetrustgroup.com",
+    name: "Emmanuel A.",
+    role: "Founder & Chief Strategist",
+    bio: "Emmanuel founded The Trust Group to help organizations build mission-critical technology with clarity and trust. As Chief Strategist, he shapes vision, partnerships, and long-term direction for the company and its clients.",
   },
 ];
 
@@ -203,7 +166,7 @@ export default function AboutPage() {
         title="About The Trust Group"
         subtitle="Our Story"
         description="A parent company leading innovation across multiple tech ventures, transforming businesses through cutting-edge technology solutions."
-        icon={Building2 as any}
+        iconName="Building2"
         features={[
           "10+ years of excellence",
           "500+ successful projects",
@@ -276,7 +239,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Leadership Team */}
-      <LeadershipTeam members={leadershipTeam} />
+      <LeadershipTeam members={leadershipTeam} title="Our Founder" subtitle="The visionary behind The Trust Group" />
 
       {/* Company Culture */}
       <Section variant="default" size="default">

@@ -51,7 +51,7 @@ export function lockBodyScroll(): () => void {
   }
 
   lockCount++;
-  
+
   // If already locked, just increment counter
   if (scrollLockState !== null) {
     return () => {
@@ -62,7 +62,7 @@ export function lockBodyScroll(): () => void {
     };
   }
 
-  // ✅ GOOD - Batch all reads first
+  // Batch reads (no writes yet - avoids layout thrash in same frame as menu open)
   const originalOverflow = document.body.style.overflow;
   const originalPaddingRight = document.body.style.paddingRight;
   const originalPosition = document.body.style.position;
@@ -71,7 +71,6 @@ export function lockBodyScroll(): () => void {
   const scrollY = window.scrollY;
   const scrollbarWidth = getScrollbarWidth();
 
-  // Store state for restoration
   scrollLockState = {
     originalOverflow,
     originalPaddingRight,
@@ -81,23 +80,17 @@ export function lockBodyScroll(): () => void {
     scrollY,
   };
 
-  // ✅ GOOD - Then batch all writes
-  // Lock scroll
+  // Batch writes in same sync block (minimize reflows)
   document.body.style.overflow = "hidden";
-  
-  // Prevent layout shift (compensate for scrollbar)
   if (scrollbarWidth > 0) {
     document.body.style.paddingRight = `${scrollbarWidth}px`;
   }
-
-  // Prevent background scroll on iOS
   if (isIOS()) {
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = "100%";
   }
 
-  // Return cleanup function
   return () => {
     lockCount--;
     if (lockCount === 0) {

@@ -22,6 +22,7 @@ export function EnhancedNavigation() {
   const [isVisible, setIsVisible] = React.useState(true);
   const lastScrollYRef = React.useRef(0);
   const navRef = React.useRef<HTMLElement>(null);
+  const scrollUnlockRef = React.useRef<(() => void) | null>(null);
 
   const navItems = siteConfig.navigation.main.map((item) => ({
     href: item.href,
@@ -77,16 +78,22 @@ export function EnhancedNavigation() {
     setIsOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll when mobile menu is open (defer to next frame to avoid freeze when opening)
   React.useEffect(() => {
-    if (isOpen) {
-      // ✅ GOOD - Use optimized scroll lock utility (handles iOS and layout shift)
-      const unlock = lockBodyScroll();
-      
-      return () => {
-        unlock();
-      };
+    if (!isOpen) {
+      scrollUnlockRef.current?.();
+      scrollUnlockRef.current = null;
+      return;
     }
+    let rafId = 0;
+    rafId = requestAnimationFrame(() => {
+      scrollUnlockRef.current = lockBodyScroll();
+    });
+    return () => {
+      cancelAnimationFrame(rafId);
+      scrollUnlockRef.current?.();
+      scrollUnlockRef.current = null;
+    };
   }, [isOpen]);
 
   const handleNavClick = (href: string) => {

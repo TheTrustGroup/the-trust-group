@@ -1,14 +1,37 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Brain,
+  Cloud,
+  Code,
+  Smartphone,
+  Globe,
+  TrendingUp,
+  Shield,
+  Building2,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  Brain,
+  Cloud,
+  Code,
+  Smartphone,
+  Globe,
+  TrendingUp,
+  Shield,
+  Building2,
+};
 
 interface ServiceHeroProps {
   title: string;
   subtitle: string;
   description: string;
-  icon?: LucideIcon;
+  /** Icon name (e.g. "Brain") so Server Components can pass a string instead of a component */
+  iconName?: string;
   features?: string[];
 }
 
@@ -16,9 +39,10 @@ export function ServiceHero({
   title,
   subtitle,
   description,
-  icon: Icon,
+  iconName,
   features = [],
 }: ServiceHeroProps) {
+  const Icon = iconName ? ICON_MAP[iconName] : undefined;
   return (
     <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 py-20 md:py-32">
       {/* Background Elements */}

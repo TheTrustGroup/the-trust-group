@@ -18,11 +18,13 @@ interface TeamMember {
 interface LeadershipTeamProps {
   members: TeamMember[];
   title?: string;
+  subtitle?: string;
 }
 
 export function LeadershipTeam({
   members,
   title = "Leadership Team",
+  subtitle = "Meet the visionary leaders driving innovation at The Trust Group",
 }: LeadershipTeamProps) {
   return (
     <section className="py-16 md:py-24 bg-muted/30">
@@ -32,11 +34,11 @@ export function LeadershipTeam({
             {title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Meet the visionary leaders driving innovation at The Trust Group
+            {subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className={`grid gap-8 max-w-6xl mx-auto ${members.length === 1 ? "grid-cols-1 max-w-md" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}`}>
           {members.map((member, index) => (
             <Card
               key={index}

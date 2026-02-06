@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { TrendingUp, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whatWeOffer = [
@@ -90,7 +90,7 @@ export default function ConsultingPage() {
         title="Consulting & Strategy"
         subtitle="Strategic Technology Guidance"
         description="Strategic technology consulting to guide critical decisions and transformations. We provide independent, expert guidance on technology strategy, architecture, and digital transformation initiatives."
-        icon={TrendingUp}
+        iconName="TrendingUp"
         features={[
           "Technology strategy & planning",
           "Digital transformation advisory",

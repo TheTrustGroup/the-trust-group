@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { Smartphone, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const whatWeOffer = [
@@ -94,7 +94,7 @@ export default function MobileAppsPage() {
         title="Mobile App Development"
         subtitle="Exceptional Mobile Experiences"
         description="Cross-platform mobile applications that deliver exceptional user experiences. We build native and hybrid apps for iOS, Android, and web platforms with cutting-edge technologies."
-        icon={Smartphone}
+        iconName="Smartphone"
         features={[
           "iOS native development (Swift)",
           "Android native development (Kotlin)",

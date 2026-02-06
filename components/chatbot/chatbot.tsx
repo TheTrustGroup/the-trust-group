@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { MessageCircle, X, Send, Bot, User } from "lucide-react";
+import { MessageSquare, X, Send, Bot, User } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -145,9 +145,9 @@ export function Chatbot() {
             "fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[1200]",
             "rounded-2xl w-14 h-14 sm:w-16 sm:h-16",
             "bg-primary text-primary-foreground",
-            "shadow-lg hover:shadow-2xl",
+            "shadow-lg hover:shadow-xl hover:shadow-primary/20",
             "border border-primary/20 dark:border-primary/30",
-            "transition-all duration-300",
+            "transition-all duration-200 ease-out",
             "flex items-center justify-center",
             "touch-manipulation cursor-pointer",
             "focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
@@ -159,16 +159,16 @@ export function Chatbot() {
             position: "fixed",
             isolation: "isolate",
           }}
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.06, y: -2 }}
+          whileTap={{ scale: 0.96 }}
           aria-label="Open chat"
         >
-          <MessageCircle 
-            className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" 
-            strokeWidth={2.5} 
-            fill="none"
+          <MessageSquare
+            className="h-[22px] w-[22px] sm:h-6 sm:w-6 text-primary-foreground shrink-0"
+            strokeWidth={2.25}
+            strokeLinecap="round"
+            strokeLinejoin="round"
             aria-hidden="true"
-            style={{ stroke: "currentColor" }}
           />
         </motion.button>
       )}

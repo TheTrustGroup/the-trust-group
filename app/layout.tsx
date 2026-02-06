@@ -50,13 +50,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
-        {/* Preload critical resources - Optimized loading */}
-        <link rel="preload" href="/globals.css" as="style" />
-        
-        {/* Performance: Reduce render-blocking CSS */}
-        <link rel="preload" href="/apple-design-system.css" as="style" />
-        <link rel="preload" href="/design-system-2025.css" as="style" />
-        
         {/* ✅ Favicons - Also handled by Metadata API, but kept for compatibility */}
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

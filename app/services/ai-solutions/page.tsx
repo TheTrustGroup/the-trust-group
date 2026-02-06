@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { Brain, CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -155,7 +155,7 @@ export default function AISolutionsPage() {
         title="AI Solutions & Implementation"
         subtitle="Artificial Intelligence Services"
         description="Transform your business with cutting-edge AI solutions. From machine learning models to intelligent automation, we help you harness the power of artificial intelligence."
-        icon={Brain}
+        iconName="Brain"
         features={[
           "Custom ML model development",
           "AI integration & automation",
