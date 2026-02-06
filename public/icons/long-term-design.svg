@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Long-Term Design: Circular arrow with layered structure -->
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Outer circular arrow (sustainability cycle) -->
+    <path d="M8 16a8 8 0 0 1 8-8" />
+    <path d="M24 16a8 8 0 0 1-8 8" />
+    <!-- Arrow head -->
+    <path d="M22 12l2-2-2-2" />
+    
+    <!-- Inner layers (representing long-term structure) -->
+    <circle cx="16" cy="16" r="6" />
+    <circle cx="16" cy="16" r="3.5" />
+    
+    <!-- Center dot -->
+    <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+  </g>
+</svg>
