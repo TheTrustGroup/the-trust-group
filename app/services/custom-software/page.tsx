@@ -71,7 +71,7 @@ const faqs = [
   },
   {
     question: "How long does it take to develop custom software?",
-    answer: "Development timelines vary based on project complexity. Simple applications can take 8-12 weeks, while enterprise solutions may take 6-12 months. We provide detailed timelines during the planning phase.",
+    answer: "Timeline depends on project complexity and requirements. Small projects are typically completed in 1-2 months, with some simpler applications completed in weeks. Larger, complex enterprise solutions typically take around 3 months, depending on scope and requirements.",
   },
   {
     question: "Do you provide ongoing maintenance and support?",

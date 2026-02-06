@@ -70,6 +70,10 @@ const faqs = [
     answer: "Native apps offer the best performance and platform-specific features, while cross-platform apps are faster to develop and maintain. We'll help you choose based on your requirements, budget, and timeline.",
   },
   {
+    question: "How long does mobile app development take?",
+    answer: "Timeline depends on complexity and platform requirements. Small projects are typically completed in 1-2 months, with some simpler apps completed in weeks. Larger, complex applications typically take around 3 months, depending on features and platform requirements.",
+  },
+  {
     question: "How much does mobile app development cost?",
     answer: "Costs vary based on complexity, features, and platforms. Simple apps start around $20K, while complex enterprise apps can range from $50K to $200K+. We provide detailed quotes after understanding your requirements.",
   },

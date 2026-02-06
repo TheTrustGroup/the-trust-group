@@ -96,7 +96,7 @@ const faqs = [
   },
   {
     question: "How long does it take to develop an AI solution?",
-    answer: "The timeline varies depending on the complexity of the project. Simple AI integrations can take 4-6 weeks, while complex custom ML models may take 12-16 weeks. We provide detailed timelines during the discovery phase and keep you updated throughout the development process.",
+    answer: "Timeline depends on project complexity and data requirements. Small projects are typically completed in 1-2 months, with some simpler integrations completed in weeks. Larger, complex custom ML models typically take around 3 months, depending on data preparation, model complexity, and integration requirements.",
   },
   {
     question: "Do I need to have data ready before starting?",

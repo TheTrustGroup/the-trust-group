@@ -10,34 +10,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const whatWeOffer = [
   {
-    title: "Digital Transformation Strategy",
-    description: "Comprehensive strategies to guide your organization through digital transformation and technology adoption.",
-    features: ["Transformation roadmap", "Change management", "Technology selection", "ROI analysis"],
+    title: "Technology Strategy & Planning",
+    description: "Develop comprehensive technology strategies aligned with business objectives. We assess current state, identify opportunities, and create actionable roadmaps.",
+    features: ["Current state assessment", "Strategic roadmap development", "Technology portfolio analysis", "Investment prioritization"],
   },
   {
-    title: "Technology Advisory Services",
-    description: "Expert guidance on technology decisions, architecture, and best practices to drive business success.",
-    features: ["Technology assessment", "Architecture reviews", "Best practices", "Risk analysis"],
-  },
-  {
-    title: "Architecture Consulting",
-    description: "Design scalable, maintainable system architectures that align with your business goals and technical requirements.",
-    features: ["System architecture", "Microservices design", "Cloud architecture", "Integration patterns"],
+    title: "Digital Transformation Advisory",
+    description: "Guide organizations through complex digital transformation initiatives. We help navigate change management, process optimization, and technology adoption.",
+    features: ["Transformation planning", "Change management strategy", "Process optimization", "Organizational readiness assessment"],
   },
   {
     title: "Technical Due Diligence",
-    description: "Comprehensive technical assessments for M&A, investments, and strategic partnerships.",
-    features: ["Code reviews", "Security audit", "Scalability assessment", "Technical debt analysis"],
+    description: "Comprehensive technical assessments for M&A, investments, and strategic partnerships. Evaluate technology assets, risks, and opportunities.",
+    features: ["Code quality assessment", "Security & compliance review", "Scalability analysis", "Technical debt evaluation"],
   },
   {
-    title: "Innovation Workshops",
-    description: "Interactive workshops to identify innovation opportunities and develop actionable technology strategies.",
-    features: ["Design thinking", "Ideation sessions", "Prototyping", "Roadmap development"],
+    title: "Architecture Strategy & Design",
+    description: "Define system architecture strategies that support business goals. We design scalable, secure architectures before implementation begins.",
+    features: ["Architecture strategy", "Technology selection guidance", "Integration planning", "Migration strategy"],
   },
   {
-    title: "Technology Roadmap Planning",
-    description: "Strategic roadmaps that align technology initiatives with business objectives and budget constraints.",
-    features: ["Strategic planning", "Priority setting", "Timeline development", "Resource planning"],
+    title: "Innovation & Ideation",
+    description: "Facilitate strategic workshops to identify technology opportunities and develop innovation roadmaps aligned with market trends.",
+    features: ["Innovation workshops", "Technology trend analysis", "Competitive assessment", "Opportunity identification"],
+  },
+  {
+    title: "Technology Governance",
+    description: "Establish frameworks for technology decision-making, standards, and governance processes to ensure consistent execution.",
+    features: ["Governance framework design", "Decision-making processes", "Standards definition", "Vendor evaluation"],
   },
 ];
 
@@ -67,11 +67,11 @@ const processSteps = [
 const faqs = [
   {
     question: "What types of consulting services do you offer?",
-    answer: "We offer strategic technology consulting including digital transformation, architecture design, technology selection, technical due diligence, and innovation workshops tailored to your needs.",
+    answer: "We provide strategic technology consulting focused on planning and decision-making rather than implementation. Services include technology strategy, digital transformation advisory, technical due diligence, architecture strategy, innovation workshops, and technology governance.",
   },
   {
     question: "How long does a consulting engagement typically last?",
-    answer: "Engagements vary from short-term assessments (1-2 weeks) to long-term strategic partnerships (ongoing). We customize the engagement based on your specific needs.",
+    answer: "Consulting engagements are typically short to medium-term, ranging from 1-2 weeks for assessments to 1-3 months for comprehensive strategy development. We focus on delivering actionable insights and roadmaps rather than long-term implementation partnerships.",
   },
   {
     question: "Do you work with specific industries?",
@@ -89,13 +89,13 @@ export default function ConsultingPage() {
       <ServiceHero
         title="Consulting & Strategy"
         subtitle="Strategic Technology Guidance"
-        description="Strategic technology consulting to guide your digital transformation journey. Our experts provide actionable insights and roadmaps to help you leverage technology for business growth."
+        description="Strategic technology consulting to guide critical decisions and transformations. We provide independent, expert guidance on technology strategy, architecture, and digital transformation initiatives."
         icon={TrendingUp}
         features={[
-          "Digital transformation strategy",
-          "Technology advisory services",
-          "Architecture consulting",
+          "Technology strategy & planning",
+          "Digital transformation advisory",
           "Technical due diligence",
+          "Architecture strategy & design",
         ]}
       />
 
@@ -106,7 +106,7 @@ export default function ConsultingPage() {
               What We Offer
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive consulting services to guide your technology decisions
+              Independent strategic guidance for technology decisions, transformations, and investments
             </p>
           </div>
 

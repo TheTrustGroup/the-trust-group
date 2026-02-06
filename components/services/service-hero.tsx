@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
 interface ServiceHeroProps {
@@ -50,7 +50,7 @@ export function ServiceHero({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <Sparkles className="h-5 w-5 text-primary flex-shrink-0" />
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" strokeWidth={2} />
                   <span className="text-foreground">{feature}</span>
                 </div>
               ))}

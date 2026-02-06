@@ -71,7 +71,7 @@ const faqs = [
   },
   {
     question: "How long does it take to build a website?",
-    answer: "Timeline depends on complexity. Simple websites take 4-8 weeks, while complex web applications can take 12-24 weeks. We provide detailed timelines during planning.",
+    answer: "Timeline depends on complexity. Small projects are typically completed in 1-2 months, with some simpler sites completed in weeks. Larger, complex web applications typically take around 3 months, depending on requirements and complexity.",
   },
   {
     question: "Do you provide website maintenance?",

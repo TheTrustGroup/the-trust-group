@@ -70,6 +70,10 @@ const faqs = [
     answer: "The best platform depends on your specific needs. AWS offers the broadest services, Azure integrates well with Microsoft products, and GCP excels at data analytics and ML. We'll help you choose the right platform.",
   },
   {
+    question: "How long does cloud migration take?",
+    answer: "Timeline depends on infrastructure complexity and migration scope. Small projects are typically completed in 1-2 months, with some simpler migrations completed in weeks. Larger, complex enterprise migrations typically take around 3 months, depending on system complexity and requirements.",
+  },
+  {
     question: "How much does cloud migration cost?",
     answer: "Costs vary based on infrastructure size and complexity. We provide detailed cost estimates during the assessment phase, including migration costs and ongoing cloud expenses.",
   },
