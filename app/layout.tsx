@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./apple-design-system.css";
 import "./design-system-2025.css";
 import "./footer-fixes.css";
 import "./parallax-optimization.css";
@@ -12,6 +13,7 @@ import { Footer } from "@/components/footer";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { ThemeProvider } from "@/components/theme-provider";
 import dynamic from "next/dynamic";
 
@@ -27,7 +29,7 @@ const inter = Inter({
 
 export const metadata: Metadata = generateMetadata({
   title: "Home",
-  description: "The Trust Group specializes in AI solutions, custom software development, mobile and web application development, and sophisticated website development.",
+  description: "We help organizations build mission-critical systems. AI solutions, custom software, and secure infrastructure.",
   keywords: ["AI solutions", "software development", "web development", "mobile apps", "custom software", "The Trust Group"],
 });
 
@@ -88,6 +90,7 @@ export default function RootLayout({
               {children}
             </main>
           <Footer />
+          <ScrollProgress />
           <BackToTop />
           <Chatbot />
         </ToastProvider>

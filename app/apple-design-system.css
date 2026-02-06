@@ -1,0 +1,725 @@
+/* ============================================
+   APPLE-INSPIRED DESIGN SYSTEM
+   The Trust Group - World-Class UI
+   ============================================
+   
+   Principles:
+   - Restrained glassmorphism (only where grouping improves comprehension)
+   - Soft off-white backgrounds (never pure white)
+   - System typography (SF Pro / Inter)
+   - Subtle blur (8-16px max)
+   - Hairline borders (1px, low contrast)
+   - Soft shadows (barely noticeable)
+   - High contrast text, low contrast UI chrome
+   - Mobile-first, thumb-friendly spacing
+   ============================================ */
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   Optimized dark/light mode system
+   Blur hierarchy: hero > containers > cards > nav
+   Opacity range: Light 0.65-0.8, Dark 0.6-0.8
+   ============================================ */
+
+/* Hero Glass - Highest depth, most prominent */
+/* STEP 4: blur 16px, rgba(15,23,42,0.8) dark, rounded-2xl, generous padding */
+.glass-container.hero-glass {
+  /* Light mode */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 1rem; /* rounded-2xl */
+  transition: backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              -webkit-backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: backdrop-filter;
+}
+
+.glass-container.hero-glass.scrolled {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-container.hero-glass {
+  /* Dark mode - STEP 4: rgba(15,23,42,0.8) */
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .glass-container.hero-glass.scrolled {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Glass Container - Secondary depth */
+.glass-container {
+  /* Light mode */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.dark .glass-container {
+  /* Dark mode */
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Glass Card - Tertiary depth */
+/* STEP 4: blur 12px, rgba(255,255,255,0.7) light, rounded-2xl, hover lift 3-5px */
+.glass-card {
+  /* Light mode - STEP 4: rgba(255,255,255,0.7) */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  border-radius: 1rem; /* rounded-2xl */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.glass-card:hover {
+  /* STEP 4: hover lift 3-5px, smooth shadow transition */
+  transform: translateY(-4px) translateZ(0);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.glass-card:focus-within {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+.dark .glass-card {
+  /* Dark mode */
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .glass-card:hover {
+  transform: translateY(-4px) translateZ(0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Glass Subtle - Navigation, lowest depth */
+/* STEP 4: blur 6-8px, rgba(255,255,255,0.65), minimal borders */
+.glass-subtle,
+.nav-apple {
+  /* Light mode - STEP 4: rgba(255,255,255,0.65) */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-color, backdrop-filter, opacity;
+}
+
+.glass-subtle.scrolled,
+.nav-apple.scrolled {
+  /* STEP 4: fade in/out transparency on scroll */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-subtle,
+.dark .nav-apple {
+  /* Dark mode */
+  background: rgba(15, 23, 42, 0.65);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .glass-subtle.scrolled,
+.dark .nav-apple.scrolled {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   BACKGROUND COLORS
+   Soft off-white, never pure white
+   ============================================ */
+
+:root {
+  --bg-soft-white: #FAFAFA;
+  --bg-off-white: #F8F9FA;
+  --bg-light-gray: #F5F5F7;
+}
+
+.dark {
+  --bg-soft-white: #0F172A;
+  --bg-off-white: #1E293B;
+  --bg-light-gray: #334155;
+}
+
+/* ============================================
+   BORDERS
+   Hairline, harmonized across light/dark
+   ============================================ */
+
+.border-hairline {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .border-hairline {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================
+   SHADOWS
+   Harmonized across light/dark modes
+   ============================================ */
+
+.shadow-apple {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.shadow-apple-subtle {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01);
+}
+
+.dark .shadow-apple {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .shadow-apple-subtle {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   Premium, deliberate typography system
+   ============================================ */
+
+.font-system {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", 
+               "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Hero Typography - Premium, confident */
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Body Typography - Refined readability */
+.body-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Typography Scale Utilities */
+/* STEP 4: SF Pro / Inter, semibold (600-700), line-height 1.25-1.5, subtle letter-spacing */
+.text-display {
+  @apply text-5xl md:text-6xl lg:text-7xl;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-headline {
+  @apply text-2xl md:text-3xl lg:text-4xl;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-title {
+  @apply text-xl md:text-2xl;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-body {
+  @apply text-base md:text-lg;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-body-medium {
+  @apply text-base md:text-lg;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-caption {
+  @apply text-sm;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.002em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   SPACING SYSTEM
+   Pixel-perfect, consistent spacing
+   ============================================ */
+
+/* Section Padding - Mobile-first, consistent vertical rhythm */
+.section-padding-apple {
+  padding-top: 3rem;      /* 48px - reduced for mobile */
+  padding-bottom: 3rem;   /* 48px - reduced for mobile */
+}
+
+@media (min-width: 768px) {
+  .section-padding-apple {
+    padding-top: 4rem;     /* 64px */
+    padding-bottom: 4rem;  /* 64px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding-apple {
+    padding-top: 5rem;     /* 80px */
+    padding-bottom: 5rem;  /* 80px */
+  }
+}
+
+.section-padding-apple-sm {
+  padding-top: 3rem;       /* 48px */
+  padding-bottom: 3rem;    /* 48px */
+}
+
+@media (min-width: 768px) {
+  .section-padding-apple-sm {
+    padding-top: 4rem;     /* 64px */
+    padding-bottom: 4rem;  /* 64px */
+  }
+}
+
+/* Container Padding - Locked horizontal spacing */
+.container-padding-apple {
+  padding-left: 1rem;      /* 16px */
+  padding-right: 1rem;     /* 16px */
+}
+
+@media (min-width: 640px) {
+  .container-padding-apple {
+    padding-left: 1.5rem;  /* 24px */
+    padding-right: 1.5rem; /* 24px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-padding-apple {
+    padding-left: 2rem;    /* 32px */
+    padding-right: 2rem;   /* 32px */
+  }
+}
+
+/* Card Padding - Consistent internal spacing */
+.card-padding-apple {
+  padding: 1.5rem;         /* 24px */
+}
+
+@media (min-width: 768px) {
+  .card-padding-apple {
+    padding: 2rem;         /* 32px */
+  }
+}
+
+/* ============================================
+   GLASS CARD MICRO-INTERACTIONS
+   Luxurious hover effects
+   ============================================ */
+
+/* STEP 4: Cards hover lift 3-5px, smooth shadow transition */
+/* Note: Hover styles are defined above in .glass-card:hover */
+
+/* Buttons and links inside glass cards */
+.glass-card button,
+.glass-card a,
+.glass-card [role="button"] {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card button:hover,
+.glass-card a:hover,
+.glass-card [role="button"]:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+.glass-card button:active,
+.glass-card a:active,
+.glass-card [role="button"]:active {
+  transform: scale(0.98);
+}
+
+/* Gap Spacing - Locked grid/flex spacing */
+.gap-apple {
+  gap: 1rem;               /* 16px - tighter on mobile */
+}
+
+@media (min-width: 768px) {
+  .gap-apple {
+    gap: 1.5rem;           /* 24px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .gap-apple {
+    gap: 2rem;             /* 32px */
+  }
+}
+
+.gap-apple-sm {
+  gap: 1rem;               /* 16px */
+}
+
+@media (min-width: 768px) {
+  .gap-apple-sm {
+    gap: 1.5rem;           /* 24px */
+  }
+}
+
+.gap-apple-lg {
+  gap: 2rem;               /* 32px */
+}
+
+@media (min-width: 768px) {
+  .gap-apple-lg {
+    gap: 3rem;             /* 48px */
+  }
+}
+
+/* Hero Spacing - Premium vertical rhythm */
+.hero-padding-apple {
+  padding-top: 5rem;       /* 80px */
+  padding-bottom: 5rem;    /* 80px */
+}
+
+@media (min-width: 768px) {
+  .hero-padding-apple {
+    padding-top: 6rem;     /* 96px */
+    padding-bottom: 6rem;   /* 96px */
+  }
+}
+
+/* Navigation Spacing - Consistent height and padding */
+.nav-padding-apple {
+  padding-left: 1rem;      /* 16px */
+  padding-right: 1rem;     /* 16px */
+  height: 4rem;            /* 64px */
+}
+
+@media (min-width: 640px) {
+  .nav-padding-apple {
+    padding-left: 1.5rem;  /* 24px */
+    padding-right: 1.5rem; /* 24px */
+  }
+}
+
+/* ============================================
+   BUTTONS
+   Calm, not salesy - Enhanced micro-interactions
+   ============================================ */
+
+.btn-apple {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  color: hsl(var(--foreground));
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px; /* Thumb-friendly */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.btn-apple:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px) scale(1.01) translateZ(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  opacity: 0.95;
+}
+
+.btn-apple:active {
+  transform: translateY(0) scale(0.98) translateZ(0);
+}
+
+.btn-apple-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+
+.btn-apple-primary:hover {
+  background: hsl(var(--primary-hover));
+  border-color: hsl(var(--primary-hover));
+  opacity: 0.95;
+}
+
+.dark .btn-apple {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .btn-apple:hover {
+  background: rgba(15, 23, 42, 1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Links inside glass cards - subtle interactions */
+.glass-card a:not(.btn-apple),
+.glass-container a:not(.btn-apple) {
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card a:not(.btn-apple):hover,
+.glass-container a:not(.btn-apple):hover {
+  opacity: 0.8;
+  transform: translateX(2px);
+}
+
+/* ============================================
+   CARDS
+   Optimized for glass system integration
+   When used with .glass-card, background and border are handled by glass utility
+   ============================================ */
+
+.card-apple {
+  border-radius: 12px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When card-apple is used without glass-card, provide fallback background */
+.card-apple:not(.glass-card) {
+  /* Light mode */
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.dark .card-apple:not(.glass-card) {
+  /* Dark mode */
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover state - subtle border change only */
+.card-apple:hover {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.dark .card-apple:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Case Study Cards - Enhanced visual hierarchy */
+.case-study-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.case-study-card .outcome-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.case-study-card .outcome-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  margin-top: 0.375rem;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   NAVIGATION
+   Optimized glass - lowest depth in hierarchy
+   ============================================ */
+
+.nav-apple {
+  /* Light mode */
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  height: 64px;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: background-color, backdrop-filter;
+}
+
+.nav-apple.scrolled {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.dark .nav-apple {
+  /* Dark mode */
+  background: rgba(15, 23, 42, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .nav-apple.scrolled {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   Mobile-first breakpoints
+   ============================================ */
+
+@media (max-width: 767px) {
+  /* Ensure thumb-friendly touch targets */
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Reduce padding on mobile */
+  .card-padding-apple {
+    padding: 1.25rem;
+  }
+  
+  /* Stack elements vertically */
+  .flex-mobile-stack {
+    flex-direction: column;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   High contrast text, low contrast chrome
+   ============================================ */
+
+/* Ensure text contrast */
+.text-high-contrast {
+  color: hsl(var(--foreground));
+}
+
+.text-medium-contrast {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Low contrast UI chrome */
+.chrome-low-contrast {
+  border-color: rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.dark .chrome-low-contrast {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.5);
+}
+
+/* ============================================
+   ANIMATIONS
+   Subtle, purposeful
+   ============================================ */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

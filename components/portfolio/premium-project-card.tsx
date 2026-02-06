@@ -63,15 +63,16 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
   return (
     <article
       className={cn(
-        "group relative rounded-lg overflow-hidden border bg-background/50",
-        "transition-all duration-200 cursor-pointer hover:border-primary/40 hover:shadow-md",
+        "group relative rounded-xl overflow-hidden",
+        "card-apple glass-card", // Subtle glass container for grouped content
+        "cursor-pointer",
         colors.border
       )}
       onClick={() => onViewDetails?.(project)}
     >
 
       {/* Device Mockup Area */}
-      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-muted/30 p-4 md:p-8">
+      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-muted/20 p-4 md:p-6">
         <DeviceMockup 
           type={deviceType} 
           imageUrl={imageUrl} 
@@ -95,31 +96,31 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
       </div>
 
       {/* Content Section */}
-      <div className="p-6 space-y-4">
+      <div className="card-padding-apple space-y-4">
         <div>
-          <h3 className="text-xl md:text-2xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors break-words">
+          <h3 className="text-lg md:text-xl font-bold mb-2 text-high-contrast group-hover:text-primary transition-colors break-words">
             {project.title}
           </h3>
-          <p className="text-sm md:text-base text-muted-foreground line-clamp-2 leading-relaxed break-words">
+          <p className="text-sm md:text-base text-medium-contrast line-clamp-2 break-words">
             {project.description}
           </p>
         </div>
 
         {/* Technology Tags */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-apple-sm">
           {project.technologies.slice(0, 5).map((tech, idx) => (
             <span
               key={idx}
               className={cn(
-                "px-2.5 py-1 text-xs rounded-md font-medium border",
-                "bg-background/80 text-foreground border-border"
+                "px-2.5 py-1 text-xs rounded-md font-medium border-hairline",
+                "bg-background/60 text-medium-contrast chrome-low-contrast"
               )}
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 5 && (
-            <span className="px-2.5 py-1 text-xs rounded-md bg-muted text-muted-foreground border border-border">
+            <span className="px-2.5 py-1 text-xs rounded-md bg-muted/50 text-medium-contrast border-hairline chrome-low-contrast">
               +{project.technologies.length - 5}
             </span>
           )}
@@ -127,8 +128,8 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
 
         {/* Quick Stats */}
         {project.results && project.results.length > 0 && (
-          <div className="pt-2 border-t border-border">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <div className="pt-2 border-t border-hairline">
+            <div className="flex items-center gap-2 text-xs text-medium-contrast">
               <span className="font-medium">Impact: {project.results[0]}</span>
             </div>
           </div>
@@ -136,10 +137,8 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
 
         {/* View Details Button */}
         <div className="pt-2">
-          <Button
-            variant="outline"
-            size="sm"
-            className="w-full"
+          <button
+            className="btn-apple w-full"
             onClick={(e) => {
               e.stopPropagation();
               onViewDetails?.(project);
@@ -147,7 +146,7 @@ export function PremiumProjectCard({ project, onViewDetails, index = 0 }: Premiu
           >
             View Details
             <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          </button>
         </div>
       </div>
     </article>

@@ -55,40 +55,18 @@ export function NewsletterSection() {
   };
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5" />
-      
-      {/* Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(45deg, transparent 30%, rgba(0, 102, 255, 0.1) 50%, transparent 70%),
-              linear-gradient(-45deg, transparent 30%, rgba(0, 184, 230, 0.1) 50%, transparent 70%)
-            `,
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
-
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-12 md:py-16">
-        <div className="max-w-3xl mx-auto text-center">
+    <div className="relative overflow-hidden border-t border-hairline">
+      <div className="relative z-10 container mx-auto container-padding-apple max-w-7xl section-padding-apple-sm">
+        <div className="max-w-2xl mx-auto text-center">
           <div>
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-6">
-              <Mail className="h-8 w-8 text-primary" />
-            </div>
-            
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            <h3 className="text-xl md:text-2xl font-bold text-high-contrast mb-3">
               Stay Updated with Tech Trends
             </h3>
-            <p className="text-muted-foreground mb-8 text-base md:text-lg">
+            <p className="text-medium-contrast mb-8 text-sm md:text-base">
               Get the latest insights on AI, software development, and technology innovation delivered to your inbox.
             </p>
 
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto items-stretch sm:items-center">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-apple-sm max-w-lg mx-auto items-stretch sm:items-center">
               <div className="flex-1 min-w-0">
                 <FloatingInput
                   id="newsletter-email"
@@ -98,17 +76,16 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="bg-background/50 backdrop-blur-sm w-full focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:border-primary transition-all duration-200"
+                  className="bg-background/60 backdrop-blur-sm w-full border-hairline focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:border-primary transition-all duration-200"
                   success={isSuccess}
                 />
               </div>
               
               <div className="flex-shrink-0">
-                <Button
+                <button
                   type="submit"
                   disabled={isSubmitting || isSuccess}
-                  size="lg"
-                  className="min-w-[140px] sm:min-w-[160px] w-full sm:w-auto"
+                  className="btn-apple btn-apple-primary min-w-[140px] sm:min-w-[160px] w-full sm:w-auto"
                 >
                   {isSubmitting ? (
                     <>
@@ -126,11 +103,11 @@ export function NewsletterSection() {
                       <Mail className="h-4 w-4 ml-2" />
                     </>
                   )}
-                </Button>
+                </button>
               </div>
             </form>
 
-            <p className="text-xs text-muted-foreground mt-4">
+            <p className="text-xs text-medium-contrast mt-4">
               We respect your privacy. Unsubscribe at any time.
             </p>
           </div>

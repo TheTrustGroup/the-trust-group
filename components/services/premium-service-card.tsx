@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
-import { ServiceIllustration } from "./service-illustrations";
 import Link from "next/link";
 
 export interface PremiumServiceCardProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -50,26 +49,22 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
       <Card
         ref={ref}
         className={cn(
-          "relative h-full transition-all duration-200",
-          "border",
-          currentVariant.border,
-          "group cursor-pointer hover:border-primary/40 hover:shadow-md",
+          "relative h-full glass-card",
+          "group cursor-pointer",
+          "transition-all duration-300",
+          "hover:shadow-lg hover:-translate-y-1",
+          "focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2",
           className
         )}
       >
-        <CardHeader className="pb-4">
-          {/* Illustration */}
-          <div className="mb-6 flex items-center justify-center h-32">
-            <ServiceIllustration serviceId={serviceId} className="w-full h-full" />
-          </div>
-
-          <CardTitle className="text-xl md:text-2xl mb-3 break-words">
+        <CardHeader className="pb-4 card-padding-apple">
+          <CardTitle className="text-lg md:text-xl mb-3 break-words text-high-contrast">
             {title}
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="space-y-4">
-          <CardDescription className="text-base leading-relaxed break-words">
+        <CardContent className="space-y-4 card-padding-apple pt-0">
+          <CardDescription className="text-sm md:text-base break-words text-medium-contrast">
             {description}
           </CardDescription>
 
@@ -78,7 +73,7 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
             <div className="space-y-3">
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center justify-between w-full text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                className="flex items-center justify-between w-full text-sm font-medium text-primary hover:text-primary/80 transition-colors min-h-[44px]"
               >
                 <span>View Details</span>
                 <ChevronDown 
@@ -96,15 +91,15 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
                   isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
                 )}
               >
-                <div className="pt-2 border-t border-border/50">
-                  <p className="text-sm font-medium text-foreground mb-3">Key Capabilities:</p>
+                <div className="pt-2 border-t border-hairline">
+                  <p className="text-sm font-medium text-high-contrast mb-3">Key Capabilities:</p>
                   <ul className="space-y-2">
                     {features.map((feature, index) => (
                       <li
                         key={index}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
+                        className="flex items-start gap-2 text-sm text-medium-contrast"
                       >
-                        <Check className="h-4 w-4 text-primary/70 flex-shrink-0 mt-0.5" strokeWidth={2} />
+                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2} />
                         <span className="break-words">{feature}</span>
                       </li>
                     ))}
@@ -116,17 +111,14 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
 
           {/* Learn More Button */}
           <div className="pt-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className="w-full"
-              asChild
+            <Link 
+              href={learnMoreHref} 
+              aria-label={`Learn more about ${title}`}
+              className="btn-apple w-full inline-flex"
             >
-              <Link href={learnMoreHref} aria-label={`Learn more about ${title}`}>
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+              Learn More
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </div>
         </CardContent>
       </Card>

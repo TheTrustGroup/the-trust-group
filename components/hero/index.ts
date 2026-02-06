@@ -1,4 +1,5 @@
 export { HeroSection } from "./hero-section";
+export { HeroMetrics } from "./hero-metrics";
 export { AnimatedBackground } from "./animated-background";
 export { ScrollIndicator } from "./scroll-indicator";
 export { TechStack } from "./tech-stack";

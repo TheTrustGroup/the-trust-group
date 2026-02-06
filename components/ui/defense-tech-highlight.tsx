@@ -30,14 +30,7 @@ const capabilities = [
 export function DefenseTechHighlight() {
   return (
     <AnimatedSection variant="default" size="default" animation="fade-in" className="relative overflow-hidden bg-gradient-to-br from-secondary via-secondary/90 to-secondary text-foreground">
-      {/* Background Effects */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
-      </div>
-      
-      {/* Top Border Glow */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+      {/* Decorative effects removed */}
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -96,32 +89,7 @@ export function DefenseTechHighlight() {
             </div>
           </ScrollAnimation>
           
-          {/* Visual Element */}
-          <ScrollAnimation variant="fadeInUp" delay={0.2}>
-            <div className="relative h-64 md:h-96 lg:h-[500px]">
-              {/* Abstract Secure Network Visualization */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-full h-full">
-                  {/* Network Nodes - Simplified for performance */}
-                  {[...Array(4)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-3 h-3 rounded-full bg-primary/60"
-                      style={{
-                        left: `${25 + (i * 20)}%`,
-                        top: `${35 + (i % 2) * 25}%`,
-                      }}
-                    />
-                  ))}
-                  
-                  {/* Shield Icon Center - Static for performance */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Shield className="h-32 w-32 md:h-48 md:w-48 text-primary/20" strokeWidth={1} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimation>
+          {/* Visual element removed - decorative only */}
         </div>
       </div>
     </AnimatedSection>

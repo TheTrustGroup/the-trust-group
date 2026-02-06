@@ -3,7 +3,7 @@
     "id": "ai-solutions",
     "icon": "Brain",
     "title": "AI Solutions & Implementation",
-    "description": "Harness the power of artificial intelligence to transform your business operations. We design, develop, and deploy cutting-edge AI solutions that drive innovation and competitive advantage.",
+    "description": "We help organizations deploy AI systems that deliver measurable outcomes. Designed for reliability and built to support your business needs.",
     "features": [
       "Machine Learning model development",
       "AI integration & automation",
@@ -19,7 +19,7 @@
     "id": "custom-software",
     "icon": "Code",
     "title": "Custom Software Development",
-    "description": "Tailored software solutions designed to meet your unique business requirements. From enterprise applications to SaaS products, we build scalable, secure, and maintainable systems.",
+    "description": "Built to support your organization's specific needs. We help organizations develop enterprise applications and SaaS products that scale.",
     "features": [
       "Enterprise software solutions",
       "SaaS product development",
@@ -35,7 +35,7 @@
     "id": "mobile-apps",
     "icon": "Smartphone",
     "title": "Mobile App Development",
-    "description": "Cross-platform mobile applications that deliver exceptional user experiences. We build native and hybrid apps for iOS, Android, and web platforms with cutting-edge technologies.",
+    "description": "Designed for iOS, Android, and web. We help organizations build mobile applications that meet their users' needs.",
     "features": [
       "iOS native development (Swift)",
       "Android native development (Kotlin)",
@@ -51,9 +51,9 @@
     "id": "web-development",
     "icon": "Globe",
     "title": "Web Development",
-    "description": "Modern, responsive websites and web applications that combine stunning design with cutting-edge functionality. From sophisticated corporate sites to complex e-commerce platforms.",
+    "description": "Built to support organizations' web presence. We help organizations build websites and web applications that perform reliably.",
     "features": [
-      "Sophisticated website development",
+      "Website development",
       "E-commerce solutions",
       "Web application development",
       "Progressive Web Apps",
@@ -67,7 +67,7 @@
     "id": "cloud-solutions",
     "icon": "Cloud",
     "title": "Cloud Solutions",
-    "description": "Comprehensive cloud infrastructure and deployment services across AWS, Azure, and GCP. We help you migrate, optimize, and manage your cloud infrastructure for maximum efficiency.",
+    "description": "We help organizations migrate, deploy, and manage cloud infrastructure on AWS, Azure, and GCP. Designed for reliability and efficiency.",
     "features": [
       "AWS deployment & management",
       "Azure cloud services",
@@ -83,13 +83,13 @@
     "id": "consulting",
     "icon": "TrendingUp",
     "title": "Consulting & Strategy",
-    "description": "Strategic technology consulting to guide your digital transformation journey. Our experts provide actionable insights and roadmaps to help you leverage technology for business growth.",
+    "description": "We help organizations make informed technology decisions. Built to support strategic planning and technical architecture.",
     "features": [
-      "Digital transformation strategy",
+      "Technology strategy",
       "Technology advisory services",
       "Architecture consulting",
       "Technical due diligence",
-      "Innovation workshops",
+      "Strategy workshops",
       "Technology roadmap planning"
     ],
     "variant": "accent",
@@ -99,7 +99,7 @@
     "id": "defense-technology",
     "icon": "Shield",
     "title": "Defense Technology",
-    "description": "Mission-critical systems for defense and intelligence operations. Secure, compliant, and battle-tested software solutions that protect national interests and support defense operations worldwide.",
+    "description": "Built to support defense and intelligence operations. Designed for security and compliance. Trusted by organizations operating at the highest level.",
     "features": [
       "Cybersecurity & Threat Detection",
       "AI-Powered Defense Systems",

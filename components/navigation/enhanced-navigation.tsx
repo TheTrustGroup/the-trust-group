@@ -113,16 +113,14 @@ export function EnhancedNavigation() {
           zIndex: "var(--z-sticky)",
         }}
         className={cn(
-          "navbar-optimized fixed top-0 left-0 right-0 w-full transition-all duration-300",
-          "supports-[backdrop-filter]:bg-background/80 supports-[backdrop-filter]:backdrop-blur-md",
-          "h-20", // Fixed height to prevent layout reflow
-          isScrolled
-            ? "navbar-scrolled bg-background/95 backdrop-blur-lg border-b border-border/60 shadow-lg shadow-black/5"
-            : "bg-background/80 backdrop-blur-sm border-b border-transparent"
+          "navbar-optimized fixed top-0 left-0 right-0 w-full",
+          "nav-apple glass-subtle", // Apple design system class
+          "h-16 md:h-20", // Mobile-first height
+          isScrolled && "scrolled"
         )}
       >
-        <div className="container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 max-w-7xl h-full">
-          <div className="flex h-full items-center justify-between gap-3 sm:gap-4 relative">
+        <div className="container mx-auto container-padding-apple max-w-7xl h-full">
+          <div className="flex h-full items-center justify-between gap-apple-sm relative">
             {/* Logo Section - Left Aligned */}
             <motion.div
               whileHover={{ scale: 1.02 }}
@@ -170,15 +168,16 @@ export function EnhancedNavigation() {
                     className={cn(
                       "text-sm font-medium transition-colors duration-200 relative group",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded",
+                      "min-h-[44px] flex items-center", // Thumb-friendly
                       item.href.startsWith("#") && "smooth-scroll",
                       isActive
-                        ? "text-foreground"
-                        : "text-muted-foreground hover:text-foreground"
+                        ? "text-high-contrast"
+                        : "text-medium-contrast hover:text-high-contrast"
                     )}
                   >
                     {item.label}
                     {!isActive && (
-                      <span className="absolute bottom-0 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                      <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-primary transition-all duration-200 group-hover:w-full" />
                     )}
                   </Link>
                 );
@@ -186,15 +185,14 @@ export function EnhancedNavigation() {
             </nav>
 
             {/* CTA Button - Far Right */}
-            <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-6">
+            <div className="hidden md:flex items-center gap-apple-sm flex-shrink-0 ml-6">
               <ThemeToggle />
-              <Button
-                size="sm"
-                className="font-medium"
+              <button
+                className="btn-apple btn-apple-primary text-sm px-4 py-2 min-h-[44px]"
                 onClick={() => handleNavClick("/contact")}
               >
-                Request Consultation
-              </Button>
+                Start Conversation
+              </button>
             </div>
 
             {/* Mobile Menu Button & Theme Toggle - Right Aligned */}
@@ -252,8 +250,8 @@ export function EnhancedNavigation() {
         servicesItems={servicesItems}
       />
 
-      {/* Spacer to prevent content from going under fixed nav - Fixed height to prevent reflow */}
-      <div className="h-20 transition-opacity duration-300" />
+      {/* Spacer to prevent content from going under fixed nav - Mobile-first height */}
+      <div className="h-16 md:h-20 transition-opacity duration-300" />
     </>
   );
 }

@@ -1,95 +1,80 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
+import { useScrollGlass } from "@/lib/hooks/use-scroll-glass";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
-  return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background pt-20 pb-24 sm:pb-28 md:pb-32">
-      {/* Structural background pattern - minimal, engineered */}
-      <div className="absolute inset-0 opacity-[0.008] pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(90deg, currentColor 0.5px, transparent 0.5px),
-              linear-gradient(currentColor 0.5px, transparent 0.5px)
-            `,
-            backgroundSize: "96px 96px",
-          }}
-        />
-      </div>
+  const isScrolled = useScrollGlass(50);
 
-      {/* Content */}
-      <div className="relative z-10 w-full mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-        <div className="text-center">
-          {/* Headline - Clear, authoritative */}
+  return (
+    <section className="relative min-h-[80vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-background">
+      <div className="relative z-10 w-full mx-auto container-padding-apple max-w-3xl section-padding-apple">
+        <motion.div
+          className={cn(
+            "glass-container hero-glass rounded-2xl p-8 md:p-10 lg:p-12 text-center",
+            isScrolled && "scrolled"
+          )}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        >
+          {/* Primary headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-12 md:mb-16 leading-[1.1] text-foreground tracking-tight"
+            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            className="text-headline font-semibold text-high-contrast mb-4 md:mb-5"
           >
-            Mission-Critical Systems
-            <br />
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-muted-foreground leading-tight block mt-2">
-              Engineered for <span className="text-primary/60">Reliability</span>
-            </span>
+            We build mission-critical systems organizations can rely on.
           </motion.h1>
 
-          {/* Subheadline - Direct, outcome-focused */}
+          {/* Supporting subline */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-            className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-12 md:mb-16 max-w-3xl mx-auto leading-relaxed font-light"
+            transition={{ duration: 0.4, delay: 0.05, ease: [0.4, 0, 0.2, 1] }}
+            className="text-body-medium text-medium-contrast mb-8 md:mb-10 max-w-2xl mx-auto"
           >
-            We design, engineer, and deploy AI systems, enterprise software, and secure infrastructure for organizations that cannot afford failure.
+            Engineered for reliability, security, and long-term scale.
           </motion.p>
 
-          {/* Trust Indicators - Minimal, muted */}
-          <motion.div
+          {/* Subtle trust indicator */}
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap items-center justify-center gap-12 sm:gap-16 mb-12 md:mb-16"
+            transition={{ duration: 0.4, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-sm text-medium-contrast mb-8 md:mb-10"
           >
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2 tracking-tight">500+</div>
-              <div className="text-sm text-muted-foreground">Systems Deployed</div>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-border" />
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2 tracking-tight">10+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-border" />
-            <div className="text-center">
-              <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2 tracking-tight">100%</div>
-              <div className="text-sm text-muted-foreground">Security Compliance</div>
-            </div>
+            <span className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
+              <span>Trusted by enterprise organizations</span>
+            </span>
+            <span className="hidden sm:inline text-border">•</span>
+            <span className="flex items-center gap-2">
+              <Clock className="h-4 w-4 text-primary flex-shrink-0" />
+              <span>Response within 24 hours</span>
+            </span>
           </motion.div>
 
-          {/* CTA - Calm, confident, enterprise-appropriate */}
+          {/* Primary CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex justify-center items-center"
+            transition={{ duration: 0.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="flex justify-center"
           >
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="px-8 py-6 text-base font-medium border hover:bg-background/50 transition-colors"
+            <button 
+              className="btn-apple btn-apple-primary px-8 md:px-10 py-3.5 md:py-4 min-h-[52px] md:min-h-[56px]"
               onClick={() => smoothScrollTo("contact", 80)}
             >
-              Discuss Your Requirements
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              Start a conversation
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+            </button>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

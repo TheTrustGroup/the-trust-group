@@ -117,7 +117,7 @@ export function EnhancedTestimonialsSection() {
       variant="default"
       size="default"
       animation="fade-in"
-      className="bg-gradient-to-b from-background to-muted/20"
+      className="bg-background border-t border-hairline"
     >
       {/* Stats Bar */}
       <div className="mb-16">
@@ -127,15 +127,11 @@ export function EnhancedTestimonialsSection() {
       {/* Header */}
       <ScrollAnimation variant="fadeInUp">
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-primary uppercase tracking-wider mb-4 block">
-            Client Success Stories
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            What Our Clients Say
+          <h2 className="text-headline mb-4 md:mb-6">
+            Trusted By
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Don&apos;t just take our word for it. Hear from the businesses we&apos;ve helped transform 
-            through innovative technology solutions.
+          <p className="text-body text-medium-contrast max-w-3xl mx-auto mb-8">
+            Organizations we help build systems that meet their critical needs.
           </p>
 
           {/* Search and Filter Controls */}
@@ -441,66 +437,6 @@ export function EnhancedTestimonialsSection() {
         </AnimatePresence>
       </ScrollAnimation>
 
-      {/* CTA Section */}
-      <ScrollAnimation variant="fadeInUp" delay={0.4}>
-        <div className="mt-16 md:mt-20 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative max-w-3xl mx-auto p-8 md:p-12 lg:p-16 rounded-3xl bg-gradient-to-br from-primary/15 via-accent/10 to-primary/15 border-2 border-primary/30 overflow-hidden"
-          >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,102,255,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px] animate-[shimmer_3s_linear_infinite]" />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-6"
-              >
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                >
-                  <TrendingUp className="h-8 w-8 text-primary" strokeWidth={2} fill="none" />
-                </motion.div>
-              </motion.div>
-
-              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-                Join Our Happy Clients
-              </h3>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">
-                Ready to transform your business with innovative technology solutions? 
-                Let&apos;s discuss how we can help you achieve your goals and join hundreds of satisfied clients.
-              </p>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block"
-              >
-                <Button
-                  size="lg"
-                  className="text-lg px-8 py-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:bg-primary-hover"
-                  onClick={() => smoothScrollTo("contact", 80)}
-                >
-                  Get Started Today
-                </Button>
-              </motion.div>
-            </div>
-
-            {/* Decorative Elements */}
-            <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-primary/10 blur-2xl" />
-            <div className="absolute bottom-4 left-4 w-32 h-32 rounded-full bg-accent/10 blur-3xl" />
-          </motion.div>
-        </div>
-      </ScrollAnimation>
     </AnimatedSection>
   );
 }

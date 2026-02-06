@@ -242,16 +242,15 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                   <span className="text-sm font-medium text-foreground/80">Theme</span>
                   <ThemeToggle />
                 </div>
-                <Button
+                <button
                   ref={lastFocusableRef}
-                  className="w-full"
-                  size="lg"
+                  className="btn-apple btn-apple-primary w-full min-h-[52px]"
                   onClick={() => {
                     handleLinkClick("/contact");
                   }}
                 >
-                  Request Consultation
-                </Button>
+                  Start Conversation
+                </button>
               </div>
             </div>
           </motion.div>
