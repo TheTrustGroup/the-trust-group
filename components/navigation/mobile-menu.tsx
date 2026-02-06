@@ -21,7 +21,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
   const pathname = usePathname();
   const menuRef = React.useRef<HTMLDivElement>(null);
   const firstFocusableRef = React.useRef<HTMLButtonElement>(null);
-  const lastFocusableRef = React.useRef<HTMLButtonElement>(null);
+  const lastFocusableRef = React.useRef<HTMLAnchorElement | null>(null);
 
   const handleLinkClick = (href: string) => {
     if (href.startsWith("#")) {
@@ -242,15 +242,14 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                   <span className="text-sm font-medium text-foreground/80">Theme</span>
                   <ThemeToggle />
                 </div>
-                <button
+                <Link
                   ref={lastFocusableRef}
-                  className="btn-apple btn-apple-primary w-full min-h-[52px]"
-                  onClick={() => {
-                    handleLinkClick("/contact");
-                  }}
+                  href="/contact"
+                  className="btn-apple btn-apple-primary w-full min-h-[52px] flex items-center justify-center"
+                  onClick={() => onClose()}
                 >
                   Start Conversation
-                </button>
+                </Link>
               </div>
             </div>
           </motion.div>

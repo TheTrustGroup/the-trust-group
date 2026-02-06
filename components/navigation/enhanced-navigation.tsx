@@ -13,7 +13,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Logo } from "@/components/logo";
 import { NavDropdown } from "./nav-dropdown";
 import { MobileMenu } from "./mobile-menu";
-import { lockBodyScroll } from "@/lib/utils/scroll-lock";
+import { lockBodyScroll, forceUnlockScroll } from "@/lib/utils/scroll-lock";
 
 export function EnhancedNavigation() {
   const pathname = usePathname();
@@ -71,8 +71,9 @@ export function EnhancedNavigation() {
     };
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu and always release scroll lock on route change (prevents frozen page)
   React.useEffect(() => {
+    forceUnlockScroll();
     setIsOpen(false);
   }, [pathname]);
 
@@ -187,12 +188,9 @@ export function EnhancedNavigation() {
             {/* CTA Button - Far Right */}
             <div className="hidden md:flex items-center gap-apple-sm flex-shrink-0 ml-6">
               <ThemeToggle />
-              <button
-                className="btn-apple btn-apple-primary text-sm px-4 py-2 min-h-[44px]"
-                onClick={() => handleNavClick("/contact")}
-              >
-                Start Conversation
-              </button>
+              <Button className="btn-apple btn-apple-primary text-sm px-4 py-2 min-h-[44px]" asChild>
+                <Link href="/contact">Start Conversation</Link>
+              </Button>
             </div>
 
             {/* Mobile Menu Button & Theme Toggle - Right Aligned */}
@@ -242,10 +240,13 @@ export function EnhancedNavigation() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - force unlock scroll on close to prevent frozen page after navigation */}
       <MobileMenu
         isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => {
+          forceUnlockScroll();
+          setIsOpen(false);
+        }}
         items={navItems}
         servicesItems={servicesItems}
       />
