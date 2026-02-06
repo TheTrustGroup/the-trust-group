@@ -120,7 +120,7 @@ export function AppleCaseStudyCard({
         </div>
 
         {/* Challenge */}
-        <div className="mb-6 pb-6 border-b border-hairline">
+        <div className="mb-6 pb-6 border-b border-hairline rounded-b-lg">
           <p 
             className="text-xs font-semibold text-medium-contrast dark:text-medium-contrast uppercase tracking-wider mb-2"
             aria-label="Challenge"
@@ -133,7 +133,7 @@ export function AppleCaseStudyCard({
         </div>
 
         {/* Solution - Highlighted */}
-        <div className="mb-6 pb-6 border-b border-hairline">
+        <div className="mb-6 pb-6 border-b border-hairline rounded-b-lg">
           <p 
             className="text-xs font-semibold text-medium-contrast dark:text-medium-contrast uppercase tracking-wider mb-2"
             aria-label="Solution"
@@ -168,7 +168,7 @@ export function AppleCaseStudyCard({
               y: isHovered ? 0 : 8
             }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="mt-6 pt-6 border-t border-hairline"
+            className="mt-6 pt-6 border-t border-hairline rounded-t-lg"
           >
             <button
               onClick={(e) => {
