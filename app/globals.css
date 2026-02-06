@@ -667,9 +667,8 @@
   button[aria-label*="top"] svg {
     pointer-events: none;
     display: block;
-    stroke: white !important;
-    color: white !important;
     opacity: 1 !important;
+    visibility: visible !important;
   }
 
   /* Ensure buttons are above all other content */
@@ -679,15 +678,6 @@
     position: fixed !important;
     pointer-events: auto !important;
     cursor: pointer !important;
-  }
-  
-  /* Force icon visibility */
-  button[aria-label*="chat"] svg,
-  button[aria-label*="Back to top"] svg {
-    stroke: white !important;
-    fill: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
   }
   
   /* Optimize animations - only use transform and opacity */

@@ -146,7 +146,6 @@ export function Chatbot() {
             "rounded-2xl w-14 h-14 sm:w-16 sm:h-16",
             "bg-primary text-primary-foreground",
             "shadow-lg hover:shadow-2xl",
-            "backdrop-blur-sm",
             "border border-primary/20 dark:border-primary/30",
             "transition-all duration-300",
             "flex items-center justify-center",
@@ -165,10 +164,11 @@ export function Chatbot() {
           aria-label="Open chat"
         >
           <MessageCircle 
-            className="h-6 w-6 sm:h-7 sm:w-7 stroke-primary-foreground dark:stroke-primary-foreground" 
+            className="h-6 w-6 sm:h-7 sm:w-7 text-primary-foreground" 
             strokeWidth={2.5} 
             fill="none"
-            aria-hidden="true" 
+            aria-hidden="true"
+            style={{ stroke: "currentColor" }}
           />
         </motion.button>
       )}
