@@ -7,12 +7,14 @@ import { FAQSectionCondensed } from "@/components/ui/faq-section-condensed";
 
 import { SelectedWork } from "@/components/portfolio";
 
-// Lazy load heavy sections below the fold
+// Lazy load heavy sections below the fold with optimized loading states
 const TestimonialsSectionLazy = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.TestimonialsSection })), {
-  loading: () => <div className="min-h-[400px]" />
+  loading: () => <div className="min-h-[400px]" aria-label="Loading testimonials" />,
+  ssr: false, // Disable SSR for below-fold content
 });
 const ContactSectionLazy = dynamic(() => import("@/components/contact").then(mod => ({ default: mod.ContactSection })), {
-  loading: () => <div className="min-h-[400px]" />
+  loading: () => <div className="min-h-[400px]" aria-label="Loading contact form" />,
+  ssr: false, // Disable SSR for below-fold content
 });
 
 export default function Home() {

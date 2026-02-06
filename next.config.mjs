@@ -95,7 +95,7 @@ const nextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Headers for caching
+  // Headers for caching and performance
   async headers() {
     return [
       {
@@ -119,12 +119,34 @@ const nextConfig = {
         ],
       },
       {
+        // Fonts - cache for 1 year
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         // HTML pages - short cache, allow revalidation
         source: '/:path*',
         headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=0, must-revalidate',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
           },
         ],
       },

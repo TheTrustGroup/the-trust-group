@@ -116,12 +116,13 @@ export function Chatbot() {
     setMessages((prev) => [...prev, botMessage]);
   };
 
-  const quickActions = [
+  // Memoize quick actions to prevent recreation on re-renders
+  const quickActions = React.useMemo(() => [
     "What services do you offer?",
     "How can I contact you?",
     "Tell me about your company",
     "Do you have job openings?",
-  ];
+  ], []);
 
   const handleToggleChat = React.useCallback((e: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
     e.preventDefault();

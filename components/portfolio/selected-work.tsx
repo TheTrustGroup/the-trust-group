@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import { Section } from "@/components/ui";
 import { AppleCaseStudyCard, type AppleCaseStudy } from "./apple-case-study-card";
 import { getFeaturedProjects } from "@/lib/cms-client";
@@ -30,11 +31,11 @@ function convertProjectToCaseStudy(project: any): AppleCaseStudy {
 }
 
 export function SelectedWork() {
-  // Get featured projects (limit to 3-4 for clean display)
-  const featuredProjects = getFeaturedProjects().slice(0, 4);
-  
-  // Convert to case study format
-  const caseStudies: AppleCaseStudy[] = featuredProjects.map(convertProjectToCaseStudy);
+  // Memoize featured projects to prevent recalculation on re-renders
+  const caseStudies = React.useMemo(() => {
+    const featuredProjects = getFeaturedProjects().slice(0, 4);
+    return featuredProjects.map(convertProjectToCaseStudy);
+  }, []);
 
   // If no featured projects, show a message or return null
   if (caseStudies.length === 0) {
