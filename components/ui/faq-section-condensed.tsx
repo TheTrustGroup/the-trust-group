@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { ChevronDown } from "lucide-react";
 import { AnimatedSection } from "./animated-section";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { motion } from "framer-motion";
 
 const topFAQs = [
   {
@@ -30,71 +28,41 @@ const topFAQs = [
 ];
 
 export function FAQSectionCondensed() {
-  const [openIndex, setOpenIndex] = React.useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
     <AnimatedSection variant="default" size="default" animation="fade-in" className="border-t border-hairline">
-      <div className="max-w-3xl mx-auto container-padding-apple section-padding-apple">
-        <div className="text-center mb-12">
+      <div className="max-w-6xl mx-auto container-padding-apple section-padding-apple">
+        <div className="text-center mb-16 md:mb-20">
           <h2 className="text-headline mb-4 md:mb-6">
             Common Questions
           </h2>
-          <Link 
-            href="/faq" 
-            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
-          >
-            View all FAQs
-            <span>→</span>
-          </Link>
         </div>
 
-        <div className="space-y-4">
+        {/* Two-column layout - Apple-inspired, calm, readable */}
+        {/* Mobile: single column, Desktop: two columns with staggered layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-16 md:gap-y-12 lg:gap-x-20 lg:gap-y-16">
           {topFAQs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
-              className={cn(
-                "border border-border dark:border-border/60 rounded-lg transition-all duration-150",
-                openIndex === index && "border-primary/30 dark:border-primary/40"
-              )}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ 
+                duration: 0.4, 
+                delay: index * 0.05,
+                ease: [0.4, 0, 0.2, 1] 
+              }}
+              className="space-y-3 md:space-y-4"
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className={cn(
-                  "w-full text-left p-6 md:p-8 transition-colors duration-150",
-                  "hover:bg-muted/30 dark:hover:bg-muted/40",
-                  openIndex === index && "bg-muted/20 dark:bg-muted/30"
-                )}
-                aria-expanded={openIndex === index}
-              >
-                <div className="flex items-start justify-between gap-6">
-                  <h3 className="text-base md:text-lg font-semibold text-high-contrast dark:text-high-contrast leading-snug pr-4">
-                    {faq.question}
-                  </h3>
-                  <ChevronDown 
-                    className={cn(
-                      "h-5 w-5 text-muted-foreground dark:text-muted-foreground transition-transform duration-150 flex-shrink-0 mt-0.5",
-                      openIndex === index && "rotate-180"
-                    )} 
-                    strokeWidth={2}
-                  />
-                </div>
-                
-                <div
-                  className={cn(
-                    "overflow-hidden transition-all duration-150 ease-out",
-                    openIndex === index ? "max-h-[1000px] opacity-100 mt-6 pt-6 border-t border-border/50 dark:border-border/40" : "max-h-0 opacity-0"
-                  )}
-                >
-                  <p className="text-sm md:text-base text-medium-contrast dark:text-medium-contrast leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </div>
-              </button>
-            </div>
+              {/* Question - Headline-style, confident */}
+              <h3 className="text-lg md:text-xl font-semibold text-high-contrast dark:text-high-contrast leading-tight tracking-tight">
+                {faq.question}
+              </h3>
+              
+              {/* Answer - Concise, well-written, confident */}
+              <p className="text-base md:text-lg text-medium-contrast dark:text-medium-contrast leading-relaxed">
+                {faq.answer}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>

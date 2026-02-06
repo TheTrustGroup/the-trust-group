@@ -93,17 +93,6 @@ export function AppleCaseStudyCard({
         </div>
       )}
 
-      {/* Featured Badge */}
-      {caseStudy.featured && (
-        <div className="absolute top-4 left-4 z-10">
-          <div className="px-3 py-1.5 bg-primary text-primary-foreground rounded-full shadow-apple">
-            <span className="text-xs font-semibold uppercase tracking-wider">
-              Featured
-            </span>
-          </div>
-        </div>
-      )}
-
       {/* Content Container */}
       <div className="flex flex-col h-full p-6 md:p-8 relative z-0">
         {/* Client Section */}

@@ -125,8 +125,8 @@ export function EnhancedTestimonialCard({
         style={{ isolation: "isolate" }}
       >
         <blockquote className={cn(
-          "italic font-medium break-words",
-          variant === "carousel" && "font-semibold"
+          "font-medium break-words not-italic",
+          variant === "carousel" ? "font-semibold" : "font-medium"
         )}>
           &quot;{testimonial.quote}&quot;
         </blockquote>
@@ -198,7 +198,7 @@ export function EnhancedTestimonialCard({
 
           {/* Client Details */}
           <div className="flex-1 min-w-0">
-            <div className="font-semibold text-sm sm:text-base text-foreground mb-0.5 break-words">{testimonial.clientName}</div>
+            <div className="font-medium text-sm sm:text-base text-foreground mb-0.5 break-words">{testimonial.clientName}</div>
             <div className="text-xs sm:text-sm text-muted-foreground break-words">
               {testimonial.clientTitle}
             </div>

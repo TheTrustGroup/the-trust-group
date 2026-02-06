@@ -56,7 +56,7 @@ export function TestimonialCard({ testimonial, isActive = false }: TestimonialCa
       </div>
 
       {/* Quote */}
-      <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8 pl-8">
+      <blockquote className="text-lg md:text-xl text-foreground leading-relaxed mb-8 pl-8 font-medium not-italic">
         &quot;{testimonial.quote}&quot;
       </blockquote>
 
