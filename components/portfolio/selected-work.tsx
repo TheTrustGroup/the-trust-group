@@ -43,7 +43,7 @@ export function SelectedWork() {
   }
 
   return (
-    <Section variant="default" size="default" container={false} className="border-t border-hairline">
+    <Section id="portfolio" variant="default" size="default" container={false} className="border-t border-hairline">
       <div className="max-w-6xl mx-auto container-padding-apple section-padding-apple">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-headline dark:text-headline mb-4 md:mb-6">

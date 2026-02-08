@@ -22,7 +22,7 @@ export function ProcessSectionSimplified() {
           A systematic approach to delivering reliable systems.
         </p>
         <Link 
-          href="/process" 
+          href="/services" 
           className="text-sm text-primary hover:underline inline-flex items-center gap-1"
         >
           View detailed process

@@ -1,36 +1,47 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import "./apple-design-system.css";
-import "./design-system-2025.css";
-import "./footer-fixes.css";
-import "./parallax-optimization.css";
-import "./animation-optimization.css";
-import "./scroll-optimization.css";
-import "./grid-system.css";
-import { Navigation } from "@/components/navigation";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/footer";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
-import { BackToTop } from "@/components/ui/back-to-top";
-import { ScrollProgress } from "@/components/ui/scroll-progress";
+// ScrollProgress and BackToTop removed: no JS on scroll (see PERFORMANCE_AUDIT.md)
 import { ThemeProvider } from "@/components/theme-provider";
 import dynamic from "next/dynamic";
 
-// Lazy load non-critical components for better performance
-const Chatbot = dynamic(() => import("@/components/chatbot").then(mod => ({ default: mod.Chatbot })), { ssr: false });
+// Client-only components loaded without SSR to keep layout as Server Component
+const Chatbot = dynamic(
+  () => import("@/components/chatbot").then((mod) => ({ default: mod.Chatbot })),
+  { ssr: false, loading: () => null }
+);
 
-const inter = Inter({ 
+const sans = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
   preload: true,
 });
 
+const serif = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  preload: true,
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = generateMetadata({
   title: "Home",
-  description: "We help organizations build mission-critical systems. AI solutions, custom software, and secure infrastructure.",
-  keywords: ["AI solutions", "software development", "web development", "mobile apps", "custom software", "The Trust Group"],
+  description:
+    "We help organizations build mission-critical systems. AI solutions, custom software, and secure infrastructure.",
+  keywords: [
+    "AI solutions",
+    "software development",
+    "web development",
+    "mobile apps",
+    "custom software",
+    "The Trust Group",
+  ],
 });
 
 export default function RootLayout({
@@ -44,20 +55,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* ✅ Essential Meta Tags - charset and viewport handled by Next.js Metadata API */}
-        {/* Resource Hints - Performance Optimization */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
-        {/* ✅ Favicons - Also handled by Metadata API, but kept for compatibility */}
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="manifest" href="/manifest.json" />
-        
-        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -67,7 +69,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans`}>
+      <body
+        className={`${sans.variable} ${serif.variable} font-sans antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -77,23 +81,17 @@ export default function RootLayout({
           <ToastProvider>
             <a
               href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
-              style={{ zIndex: "var(--z-tooltip)" }}
+              className="skip-to-main"
             >
               Skip to main content
             </a>
-            <Navigation />
-            <main id="main-content">
-              {children}
-            </main>
-          <Footer />
-          <ScrollProgress />
-          <BackToTop />
-          <Chatbot />
-        </ToastProvider>
+            <Header />
+            <main id="main-content">{children}</main>
+            <Footer />
+            <Chatbot />
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
-
