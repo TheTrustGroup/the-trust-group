@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CheckCircle2, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { useScrollGlass } from "@/lib/hooks/use-scroll-glass";
@@ -41,22 +41,16 @@ export function HeroSection() {
             Engineered for reliability, security, and long-term scale.
           </motion.p>
 
-          {/* Subtle trust indicator */}
-          <motion.div 
+          {/* Text-only trust indicators — no icons; supporting detail, muted */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 text-sm text-medium-contrast mb-8 md:mb-10"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-body-sm text-muted-foreground mb-8 md:mb-10"
           >
-            <span className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-              <span>Trusted by enterprise organizations</span>
-            </span>
-            <span className="hidden sm:inline text-border">•</span>
-            <span className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-primary flex-shrink-0" />
-              <span>Response within 24 hours</span>
-            </span>
+            <span>Trusted by enterprise organizations</span>
+            <span className="hidden sm:inline text-border">·</span>
+            <span>Response within 24 hours</span>
           </motion.div>
 
           {/* Primary CTA */}
