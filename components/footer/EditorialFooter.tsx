@@ -17,7 +17,7 @@ export function EditorialFooter() {
           <div>
             <Link
               href="/"
-              className="font-serif text-headline-sm font-medium uppercase tracking-[0.2em] text-foreground no-underline outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-inset focus-visible:ring-offset-0 whitespace-nowrap"
+              className="font-serif text-headline-sm font-medium uppercase tracking-[0.2em] text-foreground no-underline outline-none focus-visible:ring-0 focus-visible:underline focus-visible:underline-offset-2 whitespace-nowrap"
               aria-label="The Trust Group — Home"
             >
               THE TRUST GROUP
