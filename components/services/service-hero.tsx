@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import {
   ArrowRight,
   CheckCircle2,
@@ -81,15 +81,21 @@ export function ServiceHero({
             </div>
           )}
 
-          {/* CTA */}
+          {/* CTA — use Link directly so navigation always fires (no button intercept) */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="group">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium h-12 px-8 bg-primary text-primary-foreground hover:bg-primary-hover shadow-sm hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-200 group"
+            >
               Get Started
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline">
+            </Link>
+            <Link
+              href="/#portfolio"
+              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium h-12 px-8 border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-200"
+            >
               View Case Studies
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

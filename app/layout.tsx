@@ -7,6 +7,7 @@ import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
 // ScrollProgress and BackToTop removed: no JS on scroll (see PERFORMANCE_AUDIT.md)
 import { ThemeProvider } from "@/components/theme-provider";
+import { ScrollToTop } from "@/components/scroll-to-top";
 import dynamic from "next/dynamic";
 
 // Client-only components loaded without SSR to keep layout as Server Component
@@ -79,6 +80,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <ToastProvider>
+            <ScrollToTop />
             <a
               href="#main-content"
               className="skip-to-main"

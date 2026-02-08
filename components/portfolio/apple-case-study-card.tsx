@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
@@ -13,6 +14,7 @@ export interface AppleCaseStudy {
   outcome: string;
   industry?: string; // Optional: for client badge
   featured?: boolean; // Optional: for highlighting
+  caseStudyUrl?: string; // Link to full case study page
 }
 
 interface AppleCaseStudyCardProps {
@@ -148,30 +150,35 @@ export function AppleCaseStudyCard({
           </p>
         </div>
 
-        {/* View Details Link - Appears on hover */}
-        {onViewDetails && (
+        {/* View Details: modal callback or link to case study page */}
+        {onViewDetails ? (
           <motion.div
             initial={{ opacity: 0, y: 8 }}
-            animate={{ 
-              opacity: isHovered ? 1 : 0,
-              y: isHovered ? 0 : 8
-            }}
+            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 8 }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
             className="mt-6 pt-6 border-t border-hairline rounded-t-lg"
           >
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onViewDetails(caseStudy);
-              }}
-              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-primary hover:text-primary/80 dark:hover:text-primary/80 transition-colors min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
+              onClick={(e) => { e.stopPropagation(); onViewDetails(caseStudy); }}
+              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-primary hover:text-primary/80 min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
               aria-label={`View details for ${caseStudy.client} case study`}
             >
               View details
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" />
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </button>
           </motion.div>
-        )}
+        ) : caseStudy.caseStudyUrl ? (
+          <div className="mt-6 pt-6 border-t border-hairline rounded-t-lg">
+            <Link
+              href={caseStudy.caseStudyUrl}
+              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-primary hover:text-primary/80 min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
+              aria-label={`Read full case study: ${caseStudy.client}`}
+            >
+              Read case study
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        ) : null}
       </div>
 
       {/* Removed decorative gradient glow - clean glass card only */}

@@ -27,6 +27,7 @@ function convertProjectToCaseStudy(project: any): AppleCaseStudy {
     outcome: resultsSummary,
     industry: project.industry,
     featured: project.featured,
+    caseStudyUrl: project.caseStudyUrl,
   };
 }
 
