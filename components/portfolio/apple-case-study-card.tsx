@@ -43,47 +43,10 @@ export function AppleCaseStudyCard({
     cardRef.current.style.setProperty("--mouse-y", `${y}%`);
   }, []);
 
-  return (
-    <motion.article
-      ref={cardRef}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ 
-        duration: 0.4, 
-        delay: index * 0.1,
-        ease: [0.4, 0, 0.2, 1] 
-      }}
-      whileHover={{ 
-        y: -4,
-        transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
-      }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
-      className={cn(
-        "card-apple glass-card",
-        "h-full flex flex-col",
-        "group relative overflow-hidden",
-        "focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2",
-        "transition-all duration-300 ease-out",
-        className
-      )}
-      role="article"
-      aria-label={`Case study: ${caseStudy.client}`}
-      tabIndex={onViewDetails ? 0 : undefined}
-      onClick={onViewDetails ? () => onViewDetails(caseStudy) : undefined}
-      onKeyDown={(e) => {
-        if (onViewDetails && (e.key === "Enter" || e.key === " ")) {
-          e.preventDefault();
-          onViewDetails(caseStudy);
-        }
-      }}
-      style={{
-        willChange: "transform",
-        transform: "translateZ(0)",
-      }}
-    >
+  const isCardLink = !onViewDetails && caseStudy.caseStudyUrl && caseStudy.caseStudyUrl.startsWith("/case-studies/");
+
+  const cardContent = (
+    <>
       {/* Client Badge - Optional, subtle glass */}
       {caseStudy.industry && (
         <div className="absolute top-4 right-4 z-10">
@@ -167,11 +130,17 @@ export function AppleCaseStudyCard({
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </button>
           </motion.div>
+        ) : isCardLink ? (
+          <div className="mt-6 pt-6 border-t border-hairline rounded-t-lg flex items-center gap-2 text-sm font-medium text-primary dark:text-primary min-h-[44px]">
+            <span>Read case study</span>
+            <ArrowUpRight className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+          </div>
         ) : caseStudy.caseStudyUrl ? (
           <div className="mt-6 pt-6 border-t border-hairline rounded-t-lg">
             <Link
               href={caseStudy.caseStudyUrl}
-              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-primary hover:text-primary/80 min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
+              prefetch
+              className="flex items-center gap-2 text-sm font-medium text-primary dark:text-primary hover:text-primary/80 min-h-[44px] w-full text-left focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded touch-manipulation"
               aria-label={`Read full case study: ${caseStudy.client}`}
             >
               Read case study
@@ -180,8 +149,64 @@ export function AppleCaseStudyCard({
           </div>
         ) : null}
       </div>
+    </>
+  );
 
-      {/* Removed decorative gradient glow - clean glass card only */}
+  const motionProps = {
+    initial: { opacity: 0, y: 20 } as const,
+    whileInView: { opacity: 1, y: 0 } as const,
+    viewport: { once: true, margin: "-50px" } as const,
+    transition: { duration: 0.4, delay: index * 0.1, ease: [0.4, 0, 0.2, 1] as const },
+    whileHover: { y: -4, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as const } },
+    onHoverStart: () => setIsHovered(true),
+    onHoverEnd: () => setIsHovered(false),
+    onMouseMove: handleMouseMove,
+    className: cn(
+      "card-apple glass-card",
+      "h-full flex flex-col",
+      "group relative overflow-hidden",
+      "focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2",
+      "transition-all duration-300 ease-out",
+      className
+    ),
+    style: { willChange: "transform", transform: "translateZ(0)" } as const,
+  };
+
+  if (isCardLink && caseStudy.caseStudyUrl) {
+    return (
+      <Link
+        href={caseStudy.caseStudyUrl}
+        prefetch
+        className="block h-full touch-manipulation"
+        aria-label={`Read full case study: ${caseStudy.client}`}
+      >
+        <motion.article
+          ref={cardRef}
+          {...motionProps}
+          role="article"
+        >
+          {cardContent}
+        </motion.article>
+      </Link>
+    );
+  }
+
+  return (
+    <motion.article
+      ref={cardRef}
+      {...motionProps}
+      role="article"
+      aria-label={`Case study: ${caseStudy.client}`}
+      tabIndex={onViewDetails ? 0 : undefined}
+      onClick={onViewDetails ? () => onViewDetails(caseStudy) : undefined}
+      onKeyDown={(e) => {
+        if (onViewDetails && (e.key === "Enter" || e.key === " ")) {
+          e.preventDefault();
+          onViewDetails(caseStudy);
+        }
+      }}
+    >
+      {cardContent}
     </motion.article>
   );
 }

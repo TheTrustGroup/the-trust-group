@@ -5,6 +5,12 @@ import { Section } from "@/components/ui";
 import { AppleCaseStudyCard, type AppleCaseStudy } from "./apple-case-study-card";
 import { getFeaturedProjects } from "@/lib/cms-client";
 
+// Only use case study URLs that point to our app's case study route (avoids 404s from bad or external URLs)
+const VALID_CASE_STUDY_PREFIX = "/case-studies/";
+function isValidCaseStudyUrl(url: unknown): url is string {
+  return typeof url === "string" && url.startsWith(VALID_CASE_STUDY_PREFIX) && url.length > VALID_CASE_STUDY_PREFIX.length && !url.includes(" ");
+}
+
 // Convert real projects to Apple case study format
 function convertProjectToCaseStudy(project: any): AppleCaseStudy {
   // Extract key results/impact from results array
@@ -27,7 +33,7 @@ function convertProjectToCaseStudy(project: any): AppleCaseStudy {
     outcome: resultsSummary,
     industry: project.industry,
     featured: project.featured,
-    caseStudyUrl: project.caseStudyUrl,
+    caseStudyUrl: isValidCaseStudyUrl(project.caseStudyUrl) ? project.caseStudyUrl : undefined,
   };
 }
 

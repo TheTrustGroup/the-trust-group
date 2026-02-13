@@ -36,6 +36,37 @@ export interface ProjectCategory {
   name: string;
 }
 
+/**
+ * Confidentiality tier for case studies. Required for every case study.
+ * Tier A (public): Full editorial page — Context, Challenge, Approach, Outcome.
+ * Tier B (limited): Minimal page — Context, Our Role, Result + disclaimer.
+ * Tier C (confidential): Single statement + CTA only.
+ */
+export type CaseStudyConfidentiality = "public" | "limited" | "confidential";
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  /** Required. Default to "limited" if unspecified (see CASE_STUDY_AUDIT.md). */
+  confidentiality: CaseStudyConfidentiality;
+  client?: string | null;
+  year?: string | null;
+  /** Tier A/B: context section. Tier C: unused. */
+  context: string | null;
+  /** Tier A only. */
+  challenge: string | null;
+  /** Tier A only. */
+  approach: string | null;
+  /** Tier A only. */
+  outcome: string | null;
+  /** Tier B only. */
+  ourRole?: string | null;
+  /** Tier B only. */
+  result?: string | null;
+  /** No thumbnails unless symbolic/abstract. Optional. */
+  image: string | null;
+}
+
 export interface Testimonial {
   id: string;
   quote: string;

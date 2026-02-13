@@ -96,6 +96,7 @@ const jsonFiles = [
   'data/config.json',
   'data/services.json',
   'data/projects.json',
+  'data/case-studies.json',
   'data/testimonials.json',
   'data/team.json',
   'data/technologies.json',
@@ -116,6 +117,32 @@ if (jsonErrors) {
   console.log('   ❌ JSON validation failed\n');
 } else {
   console.log('   ✅ All JSON files are valid\n');
+}
+
+// Check 7: Every project caseStudyUrl has a matching case study page (prevents 404)
+console.log('7. Checking case study links...');
+try {
+  const projectsPath = path.join(process.cwd(), 'data', 'projects.json');
+  const caseStudiesPath = path.join(process.cwd(), 'data', 'case-studies.json');
+  const projects = JSON.parse(fs.readFileSync(projectsPath, 'utf8'));
+  const caseStudies = JSON.parse(fs.readFileSync(caseStudiesPath, 'utf8'));
+  const slugs = new Set((caseStudies || []).map((c) => c.slug));
+  const urls = (projects?.projects || [])
+    .map((p) => p.caseStudyUrl)
+    .filter(Boolean);
+  const missing = urls.filter((url) => {
+    const slug = url.replace(/^\/case-studies\//, '').replace(/\/$/, '');
+    return !slugs.has(slug);
+  });
+  if (missing.length > 0) {
+    errors.push(`Case study links point to missing pages: ${missing.join(', ')}. Add these slugs to data/case-studies.json.`);
+    console.log('   ❌ Case study link check failed\n');
+  } else {
+    console.log('   ✅ All case study links resolve\n');
+  }
+} catch (e) {
+  errors.push(`Case study link check failed: ${e.message}`);
+  console.log('   ❌ Case study link check failed\n');
 }
 
 // Summary
