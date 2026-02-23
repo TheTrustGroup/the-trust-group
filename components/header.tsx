@@ -16,7 +16,13 @@ const navLinks = [
 /**
  * Header: trust variant on home (fixed, scrolled state, pill CTA); default editorial elsewhere.
  */
-const TRUST_PATHS = ["/", "/blog/why-enterprise-software-projects-take-twice-as-long"] as const;
+const TRUST_PATHS = [
+  "/",
+  "/about",
+  "/briefing",
+  "/blog/why-enterprise-software-projects-take-twice-as-long",
+  "/blog/defense-grade-engineering",
+] as const;
 
 export function Header() {
   const pathname = usePathname();
@@ -55,8 +61,8 @@ export function Header() {
             <li key={href}>
               <Link
                 href={href}
-                className="text-[12px] uppercase tracking-[0.1em] text-[var(--trust-muted)] no-underline transition-colors hover:text-[var(--trust-white)]"
-                style={{ color: "var(--trust-muted)" }}
+                className={`text-[12px] uppercase tracking-[0.1em] no-underline transition-colors hover:text-[var(--trust-white)] ${pathname === href ? "text-[var(--trust-white)]" : "text-[var(--trust-muted)]"}`}
+                style={{ color: pathname === href ? "var(--trust-white)" : "var(--trust-muted)" }}
               >
                 {label}
               </Link>
@@ -64,7 +70,7 @@ export function Header() {
           ))}
         </ul>
         <Link
-          href="/contact"
+          href="/briefing"
           className="trust-nav-pill hidden md:inline-flex font-trust-mono text-[11px] tracking-[0.08em] py-2.5 px-6 border border-[var(--trust-gold)] text-[var(--trust-gold)] no-underline transition-all duration-300 ease-out relative overflow-hidden"
           style={{
             borderColor: "var(--trust-gold)",
