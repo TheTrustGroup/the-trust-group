@@ -1,0 +1,109 @@
+/* Our Work page — design tokens and scoped styles. */
+
+.work-page {
+  --work-black: #0a0a0a;
+  --work-white: #f5f3ef;
+  --work-cream: #ede9e0;
+  --work-gold: #c8a96e;
+  --work-gold-light: #e8d5a8;
+  --work-slate: #1c1c1e;
+  --work-muted: #6b6860;
+  --work-border: rgba(200, 169, 110, 0.2);
+  --work-tag-bg: rgba(200, 169, 110, 0.08);
+}
+
+.work-page {
+  background: var(--work-black);
+  color: var(--work-white);
+}
+
+/* Noise texture overlay */
+.work-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.work-page .work-cursor,
+.work-page .work-cursor-ring {
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .work-page .work-cursor,
+  .work-page .work-cursor-ring {
+    display: none;
+  }
+}
+
+@keyframes work-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes work-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes work-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Hero entrance (opacity 0 → run keyframe) */
+.work-hero-eyebrow {
+  opacity: 0;
+  animation: work-fade-up 0.8s ease 0.2s forwards;
+}
+.work-hero-title {
+  opacity: 0;
+  animation: work-fade-up 0.8s ease 0.4s forwards;
+}
+.work-hero-meta {
+  opacity: 0;
+  animation: work-fade-up 0.8s ease 0.6s forwards;
+}
+.work-hero-filter {
+  opacity: 0;
+  animation: work-fade-up 0.8s ease 0.8s forwards;
+}
+
+/* Card scroll-in */
+.work-card.work-card-visible {
+  animation: work-card-in 0.7s ease forwards;
+}
+
+/* Card hover */
+.work-card:hover {
+  border-color: var(--work-gold);
+  transform: translateY(-4px);
+}
+
+/* Cursor ring expand on card hover */
+.work-page:has(.work-card:hover) .work-cursor-ring {
+  width: 60px;
+  height: 60px;
+  border-color: var(--work-gold);
+}

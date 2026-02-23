@@ -8,7 +8,7 @@ import { HeaderMobileNav } from "@/components/header-mobile-nav";
  */
 const navLinks = [
   { label: "Capabilities", href: "/services" },
-  { label: "Work", href: "/#portfolio" },
+  { label: "Work", href: "/work" },
   { label: "Company", href: "/about" },
 ] as const;
 

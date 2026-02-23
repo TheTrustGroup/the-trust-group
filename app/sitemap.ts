@@ -3,6 +3,7 @@ import { MetadataRoute } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
 
 import { getBlogPosts, getJobListings } from "@/lib/cms";
+import { getCaseStudySlugs } from "@/lib/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const { posts } = getBlogPosts();
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/about",
+    "/work",
     "/services",
     "/services/ai-solutions",
     "/services/custom-software",
@@ -46,6 +48,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: job.featured ? 0.7 : 0.5,
   }));
 
+  const caseStudySlugs = getCaseStudySlugs();
+  const caseStudyRoutes: MetadataRoute.Sitemap = caseStudySlugs.map((slug) => ({
+    url: `${siteUrl}/case-studies/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const staticRoutes: MetadataRoute.Sitemap = routes.map((route) => {
     const changeFrequency = route === "" ? ("daily" as const) : ("weekly" as const);
     return {
@@ -56,6 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticRoutes, ...blogRoutes, ...jobRoutes] as MetadataRoute.Sitemap;
+  return [...staticRoutes, ...blogRoutes, ...jobRoutes, ...caseStudyRoutes] as MetadataRoute.Sitemap;
 }
 
