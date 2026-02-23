@@ -16,9 +16,11 @@ const navLinks = [
 /**
  * Header: trust variant on home (fixed, scrolled state, pill CTA); default editorial elsewhere.
  */
+const TRUST_PATHS = ["/", "/blog/why-enterprise-software-projects-take-twice-as-long"] as const;
+
 export function Header() {
   const pathname = usePathname();
-  const isTrust = pathname === "/";
+  const isTrust = TRUST_PATHS.includes(pathname as (typeof TRUST_PATHS)[number]);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
