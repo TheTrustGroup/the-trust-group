@@ -49,14 +49,13 @@ export function Header() {
         aria-label="Main"
         className={`fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-8 lg:px-16 py-7 transition-all duration-500 ease-out ${
           scrolled
-            ? "bg-[rgba(8,8,7,0.9)] border-b border-[var(--trust-border)] backdrop-blur-[24px] py-5"
-            : ""
+            ? "bg-[var(--ttg-bg-white)] border-b border-[var(--ttg-border)] backdrop-blur-[24px] py-5 shadow-[0_2px_24px_rgba(26,31,46,0.07)]"
+            : "bg-transparent"
         }`}
-        style={{ borderColor: scrolled ? "rgba(200,169,110,0.15)" : "transparent" }}
       >
         <Link
           href="/"
-          className="font-trust-serif text-[17px] text-[var(--trust-white)] no-underline tracking-[0.01em] uppercase"
+          className="ttg-serif text-[17px] text-[var(--ttg-navy)] no-underline tracking-[0.01em] uppercase"
           aria-label="The Trust Group — Home"
         >
           THE TRUST GROUP
@@ -66,8 +65,9 @@ export function Header() {
             <li key={href}>
               <Link
                 href={href}
-                className={`text-[12px] uppercase tracking-[0.1em] no-underline transition-colors hover:text-[var(--trust-white)] ${pathname === href ? "text-[var(--trust-white)]" : "text-[var(--trust-muted)]"}`}
-                style={{ color: pathname === href ? "var(--trust-white)" : "var(--trust-muted)" }}
+                className={`text-[12px] uppercase tracking-[0.1em] no-underline transition-colors ${
+                  pathname === href ? "text-[var(--ttg-navy)]" : "text-[var(--ttg-muted)]"
+                } hover:text-[var(--ttg-navy)]`}
               >
                 {label}
               </Link>
@@ -77,13 +77,9 @@ export function Header() {
         {!HIDE_NAV_CTA_PATHS.includes(pathname as (typeof HIDE_NAV_CTA_PATHS)[number]) && (
           <Link
             href="/contact"
-            className="trust-nav-pill hidden md:inline-flex font-trust-mono text-[11px] tracking-[0.08em] py-2.5 px-6 border border-[var(--trust-gold)] text-[var(--trust-gold)] no-underline transition-all duration-300 ease-out relative overflow-hidden"
-            style={{
-              borderColor: "var(--trust-gold)",
-              color: "var(--trust-gold)",
-            }}
+            className="ttg-btn-pill hidden md:inline-flex"
           >
-            <span>Private Briefing →</span>
+            Private Briefing →
           </Link>
         )}
         <HeaderMobileNav />

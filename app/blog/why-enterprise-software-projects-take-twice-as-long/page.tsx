@@ -60,42 +60,42 @@ export default function EnterpriseSoftwareArticlePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <div className="trust-theme min-h-screen bg-[var(--trust-black)] text-[var(--trust-white)]">
+      <div className="ttg-section min-h-screen bg-[var(--ttg-bg)] text-[var(--ttg-navy)]">
         {/* Article hero */}
         <header
           className="mx-auto max-w-[900px] border-b px-6 pt-24 pb-20 lg:px-16 lg:pt-40 lg:pb-20"
-          style={{ borderColor: "var(--trust-border)" }}
+          style={{ borderColor: "var(--ttg-border)" }}
         >
           <div className="mb-9 flex flex-wrap items-center gap-5">
             <span
-              className="font-trust-mono text-[10px] tracking-[0.14em] uppercase border px-3 py-1"
+              className="ttg-mono text-[10px] tracking-[0.14em] uppercase border px-3 py-1"
               style={{
-                color: "var(--trust-gold)",
-                borderColor: "rgba(200,169,110,0.3)",
+                color: "var(--ttg-navy)",
+                borderColor: "rgba(26,31,46,0.2)",
               }}
             >
               Engineering Insights
             </span>
-            <span className="font-trust-mono text-[10px] tracking-[0.1em] text-[var(--trust-muted)]">
+            <span className="ttg-mono text-[10px] tracking-[0.1em] text-[var(--ttg-muted)]">
               February 2026
             </span>
-            <span className="font-trust-mono text-[10px] text-[var(--trust-muted)]">·</span>
-            <span className="font-trust-mono text-[10px] tracking-[0.1em] text-[var(--trust-muted)]">
+            <span className="ttg-mono text-[10px] text-[var(--ttg-muted)]">·</span>
+            <span className="ttg-mono text-[10px] tracking-[0.1em] text-[var(--ttg-muted)]">
               8 min read
             </span>
           </div>
-          <h1 className="font-trust-serif mb-7 text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.02em]">
+          <h1 className="ttg-serif mb-7 text-[clamp(2.25rem,5vw,3.75rem)] leading-[1.05] tracking-[-0.02em]">
             Why Enterprise Software Projects
             <br />
             Take Twice as Long as They Should —
             <br />
-            <em className="text-[var(--trust-gold)]">And How We Fixed It.</em>
+            <em className="text-[var(--ttg-navy)]">And How We Fixed It.</em>
           </h1>
           <p
             className="max-w-[680px] border-l-2 pl-6 text-[17px] leading-[1.7]"
             style={{
-              color: "var(--trust-muted)",
-              borderColor: "var(--trust-gold)",
+              color: "var(--ttg-muted)",
+              borderColor: "var(--ttg-navy)",
             }}
           >
             Software delays are almost never caused by the complexity of the problem. They&apos;re
@@ -107,7 +107,7 @@ export default function EnterpriseSoftwareArticlePage() {
         {/* Two-column layout: body + sidebar */}
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-0 px-6 py-20 lg:grid-cols-[1fr_280px] lg:gap-20 lg:px-16 lg:pb-32">
           <article className="max-w-[680px]">
-            <div className="space-y-7 text-base leading-[1.85]" style={{ color: "#cbc8c0" }}>
+            <div className="space-y-7 text-base leading-[1.85]" style={{ color: "var(--ttg-muted)" }}>
               <p>
                 The Standish Group has been tracking software project outcomes for over two decades.
                 Their findings have remained stubbornly consistent: the average enterprise software
@@ -127,7 +127,7 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <h2
                 id="where-time-goes"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 Where Time Actually Goes
               </h2>
@@ -159,32 +159,32 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <div className="my-10 overflow-x-auto">
                 <table
-                  className="w-full border-collapse font-trust-mono"
-                  style={{ borderColor: "var(--trust-border)" }}
+                  className="w-full border-collapse ttg-mono"
+                  style={{ borderColor: "var(--ttg-border)" }}
                 >
                   <thead>
                     <tr>
                       <th
-                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--trust-muted)]"
-                        style={{ borderColor: "var(--trust-border)" }}
+                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--ttg-muted)]"
+                        style={{ borderColor: "var(--ttg-border)" }}
                       >
                         Phase
                       </th>
                       <th
-                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--trust-muted)]"
-                        style={{ borderColor: "var(--trust-border)" }}
+                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--ttg-muted)]"
+                        style={{ borderColor: "var(--ttg-border)" }}
                       >
                         Conventional
                       </th>
                       <th
-                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--trust-gold)]"
-                        style={{ borderColor: "var(--trust-border)" }}
+                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--ttg-navy)]"
+                        style={{ borderColor: "var(--ttg-border)" }}
                       >
                         Trust Group
                       </th>
                     </tr>
                   </thead>
-                  <tbody style={{ color: "#cbc8c0" }}>
+                  <tbody style={{ color: "var(--ttg-muted)" }}>
                     <tr>
                       <td
                         className="border-b px-4 py-3.5 text-[12px]"
@@ -293,7 +293,7 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <h2
                 id="architecture-first"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 The Architecture-First Method
               </h2>
@@ -313,7 +313,7 @@ export default function EnterpriseSoftwareArticlePage() {
               </p>
               <p>Our discovery and design phases are intensive by design. They include:</p>
 
-              <h3 className="mt-9 mb-3 text-sm font-semibold uppercase tracking-[0.06em] text-[var(--trust-white)]">
+              <h3 className="mt-9 mb-3 text-sm font-semibold uppercase tracking-[0.06em] text-[var(--ttg-navy)]">
                 Technical Discovery (Weeks 1–2)
               </h3>
               <p>
@@ -328,7 +328,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 means.
               </p>
 
-              <h3 className="mt-9 mb-3 text-sm font-semibold uppercase tracking-[0.06em] text-[var(--trust-white)]">
+              <h3 className="mt-9 mb-3 text-sm font-semibold uppercase tracking-[0.06em] text-[var(--ttg-navy)]">
                 System Design Document (Weeks 2–4)
               </h3>
               <p>
@@ -342,7 +342,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 scope creep, timeline extensions, and the uncomfortable conversations that follow.
               </p>
 
-              <h3 className="mt-9 mb-3 text-sm font-semibold uppercase tracking-[0.06em] text-[var(--trust-white)]">
+              <h3 className="mt-9 mb-3 text-sm font-semibold uppercase tracking-[0.06em] text-[var(--ttg-navy)]">
                 Pre-Built QA Criteria
               </h3>
               <p>
@@ -359,12 +359,12 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <hr
                 className="my-12 border-t"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               />
 
               <h2
                 id="dedicated-teams"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 Dedicated Teams Change Everything
               </h2>
@@ -389,7 +389,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 We assign dedicated engineering teams to each engagement. One project. Full focus.
                 The implications are significant:
               </p>
-              <ul className="my-6 list-disc space-y-2 pl-6" style={{ color: "#cbc8c0" }}>
+              <ul className="my-6 list-disc space-y-2 pl-6" style={{ color: "var(--ttg-muted)" }}>
                 <li>
                   Decision cycles that would take days in a distributed team take hours
                 </li>
@@ -413,7 +413,7 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <h2
                 id="results"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 What This Means in Practice
               </h2>
@@ -444,7 +444,7 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <h2
                 id="questions"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 Questions to Ask Your Vendor
               </h2>
@@ -490,7 +490,7 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <h2
                 id="mission-critical"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 A Note on Mission-Critical Systems
               </h2>
@@ -515,7 +515,7 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <hr
                 className="my-12 border-t"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               />
 
               <p>
@@ -527,14 +527,14 @@ export default function EnterpriseSoftwareArticlePage() {
               <div
                 className="mt-14 border p-10"
                 style={{
-                  backgroundColor: "var(--trust-slate)",
-                  borderColor: "var(--trust-border)",
+                  backgroundColor: "var(--ttg-bg-white)",
+                  borderColor: "var(--ttg-border)",
                 }}
               >
-                <h3 className="font-trust-serif mb-3 text-[22px] font-normal text-[var(--trust-white)]">
+                <h3 className="ttg-serif mb-3 text-[22px] font-normal text-[var(--ttg-navy)]">
                   Ready to build something that ships on time?
                 </h3>
-                <p className="mb-6 text-sm text-[var(--trust-muted)]">
+                <p className="mb-6 text-sm text-[var(--ttg-muted)]">
                   If you&apos;re evaluating partners for a mission-critical build — whether
                   that&apos;s an enterprise platform, an AI system, or infrastructure your
                   organization depends on — we&apos;d welcome the opportunity to walk you through
@@ -542,7 +542,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-block bg-[var(--trust-gold)] px-7 py-3.5 font-trust-mono text-[12px] uppercase tracking-[0.08em] text-[var(--trust-black)] no-underline transition-colors hover:bg-[#dfc07e]"
+                  className="inline-block bg-[var(--ttg-navy)] px-7 py-3.5 ttg-mono text-[12px] uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-[var(--ttg-navy-dim)]"
                 >
                   Request a Private Briefing →
                 </Link>
@@ -554,8 +554,8 @@ export default function EnterpriseSoftwareArticlePage() {
           <aside className="sticky top-[100px] hidden lg:block">
             <div className="mb-12">
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 In This Article
               </div>
@@ -564,41 +564,41 @@ export default function EnterpriseSoftwareArticlePage() {
 
             <div className="mb-12">
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 By The Numbers
               </div>
               <div className="flex flex-col gap-1">
-                <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--trust-border)" }}>
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    6–8<em className="font-style-normal text-[var(--trust-gold)]">wk</em>
+                <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--ttg-border)" }}>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    6–8<em className="font-style-normal text-[var(--ttg-navy)]">wk</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Small project delivery
                   </span>
                 </div>
-                <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--trust-border)" }}>
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    &lt;8<em className="font-style-normal text-[var(--trust-gold)]">%</em>
+                <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--ttg-border)" }}>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    &lt;8<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Average rework rate
                   </span>
                 </div>
-                <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--trust-border)" }}>
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    45<em className="font-style-normal text-[var(--trust-gold)]">%</em>
+                <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--ttg-border)" }}>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    45<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Industry avg overrun (Standish)
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 py-4">
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    99.9<em className="font-style-normal text-[var(--trust-gold)]">%</em>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    99.9<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Avg uptime SLA achieved
                   </span>
                 </div>
@@ -607,22 +607,22 @@ export default function EnterpriseSoftwareArticlePage() {
 
             <div className="mb-12">
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 Published By
               </div>
               <div
                 className="border p-5"
                 style={{
-                  backgroundColor: "var(--trust-slate)",
-                  borderColor: "var(--trust-border)",
+                  backgroundColor: "var(--ttg-bg-white)",
+                  borderColor: "var(--ttg-border)",
                 }}
               >
-                <div className="mb-1 text-[13px] font-semibold text-[var(--trust-white)]">
+                <div className="mb-1 text-[13px] font-semibold text-[var(--ttg-navy)]">
                   The Trust Group Engineering Team
                 </div>
-                <div className="text-[12px] leading-[1.5] text-[var(--trust-muted)]">
+                <div className="text-[12px] leading-[1.5] text-[var(--ttg-muted)]">
                   Builders of mission-critical systems for enterprise, defense, and technology
                   organizations worldwide.
                 </div>
@@ -631,44 +631,44 @@ export default function EnterpriseSoftwareArticlePage() {
 
             <div>
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 Related Reading
               </div>
               <Link
                 href="/blog/defense-grade-engineering"
                 className="block border-b py-3 no-underline"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               >
-                <span className="mb-1.5 block font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-gold)]">
+                <span className="mb-1.5 block ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-navy)]">
                   Engineering
                 </span>
-                <span className="text-[13px] leading-snug text-[var(--trust-muted)] transition-colors hover:text-[var(--trust-white)]">
+                <span className="text-[13px] leading-snug text-[var(--ttg-muted)] transition-colors hover:text-[var(--ttg-navy)]">
                   What Defense-Grade Engineering Can Teach Commercial Software Teams
                 </span>
               </Link>
               <Link
                 href="/services"
                 className="block border-b py-3 no-underline"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               >
-                <span className="mb-1.5 block font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-gold)]">
+                <span className="mb-1.5 block ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-navy)]">
                   Capabilities
                 </span>
-                <span className="text-[13px] leading-snug text-[var(--trust-muted)] transition-colors hover:text-[var(--trust-white)]">
+                <span className="text-[13px] leading-snug text-[var(--ttg-muted)] transition-colors hover:text-[var(--ttg-navy)]">
                   View Full Service Capabilities
                 </span>
               </Link>
               <Link
                 href="/work"
                 className="block py-3 no-underline"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               >
-                <span className="mb-1.5 block font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-gold)]">
+                <span className="mb-1.5 block ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-navy)]">
                   Portfolio
                 </span>
-                <span className="text-[13px] leading-snug text-[var(--trust-muted)] transition-colors hover:text-[var(--trust-white)]">
+                <span className="text-[13px] leading-snug text-[var(--ttg-muted)] transition-colors hover:text-[var(--ttg-navy)]">
                   Selected Work &amp; Case Studies
                 </span>
               </Link>

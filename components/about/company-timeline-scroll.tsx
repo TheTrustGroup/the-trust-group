@@ -59,16 +59,25 @@ export function CompanyTimelineScroll() {
   }, []);
 
   return (
-    <section className="px-6 lg:px-16 pb-[120px] max-w-[1100px] mx-auto">
+    <section className="px-6 lg:px-16 pb-[120px] max-w-[1100px] mx-auto ttg-section">
       <div className="flex items-center gap-5 mb-14">
-        <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.18em]">
+        <span
+          className="text-[10px] uppercase tracking-[0.18em]"
+          style={{
+            fontFamily: "var(--ttg-font-sans)",
+            color: "var(--ttg-muted)",
+          }}
+        >
           Our Journey
         </span>
-        <div className="flex-1 h-px bg-[var(--trust-border)] max-w-[80px]" />
+        <div
+          className="flex-1 h-px max-w-[80px]"
+          style={{ background: "var(--ttg-border)" }}
+        />
       </div>
       <div ref={containerRef} className="relative pl-10">
         <div
-          className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--trust-gold)] to-transparent"
+          className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--ttg-navy)] to-transparent"
           aria-hidden
         />
         {timelineEvents.map((item, i) => (
@@ -77,16 +86,35 @@ export function CompanyTimelineScroll() {
             className="timeline-item relative pb-16 pl-12 last:pb-0 opacity-0 -translate-x-5 transition-all duration-[0.6s] ease-out"
           >
             <div
-              className="absolute -left-10 top-1.5 w-2 h-2 rounded-full bg-[var(--trust-gold)] border-2 border-[var(--trust-black)] shadow-[0_0_0_1px_var(--trust-gold)]"
+              className="absolute -left-10 top-1.5 w-2 h-2 rounded-full border-2 shadow-[0_0_0_1px_var(--ttg-navy)]"
+              style={{
+                background: "var(--ttg-navy)",
+                borderColor: "var(--ttg-bg)",
+              }}
               aria-hidden
             />
-            <p className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.14em] mb-2.5">
+            <p
+              className="text-[10px] uppercase tracking-[0.14em] mb-2.5"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-muted)",
+              }}
+            >
               {item.year}
             </p>
-            <h3 className="font-trust-serif text-[20px] text-[var(--trust-white)] mb-2.5 leading-snug">
+            <h3
+              className="ttg-serif text-[20px] mb-2.5 leading-snug"
+              style={{ color: "var(--ttg-navy)" }}
+            >
               {item.event}
             </h3>
-            <p className="text-[14px] text-[var(--trust-muted)] leading-[1.7] max-w-[560px]">
+            <p
+              className="text-[14px] leading-[1.7] max-w-[560px]"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-muted)",
+              }}
+            >
               {item.detail}
             </p>
           </div>

@@ -55,21 +55,21 @@ export default function DefenseGradeEngineeringArticlePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <div className="trust-theme min-h-screen bg-[var(--trust-black)] text-[var(--trust-white)]">
+      <div className="ttg-section min-h-screen bg-[var(--ttg-bg)] text-[var(--ttg-navy)]">
         {/* Article hero */}
         <header
           className="relative overflow-hidden border-b px-6 pt-24 pb-0 lg:px-16 lg:pt-40"
           style={{
-            background: "var(--trust-slate)",
-            borderColor: "var(--trust-border)",
+            background: "var(--ttg-bg-white)",
+            borderColor: "var(--ttg-border)",
           }}
         >
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage: `
-                linear-gradient(rgba(200,169,110,1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(200,169,110,1) 1px, transparent 1px)
+                linear-gradient(rgba(26,31,46,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26,31,46,0.06) 1px, transparent 1px)
               `,
               backgroundSize: "40px 40px",
             }}
@@ -77,16 +77,16 @@ export default function DefenseGradeEngineeringArticlePage() {
           <div className="relative z-10 mx-auto max-w-[860px] pb-20">
             <div className="mb-9 flex flex-wrap items-center gap-4">
               <span
-                className="border px-3 py-1 font-trust-mono text-[10px] uppercase tracking-[0.14em]"
+                className="border px-3 py-1 ttg-mono text-[10px] uppercase tracking-[0.14em]"
                 style={{
-                  color: "var(--trust-gold)",
-                  borderColor: "rgba(200,169,110,0.3)",
+                  color: "var(--ttg-navy)",
+                  borderColor: "rgba(26,31,46,0.2)",
                 }}
               >
                 Engineering Insights
               </span>
               <span
-                className="border px-3 py-1 font-trust-mono text-[10px] uppercase tracking-[0.14em]"
+                className="border px-3 py-1 ttg-mono text-[10px] uppercase tracking-[0.14em]"
                 style={{
                   color: "rgba(255,110,110,0.8)",
                   borderColor: "rgba(255,80,80,0.3)",
@@ -95,24 +95,24 @@ export default function DefenseGradeEngineeringArticlePage() {
               >
                 Defense Technology
               </span>
-              <span className="font-trust-mono text-[10px] tracking-[0.1em] text-[var(--trust-muted)]">
+              <span className="ttg-mono text-[10px] tracking-[0.1em] text-[var(--ttg-muted)]">
                 February 2026
               </span>
-              <span className="font-trust-mono text-[10px] text-[var(--trust-muted)]">·</span>
-              <span className="font-trust-mono text-[10px] tracking-[0.1em] text-[var(--trust-muted)]">
+              <span className="ttg-mono text-[10px] text-[var(--ttg-muted)]">·</span>
+              <span className="ttg-mono text-[10px] tracking-[0.1em] text-[var(--ttg-muted)]">
                 {READ_TIME} min read
               </span>
             </div>
-            <h1 className="font-trust-serif mb-7 text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.02em]">
+            <h1 className="ttg-serif mb-7 text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1.05] tracking-[-0.02em]">
               What Defense-Grade Engineering
               <br />
-              Can Teach <em className="text-[var(--trust-gold)]">Commercial Software Teams</em>
+              Can Teach <em className="text-[var(--ttg-navy)]">Commercial Software Teams</em>
             </h1>
             <p
               className="max-w-[680px] border-l-2 pl-6 text-[17px] leading-[1.7]"
               style={{
-                color: "var(--trust-muted)",
-                borderColor: "var(--trust-gold)",
+                color: "var(--ttg-muted)",
+                borderColor: "var(--ttg-navy)",
               }}
             >
               The practices standard in aerospace and defense engineering — redundancy, failure-mode
@@ -125,7 +125,7 @@ export default function DefenseGradeEngineeringArticlePage() {
         {/* Two-column layout: body + sidebar */}
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 items-start gap-0 px-6 py-20 lg:grid-cols-[1fr_280px] lg:gap-20 lg:px-16 lg:pb-32">
           <article className="max-w-[680px]">
-            <div className="space-y-7 text-base leading-[1.85]" style={{ color: "#cbc8c0" }}>
+            <div className="space-y-7 text-base leading-[1.85]" style={{ color: "var(--ttg-muted)" }}>
               <p>
                 In 1996, the Ariane 5 rocket exploded 37 seconds after launch. The cause was a
                 software error — a 64-bit floating point number had been incorrectly converted to a
@@ -149,9 +149,9 @@ export default function DefenseGradeEngineeringArticlePage() {
 
               <div
                 className="my-12 border-l-2 py-1 pl-7"
-                style={{ borderColor: "var(--trust-gold)" }}
+                style={{ borderColor: "var(--ttg-navy)" }}
               >
-                <p className="font-trust-serif m-0 text-[22px] italic leading-[1.45] text-[var(--trust-white)]">
+                <p className="ttg-serif m-0 text-[22px] italic leading-[1.45] text-[var(--ttg-navy)]">
                   &quot;The gap between defense-grade engineering and what the commercial software
                   industry considers standard is not a matter of resources. It&apos;s a matter of
                   philosophy.&quot;
@@ -160,7 +160,7 @@ export default function DefenseGradeEngineeringArticlePage() {
 
               <h2
                 id="the-gap"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 Understanding the Gap
               </h2>
@@ -184,16 +184,16 @@ export default function DefenseGradeEngineeringArticlePage() {
               {/* Comparison block */}
               <div
                 className="my-9 grid grid-cols-1 gap-px border md:grid-cols-2"
-                style={{ backgroundColor: "var(--trust-border)", borderColor: "var(--trust-border)" }}
+                style={{ backgroundColor: "var(--ttg-border)", borderColor: "var(--ttg-border)" }}
               >
                 <div
                   className="p-7"
                   style={{ backgroundColor: "rgba(255,80,80,0.03)" }}
                 >
                   <p
-                    className="mb-4 border-b pb-3 font-trust-mono text-[10px] uppercase tracking-[0.12em]"
+                    className="mb-4 border-b pb-3 ttg-mono text-[10px] uppercase tracking-[0.12em]"
                     style={{
-                      borderColor: "var(--trust-border)",
+                      borderColor: "var(--ttg-border)",
                       color: "rgba(255,110,110,0.8)",
                     }}
                   >
@@ -210,7 +210,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex gap-2.5 text-[13px] leading-[1.5] text-[var(--trust-muted)]"
+                        className="flex gap-2.5 text-[13px] leading-[1.5] text-[var(--ttg-muted)]"
                       >
                         <span style={{ color: "rgba(255,110,110,0.8)" }}>✕</span>
                         {item}
@@ -223,8 +223,8 @@ export default function DefenseGradeEngineeringArticlePage() {
                   style={{ backgroundColor: "rgba(76,175,110,0.03)" }}
                 >
                   <p
-                    className="mb-4 border-b pb-3 font-trust-mono text-[10px] uppercase tracking-[0.12em] text-[#4caf6e]"
-                    style={{ borderColor: "var(--trust-border)" }}
+                    className="mb-4 border-b pb-3 ttg-mono text-[10px] uppercase tracking-[0.12em] text-[#4caf6e]"
+                    style={{ borderColor: "var(--ttg-border)" }}
                   >
                     Defense-Grade Approach
                   </p>
@@ -239,7 +239,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                     ].map((item, i) => (
                       <li
                         key={i}
-                        className="flex gap-2.5 text-[13px] leading-[1.5] text-[var(--trust-muted)]"
+                        className="flex gap-2.5 text-[13px] leading-[1.5] text-[var(--ttg-muted)]"
                       >
                         <span className="text-[#4caf6e]">✓</span>
                         {item}
@@ -251,7 +251,7 @@ export default function DefenseGradeEngineeringArticlePage() {
 
               <h2
                 id="three-principles"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 Three Principles Worth Borrowing
               </h2>
@@ -264,21 +264,21 @@ export default function DefenseGradeEngineeringArticlePage() {
               <div
                 className="relative my-9 border p-9"
                 style={{
-                  backgroundColor: "var(--trust-slate)",
-                  borderColor: "var(--trust-border)",
+                  backgroundColor: "var(--ttg-bg-white)",
+                  borderColor: "var(--ttg-border)",
                 }}
               >
                 <div
                   className="absolute left-0 top-0 bottom-0 w-0.5"
-                  style={{ backgroundColor: "var(--trust-gold)" }}
+                  style={{ backgroundColor: "var(--ttg-navy)" }}
                 />
-                <span className="mb-2 block font-trust-mono text-[10px] uppercase tracking-[0.12em] text-[var(--trust-gold)]">
+                <span className="mb-2 block ttg-mono text-[10px] uppercase tracking-[0.12em] text-[var(--ttg-navy)]">
                   Principle 01
                 </span>
-                <h4 className="font-trust-serif mb-2.5 text-[18px] text-[var(--trust-white)]">
+                <h4 className="ttg-serif mb-2.5 text-[18px] text-[var(--ttg-navy)]">
                   Failure Mode Mapping Before Development
                 </h4>
-                <p className="m-0 text-[14px] leading-[1.75] text-[var(--trust-muted)]">
+                <p className="m-0 text-[14px] leading-[1.75] text-[var(--ttg-muted)]">
                   In defense engineering, a Failure Modes and Effects Analysis (FMEA) is performed
                   before a system is built. Every component is analyzed for the ways it could fail,
                   and the downstream effects of that failure are mapped. This isn&apos;t done out of
@@ -301,21 +301,21 @@ export default function DefenseGradeEngineeringArticlePage() {
               <div
                 className="relative my-9 border p-9"
                 style={{
-                  backgroundColor: "var(--trust-slate)",
-                  borderColor: "var(--trust-border)",
+                  backgroundColor: "var(--ttg-bg-white)",
+                  borderColor: "var(--ttg-border)",
                 }}
               >
                 <div
                   className="absolute left-0 top-0 bottom-0 w-0.5"
-                  style={{ backgroundColor: "var(--trust-gold)" }}
+                  style={{ backgroundColor: "var(--ttg-navy)" }}
                 />
-                <span className="mb-2 block font-trust-mono text-[10px] uppercase tracking-[0.12em] text-[var(--trust-gold)]">
+                <span className="mb-2 block ttg-mono text-[10px] uppercase tracking-[0.12em] text-[var(--ttg-navy)]">
                   Principle 02
                 </span>
-                <h4 className="font-trust-serif mb-2.5 text-[18px] text-[var(--trust-white)]">
+                <h4 className="ttg-serif mb-2.5 text-[18px] text-[var(--ttg-navy)]">
                   Security as Architecture, Not Audit
                 </h4>
-                <p className="m-0 text-[14px] leading-[1.75] text-[var(--trust-muted)]">
+                <p className="m-0 text-[14px] leading-[1.75] text-[var(--ttg-muted)]">
                   In defense systems, security is not a feature. It&apos;s a constraint that shapes
                   the entire architecture from the beginning. Access control models, encryption
                   requirements, network segmentation, and audit logging are defined during system
@@ -339,21 +339,21 @@ export default function DefenseGradeEngineeringArticlePage() {
               <div
                 className="relative my-9 border p-9"
                 style={{
-                  backgroundColor: "var(--trust-slate)",
-                  borderColor: "var(--trust-border)",
+                  backgroundColor: "var(--ttg-bg-white)",
+                  borderColor: "var(--ttg-border)",
                 }}
               >
                 <div
                   className="absolute left-0 top-0 bottom-0 w-0.5"
-                  style={{ backgroundColor: "var(--trust-gold)" }}
+                  style={{ backgroundColor: "var(--ttg-navy)" }}
                 />
-                <span className="mb-2 block font-trust-mono text-[10px] uppercase tracking-[0.12em] text-[var(--trust-gold)]">
+                <span className="mb-2 block ttg-mono text-[10px] uppercase tracking-[0.12em] text-[var(--ttg-navy)]">
                   Principle 03
                 </span>
-                <h4 className="font-trust-serif mb-2.5 text-[18px] text-[var(--trust-white)]">
+                <h4 className="ttg-serif mb-2.5 text-[18px] text-[var(--ttg-navy)]">
                   Documentation as Engineering Artifact
                 </h4>
-                <p className="m-0 text-[14px] leading-[1.75] text-[var(--trust-muted)]">
+                <p className="m-0 text-[14px] leading-[1.75] text-[var(--ttg-muted)]">
                   In defense engineering, documentation is not optional or deferred. System design
                   documents, architecture decision records, interface specifications, and test
                   protocols are produced as first-class engineering artifacts — with the same rigor
@@ -374,11 +374,11 @@ export default function DefenseGradeEngineeringArticlePage() {
                 time-to-resolution for every incident that follows.
               </p>
 
-              <hr className="my-12 border-t" style={{ borderColor: "var(--trust-border)" }} />
+              <hr className="my-12 border-t" style={{ borderColor: "var(--ttg-border)" }} />
 
               <h2
                 id="outcomes"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 What Happens When You Close the Gap
               </h2>
@@ -407,9 +407,9 @@ export default function DefenseGradeEngineeringArticlePage() {
 
               <div
                 className="my-12 border-l-2 py-1 pl-7"
-                style={{ borderColor: "var(--trust-gold)" }}
+                style={{ borderColor: "var(--ttg-navy)" }}
               >
-                <p className="font-trust-serif m-0 text-[22px] italic leading-[1.45] text-[var(--trust-white)]">
+                <p className="ttg-serif m-0 text-[22px] italic leading-[1.45] text-[var(--ttg-navy)]">
                   &quot;The majority of software&apos;s total cost of ownership is incurred
                   post-launch. Defense-grade design discipline is the single most effective lever
                   for reducing it.&quot;
@@ -418,7 +418,7 @@ export default function DefenseGradeEngineeringArticlePage() {
 
               <h2
                 id="questions"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 Questions to Assess Your Vendor&apos;s Engineering Standards
               </h2>
@@ -461,7 +461,7 @@ export default function DefenseGradeEngineeringArticlePage() {
 
               <h2
                 id="closing"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
+                className="ttg-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--ttg-navy)]"
               >
                 The Real Competitive Advantage
               </h2>
@@ -488,14 +488,14 @@ export default function DefenseGradeEngineeringArticlePage() {
               <div
                 className="mt-14 border p-10"
                 style={{
-                  backgroundColor: "var(--trust-slate)",
-                  borderColor: "var(--trust-border)",
+                  backgroundColor: "var(--ttg-bg-white)",
+                  borderColor: "var(--ttg-border)",
                 }}
               >
-                <h3 className="font-trust-serif mb-3 text-[22px] font-normal text-[var(--trust-white)]">
+                <h3 className="ttg-serif mb-3 text-[22px] font-normal text-[var(--ttg-navy)]">
                   Build it the right way, the first time.
                 </h3>
-                <p className="mb-6 text-sm leading-[1.6] text-[var(--trust-muted)]">
+                <p className="mb-6 text-sm leading-[1.6] text-[var(--ttg-muted)]">
                   If your system carries genuine operational stakes, we&apos;d welcome the
                   opportunity to walk you through how a defense-grade engineering approach would
                   change the way it&apos;s designed — and what that means for its long-term
@@ -503,7 +503,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                 </p>
                 <Link
                   href="/contact"
-                  className="inline-block bg-[var(--trust-gold)] px-7 py-3.5 font-trust-mono text-[12px] uppercase tracking-[0.08em] text-[var(--trust-black)] no-underline transition-colors hover:bg-[#dfc07e]"
+                  className="inline-block bg-[var(--ttg-navy)] px-7 py-3.5 ttg-mono text-[12px] uppercase tracking-[0.08em] text-white no-underline transition-colors hover:bg-[var(--ttg-navy-dim)]"
                 >
                   Request a Private Briefing →
                 </Link>
@@ -515,8 +515,8 @@ export default function DefenseGradeEngineeringArticlePage() {
           <aside className="sticky top-[100px] hidden lg:block">
             <div className="mb-12">
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 In This Article
               </div>
@@ -525,39 +525,39 @@ export default function DefenseGradeEngineeringArticlePage() {
 
             <div className="mb-12">
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 The Stakes
               </div>
               <div className="flex flex-col gap-1">
                 <div
                   className="flex flex-col gap-1 border-b py-4"
-                  style={{ borderColor: "var(--trust-border)" }}
+                  style={{ borderColor: "var(--ttg-border)" }}
                 >
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    $370<em className="font-style-normal text-[var(--trust-gold)]">M</em>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    $370<em className="font-style-normal text-[var(--ttg-navy)]">M</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Ariane 5 loss — one software error
                   </span>
                 </div>
                 <div
                   className="flex flex-col gap-1 border-b py-4"
-                  style={{ borderColor: "var(--trust-border)" }}
+                  style={{ borderColor: "var(--ttg-border)" }}
                 >
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    &lt;8<em className="font-style-normal text-[var(--trust-gold)]">%</em>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    &lt;8<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Our rework rate vs 25–35% industry avg
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 py-4">
-                  <span className="font-trust-serif text-[28px] text-[var(--trust-white)]">
-                    99.9<em className="font-style-normal text-[var(--trust-gold)]">%</em>
+                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
+                    99.9<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
                   </span>
-                  <span className="font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-muted)]">
+                  <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
                     Uptime SLA — maintained continuously
                   </span>
                 </div>
@@ -566,44 +566,44 @@ export default function DefenseGradeEngineeringArticlePage() {
 
             <div>
               <div
-                className="mb-5 border-b pb-3 font-trust-mono text-[9px] uppercase tracking-[0.16em] text-[var(--trust-muted)]"
-                style={{ borderColor: "var(--trust-border)" }}
+                className="mb-5 border-b pb-3 ttg-mono text-[9px] uppercase tracking-[0.16em] text-[var(--ttg-muted)]"
+                style={{ borderColor: "var(--ttg-border)" }}
               >
                 Related Reading
               </div>
               <Link
                 href="/blog/why-enterprise-software-projects-take-twice-as-long"
                 className="block border-b py-3 no-underline"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               >
-                <span className="mb-1.5 block font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-gold)]">
+                <span className="mb-1.5 block ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-navy)]">
                   Engineering
                 </span>
-                <span className="text-[13px] leading-snug text-[var(--trust-muted)] transition-colors hover:text-[var(--trust-white)]">
+                <span className="text-[13px] leading-snug text-[var(--ttg-muted)] transition-colors hover:text-[var(--ttg-navy)]">
                   Why Enterprise Projects Take Twice as Long as They Should
                 </span>
               </Link>
               <Link
                 href="/services/defense-technology"
                 className="block border-b py-3 no-underline"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               >
-                <span className="mb-1.5 block font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-gold)]">
+                <span className="mb-1.5 block ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-navy)]">
                   Capability
                 </span>
-                <span className="text-[13px] leading-snug text-[var(--trust-muted)] transition-colors hover:text-[var(--trust-white)]">
+                <span className="text-[13px] leading-snug text-[var(--ttg-muted)] transition-colors hover:text-[var(--ttg-navy)]">
                   Defense Technology &amp; Intelligence Systems
                 </span>
               </Link>
               <Link
                 href="/work"
                 className="block py-3 no-underline"
-                style={{ borderColor: "var(--trust-border)" }}
+                style={{ borderColor: "var(--ttg-border)" }}
               >
-                <span className="mb-1.5 block font-trust-mono text-[9px] uppercase tracking-[0.1em] text-[var(--trust-gold)]">
+                <span className="mb-1.5 block ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-navy)]">
                   Portfolio
                 </span>
-                <span className="text-[13px] leading-snug text-[var(--trust-muted)] transition-colors hover:text-[var(--trust-white)]">
+                <span className="text-[13px] leading-snug text-[var(--ttg-muted)] transition-colors hover:text-[var(--ttg-navy)]">
                   Selected Work &amp; Case Studies
                 </span>
               </Link>

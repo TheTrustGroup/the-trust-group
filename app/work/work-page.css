@@ -1,31 +1,30 @@
-/* Our Work page — design tokens and scoped styles. */
+/* Our Work page — TTG design system (warm cream, navy, Cormorant + Jost). */
 
 .work-page {
-  --work-black: #0a0a0a;
-  --work-white: #f5f3ef;
-  --work-cream: #ede9e0;
-  --work-gold: #c8a96e;
-  --work-gold-light: #e8d5a8;
-  --work-slate: #1c1c1e;
-  --work-muted: #6b6860;
-  --work-border: rgba(200, 169, 110, 0.2);
-  --work-tag-bg: rgba(200, 169, 110, 0.08);
+  --work-bg: var(--ttg-bg);
+  --work-bg-card: var(--ttg-bg-white);
+  --work-text: var(--ttg-navy);
+  --work-muted: var(--ttg-muted);
+  --work-border: var(--ttg-border);
+  --work-accent: var(--ttg-navy);
+  --work-tag-bg: rgba(26, 31, 46, 0.06);
 }
 
 .work-page {
-  background: var(--work-black);
-  color: var(--work-white);
+  background: var(--work-bg);
+  color: var(--work-text);
+  font-family: var(--ttg-font-sans);
 }
 
-/* Noise texture overlay */
+/* Noise texture overlay — subtle on light */
 .work-page::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .work-page .work-cursor,
@@ -72,7 +71,6 @@
   }
 }
 
-/* Hero entrance (opacity 0 → run keyframe) */
 .work-hero-eyebrow {
   opacity: 0;
   animation: work-fade-up 0.8s ease 0.2s forwards;
@@ -90,20 +88,17 @@
   animation: work-fade-up 0.8s ease 0.8s forwards;
 }
 
-/* Card scroll-in */
 .work-card.work-card-visible {
   animation: work-card-in 0.7s ease forwards;
 }
 
-/* Card hover */
 .work-card:hover {
-  border-color: var(--work-gold);
+  border-color: var(--work-accent);
   transform: translateY(-4px);
 }
 
-/* Cursor ring expand on card hover */
 .work-page:has(.work-card:hover) .work-cursor-ring {
   width: 60px;
   height: 60px;
-  border-color: var(--work-gold);
+  border-color: var(--work-accent);
 }

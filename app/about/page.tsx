@@ -98,15 +98,15 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
       <div
-        className="trust-theme min-h-screen"
-        style={{ background: "var(--trust-black)" }}
+        className="ttg-section min-h-screen"
+        style={{ background: "var(--ttg-bg)" }}
       >
-        {/* Radial gradient overlay */}
+        {/* Radial gradient overlay — navy tint */}
         <div
           className="fixed inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 50% 60% at 80% 40%, rgba(200,169,110,0.04) 0%, transparent 60%)",
+              "radial-gradient(ellipse 50% 60% at 80% 40%, rgba(26,31,46,0.03) 0%, transparent 60%)",
           }}
           aria-hidden
         />
@@ -114,53 +114,122 @@ export default function AboutPage() {
         {/* Manifesto */}
         <section className="relative pt-[180px] pb-[120px] px-6 lg:px-16 max-w-[1100px] mx-auto">
           <p
-            className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.18em] mb-10 flex items-center gap-4 opacity-0"
-            style={{ animation: "trust-fadeUp 1s ease 0.3s forwards" }}
+            className="text-[10px] uppercase tracking-[0.18em] mb-10 flex items-center gap-4 opacity-0"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--ttg-muted)",
+              animation: "trust-fadeUp 1s ease 0.3s forwards",
+            }}
           >
             <span
               className="w-8 h-px block"
-              style={{ background: "var(--trust-gold)" }}
+              style={{ background: "var(--ttg-navy)" }}
             />
             The Trust Group — Company
           </p>
           <h1
-            className="font-trust-serif text-[clamp(44px,6vw,80px)] leading-none tracking-[-0.025em] mb-16 max-w-[820px] opacity-0"
-            style={{ animation: "trust-fadeUp 1s ease 0.5s forwards" }}
+            className="ttg-serif text-[clamp(44px,6vw,80px)] leading-none tracking-[-0.025em] mb-16 max-w-[820px] opacity-0"
+            style={{
+              color: "var(--ttg-navy)",
+              animation: "trust-fadeUp 1s ease 0.5s forwards",
+            }}
           >
             We were founded on a single
             <br />
-            conviction: <em className="italic text-[var(--trust-gold)]">reliability is<br />not negotiable.</em>
+            conviction:{" "}
+            <em className="italic text-[var(--ttg-navy)]">
+              reliability is
+              <br />
+              not negotiable.
+            </em>
           </h1>
           <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-[var(--trust-border)] pt-16 opacity-0"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-[var(--ttg-border)] pt-16 opacity-0"
             style={{ animation: "trust-fadeUp 1s ease 0.7s forwards" }}
           >
             <div className="space-y-5">
-              <p className="text-[16px] leading-[1.85] text-[var(--trust-text)]">
-                The Trust Group was built to fill a gap that most technology firms refuse to acknowledge.{" "}
-                <strong className="text-[var(--trust-white)] font-semibold">
-                  Enterprise organizations, defense clients, and high-growth companies don&apos;t just need software — they need systems they can depend on when the stakes are highest.
+              <p
+                className="text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                The Trust Group was built to fill a gap that most technology
+                firms refuse to acknowledge.{" "}
+                <strong
+                  className="font-semibold"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
+                  Enterprise organizations, defense clients, and high-growth
+                  companies don&apos;t just need software — they need systems they
+                  can depend on when the stakes are highest.
                 </strong>
               </p>
-              <p className="text-[16px] leading-[1.85] text-[var(--trust-text)]">
-                The market is full of firms that can write code. Very few have the discipline, the methodology, and the depth of experience to build systems that operate reliably at scale — especially in environments where failure carries real consequences.
+              <p
+                className="text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                The market is full of firms that can write code. Very few have
+                the discipline, the methodology, and the depth of experience to
+                build systems that operate reliably at scale — especially in
+                environments where failure carries real consequences.
               </p>
-              <p className="text-[16px] leading-[1.85] text-[var(--trust-text)]">
+              <p
+                className="text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
                 We built The Trust Group to be one of those firms.
               </p>
             </div>
             <div className="space-y-5">
-              <p className="text-[16px] leading-[1.85] text-[var(--trust-text)]">
-                Our approach is borrowed, deliberately, from the engineering disciplines that have always demanded the highest standards: aerospace, defense, critical infrastructure. In those fields, an architecture-first methodology, exhaustive pre-development planning, and dedicated specialist teams aren&apos;t best practices — they&apos;re baseline.
+              <p
+                className="text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                Our approach is borrowed, deliberately, from the engineering
+                disciplines that have always demanded the highest standards:
+                aerospace, defense, critical infrastructure. In those fields, an
+                architecture-first methodology, exhaustive pre-development
+                planning, and dedicated specialist teams aren&apos;t best
+                practices — they&apos;re baseline.
               </p>
-              <p className="text-[16px] leading-[1.85] text-[var(--trust-text)]">
-                <strong className="text-[var(--trust-white)] font-semibold">
-                  We&apos;ve brought that baseline to enterprise and commercial software.
+              <p
+                className="text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                <strong
+                  className="font-semibold"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
+                  We&apos;ve brought that baseline to enterprise and commercial
+                  software.
                 </strong>{" "}
-                The result is a firm that consistently delivers faster than the industry standard, with a rework rate under 8%, and systems that hold their SLAs long after launch day.
+                The result is a firm that consistently delivers faster than the
+                industry standard, with a rework rate under 8%, and systems that
+                hold their SLAs long after launch day.
               </p>
-              <p className="text-[16px] leading-[1.85] text-[var(--trust-text)]">
-                That&apos;s what we mean by reliability. And it&apos;s why organizations trust us with their most critical systems.
+              <p
+                className="text-[16px] leading-[1.85]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                That&apos;s what we mean by reliability. And it&apos;s why
+                organizations trust us with their most critical systems.
               </p>
             </div>
           </div>
@@ -169,31 +238,55 @@ export default function AboutPage() {
         {/* Principles */}
         <section className="px-6 lg:px-16 pb-[120px] max-w-[1100px] mx-auto">
           <div className="flex items-center gap-5 mb-14">
-            <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.18em]">
+            <span
+              className="text-[10px] uppercase tracking-[0.18em]"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-muted)",
+              }}
+            >
               How We Think
             </span>
-            <div className="flex-1 h-px bg-[var(--trust-border)] max-w-[80px]" />
+            <div
+              className="flex-1 h-px max-w-[80px]"
+              style={{ background: "var(--ttg-border)" }}
+            />
           </div>
           <div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border border-[var(--trust-border)]"
-            style={{ background: "var(--trust-border)" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border border-[var(--ttg-border)]"
+            style={{ background: "var(--ttg-border)" }}
           >
             {principles.map((p) => (
               <div
                 key={p.number}
-                className="bg-[var(--trust-black)] p-8 md:p-9 lg:p-12 transition-colors duration-300 hover:bg-[var(--trust-slate)] relative overflow-hidden group"
+                className="bg-[var(--ttg-bg-white)] p-8 md:p-9 lg:p-12 transition-colors duration-300 hover:bg-[var(--ttg-bg)] relative overflow-hidden group"
               >
                 <span
-                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--trust-gold)] to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-[0.4s] ease-out"
+                  className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--ttg-navy)] to-transparent origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-[0.4s] ease-out"
                   aria-hidden
                 />
-                <span className="font-trust-mono text-[11px] text-[var(--trust-muted)] uppercase tracking-[0.12em] block mb-5">
+                <span
+                  className="text-[11px] uppercase tracking-[0.12em] block mb-5"
+                  style={{
+                    fontFamily: "var(--ttg-font-sans)",
+                    color: "var(--ttg-muted)",
+                  }}
+                >
                   {p.number}
                 </span>
-                <h3 className="font-trust-serif text-[22px] text-[var(--trust-white)] mb-4 leading-tight">
+                <h3
+                  className="ttg-serif text-[22px] mb-4 leading-tight"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
                   {p.title}
                 </h3>
-                <p className="text-[14px] text-[var(--trust-muted)] leading-[1.75]">
+                <p
+                  className="text-[14px] leading-[1.75]"
+                  style={{
+                    fontFamily: "var(--ttg-font-sans)",
+                    color: "var(--ttg-muted)",
+                  }}
+                >
                   {p.body}
                 </p>
               </div>
@@ -206,33 +299,61 @@ export default function AboutPage() {
 
         {/* Capabilities overview */}
         <section
-          className="border-t border-b border-[var(--trust-border)] py-[100px] px-6 lg:px-16"
-          style={{ background: "var(--trust-slate)" }}
+          className="border-t border-b border-[var(--ttg-border)] py-[100px] px-6 lg:px-16"
+          style={{ background: "var(--ttg-bg-white)" }}
         >
           <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-20 items-start">
             <div>
-              <h2 className="font-trust-serif text-[40px] leading-[1.1] tracking-[-0.02em] mb-4 text-[var(--trust-white)]">
+              <h2
+                className="ttg-serif text-[40px] leading-[1.1] tracking-[-0.02em] mb-4"
+                style={{ color: "var(--ttg-navy)" }}
+              >
                 What we
                 <br />
-                <em className="italic text-[var(--trust-gold)]">build.</em>
+                <em className="italic text-[var(--ttg-navy)]">build.</em>
               </h2>
-              <p className="text-[14px] text-[var(--trust-muted)] leading-[1.7]">
-                Seven core capability areas. Each staffed with specialists. All built on the same architectural discipline.
+              <p
+                className="text-[14px] leading-[1.7]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                Seven core capability areas. Each staffed with specialists. All
+                built on the same architectural discipline.
               </p>
             </div>
             <div className="flex flex-col gap-0">
               {capabilities.map((cap) => (
                 <div
                   key={cap.name}
-                  className="flex items-center justify-between gap-4 py-5 border-b border-[var(--trust-border-faint)] transition-colors duration-200 group"
+                  className="flex items-center justify-between gap-4 py-5 border-b border-[var(--ttg-border)] transition-colors duration-200 group"
                 >
-                  <span className="text-[15px] text-[var(--trust-text)] group-hover:text-[var(--trust-white)] transition-colors flex-1 min-w-0">
+                  <span
+                    className="text-[15px] flex-1 min-w-0 transition-colors group-hover:text-[var(--ttg-navy)]"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     {cap.name}
                   </span>
-                  <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] uppercase tracking-[0.08em] shrink-0">
+                  <span
+                    className="text-[10px] uppercase tracking-[0.08em] shrink-0"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     {cap.tag}
                   </span>
-                  <span className="text-[14px] text-[var(--trust-muted)] group-hover:text-[var(--trust-gold)] group-hover:translate-x-1 transition-all duration-200 shrink-0">
+                  <span
+                    className="text-[14px] shrink-0 transition-all duration-200 group-hover:text-[var(--ttg-navy)] group-hover:translate-x-1"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     →
                   </span>
                 </div>
@@ -244,24 +365,34 @@ export default function AboutPage() {
         {/* Leadership */}
         <section className="py-[120px] px-6 lg:px-16 max-w-[1100px] mx-auto">
           <div className="flex items-center gap-5 mb-14">
-            <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.18em]">
+            <span
+              className="text-[10px] uppercase tracking-[0.18em]"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-muted)",
+              }}
+            >
               Leadership
             </span>
-            <div className="flex-1 h-px bg-[var(--trust-border)] max-w-[80px]" />
+            <div
+              className="flex-1 h-px max-w-[80px]"
+              style={{ background: "var(--ttg-border)" }}
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {leadership.map((leader) => (
               <article
                 key={leader.initials}
-                className="border border-[var(--trust-border)] overflow-hidden transition-colors duration-300 hover:border-[rgba(200,169,110,0.4)]"
+                className="border border-[var(--ttg-border)] overflow-hidden transition-colors duration-300 hover:border-[var(--ttg-navy-dim)]"
+                style={{ background: "var(--ttg-bg-white)" }}
               >
                 <div
                   className="h-[180px] flex items-center justify-center relative overflow-hidden"
-                  style={{ background: "var(--trust-slate2)" }}
+                  style={{ background: "var(--ttg-bg)" }}
                 >
                   <span
-                    className="font-trust-serif text-[52px] leading-none"
-                    style={{ color: "rgba(200,169,110,0.25)" }}
+                    className="ttg-serif text-[52px] leading-none"
+                    style={{ color: "rgba(26,31,46,0.12)" }}
                   >
                     {leader.initials}
                   </span>
@@ -269,19 +400,34 @@ export default function AboutPage() {
                     className="absolute inset-0"
                     style={{
                       background:
-                        "linear-gradient(to bottom, transparent 60%, var(--trust-slate2) 100%)",
+                        "linear-gradient(to bottom, transparent 60%, var(--ttg-bg) 100%)",
                     }}
                     aria-hidden
                   />
                 </div>
                 <div className="p-7 pt-8 pb-8">
-                  <h3 className="font-trust-serif text-[20px] text-[var(--trust-white)] mb-1">
+                  <h3
+                    className="ttg-serif text-[20px] mb-1"
+                    style={{ color: "var(--ttg-navy)" }}
+                  >
                     {leader.name}
                   </h3>
-                  <p className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.12em] mb-4">
+                  <p
+                    className="text-[10px] uppercase tracking-[0.12em] mb-4"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     {leader.role}
                   </p>
-                  <p className="text-[13px] text-[var(--trust-muted)] leading-[1.7]">
+                  <p
+                    className="text-[13px] leading-[1.7]"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     {leader.bio}
                   </p>
                 </div>
@@ -293,77 +439,152 @@ export default function AboutPage() {
         {/* Location */}
         <section className="px-6 lg:px-16 pb-[120px] max-w-[1100px] mx-auto">
           <div className="flex items-center gap-5 mb-14">
-            <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.18em]">
+            <span
+              className="text-[10px] uppercase tracking-[0.18em]"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-muted)",
+              }}
+            >
               Where We Are
             </span>
-            <div className="flex-1 h-px bg-[var(--trust-border)] max-w-[80px]" />
+            <div
+              className="flex-1 h-px max-w-[80px]"
+              style={{ background: "var(--ttg-border)" }}
+            />
           </div>
           <div
-            className="border border-[var(--trust-border)] p-12 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
-            style={{ background: "var(--trust-slate)" }}
+            className="border border-[var(--ttg-border)] p-12 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+            style={{ background: "var(--ttg-bg-white)" }}
           >
             <div>
-              <h3 className="font-trust-serif text-[28px] text-[var(--trust-white)] mb-5 leading-snug">
+              <h3
+                className="ttg-serif text-[28px] mb-5 leading-snug"
+                style={{ color: "var(--ttg-navy)" }}
+              >
                 Headquartered in Accra.
                 <br />
                 Operating Globally.
               </h3>
-              <p className="text-[14px] text-[var(--trust-muted)] leading-[1.75] mb-7">
-                Our primary operations are based in the Airport Residential Area of Accra, Ghana — one of West Africa&apos;s leading technology hubs. We operate internationally and regularly engage with clients across Africa, Europe, and North America.
+              <p
+                className="text-[14px] leading-[1.75] mb-7"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
+                Our primary operations are based in the Airport Residential Area
+                of Accra, Ghana — one of West Africa&apos;s leading technology
+                hubs. We operate internationally and regularly engage with
+                clients across Africa, Europe, and North America.
               </p>
               <div className="flex flex-col gap-3">
                 <div className="flex gap-3.5 items-start">
-                  <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] uppercase tracking-[0.1em] min-w-[80px] pt-0.5">
+                  <span
+                    className="text-[10px] uppercase tracking-[0.1em] min-w-[80px] pt-0.5"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     Address
                   </span>
-                  <span className="text-[14px] text-[var(--trust-text)] leading-[1.5]">
-                    1, Nortei Abio Street, Airport Residential Area, Accra, Greater Accra
+                  <span
+                    className="text-[14px] leading-[1.5]"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
+                    1, Nortei Abio Street, Airport Residential Area, Accra,
+                    Greater Accra
                   </span>
                 </div>
                 <div className="flex gap-3.5 items-start">
-                  <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] uppercase tracking-[0.1em] min-w-[80px] pt-0.5">
+                  <span
+                    className="text-[10px] uppercase tracking-[0.1em] min-w-[80px] pt-0.5"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     Phone
                   </span>
-                  <span className="text-[14px] text-[var(--trust-text)] leading-[1.5]">
+                  <span
+                    className="text-[14px] leading-[1.5]"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     +233 (057) 589-5601
                   </span>
                 </div>
                 <div className="flex gap-3.5 items-start">
-                  <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] uppercase tracking-[0.1em] min-w-[80px] pt-0.5">
+                  <span
+                    className="text-[10px] uppercase tracking-[0.1em] min-w-[80px] pt-0.5"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     Email
                   </span>
                   <a
                     href="mailto:info@thetrustgroupsolutions.com"
-                    className="text-[14px] text-[var(--trust-text)] leading-[1.5] hover:text-[var(--trust-gold)] transition-colors"
+                    className="text-[14px] leading-[1.5] transition-colors hover:text-[var(--ttg-navy)]"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                      textDecoration: "none",
+                    }}
                   >
                     info@thetrustgroupsolutions.com
                   </a>
                 </div>
                 <div className="flex gap-3.5 items-start">
-                  <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] uppercase tracking-[0.1em] min-w-[80px] pt-0.5">
+                  <span
+                    className="text-[10px] uppercase tracking-[0.1em] min-w-[80px] pt-0.5"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     Hours
                   </span>
-                  <span className="text-[14px] text-[var(--trust-text)] leading-[1.5]">
+                  <span
+                    className="text-[14px] leading-[1.5]"
+                    style={{
+                      fontFamily: "var(--ttg-font-sans)",
+                      color: "var(--ttg-muted)",
+                    }}
+                  >
                     Mon–Fri 9am–6pm GMT · Sat 10am–2pm
                   </span>
                 </div>
               </div>
             </div>
             <div
-              className="h-[280px] border border-[var(--trust-border-faint)] flex items-center justify-center"
-              style={{ background: "var(--trust-slate2)" }}
+              className="h-[280px] border border-[var(--ttg-border)] flex items-center justify-center"
+              style={{ background: "var(--ttg-bg)" }}
             >
               <div className="text-center">
                 <div
                   className="w-4 h-4 rounded-full rotate-[-45deg] mx-auto mb-4"
                   style={{
-                    background: "var(--trust-gold)",
+                    background: "var(--ttg-navy)",
                     borderRadius: "50% 50% 50% 0",
-                    boxShadow: "0 0 20px rgba(200,169,110,0.4)",
+                    boxShadow: "0 0 20px rgba(26,31,46,0.15)",
                   }}
                   aria-hidden
                 />
-                <p className="font-trust-mono text-[10px] text-[var(--trust-muted)] uppercase tracking-[0.12em]">
+                <p
+                  className="text-[10px] uppercase tracking-[0.12em]"
+                  style={{
+                    fontFamily: "var(--ttg-font-sans)",
+                    color: "var(--ttg-muted)",
+                  }}
+                >
                   Airport Residential Area
                   <br />
                   Accra, Ghana
@@ -374,19 +595,27 @@ export default function AboutPage() {
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-[120px] px-6 lg:px-16 text-center border-t border-[var(--trust-border)]">
-          <h2 className="font-trust-serif text-[clamp(36px,5vw,64px)] leading-[1.05] mb-5 tracking-[-0.02em] text-[var(--trust-white)]">
+        <section className="py-[120px] px-6 lg:px-16 text-center border-t border-[var(--ttg-border)]">
+          <h2
+            className="ttg-serif text-[clamp(36px,5vw,64px)] leading-[1.05] mb-5 tracking-[-0.02em]"
+            style={{ color: "var(--ttg-navy)" }}
+          >
             Work with a team that
             <br />
-            <em className="italic text-[var(--trust-gold)]">takes it seriously.</em>
+            <em className="italic text-[var(--ttg-navy)]">takes it seriously.</em>
           </h2>
-          <p className="text-[15px] text-[var(--trust-muted)] max-w-[480px] mx-auto mb-10 leading-[1.7]">
-            We work with a select number of organizations at a time. If your project demands precision, security, and delivery you can count on — let&apos;s talk.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-[var(--trust-gold)] text-[var(--trust-black)] font-trust-mono text-xs tracking-[0.08em] uppercase py-4 px-10 no-underline transition-colors duration-200 hover:bg-[#dfc07e]"
+          <p
+            className="text-[15px] max-w-[480px] mx-auto mb-10 leading-[1.7]"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--ttg-muted)",
+            }}
           >
+            We work with a select number of organizations at a time. If your
+            project demands precision, security, and delivery you can count on —
+            let&apos;s talk.
+          </p>
+          <Link href="/contact" className="ttg-btn-pill">
             Request a Private Briefing →
           </Link>
         </section>

@@ -45,9 +45,9 @@ export function ArticleToc({ items, headingIds }: ArticleTocProps) {
         <li key={href}>
           <Link
             href={href}
-            className={`font-trust-mono text-[11px] block py-1.5 pl-3 border-l-2 border-transparent tracking-[0.04em] no-underline transition-colors duration-200 leading-snug
-              text-[var(--trust-muted)] hover:text-[var(--trust-white)] hover:border-[var(--trust-gold)]
-              ${activeId === href.slice(1) ? "text-[var(--trust-gold)] border-[var(--trust-gold)]" : ""}`}
+            className={`text-[11px] block py-1.5 pl-3 border-l-2 border-transparent tracking-[0.04em] no-underline transition-colors duration-200 leading-snug
+              text-[var(--ttg-muted)] hover:text-[var(--ttg-navy)] hover:border-[var(--ttg-navy)]
+              ${activeId === href.slice(1) ? "text-[var(--ttg-navy)] border-[var(--ttg-navy)]" : ""}`}
           >
             {label}
           </Link>

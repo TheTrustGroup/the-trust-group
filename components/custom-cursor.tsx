@@ -45,16 +45,17 @@ export function CustomCursor() {
         style={{
           left: pos.x,
           top: pos.y,
-          backgroundColor: "var(--trust-gold, #c8a96e)",
+          backgroundColor: "var(--ttg-navy, #1a1f2e)",
         }}
         aria-hidden
       />
       <div
         id="cursor-trail"
-        className="fixed w-8 h-8 border border-[rgba(200,169,110,0.3)] rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-[120ms] ease-out hidden md:block"
+        className="fixed w-8 h-8 border rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-[120ms] ease-out hidden md:block"
         style={{
           left: trail.x,
           top: trail.y,
+          borderColor: "rgba(26, 31, 46, 0.2)",
         }}
         aria-hidden
       />

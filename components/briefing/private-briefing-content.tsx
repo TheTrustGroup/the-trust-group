@@ -122,19 +122,19 @@ export function PrivateBriefingContent() {
 
   return (
     <div
-      className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)] lg:min-h-screen bg-[var(--trust-black)]"
+      className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-80px)] lg:min-h-screen ttg-section bg-[var(--ttg-bg)]"
       style={{ marginTop: 0 }}
     >
       {/* Left panel */}
       <aside
-        className="relative flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--trust-border)] bg-[var(--trust-slate)] lg:sticky lg:top-0 lg:h-screen overflow-hidden pt-24 lg:pt-40 pb-16 lg:pb-20 px-6 lg:px-16"
+        className="relative flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--ttg-border)] bg-[var(--ttg-bg-white)] lg:sticky lg:top-0 lg:h-screen overflow-hidden pt-24 lg:pt-40 pb-16 lg:pb-20 px-6 lg:px-16"
         style={{ minHeight: "50vh" }}
       >
         <div
           className="absolute inset-0 pointer-events-none opacity-40"
           style={{
-            backgroundImage: `linear-gradient(rgba(200,169,110,0.08) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(200,169,110,0.08) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(26,31,46,0.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(26,31,46,0.04) 1px, transparent 1px)`,
             backgroundSize: "48px 48px",
             maskImage: "radial-gradient(ellipse 80% 80% at 50% 100%, black 20%, transparent 70%)",
             WebkitMaskImage:
@@ -143,18 +143,18 @@ export function PrivateBriefingContent() {
         />
         <div className="relative z-10">
           <motion.p
-            className="font-trust-mono text-[10px] text-[var(--trust-gold)] tracking-[0.18em] uppercase flex items-center gap-3 mb-8"
+            className="ttg-mono text-[10px] text-[var(--ttg-navy)] tracking-[0.18em] uppercase flex items-center gap-3 mb-8"
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.3 }}
           >
             <span
               className="w-6 h-px shrink-0"
-              style={{ background: "var(--trust-gold)" }}
+              style={{ background: "var(--ttg-navy)" }}
             />
             Private Briefing
           </motion.p>
           <motion.h1
-            className="font-trust-serif text-4xl lg:text-[clamp(2.25rem,3.5vw,3.25rem)] leading-[1.05] tracking-[-0.02em] mb-7"
+            className="ttg-serif text-4xl lg:text-[clamp(2.25rem,3.5vw,3.25rem)] leading-[1.05] tracking-[-0.02em] mb-7"
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.5 }}
           >
@@ -162,10 +162,10 @@ export function PrivateBriefingContent() {
             <br />
             what you&apos;re
             <br />
-            <em className="italic text-[var(--trust-gold)]">building.</em>
+            <em className="italic text-[var(--ttg-navy)]">building.</em>
           </motion.h1>
           <motion.p
-            className="text-[15px] text-[var(--trust-muted)] leading-[1.75] max-w-[380px] mb-14"
+            className="text-[15px] text-[var(--ttg-muted)] leading-[1.75] max-w-[380px] mb-14"
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.7 }}
           >
@@ -178,7 +178,7 @@ export function PrivateBriefingContent() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.9 }}
           >
-            <p className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.14em] uppercase">
+            <p className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.14em] uppercase">
               What to expect
             </p>
             {[
@@ -204,11 +204,11 @@ export function PrivateBriefingContent() {
               },
             ].map((item) => (
               <div key={item.num} className="flex gap-4">
-                <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] tracking-[0.1em] pt-0.5 shrink-0">
+                <span className="ttg-mono text-[10px] text-[var(--ttg-navy)] tracking-[0.1em] pt-0.5 shrink-0">
                   {item.num}
                 </span>
-                <span className="text-[13px] text-[var(--trust-muted)] leading-[1.6]">
-                  <strong className="text-[#b8b4ac] font-semibold">
+                <span className="text-[13px] text-[var(--ttg-muted)] leading-[1.6]">
+                  <strong className="text-[var(--ttg-navy)] font-semibold">
                     {item.strong}
                   </strong>{" "}
                   {item.rest}
@@ -218,7 +218,7 @@ export function PrivateBriefingContent() {
           </motion.div>
         </div>
         <footer
-          className="relative z-10 flex flex-col gap-3 pt-10 border-t border-[var(--trust-border)]"
+          className="relative z-10 flex flex-col gap-3 pt-10 border-t border-[var(--ttg-border)]"
           aria-label="Contact information"
         >
           <motion.div
@@ -226,12 +226,12 @@ export function PrivateBriefingContent() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 1.1 }}
           >
-            <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
+            <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Email
             </span>
             <a
               href="mailto:info@thetrustgroupsolutions.com"
-              className="text-[13px] text-[#b8b4ac] no-underline hover:text-[var(--trust-gold)]"
+              className="text-[13px] text-[var(--ttg-muted)] no-underline hover:text-[var(--ttg-navy)]"
             >
               info@thetrustgroupsolutions.com
             </a>
@@ -241,12 +241,12 @@ export function PrivateBriefingContent() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 1.1 }}
           >
-            <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
+            <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Phone
             </span>
             <a
               href="tel:+233575895601"
-              className="text-[13px] text-[#b8b4ac] no-underline hover:text-[var(--trust-gold)]"
+              className="text-[13px] text-[var(--ttg-muted)] no-underline hover:text-[var(--ttg-navy)]"
             >
               +233 (057) 589-5601
             </a>
@@ -256,10 +256,10 @@ export function PrivateBriefingContent() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 1.1 }}
           >
-            <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
+            <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Location
             </span>
-            <span className="text-[13px] text-[#b8b4ac]">
+            <span className="text-[13px] text-[var(--ttg-muted)]">
               Airport Residential Area, Accra, Ghana
             </span>
           </motion.div>
@@ -268,10 +268,10 @@ export function PrivateBriefingContent() {
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 1.1 }}
           >
-            <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
+            <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Hours
             </span>
-            <span className="text-[13px] text-[#b8b4ac]">
+            <span className="text-[13px] text-[var(--ttg-muted)]">
               Mon–Fri 9am–6pm GMT · Sat 10am–2pm
             </span>
           </motion.div>
@@ -279,7 +279,7 @@ export function PrivateBriefingContent() {
       </aside>
 
       {/* Right panel — form or success */}
-      <div className="flex flex-col justify-center pt-20 lg:pt-40 pb-20 lg:pb-20 px-6 lg:px-16 bg-[var(--trust-black)]">
+      <div className="flex flex-col justify-center pt-20 lg:pt-40 pb-20 lg:pb-20 px-6 lg:px-16 bg-[var(--ttg-bg)]">
         <AnimatePresence mode="wait">
           {showSuccess ? (
             <motion.div
@@ -291,15 +291,15 @@ export function PrivateBriefingContent() {
               className="text-center py-20 px-10 flex flex-col items-center justify-center"
             >
               <div
-                className="w-16 h-16 rounded-full border border-[var(--trust-gold)] flex items-center justify-center text-2xl text-[var(--trust-gold)] mb-8"
+                className="w-16 h-16 rounded-full border border-[var(--ttg-navy)] flex items-center justify-center text-2xl text-[var(--ttg-navy)] mb-8"
                 aria-hidden
               >
                 ✓
               </div>
-              <h2 className="font-trust-serif text-3xl mb-4">
+              <h2 className="ttg-serif text-3xl mb-4">
                 Briefing Request Received.
               </h2>
-              <p className="text-[15px] text-[var(--trust-muted)] leading-[1.7] max-w-[380px]">
+              <p className="text-[15px] text-[var(--ttg-muted)] leading-[1.7] max-w-[380px]">
                 A senior member of our team will reach out within 24 hours to
                 confirm and schedule your discovery call. We look forward to
                 learning about your project.
@@ -314,13 +314,13 @@ export function PrivateBriefingContent() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              <h2 className="font-trust-serif text-3xl mb-2">
+              <h2 className="ttg-serif text-3xl mb-2">
                 Tell us about your project.
               </h2>
-              <p className="text-[13px] text-[var(--trust-muted)] mb-12 leading-[1.6]">
+              <p className="text-[13px] text-[var(--ttg-muted)] mb-12 leading-[1.6]">
                 All enquiries are treated with strict confidentiality. Fields
                 marked{" "}
-                <span className="text-[var(--trust-gold)]">*</span> are
+                <span className="text-[var(--ttg-navy)]">*</span> are
                 required.
               </p>
               <form
@@ -332,9 +332,9 @@ export function PrivateBriefingContent() {
                   <div>
                     <label
                       htmlFor="briefing-first-name"
-                      className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                      className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                     >
-                      First Name <span className="text-[var(--trust-gold)]">*</span>
+                      First Name <span className="text-[var(--ttg-navy)]">*</span>
                     </label>
                     <input
                       id="briefing-first-name"
@@ -343,15 +343,15 @@ export function PrivateBriefingContent() {
                       required
                       value={formData.firstName}
                       onChange={(e) => updateField("firstName", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="briefing-last-name"
-                      className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                      className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                     >
-                      Last Name <span className="text-[var(--trust-gold)]">*</span>
+                      Last Name <span className="text-[var(--ttg-navy)]">*</span>
                     </label>
                     <input
                       id="briefing-last-name"
@@ -360,7 +360,7 @@ export function PrivateBriefingContent() {
                       required
                       value={formData.lastName}
                       onChange={(e) => updateField("lastName", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none"
                     />
                   </div>
                 </div>
@@ -368,9 +368,9 @@ export function PrivateBriefingContent() {
                   <div>
                     <label
                       htmlFor="briefing-email"
-                      className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                      className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                     >
-                      Work Email <span className="text-[var(--trust-gold)]">*</span>
+                      Work Email <span className="text-[var(--ttg-navy)]">*</span>
                     </label>
                     <input
                       id="briefing-email"
@@ -379,13 +379,13 @@ export function PrivateBriefingContent() {
                       required
                       value={formData.workEmail}
                       onChange={(e) => updateField("workEmail", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="briefing-phone"
-                      className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                      className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                     >
                       Phone
                     </label>
@@ -395,7 +395,7 @@ export function PrivateBriefingContent() {
                       placeholder="+1 (555) 000-0000"
                       value={formData.phone}
                       onChange={(e) => updateField("phone", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none"
                     />
                   </div>
                 </div>
@@ -403,9 +403,9 @@ export function PrivateBriefingContent() {
                   <div>
                     <label
                       htmlFor="briefing-org"
-                      className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                      className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                     >
-                      Organization <span className="text-[var(--trust-gold)]">*</span>
+                      Organization <span className="text-[var(--ttg-navy)]">*</span>
                     </label>
                     <input
                       id="briefing-org"
@@ -414,15 +414,15 @@ export function PrivateBriefingContent() {
                       required
                       value={formData.organization}
                       onChange={(e) => updateField("organization", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="briefing-role"
-                      className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                      className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                     >
-                      Your Role <span className="text-[var(--trust-gold)]">*</span>
+                      Your Role <span className="text-[var(--ttg-navy)]">*</span>
                     </label>
                     <input
                       id="briefing-role"
@@ -431,16 +431,16 @@ export function PrivateBriefingContent() {
                       required
                       value={formData.role}
                       onChange={(e) => updateField("role", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none"
                     />
                   </div>
                 </div>
                 <div className="mb-6">
                   <label
                     htmlFor="briefing-service"
-                    className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                    className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                   >
-                    Service Area <span className="text-[var(--trust-gold)]">*</span>
+                    Service Area <span className="text-[var(--ttg-navy)]">*</span>
                   </label>
                   <div className="relative">
                     <select
@@ -448,7 +448,7 @@ export function PrivateBriefingContent() {
                       required
                       value={formData.serviceArea}
                       onChange={(e) => updateField("serviceArea", e.target.value)}
-                      className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[#b8b4ac] font-sans text-sm py-3.5 pl-4 pr-10 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] rounded-none appearance-none cursor-pointer"
+                      className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-muted)] font-sans text-sm py-3.5 pl-4 pr-10 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] rounded-none appearance-none cursor-pointer"
                     >
                       <option value="" disabled>
                         Select the primary capability area
@@ -460,7 +460,7 @@ export function PrivateBriefingContent() {
                       ))}
                     </select>
                     <span
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--trust-muted)] text-xs font-trust-mono pointer-events-none"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--ttg-muted)] text-xs ttg-mono pointer-events-none"
                       aria-hidden
                     >
                       ↓
@@ -468,7 +468,7 @@ export function PrivateBriefingContent() {
                   </div>
                 </div>
                 <div className="mb-6">
-                  <label className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2">
+                  <label className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2">
                     Estimated Project Budget
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -477,10 +477,10 @@ export function PrivateBriefingContent() {
                         key={label}
                         type="button"
                         onClick={() => updateField("budget", label)}
-                        className={`font-trust-mono text-[11px] tracking-[0.06em] uppercase py-2 px-4 border transition-colors rounded-none ${
+                        className={`ttg-mono text-[11px] tracking-[0.06em] uppercase py-2 px-4 border transition-colors rounded-none ${
                           formData.budget === label
-                            ? "border-[var(--trust-gold)] text-[var(--trust-gold)] bg-[var(--trust-gold-dim)]"
-                            : "border-[var(--trust-border)] text-[var(--trust-muted)] hover:border-[rgba(200,169,110,0.4)] hover:text-[#b8b4ac]"
+                            ? "border-[var(--ttg-navy)] text-[var(--ttg-navy)] bg-[rgba(26,31,46,0.08)]"
+                            : "border-[var(--ttg-border)] text-[var(--ttg-muted)] hover:border-[var(--ttg-navy-dim)] hover:text-[var(--ttg-navy)]"
                         }`}
                       >
                         {label}
@@ -491,9 +491,9 @@ export function PrivateBriefingContent() {
                 <div className="mb-6">
                   <label
                     htmlFor="briefing-overview"
-                    className="block font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.12em] uppercase mb-2"
+                    className="block ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.12em] uppercase mb-2"
                   >
-                    Project Overview <span className="text-[var(--trust-gold)]">*</span>
+                    Project Overview <span className="text-[var(--ttg-navy)]">*</span>
                   </label>
                   <textarea
                     id="briefing-overview"
@@ -502,7 +502,7 @@ export function PrivateBriefingContent() {
                     rows={5}
                     value={formData.projectOverview}
                     onChange={(e) => updateField("projectOverview", e.target.value)}
-                    className="w-full bg-[var(--trust-slate)] border border-[var(--trust-border)] text-[var(--trust-white)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--trust-gold)] focus:bg-[rgba(200,169,110,0.04)] placeholder:text-[var(--trust-muted)] rounded-none resize-y min-h-[120px] leading-[1.6]"
+                    className="w-full bg-white border border-[var(--ttg-border)] text-[var(--ttg-navy)] font-sans text-sm py-3.5 px-4 outline-none transition-colors focus:border-[var(--ttg-navy)] focus:ring-1 focus:ring-[var(--ttg-navy)] placeholder:text-[var(--ttg-muted-lt)] rounded-none resize-y min-h-[120px] leading-[1.6]"
                   />
                 </div>
                 <div
@@ -522,17 +522,17 @@ export function PrivateBriefingContent() {
                   <div
                     className={`w-[18px] h-[18px] shrink-0 mt-0.5 border flex items-center justify-center text-[11px] font-bold transition-colors ${
                       formData.requiresNda
-                        ? "bg-[var(--trust-gold)] border-[var(--trust-gold)] text-[var(--trust-black)]"
-                        : "border-[var(--trust-border)] bg-[var(--trust-slate)]"
+                        ? "bg-[var(--ttg-navy)] border-[var(--ttg-navy)] text-white"
+                        : "border-[var(--ttg-border)] bg-[var(--ttg-bg)]"
                     }`}
                   >
                     {formData.requiresNda ? "✓" : ""}
                   </div>
                   <label
                     htmlFor="briefing-nda"
-                    className="text-[13px] text-[var(--trust-muted)] leading-[1.6] cursor-pointer"
+                    className="text-[13px] text-[var(--ttg-muted)] leading-[1.6] cursor-pointer"
                   >
-                    <strong className="text-[#b8b4ac]">
+                    <strong className="text-[var(--ttg-muted)]">
                       This project requires NDA coverage from the outset.
                     </strong>{" "}
                     We will prepare a mutual NDA for execution before our first
@@ -564,20 +564,20 @@ export function PrivateBriefingContent() {
                   <div
                     className={`w-[18px] h-[18px] shrink-0 mt-0.5 border flex items-center justify-center text-[11px] font-bold transition-colors ${
                       formData.privacyAccepted
-                        ? "bg-[var(--trust-gold)] border-[var(--trust-gold)] text-[var(--trust-black)]"
-                        : "border-[var(--trust-border)] bg-[var(--trust-slate)]"
+                        ? "bg-[var(--ttg-navy)] border-[var(--ttg-navy)] text-white"
+                        : "border-[var(--ttg-border)] bg-[var(--ttg-bg)]"
                     }`}
                   >
                     {formData.privacyAccepted ? "✓" : ""}
                   </div>
                   <label
                     htmlFor="briefing-privacy"
-                    className="text-[13px] text-[var(--trust-muted)] leading-[1.6] cursor-pointer"
+                    className="text-[13px] text-[var(--ttg-muted)] leading-[1.6] cursor-pointer"
                   >
                     I agree to The Trust Group&apos;s{" "}
                     <Link
                       href="/privacy"
-                      className="text-[var(--trust-gold)] underline hover:no-underline"
+                      className="text-[var(--ttg-navy)] underline hover:no-underline"
                     >
                       Privacy Policy
                     </Link>
@@ -599,11 +599,11 @@ export function PrivateBriefingContent() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="trust-btn-gold bg-[var(--trust-gold)] text-[var(--trust-black)] border-none font-trust-mono text-xs tracking-[0.1em] uppercase py-4 px-10 cursor-pointer transition-all duration-300 disabled:opacity-60"
+                    className="ttg-btn-pill ttg-mono text-xs tracking-[0.1em] uppercase py-4 px-10 cursor-pointer transition-all duration-300 disabled:opacity-60"
                   >
                     {isSubmitting ? "Sending…" : "Submit Briefing Request →"}
                   </button>
-                  <p className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.08em] max-w-[200px] text-right sm:text-right leading-[1.5]">
+                  <p className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.08em] max-w-[200px] text-right sm:text-right leading-[1.5]">
                     We respond to all submissions within 24 business hours.
                   </p>
                 </div>

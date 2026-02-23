@@ -103,15 +103,18 @@ export function WorkPageClient() {
         ref={cursorRef}
         className="work-cursor fixed z-[9999] h-2 w-2 rounded-full transition-transform duration-100 ease-out"
         style={{
-          background: "var(--work-gold)",
+          background: "var(--work-accent)",
           transform: "translate(-50%, -50%)",
         }}
         aria-hidden
       />
       <div
         ref={ringRef}
-        className="work-cursor-ring fixed z-[9998] h-9 w-9 rounded-full border border-[rgba(200,169,110,0.4)] transition-all duration-150 ease-out"
-        style={{ transform: "translate(-50%, -50%)" }}
+        className="work-cursor-ring fixed z-[9998] h-9 w-9 rounded-full border transition-all duration-150 ease-out"
+        style={{
+          transform: "translate(-50%, -50%)",
+          borderColor: "rgba(26,31,46,0.25)",
+        }}
         aria-hidden
       />
 
@@ -120,8 +123,8 @@ export function WorkPageClient() {
         <div
           className="pointer-events-none absolute inset-0 opacity-90"
           style={{
-            backgroundImage: `linear-gradient(rgba(200, 169, 110, 0.04) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(200, 169, 110, 0.04) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(26, 31, 46, 0.04) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(26, 31, 46, 0.04) 1px, transparent 1px)`,
             backgroundSize: "80px 80px",
             maskImage:
               "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%)",
@@ -132,7 +135,7 @@ export function WorkPageClient() {
           style={{
             color: "var(--work-muted)",
             writingMode: "vertical-rl",
-            fontFamily: "var(--font-work-mono), monospace",
+            fontFamily: "var(--ttg-font-sans)",
           }}
         >
           Selected Engagements — 2021–2026
@@ -141,21 +144,22 @@ export function WorkPageClient() {
         <p
           className="work-hero-eyebrow mb-7 text-[11px] uppercase tracking-[0.14em]"
           style={{
-            color: "var(--work-gold)",
-            fontFamily: "var(--font-work-mono), monospace",
+            color: "var(--work-accent)",
+            fontFamily: "var(--ttg-font-sans)",
           }}
         >
           Our Work
         </p>
         <h1
-          className="work-hero-title mb-10 font-serif text-[clamp(52px,7vw,96px)] leading-[0.95] tracking-tight"
+          className="work-hero-title mb-10 text-[clamp(52px,7vw,96px)] leading-[0.95] tracking-tight"
           style={{
-            fontFamily: "var(--font-work-serif), serif",
+            fontFamily: "var(--ttg-font-serif)",
+            color: "var(--work-text)",
           }}
         >
           Systems built for
           <br />
-          <em className="italic" style={{ color: "var(--work-gold)" }}>
+          <em className="italic" style={{ color: "var(--work-accent)" }}>
             permanence.
           </em>
         </h1>
@@ -163,15 +167,15 @@ export function WorkPageClient() {
         <div
           className="work-hero-meta flex flex-wrap items-end gap-10 lg:gap-[60px]"
           style={{
-            fontFamily: "var(--font-work-mono), monospace",
+            fontFamily: "var(--ttg-font-sans)",
           }}
         >
           <div className="flex flex-col gap-1">
             <span
               className="text-[36px] leading-none"
               style={{
-                fontFamily: "var(--font-work-serif), serif",
-                color: "var(--work-white)",
+                fontFamily: "var(--ttg-font-serif)",
+                color: "var(--work-text)",
               }}
             >
               40+
@@ -191,8 +195,8 @@ export function WorkPageClient() {
             <span
               className="text-[36px] leading-none"
               style={{
-                fontFamily: "var(--font-work-serif), serif",
-                color: "var(--work-white)",
+                fontFamily: "var(--ttg-font-serif)",
+                color: "var(--work-text)",
               }}
             >
               12
@@ -212,8 +216,8 @@ export function WorkPageClient() {
             <span
               className="text-[36px] leading-none"
               style={{
-                fontFamily: "var(--font-work-serif), serif",
-                color: "var(--work-white)",
+                fontFamily: "var(--ttg-font-serif)",
+                color: "var(--work-text)",
               }}
             >
               99.9%
@@ -251,10 +255,10 @@ export function WorkPageClient() {
               onClick={() => setFilter(id)}
               className="whitespace-nowrap border-b-2 px-6 py-5 pb-[18px] text-[11px] uppercase tracking-[0.1em] transition-colors -mb-px"
               style={{
-                fontFamily: "var(--font-work-mono), monospace",
-                color: filter === id ? "var(--work-gold)" : "var(--work-muted)",
+                fontFamily: "var(--ttg-font-sans)",
+                color: filter === id ? "var(--work-accent)" : "var(--work-muted)",
                 borderColor:
-                  filter === id ? "var(--work-gold)" : "transparent",
+                  filter === id ? "var(--work-accent)" : "transparent",
               }}
             >
               {label}
@@ -276,19 +280,19 @@ export function WorkPageClient() {
                 <div
                   className="mb-2 text-[52px] leading-none"
                   style={{
-                    fontFamily: "var(--font-work-serif), serif",
-                    color: "var(--work-white)",
+                    fontFamily: "var(--ttg-font-serif)",
+                    color: "var(--work-text)",
                   }}
                 >
                   {stat.value}
-                  <span style={{ color: "var(--work-gold)" }}>
+                  <span style={{ color: "var(--work-accent)" }}>
                     {stat.suffix}
                   </span>
                 </div>
                 <div
                   className="text-[10px] uppercase tracking-[0.12em]"
                   style={{
-                    fontFamily: "var(--font-work-mono), monospace",
+                    fontFamily: "var(--ttg-font-sans)",
                     color: "var(--work-muted)",
                   }}
                 >
@@ -320,13 +324,13 @@ export function WorkPageClient() {
           <h2
             className="mb-4 text-[clamp(36px,4vw,60px)] leading-[1.05]"
             style={{
-              fontFamily: "var(--font-work-serif), serif",
-              color: "var(--work-white)",
+              fontFamily: "var(--ttg-font-serif)",
+              color: "var(--work-text)",
             }}
           >
             Ready to build something
             <br />
-            <em className="italic" style={{ color: "var(--work-gold)" }}>
+            <em className="italic" style={{ color: "var(--work-accent)" }}>
               that lasts?
             </em>
           </h2>
@@ -343,9 +347,9 @@ export function WorkPageClient() {
             href="/contact"
             className="inline-block px-10 py-[18px] text-xs uppercase tracking-wider transition-colors"
             style={{
-              fontFamily: "var(--font-work-mono), monospace",
-              background: "var(--work-gold)",
-              color: "var(--work-black)",
+              fontFamily: "var(--ttg-font-sans)",
+              background: "var(--work-accent)",
+              color: "#fff",
             }}
           >
             Request a Private Briefing
@@ -354,7 +358,7 @@ export function WorkPageClient() {
             href="/services"
             className="text-[11px] uppercase tracking-wider transition-colors hover:opacity-90"
             style={{
-              fontFamily: "var(--font-work-mono), monospace",
+              fontFamily: "var(--ttg-font-sans)",
               color: "var(--work-muted)",
             }}
           >
@@ -405,15 +409,15 @@ const WorkCard = React.forwardRef<
         background: classified
           ? undefined
           : featured
-            ? "linear-gradient(135deg, #141210 0%, #1a1712 100%)"
-            : "var(--work-slate)",
+            ? "linear-gradient(135deg, var(--ttg-bg-white) 0%, var(--ttg-bg) 100%)"
+            : "var(--work-bg-card)",
         borderColor: "var(--work-border)",
       }}
     >
       <div
         className={`flex h-full flex-col p-10 ${
           classified
-            ? "bg-[repeating-linear-gradient(-45deg,var(--work-slate),var(--work-slate)_10px,rgba(255,80,80,0.02)_10px,rgba(255,80,80,0.02)_20px)]"
+            ? "bg-[repeating-linear-gradient(-45deg,var(--work-bg-card),var(--work-bg-card)_10px,rgba(255,80,80,0.02)_10px,rgba(255,80,80,0.02)_20px)]"
             : ""
         }`}
       >
@@ -421,7 +425,7 @@ const WorkCard = React.forwardRef<
           <span
             className="text-[10px] tracking-[0.1em]"
             style={{
-              fontFamily: "var(--font-work-mono), monospace",
+              fontFamily: "var(--ttg-font-sans)",
               color: "var(--work-muted)",
             }}
           >
@@ -433,7 +437,7 @@ const WorkCard = React.forwardRef<
                 key={tag}
                 className="border px-2.5 py-1 text-[9px] uppercase tracking-[0.1em]"
                 style={{
-                  fontFamily: "var(--font-work-mono), monospace",
+                  fontFamily: "var(--ttg-font-sans)",
                   ...(tag === "Classified"
                     ? {
                         borderColor: "rgba(255, 80, 80, 0.3)",
@@ -442,8 +446,8 @@ const WorkCard = React.forwardRef<
                       }
                     : tag === "Featured"
                       ? {
-                          borderColor: "rgba(200, 169, 110, 0.4)",
-                          color: "var(--work-gold)",
+                          borderColor: "rgba(26, 31, 46, 0.25)",
+                          color: "var(--work-accent)",
                           background: "var(--work-tag-bg)",
                         }
                       : {
@@ -462,8 +466,8 @@ const WorkCard = React.forwardRef<
         <p
           className="mb-3 text-[10px] uppercase tracking-[0.14em]"
           style={{
-            fontFamily: "var(--font-work-mono), monospace",
-            color: "var(--work-gold)",
+            fontFamily: "var(--ttg-font-sans)",
+            color: "var(--work-accent)",
           }}
         >
           {industry}
@@ -471,8 +475,8 @@ const WorkCard = React.forwardRef<
         <h2
           className={`mb-4 font-serif leading-[1.1] ${featured ? "text-[clamp(28px,3.5vw,48px)]" : "text-[clamp(22px,2.5vw,32px)]"}`}
           style={{
-            fontFamily: "var(--font-work-serif), serif",
-            color: "var(--work-white)",
+            fontFamily: "var(--ttg-font-serif)",
+            color: "var(--work-text)",
           }}
         >
           {title}
@@ -493,7 +497,7 @@ const WorkCard = React.forwardRef<
             <span
               className="text-[10px] uppercase tracking-[0.12em]"
               style={{
-                fontFamily: "var(--font-work-mono), monospace",
+                fontFamily: "var(--ttg-font-sans)",
                 color: "rgba(255, 120, 120, 0.8)",
               }}
             >
@@ -516,10 +520,10 @@ const WorkCard = React.forwardRef<
                 key={tech}
                 className="border px-2.5 py-1 text-[10px]"
                 style={{
-                  fontFamily: "var(--font-work-mono), monospace",
+                  fontFamily: "var(--ttg-font-sans)",
                   color: "var(--work-muted)",
-                  background: "rgba(255,255,255,0.04)",
-                  borderColor: "rgba(255,255,255,0.08)",
+                  background: "rgba(26,31,46,0.04)",
+                  borderColor: "var(--work-border)",
                 }}
               >
                 {tech}
@@ -538,8 +542,8 @@ const WorkCard = React.forwardRef<
                 <span
                   className="text-[22px] leading-none"
                   style={{
-                    fontFamily: "var(--font-work-serif), serif",
-                    color: "var(--work-white)",
+                    fontFamily: "var(--ttg-font-serif)",
+                    color: "var(--work-text)",
                   }}
                 >
                   {m.value}
@@ -547,7 +551,7 @@ const WorkCard = React.forwardRef<
                 <span
                   className="text-[9px] uppercase tracking-[0.1em]"
                   style={{
-                    fontFamily: "var(--font-work-mono), monospace",
+                    fontFamily: "var(--ttg-font-sans)",
                     color: "var(--work-muted)",
                   }}
                 >
@@ -561,11 +565,11 @@ const WorkCard = React.forwardRef<
         {ndaCtaText && (
           <Link
             href="/contact"
-            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(200,169,110,0.08)]"
+            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
             style={{
-              fontFamily: "var(--font-work-mono), monospace",
-              color: "var(--work-gold)",
-              borderColor: "rgba(200, 169, 110, 0.3)",
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--work-accent)",
+              borderColor: "rgba(26, 31, 46, 0.2)",
             }}
           >
             {ndaCtaText}

@@ -1,5 +1,5 @@
 /**
- * Testimonials section matching the provided HTML: label, featured (full-width 2-col), then 3 cards.
+ * Testimonials section — TTG design system: warm cream bg, navy text, Cormorant + Jost.
  */
 
 const FEATURED = {
@@ -43,7 +43,12 @@ function StarRating() {
   return (
     <div className="flex gap-0.5 mb-5">
       {[1, 2, 3, 4, 5].map((i) => (
-        <span key={i} className="text-[var(--trust-gold)] text-xs" aria-hidden>
+        <span
+          key={i}
+          className="text-xs"
+          style={{ color: "var(--ttg-navy)" }}
+          aria-hidden
+        >
           ★
         </span>
       ))}
@@ -54,8 +59,8 @@ function StarRating() {
 export function TrustTestimonialsSection() {
   return (
     <section
-      className="trust-theme border-t border-[var(--trust-border)] py-20 md:py-[120px] px-6 lg:px-16 relative"
-      style={{ background: "var(--trust-black)" }}
+      className="ttg-section border-t border-[var(--ttg-border)] py-20 md:py-[120px] px-6 lg:px-16 relative"
+      style={{ background: "var(--ttg-bg)" }}
       aria-labelledby="testimonials-heading"
     >
       <h2 id="testimonials-heading" className="sr-only">
@@ -63,50 +68,73 @@ export function TrustTestimonialsSection() {
       </h2>
 
       <div
-        className="font-trust-mono text-[10px] text-[var(--trust-gold)] uppercase tracking-[0.18em] mb-16 flex items-center gap-4"
+        className="text-[10px] uppercase tracking-[0.18em] mb-16 flex items-center gap-4"
+        style={{
+          fontFamily: "var(--ttg-font-sans)",
+          color: "var(--ttg-muted)",
+        }}
         aria-hidden
       >
         <span>Client Testimonials</span>
         <span
           className="flex-1 h-px max-w-[120px]"
-          style={{ background: "var(--trust-border)" }}
+          style={{ background: "var(--ttg-border)" }}
         />
       </div>
 
       <div
-        className="grid grid-cols-1 md:grid-cols-3 gap-px border border-[var(--trust-border)]"
-        style={{ background: "var(--trust-border)" }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-px border border-[var(--ttg-border)]"
+        style={{ background: "var(--ttg-border)" }}
       >
         {/* Featured — full width, 2 columns */}
         <div
-          className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-16 items-center p-8 md:p-16 border-b border-[var(--trust-border)]"
-          style={{ background: "var(--trust-slate)" }}
+          className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-16 items-center p-8 md:p-16 border-b border-[var(--ttg-border)]"
+          style={{ background: "var(--ttg-bg-white)" }}
         >
           <div>
             <StarRating />
             <span
-              className="font-trust-serif text-[80px] leading-[0.6] block mb-6"
-              style={{ color: "rgba(200,169,110,0.2)" }}
+              className="ttg-serif text-[80px] leading-[0.6] block mb-6"
+              style={{ color: "rgba(26,31,46,0.08)" }}
               aria-hidden
             >
               &ldquo;
             </span>
             <p
-              className="font-trust-sans text-[20px] leading-[1.6] text-[var(--trust-cream)] mb-0 italic"
-              style={{ marginBottom: "36px" }}
+              className="text-[20px] leading-[1.6] mb-0 italic"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-navy)",
+                marginBottom: "36px",
+              }}
             >
               {FEATURED.quote}
             </p>
             <div
-              className="flex flex-col gap-1 pt-6 border-t border-[var(--trust-border)]"
+              className="flex flex-col gap-1 pt-6 border-t border-[var(--ttg-border)]"
             >
-              <span className="text-[13px] font-semibold text-[var(--trust-white)] tracking-[0.01em]">
+              <span
+                className="text-[13px] font-semibold tracking-[0.01em]"
+                style={{ color: "var(--ttg-navy)" }}
+              >
                 {FEATURED.name}
               </span>
-              <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.08em] uppercase">
+              <span
+                className="text-[10px] uppercase tracking-[0.08em]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
                 {FEATURED.role}
               </span>
-              <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] tracking-[0.08em] uppercase">
+              <span
+                className="text-[10px] uppercase tracking-[0.08em]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-navy)",
+                }}
+              >
                 {FEATURED.company}
               </span>
             </div>
@@ -115,13 +143,24 @@ export function TrustTestimonialsSection() {
             {FEATURED.metrics.map((m, i) => (
               <div
                 key={i}
-                className="flex flex-col gap-1 py-5 border-b border-[var(--trust-border)] last:border-b-0"
+                className="flex flex-col gap-1 py-5 border-b border-[var(--ttg-border)] last:border-b-0"
               >
-                <span className="font-trust-serif text-4xl text-[var(--trust-white)] leading-none">
+                <span
+                  className="ttg-serif text-4xl leading-none"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
                   {m.value}
-                  <em className="not-italic text-[var(--trust-gold)]">{m.suffix}</em>
+                  <em className="not-italic text-[var(--ttg-navy)]">
+                    {m.suffix}
+                  </em>
                 </span>
-                <span className="font-trust-mono text-[9px] text-[var(--trust-muted)] tracking-[0.12em] uppercase">
+                <span
+                  className="text-[9px] uppercase tracking-[0.12em]"
+                  style={{
+                    fontFamily: "var(--ttg-font-sans)",
+                    color: "var(--ttg-muted)",
+                  }}
+                >
                   {m.label}
                 </span>
               </div>
@@ -133,28 +172,49 @@ export function TrustTestimonialsSection() {
         {CARDS.map((card, i) => (
           <div
             key={i}
-            className="p-8 md:p-10 transition-colors duration-300 hover:bg-[var(--trust-slate)]"
-            style={{ background: "var(--trust-black)" }}
+            className="p-8 md:p-10 transition-colors duration-300 hover:bg-[var(--ttg-bg)]"
+            style={{ background: "var(--ttg-bg-white)" }}
           >
             <StarRating />
             <span
-              className="font-trust-serif text-[80px] leading-[0.6] block mb-6"
-              style={{ color: "rgba(200,169,110,0.2)" }}
+              className="ttg-serif text-[80px] leading-[0.6] block mb-6"
+              style={{ color: "rgba(26,31,46,0.08)" }}
               aria-hidden
             >
               &ldquo;
             </span>
-            <p className="font-trust-sans text-[15px] leading-[1.75] text-[var(--trust-cream)] mb-9 italic">
+            <p
+              className="text-[15px] leading-[1.75] mb-9 italic"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-navy)",
+              }}
+            >
               {card.quote}
             </p>
-            <div className="flex flex-col gap-1 pt-6 border-t border-[var(--trust-border)]">
-              <span className="text-[13px] font-semibold text-[var(--trust-white)] tracking-[0.01em]">
+            <div className="flex flex-col gap-1 pt-6 border-t border-[var(--ttg-border)]">
+              <span
+                className="text-[13px] font-semibold tracking-[0.01em]"
+                style={{ color: "var(--ttg-navy)" }}
+              >
                 {card.name}
               </span>
-              <span className="font-trust-mono text-[10px] text-[var(--trust-muted)] tracking-[0.08em] uppercase">
+              <span
+                className="text-[10px] uppercase tracking-[0.08em]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
+              >
                 {card.role}
               </span>
-              <span className="font-trust-mono text-[10px] text-[var(--trust-gold)] tracking-[0.08em] uppercase">
+              <span
+                className="text-[10px] uppercase tracking-[0.08em]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-navy)",
+                }}
+              >
                 {card.company}
               </span>
             </div>
