@@ -90,7 +90,7 @@ const caseStudies = [
       "Real-time insights into customer segments"
     ],
     image: "/images/ai-case-study-1.jpg",
-    link: "/#portfolio"
+    link: "/work"
   },
   {
     title: "Intelligent Document Processing System",
@@ -101,7 +101,7 @@ const caseStudies = [
       "Scalable to process millions of documents annually"
     ],
     image: "/images/ai-case-study-2.jpg",
-    link: "/#portfolio"
+    link: "/work"
   },
 ];
 

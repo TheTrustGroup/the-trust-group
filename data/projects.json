@@ -15,7 +15,7 @@
       "category": "ai",
       "technologies": ["Python", "TensorFlow", "React", "PostgreSQL", "AWS", "Docker"],
       "featured": true,
-      "caseStudyUrl": "/portfolio/ai-customer-analytics",
+      "caseStudyUrl": "/case-studies/ai-customer-analytics",
       "client": "E-Commerce Leader",
       "year": "2024",
       "results": [
@@ -33,7 +33,7 @@
       "category": "enterprise",
       "technologies": ["Next.js", "TypeScript", "Node.js", "MongoDB", "Azure", "Kubernetes"],
       "featured": true,
-      "caseStudyUrl": "/portfolio/enterprise-saas",
+      "caseStudyUrl": "/case-studies/enterprise-saas",
       "client": "Fortune 500 Company",
       "year": "2024",
       "results": [
@@ -51,7 +51,7 @@
       "category": "mobile",
       "technologies": ["React Native", "TypeScript", "Node.js", "PostgreSQL", "AWS", "TensorFlow"],
       "featured": false,
-      "caseStudyUrl": "/portfolio/mobile-banking",
+      "caseStudyUrl": "/case-studies/mobile-banking",
       "client": "Regional Bank",
       "year": "2023",
       "results": [
@@ -69,7 +69,7 @@
       "category": "web",
       "technologies": ["Next.js", "React", "Python", "PostgreSQL", "Redis", "OpenAI API"],
       "featured": false,
-      "caseStudyUrl": "/portfolio/ecommerce-ai",
+      "caseStudyUrl": "/case-studies/ecommerce-ai",
       "client": "Retail Chain",
       "year": "2023",
       "timeline": "6 months",
@@ -89,7 +89,7 @@
       "category": "enterprise",
       "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker"],
       "featured": true,
-      "caseStudyUrl": "/portfolio/healthcare-management",
+      "caseStudyUrl": "/case-studies/healthcare-management",
       "client": "Healthcare Network",
       "year": "2024",
       "timeline": "8 months",
@@ -109,7 +109,7 @@
       "category": "web",
       "technologies": ["Next.js", "React", "Python", "MongoDB", "AWS", "TensorFlow"],
       "featured": false,
-      "caseStudyUrl": "/portfolio/real-estate-platform",
+      "caseStudyUrl": "/case-studies/real-estate-platform",
       "client": "Real Estate Agency",
       "year": "2023",
       "timeline": "7 months",
@@ -134,7 +134,7 @@
         "/images/projects/velora-booking.png",
         "/images/projects/velora-rides.png"
       ],
-      "caseStudyUrl": "/portfolio/velora",
+      "caseStudyUrl": "/case-studies/velora",
       "client": "Transportation Startup",
       "year": "2024",
       "timeline": "5 months",
@@ -163,7 +163,7 @@
         "/images/projects/wellness-booking.png",
         "/images/projects/wellness-membership.png"
       ],
-      "caseStudyUrl": "/portfolio/wellness-tracker",
+      "caseStudyUrl": "/case-studies/wellness-tracker",
       "client": "Wellness & Spa Company",
       "year": "2024",
       "timeline": "6 months",
@@ -189,7 +189,7 @@
       "images": [
         "/images/projects/chez-amis-homepage.png"
       ],
-      "caseStudyUrl": "/portfolio/chez-amis",
+      "caseStudyUrl": "/case-studies/chez-amis",
       "client": "Chez Amis Bar and Grill",
       "year": "2024",
       "timeline": "4 months",
@@ -218,7 +218,7 @@
       "images": [
         "/images/projects/extreme-dept-kidz-homepage.png"
       ],
-      "caseStudyUrl": "/portfolio/extreme-dept-kidz",
+      "caseStudyUrl": "/case-studies/extreme-dept-kidz",
       "client": "Extreme Dept Kidz",
       "year": "2024",
       "timeline": "3 months",

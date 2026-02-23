@@ -23,7 +23,7 @@ const processSteps = [
     icon: Code,
     title: "Development & Testing",
     description: "Built to support your needs. Continuous testing and regular demos keep you informed.",
-    duration: "6-12 weeks",
+    duration: "3–8 weeks (small) · 8–20 weeks (enterprise)",
     deliverables: ["Working software", "Test reports", "Documentation"],
   },
   {

@@ -3,8 +3,8 @@ import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/
 import { ServicesSection } from "@/components/services/services-section";
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Services",
-  description: "Comprehensive technology solutions from The Trust Group. AI solutions, custom software development, mobile apps, web development, cloud solutions, and consulting services.",
+  title: "Capabilities",
+  description: "Defense technology, AI implementation, custom enterprise software, mobile development, cloud infrastructure, and strategic consulting.",
   keywords: ["services", "AI solutions", "software development", "mobile apps", "web development", "cloud solutions", "consulting"],
   url: "/services",
 });

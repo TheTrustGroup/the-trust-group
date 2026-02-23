@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { X, ExternalLink, CheckCircle2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { X, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Project } from "./project-card";
 import { IntelligentPlaceholder } from "./intelligent-placeholder";
@@ -178,15 +178,24 @@ export function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
             </div>
           )}
 
-          {/* CTA */}
+          {/* CTA — text link only; no button. Every case study link resolves to a real page. */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-border">
-            <Button
-              size="lg"
-              variant="outline"
+            {project.caseStudyUrl && (
+              <Link
+                href={project.caseStudyUrl}
+                className="font-sans text-body-sm text-foreground no-underline opacity-90 hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 self-start"
+                onClick={onClose}
+              >
+                Read full case study →
+              </Link>
+            )}
+            <button
+              type="button"
               onClick={onClose}
+              className="font-sans text-body-sm text-muted-foreground no-underline opacity-90 hover:opacity-100 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 self-start"
             >
               Close
-            </Button>
+            </button>
           </div>
         </div>
       </div>

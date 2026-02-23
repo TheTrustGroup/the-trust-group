@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/lib/seo";
-import { ContactSection } from "@/components/contact/contact-section";
+import { PrivateBriefingContent } from "@/components/briefing/private-briefing-content";
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Contact Us",
-  description: "Get in touch with The Trust Group. We're here to help with your AI solutions, software development, and technology needs. Contact us today!",
+  title: "Private Briefing",
+  description: "Request a confidential, no-obligation briefing to discuss your project. Response within 24 hours. NDA available.",
   keywords: ["contact", "get in touch", "The Trust Group", "software development contact", "AI solutions contact"],
   url: "/contact",
 });
@@ -16,7 +16,7 @@ export const revalidate = 0;
 export default function ContactPage() {
   const breadcrumbs = generateBreadcrumbs([
     { name: "Home", url: "/" },
-    { name: "Contact", url: "/contact" },
+    { name: "Private Briefing", url: "/contact" },
   ]);
 
   return (
@@ -25,9 +25,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <div className="min-h-screen pt-4 md:pt-8">
-        <ContactSection />
-      </div>
+      <PrivateBriefingContent />
     </>
   );
 }

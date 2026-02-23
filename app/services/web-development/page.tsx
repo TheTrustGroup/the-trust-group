@@ -55,7 +55,7 @@ const processSteps = [
   {
     title: "Development & Testing",
     description: "Agile development with continuous testing, quality assurance, and regular client reviews.",
-    duration: "6-12 weeks",
+    duration: "3–8 weeks (small) · 8–20 weeks (enterprise)",
   },
   {
     title: "Launch & Optimization",

@@ -148,7 +148,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="max-w-3xl">
           <p className="mb-10">
             <Link
-              href="/#portfolio"
+              href="/work"
               className="font-sans text-body-sm text-muted-foreground no-underline hover:opacity-80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               ← Work

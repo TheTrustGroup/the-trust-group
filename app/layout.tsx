@@ -63,9 +63,9 @@ const trustSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = generateMetadata({
-  title: "Home",
+  title: "Mission-Critical Software Engineering",
   description:
-    "We help organizations build mission-critical systems. AI solutions, custom software, and secure infrastructure.",
+    "We build enterprise software, AI systems, and defense technology trusted by organizations operating at the highest level. Accra, Ghana. Global reach.",
   keywords: [
     "AI solutions",
     "software development",

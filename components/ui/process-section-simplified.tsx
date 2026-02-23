@@ -7,7 +7,7 @@ import Link from "next/link";
 const steps = [
   { number: "01", title: "Discovery", duration: "1-2 weeks" },
   { number: "02", title: "Design", duration: "2-3 weeks" },
-  { number: "03", title: "Development", duration: "6-12 weeks" },
+  { number: "03", title: "Development", duration: "3–8 weeks (small) · 8–20 weeks (enterprise)" },
   { number: "04", title: "Launch", duration: "Ongoing" },
 ];
 

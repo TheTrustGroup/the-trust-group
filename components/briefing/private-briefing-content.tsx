@@ -162,7 +162,7 @@ export function PrivateBriefingContent() {
             <br />
             what you&apos;re
             <br />
-            <em className="text-[var(--trust-gold)] not-italic">building.</em>
+            <em className="italic text-[var(--trust-gold)]">building.</em>
           </motion.h1>
           <motion.p
             className="text-[15px] text-[var(--trust-muted)] leading-[1.75] max-w-[380px] mb-14"

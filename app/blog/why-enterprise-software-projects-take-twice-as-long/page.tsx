@@ -9,9 +9,8 @@ const TOC_ITEMS: TocItem[] = [
   { href: "#architecture-first", label: "The Architecture-First Method" },
   { href: "#dedicated-teams", label: "Dedicated Teams" },
   { href: "#results", label: "What This Means in Practice" },
-  { href: "#questions", label: "The Questions You Should Be Asking Your Vendor" },
+  { href: "#questions", label: "Questions to Ask Your Vendor" },
   { href: "#mission-critical", label: "Mission-Critical Systems" },
-  { href: "#closing", label: "Closing" },
 ];
 
 const HEADING_IDS = TOC_ITEMS.map((i) => i.href.slice(1));
@@ -99,8 +98,9 @@ export default function EnterpriseSoftwareArticlePage() {
               borderColor: "var(--trust-gold)",
             }}
           >
-            This is what we changed — and why our projects consistently deliver in half the time the
-            industry considers standard.
+            Software delays are almost never caused by the complexity of the problem. They&apos;re
+            caused by the process used to solve it. Here&apos;s what we changed — and why our
+            projects consistently deliver in half the industry-standard timeline.
           </p>
         </header>
 
@@ -123,10 +123,6 @@ export default function EnterpriseSoftwareArticlePage() {
                 defense clients, and high-growth technology companies, we&apos;ve found that
                 software delays are almost never caused by the complexity of the problem.
                 They&apos;re caused by the process used to solve it.
-              </p>
-              <p>
-                This is what we changed — and why our projects consistently deliver in half the
-                time the industry considers standard.
               </p>
 
               <h2
@@ -178,13 +174,13 @@ export default function EnterpriseSoftwareArticlePage() {
                         className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--trust-muted)]"
                         style={{ borderColor: "var(--trust-border)" }}
                       >
-                        Conventional Timeline
+                        Conventional
                       </th>
                       <th
-                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--trust-muted)]"
+                        className="border-b px-4 py-3 text-left text-[10px] uppercase tracking-[0.12em] text-[var(--trust-gold)]"
                         style={{ borderColor: "var(--trust-border)" }}
                       >
-                        Trust Group Timeline
+                        Trust Group
                       </th>
                     </tr>
                   </thead>
@@ -200,13 +196,13 @@ export default function EnterpriseSoftwareArticlePage() {
                         className="border-b px-4 py-3.5 text-[12px]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        1–2 weeks (shallow)
+                        1–2 wks (shallow)
                       </td>
                       <td
                         className="border-b px-4 py-3.5 text-[12px] text-[#4caf6e]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        2–3 weeks (deep, exhaustive)
+                        2–3 wks (exhaustive)
                       </td>
                     </tr>
                     <tr>
@@ -220,13 +216,13 @@ export default function EnterpriseSoftwareArticlePage() {
                         className="border-b px-4 py-3.5 text-[12px]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        Done informally during sprints
+                        During sprints (ad hoc)
                       </td>
                       <td
                         className="border-b px-4 py-3.5 text-[12px] text-[#4caf6e]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        2–3 weeks (full system design before code)
+                        2–3 wks (pre-code)
                       </td>
                     </tr>
                     <tr>
@@ -240,13 +236,13 @@ export default function EnterpriseSoftwareArticlePage() {
                         className="border-b px-4 py-3.5 text-[12px]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        70% of project time
+                        ~70% of project time
                       </td>
                       <td
                         className="border-b px-4 py-3.5 text-[12px] text-[#4caf6e]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        50% of project time
+                        ~50% of project time
                       </td>
                     </tr>
                     <tr>
@@ -260,7 +256,7 @@ export default function EnterpriseSoftwareArticlePage() {
                         className="border-b px-4 py-3.5 text-[12px]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        25–35% of development time
+                        25–35% of dev time
                       </td>
                       <td
                         className="border-b px-4 py-3.5 text-[12px] text-[#4caf6e]"
@@ -450,7 +446,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 id="questions"
                 className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
               >
-                The Questions You Should Be Asking Your Vendor
+                Questions to Ask Your Vendor
               </h2>
               <p>
                 If you&apos;re evaluating software development partners for a mission-critical
@@ -522,30 +518,10 @@ export default function EnterpriseSoftwareArticlePage() {
                 style={{ borderColor: "var(--trust-border)" }}
               />
 
-              <h2
-                id="closing"
-                className="font-trust-serif mt-14 mb-5 text-[28px] leading-tight tracking-[-0.01em] text-[var(--trust-white)]"
-              >
-                Closing
-              </h2>
               <p>
                 If your last software project ran over schedule, it wasn&apos;t bad luck. It was a
-                process problem — and process problems have solutions.
-              </p>
-              <p>
-                We&apos;ve spent years refining an approach that removes timeline variability as a
-                significant risk factor. If you&apos;re evaluating partners for a mission-critical
-                build — whether that&apos;s an enterprise platform, an AI system, or infrastructure
-                that your organization&apos;s operations will depend on — we&apos;d welcome the
-                opportunity to walk you through exactly how we&apos;d approach your project.
-              </p>
-              <p>
-                <Link
-                  href="/contact"
-                  className="text-[var(--trust-gold)] underline decoration-[var(--trust-gold)] underline-offset-2 hover:no-underline"
-                >
-                  Request a Private Briefing →
-                </Link>
+                process problem — and process problems have solutions. We&apos;ve spent years
+                refining an approach that removes timeline variability as a significant risk factor.
               </p>
 
               <div
@@ -571,28 +547,6 @@ export default function EnterpriseSoftwareArticlePage() {
                   Request a Private Briefing →
                 </Link>
               </div>
-
-              <p
-                className="mt-10 text-sm italic"
-                style={{ color: "var(--trust-muted)" }}
-              >
-                The Trust Group builds mission-critical systems for enterprise organizations, defense
-                clients, and technology companies. Learn more about our{" "}
-                <Link
-                  href="/services"
-                  className="text-[var(--trust-gold)] underline decoration-[var(--trust-gold)] underline-offset-2 hover:no-underline"
-                >
-                  capabilities
-                </Link>{" "}
-                or{" "}
-                <Link
-                  href="/work"
-                  className="text-[var(--trust-gold)] underline decoration-[var(--trust-gold)] underline-offset-2 hover:no-underline"
-                >
-                  view selected work
-                </Link>
-                .
-              </p>
             </div>
           </article>
 

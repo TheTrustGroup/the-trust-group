@@ -58,7 +58,7 @@ export default function DefenseGradeEngineeringArticlePage() {
       <div className="trust-theme min-h-screen bg-[var(--trust-black)] text-[var(--trust-white)]">
         {/* Article hero */}
         <header
-          className="relative overflow-hidden border-b px-6 pt-24 pb-20 lg:px-16 lg:pt-40 lg:pb-20"
+          className="relative overflow-hidden border-b px-6 pt-24 pb-0 lg:px-16 lg:pt-40"
           style={{
             background: "var(--trust-slate)",
             borderColor: "var(--trust-border)",
@@ -74,7 +74,7 @@ export default function DefenseGradeEngineeringArticlePage() {
               backgroundSize: "40px 40px",
             }}
           />
-          <div className="relative z-10 mx-auto max-w-[860px] pb-0">
+          <div className="relative z-10 mx-auto max-w-[860px] pb-20">
             <div className="mb-9 flex flex-wrap items-center gap-4">
               <span
                 className="border px-3 py-1 font-trust-mono text-[10px] uppercase tracking-[0.14em]"
@@ -502,7 +502,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                   performance.
                 </p>
                 <Link
-                  href="/briefing"
+                  href="/contact"
                   className="inline-block bg-[var(--trust-gold)] px-7 py-3.5 font-trust-mono text-[12px] uppercase tracking-[0.08em] text-[var(--trust-black)] no-underline transition-colors hover:bg-[#dfc07e]"
                 >
                   Request a Private Briefing →

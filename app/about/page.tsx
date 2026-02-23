@@ -70,7 +70,7 @@ const leadership = [
 export const metadata: Metadata = generateSEOMetadata({
   title: "Company",
   description:
-    "The Trust Group was founded on a single conviction: reliability is not negotiable. Defense-grade engineering discipline for enterprise software.",
+    "Built on a single conviction: reliability is not negotiable. Learn about our methodology, principles, and the team behind The Trust Group.",
   keywords: [
     "about",
     "company",
@@ -129,7 +129,7 @@ export default function AboutPage() {
           >
             We were founded on a single
             <br />
-            conviction: <em className="italic text-[var(--trust-gold)]">reliability is not negotiable.</em>
+            conviction: <em className="italic text-[var(--trust-gold)]">reliability is<br />not negotiable.</em>
           </h1>
           <div
             className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-[var(--trust-border)] pt-16 opacity-0"
@@ -384,7 +384,7 @@ export default function AboutPage() {
             We work with a select number of organizations at a time. If your project demands precision, security, and delivery you can count on — let&apos;s talk.
           </p>
           <Link
-            href="/briefing"
+            href="/contact"
             className="inline-block bg-[var(--trust-gold)] text-[var(--trust-black)] font-trust-mono text-xs tracking-[0.08em] uppercase py-4 px-10 no-underline transition-colors duration-200 hover:bg-[#dfc07e]"
           >
             Request a Private Briefing →

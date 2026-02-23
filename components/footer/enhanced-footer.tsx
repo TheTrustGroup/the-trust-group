@@ -17,7 +17,7 @@ const contactInfo = siteConfig.contact;
 const quickLinks = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Portfolio", href: "/work" },
   { name: "Blog", href: "/blog" },
   { name: "Careers", href: "/careers" },
 ];

@@ -18,11 +18,16 @@ const navLinks = [
  */
 const TRUST_PATHS = [
   "/",
+  "/work",
   "/about",
+  "/contact",
   "/briefing",
   "/blog/why-enterprise-software-projects-take-twice-as-long",
   "/blog/defense-grade-engineering",
 ] as const;
+
+/** Paths where the nav CTA pill is hidden (page is the CTA). */
+const HIDE_NAV_CTA_PATHS = ["/contact", "/briefing"] as const;
 
 export function Header() {
   const pathname = usePathname();
@@ -51,10 +56,10 @@ export function Header() {
       >
         <Link
           href="/"
-          className="font-trust-serif text-[17px] text-[var(--trust-white)] no-underline tracking-[0.01em]"
+          className="font-trust-serif text-[17px] text-[var(--trust-white)] no-underline tracking-[0.01em] uppercase"
           aria-label="The Trust Group — Home"
         >
-          The Trust Group
+          THE TRUST GROUP
         </Link>
         <ul className="hidden md:flex gap-9 list-none">
           {navLinks.map(({ label, href }) => (
@@ -69,16 +74,18 @@ export function Header() {
             </li>
           ))}
         </ul>
-        <Link
-          href="/briefing"
-          className="trust-nav-pill hidden md:inline-flex font-trust-mono text-[11px] tracking-[0.08em] py-2.5 px-6 border border-[var(--trust-gold)] text-[var(--trust-gold)] no-underline transition-all duration-300 ease-out relative overflow-hidden"
-          style={{
-            borderColor: "var(--trust-gold)",
-            color: "var(--trust-gold)",
-          }}
-        >
-          <span>Private Briefing →</span>
-        </Link>
+        {!HIDE_NAV_CTA_PATHS.includes(pathname as (typeof HIDE_NAV_CTA_PATHS)[number]) && (
+          <Link
+            href="/contact"
+            className="trust-nav-pill hidden md:inline-flex font-trust-mono text-[11px] tracking-[0.08em] py-2.5 px-6 border border-[var(--trust-gold)] text-[var(--trust-gold)] no-underline transition-all duration-300 ease-out relative overflow-hidden"
+            style={{
+              borderColor: "var(--trust-gold)",
+              color: "var(--trust-gold)",
+            }}
+          >
+            <span>Private Briefing →</span>
+          </Link>
+        )}
         <HeaderMobileNav />
       </nav>
     );

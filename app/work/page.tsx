@@ -31,7 +31,7 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = genMeta({
   title: "Our Work",
   description:
-    "A curated selection of engagements across defense, enterprise, and emerging technology. Systems built for permanence.",
+    "Selected engagements in defense technology, enterprise AI, and mission-critical software. 40+ systems deployed across 12 countries.",
   keywords: [
     "case studies",
     "portfolio",

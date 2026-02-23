@@ -10,6 +10,16 @@ try {
 }
 
 const nextConfig = {
+  // Case studies: every /portfolio/:slug must resolve to a real page (see CASE_STUDY_AUDIT.md).
+  async redirects() {
+    return [
+      {
+        source: '/portfolio/:slug',
+        destination: '/case-studies/:slug',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

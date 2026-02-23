@@ -13,7 +13,7 @@ export const faqEntries: FAQEntry[] = [
   {
     question: "How long does a typical project take?",
     answer:
-      "We deliver faster than the industry standard — by design. Small projects are typically completed in 6–8 weeks. Larger enterprise systems range from 3–6 months, depending on scope and integration complexity. This is possible because of our architecture-first methodology: we invest heavily in the discovery and design phases to eliminate ambiguity before a single line of production code is written. The result is fewer revisions, zero wasted cycles, and delivery timelines that consistently beat industry benchmarks by 40–50%. A detailed timeline is provided during the discovery phase, and we maintain full transparency at every milestone.",
+      "We deliver faster than the industry standard — by design. Small projects are typically completed in 6–8 weeks. Larger enterprise systems range from 3–6 months, depending on scope and integration complexity. This is possible because of our architecture-first methodology: we invest heavily in the discovery and design phases to eliminate ambiguity before a single line of production code is written. The result is fewer revisions, zero wasted cycles, and delivery timelines that consistently beat industry benchmarks by 40–50%. A detailed, milestone-by-milestone timeline is provided during the discovery phase.",
   },
   {
     question: "What industries do you serve?",

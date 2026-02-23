@@ -91,7 +91,7 @@ export function ServiceHero({
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/#portfolio"
+              href="/work"
               className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium h-12 px-8 border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-200"
             >
               View Case Studies

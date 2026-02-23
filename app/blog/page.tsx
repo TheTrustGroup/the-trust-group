@@ -6,8 +6,8 @@ import { BlogPageClient } from "./blog-page-client";
 const POSTS_PER_PAGE = 6;
 
 export const metadata: Metadata = generateMetadata({
-  title: "Blog",
-  description: "Read the latest insights on AI, software development, technology, and business from The Trust Group.",
+  title: "Insights",
+  description: "Engineering perspectives on AI systems, enterprise software, defense technology, and what it takes to build systems that last.",
   keywords: ["blog", "AI", "software development", "technology", "tutorials"],
 });
 
