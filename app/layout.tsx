@@ -7,12 +7,16 @@ import {
   Instrument_Sans,
 } from "next/font/google";
 import "./globals.css";
+import "./ttg-design.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/scroll-to-top";
+import { USE_TTG_LAYOUT } from "@/lib/layout-feature";
+import { TTGNav } from "@/components/ttg-nav";
+import { TTGFooter } from "@/components/ttg-footer";
 import dynamic from "next/dynamic";
 
 const Chatbot = dynamic(
@@ -119,9 +123,19 @@ export default function RootLayout({
             >
               Skip to main content
             </a>
-            <Header />
-            <main id="main-content" tabIndex={-1}>{children}</main>
-            <Footer />
+            {USE_TTG_LAYOUT ? (
+              <>
+                <TTGNav />
+                <main id="main-content" tabIndex={-1}>{children}</main>
+                <TTGFooter />
+              </>
+            ) : (
+              <>
+                <Header />
+                <main id="main-content" tabIndex={-1}>{children}</main>
+                <Footer />
+              </>
+            )}
             <Chatbot />
           </ToastProvider>
         </ThemeProvider>
