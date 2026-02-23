@@ -1,18 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import {
+  Inter,
+  Playfair_Display,
+  DM_Serif_Display,
+  DM_Mono,
+  Instrument_Sans,
+} from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
-// ScrollProgress and BackToTop removed: no JS on scroll (see PERFORMANCE_AUDIT.md)
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import dynamic from "next/dynamic";
 
-// Client-only components loaded without SSR to keep layout as Server Component
 const Chatbot = dynamic(
   () => import("@/components/chatbot").then((mod) => ({ default: mod.Chatbot })),
+  { ssr: false, loading: () => null }
+);
+
+const CustomCursor = dynamic(
+  () => import("@/components/custom-cursor").then((mod) => ({ default: mod.CustomCursor })),
   { ssr: false, loading: () => null }
 );
 
@@ -29,6 +38,28 @@ const serif = Playfair_Display({
   display: "swap",
   preload: true,
   weight: ["400", "500", "600", "700"],
+});
+
+const trustSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  variable: "--font-trust-serif",
+  display: "swap",
+  weight: ["400"],
+});
+
+const trustMono = DM_Mono({
+  subsets: ["latin"],
+  variable: "--font-trust-mono",
+  display: "swap",
+  weight: ["300", "400", "500"],
+});
+
+const trustSans = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--font-trust-sans",
+  display: "swap",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = generateMetadata({
@@ -71,7 +102,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sans.variable} ${serif.variable} font-sans antialiased`}
+        className={`${sans.variable} ${serif.variable} ${trustSerif.variable} ${trustMono.variable} ${trustSans.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -80,6 +111,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <ToastProvider>
+            <CustomCursor />
             <ScrollToTop />
             <a
               href="#main-content"

@@ -1,30 +1,39 @@
 import { WhyTrustUs } from "@/components/ui";
-import { HeroSection } from "@/components/hero";
-import { ServicesSection } from "@/components/services";
+import { MissionCriticalHero } from "@/components/hero";
+import { EditorialSection } from "@/components/EditorialSection";
+import { MotionReveal } from "@/components/motion";
 import dynamic from "next/dynamic";
 import { ProcessSectionSimplified } from "@/components/ui/process-section-simplified";
 import { FAQSectionCondensed } from "@/components/ui/faq-section-condensed";
-
+import { TrustTestimonialsSection } from "@/components/testimonials/TrustTestimonialsSection";
 import { SelectedWork } from "@/components/portfolio";
 
-// Lazy load heavy sections below the fold with optimized loading states
-const TestimonialsSectionLazy = dynamic(() => import("@/components/testimonials").then(mod => ({ default: mod.TestimonialsSection })), {
-  loading: () => <div className="min-h-[400px]" aria-label="Loading testimonials" />,
-  ssr: false, // Disable SSR for below-fold content
-});
 const ContactSectionLazy = dynamic(() => import("@/components/contact").then(mod => ({ default: mod.ContactSection })), {
   loading: () => <div className="min-h-[400px]" aria-label="Loading contact form" />,
-  ssr: false, // Disable SSR for below-fold content
+  ssr: false,
 });
 
 export default function Home() {
   return (
     <>
-      {/* 1. Hero Section - Value proposition + Primary CTA */}
-      <HeroSection />
+      {/* 1. Hero — Mission-critical systems (circuit grid, ticker, CTAs) */}
+      <MissionCriticalHero />
 
-      {/* 2. Services Section - What we offer (3 featured) */}
-      <ServicesSection maxItems={3} />
+      {/* 2. Client Testimonials — Matches provided HTML design */}
+      <TrustTestimonialsSection />
+
+      {/* 2. Editorial content block - What we do (entrance motion, once on view) */}
+      <MotionReveal>
+        <EditorialSection
+          id="what-we-do"
+          title="What We Do"
+          statements={[
+            "We build secure, mission-critical systems for organizations that cannot afford failure.",
+            "We design and implement the infrastructure and software that run when it matters most.",
+            "We work in defense-adjacent and regulated environments where trust and precision are non-negotiable.",
+          ]}
+        />
+      </MotionReveal>
 
       {/* 3. Selected Work - Proof of capability */}
       <SelectedWork />
@@ -42,9 +51,6 @@ export default function Home() {
 
       {/* 7. FAQ - Condensed (4-5 questions) */}
       <FAQSectionCondensed />
-
-      {/* 8. Testimonials - Full gallery (lazy loaded) */}
-      <TestimonialsSectionLazy />
     </>
   );
 }

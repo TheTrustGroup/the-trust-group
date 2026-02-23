@@ -1,4 +1,6 @@
 export { HeroSection } from "./hero-section";
+export { EditorialHero } from "./EditorialHero";
+export { MissionCriticalHero } from "./MissionCriticalHero";
 export { HeroMetrics } from "./hero-metrics";
 export { AnimatedBackground } from "./animated-background";
 export { ScrollIndicator } from "./scroll-indicator";

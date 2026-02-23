@@ -229,6 +229,120 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Trust design system (mission-critical hero + testimonials)
+   --------------------------------------------------------------------------- */
+:root,
+.trust-theme {
+  --trust-black: #080807;
+  --trust-white: #f4f1eb;
+  --trust-cream: #e8e2d4;
+  --trust-gold: #c8a96e;
+  --trust-gold-dim: rgba(200, 169, 110, 0.15);
+  --trust-gold-glow: rgba(200, 169, 110, 0.06);
+  --trust-slate: #111110;
+  --trust-muted: #6b6760;
+  --trust-border: rgba(200, 169, 110, 0.15);
+}
+
+/* Trust hero + ticker animations */
+@keyframes trust-gridShift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+@keyframes trust-scanDown {
+  0% { top: -1px; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+@keyframes trust-orbPulse {
+  0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-50%) scale(1.12); opacity: 1; }
+}
+@keyframes trust-lineFlicker {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes trust-tickerRoll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes trust-fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes trust-statusPulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(76, 175, 110, 0.5); }
+  50% { box-shadow: 0 0 14px rgba(76, 175, 110, 0.9); }
+}
+
+.trust-nav-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--trust-gold);
+  transform: translateX(-101%);
+  transition: transform 0.25s ease;
+}
+.trust-nav-pill:hover::before {
+  transform: translateX(0);
+}
+.trust-nav-pill span {
+  position: relative;
+  z-index: 1;
+}
+.trust-nav-pill:hover span {
+  color: var(--trust-black);
+}
+
+.trust-btn-gold {
+  position: relative;
+  overflow: hidden;
+}
+.trust-btn-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-101%);
+  transition: transform 0.25s ease;
+}
+.trust-btn-gold:hover::after {
+  transform: translateX(0);
+}
+
+.trust-ticker-wrap {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+.trust-ticker-wrap::before,
+.trust-ticker-wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+.trust-ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--trust-black), transparent);
+}
+.trust-ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--trust-black), transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-theme [class*="trust-animate-"] {
+    animation: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Reduced motion
    --------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {

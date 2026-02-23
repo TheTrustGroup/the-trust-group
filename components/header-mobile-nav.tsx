@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Capabilities", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "Company", href: "/about" },
+  { label: "Insights", href: "/blog" },
 ] as const;
 
 export function HeaderMobileNav() {

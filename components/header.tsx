@@ -1,25 +1,84 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { MotionLink } from "@/components/motion";
 import { HeaderMobileNav } from "@/components/header-mobile-nav";
 
-/**
- * Luxury editorial header — single row, nav never wraps.
- * Desktop: logo + nav + CTA. Mobile: logo + menu (rest in drawer).
- */
 const navLinks = [
   { label: "Capabilities", href: "/services" },
   { label: "Work", href: "/work" },
   { label: "Company", href: "/about" },
+  { label: "Insights", href: "/blog" },
 ] as const;
 
+/**
+ * Header: trust variant on home (fixed, scrolled state, pill CTA); default editorial elsewhere.
+ */
 export function Header() {
+  const pathname = usePathname();
+  const isTrust = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!isTrust) return;
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isTrust]);
+
+  if (isTrust) {
+    return (
+      <nav
+        role="navigation"
+        aria-label="Main"
+        className={`fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-8 lg:px-16 py-7 transition-all duration-500 ease-out ${
+          scrolled
+            ? "bg-[rgba(8,8,7,0.9)] border-b border-[var(--trust-border)] backdrop-blur-[24px] py-5"
+            : ""
+        }`}
+        style={{ borderColor: scrolled ? "rgba(200,169,110,0.15)" : "transparent" }}
+      >
+        <Link
+          href="/"
+          className="font-trust-serif text-[17px] text-[var(--trust-white)] no-underline tracking-[0.01em]"
+          aria-label="The Trust Group — Home"
+        >
+          The Trust Group
+        </Link>
+        <ul className="hidden md:flex gap-9 list-none">
+          {navLinks.map(({ label, href }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className="text-[12px] uppercase tracking-[0.1em] text-[var(--trust-muted)] no-underline transition-colors hover:text-[var(--trust-white)]"
+                style={{ color: "var(--trust-muted)" }}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link
+          href="/contact"
+          className="trust-nav-pill hidden md:inline-flex font-trust-mono text-[11px] tracking-[0.08em] py-2.5 px-6 border border-[var(--trust-gold)] text-[var(--trust-gold)] no-underline transition-all duration-300 ease-out relative overflow-hidden"
+          style={{
+            borderColor: "var(--trust-gold)",
+            color: "var(--trust-gold)",
+          }}
+        >
+          <span>Private Briefing →</span>
+        </Link>
+        <HeaderMobileNav />
+      </nav>
+    );
+  }
+
   return (
-    <header
-      className="w-full border-b border-border/40"
-      role="banner"
-    >
+    <header className="w-full border-b border-border/40" role="banner">
       <div className="mx-auto flex h-20 w-full max-w-editorial items-center justify-between gap-6 px-4 sm:px-6 lg:px-12">
-        {/* Logo — horizontal only, never stacked */}
         <Link
           href="/"
           className="font-serif text-headline-sm font-medium uppercase tracking-[0.2em] text-foreground no-underline outline-none focus-visible:ring-0 focus-visible:underline focus-visible:underline-offset-2 whitespace-nowrap shrink-0"
@@ -27,13 +86,11 @@ export function Header() {
         >
           THE TRUST GROUP
         </Link>
-
-        {/* Desktop nav — single row, never wrap */}
         <nav
           className="hidden md:flex items-center gap-8 xl:gap-10 shrink-0"
           aria-label="Main"
         >
-          {navLinks.map(({ label, href }) => (
+          {navLinks.slice(0, 3).map(({ label, href }) => (
             <Link
               key={href}
               href={href}
@@ -43,8 +100,6 @@ export function Header() {
             </Link>
           ))}
         </nav>
-
-        {/* Desktop CTA */}
         <div className="hidden md:block shrink-0">
           <MotionLink
             href="/contact"
@@ -53,8 +108,6 @@ export function Header() {
             Private Briefing →
           </MotionLink>
         </div>
-
-        {/* Mobile: menu button (nav links in drawer) */}
         <HeaderMobileNav />
       </div>
     </header>
