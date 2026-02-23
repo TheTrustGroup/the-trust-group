@@ -240,8 +240,11 @@
   --trust-gold-dim: rgba(200, 169, 110, 0.15);
   --trust-gold-glow: rgba(200, 169, 110, 0.06);
   --trust-slate: #111110;
+  --trust-slate2: #181715;
   --trust-muted: #6b6760;
+  --trust-text: #b8b4ac;
   --trust-border: rgba(200, 169, 110, 0.15);
+  --trust-border-faint: rgba(200, 169, 110, 0.07);
 }
 
 /* Trust hero + ticker animations */
@@ -308,6 +311,12 @@
   transition: transform 0.25s ease;
 }
 .trust-btn-gold:hover::after {
+  transform: translateX(0);
+}
+
+/* Company page timeline scroll-in */
+.timeline-item.visible {
+  opacity: 1;
   transform: translateX(0);
 }
 
