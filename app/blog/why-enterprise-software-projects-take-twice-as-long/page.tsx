@@ -683,7 +683,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 Related Reading
               </div>
               <Link
-                href="/blog/what-defense-grade-engineering-principles-teach-commercial-software-teams"
+                href="/blog/defense-grade-engineering"
                 className="block border-b py-3 no-underline"
                 style={{ borderColor: "var(--trust-border)" }}
               >
