@@ -1,8 +1,10 @@
 /**
  * TTG (The Trust Group) layout design system.
  * Scoped to .ttg-nav and .ttg-footer. Loaded when layout uses TTGNav/TTGFooter.
- * Fonts: Cormorant Garamond (serif), Jost (sans) — loaded via next/font in layout.tsx.
+ * Fonts: Cormorant Garamond (serif), Jost (sans). Match live site.
  */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap");
 
 :root {
   --ttg-bg: #f5f3f0;
@@ -13,7 +15,7 @@
   --ttg-muted-lt: #9ea3b0;
   --ttg-border: #e5e3df;
   --ttg-border-nav: #ebebeb;
-  --ttg-font-serif: "Cormorant Garamond", Georgia, serif;
+  --ttg-font-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --ttg-font-sans: "Jost", system-ui, sans-serif;
   --ttg-nav-h: 72px;
   --ttg-max-w: 1200px;
