@@ -5,6 +5,8 @@ import {
   DM_Serif_Display,
   DM_Mono,
   Instrument_Sans,
+  Cormorant_Garamond,
+  Jost,
 } from "next/font/google";
 import "./globals.css";
 import "./ttg-design.css";
@@ -66,6 +68,21 @@ const trustSans = Instrument_Sans({
   style: ["normal", "italic"],
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--ttg-font-serif",
+  display: "swap",
+});
+
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--ttg-font-sans",
+  display: "swap",
+});
+
 export const metadata: Metadata = generateMetadata({
   title: "Mission-Critical Software Engineering",
   description:
@@ -91,11 +108,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -106,7 +118,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sans.variable} ${serif.variable} ${trustSerif.variable} ${trustMono.variable} ${trustSans.variable} font-sans antialiased`}
+        className={`${USE_TTG_LAYOUT ? `${cormorant.variable} ${jost.variable}` : `${sans.variable} ${serif.variable} ${trustSerif.variable} ${trustMono.variable} ${trustSans.variable}`} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"

@@ -1,6 +1,10 @@
 import { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
+
+/** TTG geometric mark favicon (navy + gold) — inline SVG, no external file. */
+const TTG_FAVICON_DATA_URL =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231a1f2e'/%3E%3Cdefs%3E%3ClinearGradient id='fg' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23e8d4a8'/%3E%3Cstop offset='100%25' stop-color='%23b8944a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='16,2 30,16 16,30 2,16' fill='none' stroke='url(%23fg)' stroke-width='0.8'/%3E%3Cpolygon points='16,7 25,16 16,25 7,16' fill='none' stroke='url(%23fg)' stroke-width='0.5' opacity='0.45'/%3E%3Crect x='9' y='9' width='6' height='6' fill='url(%23fg)' opacity='0.9'/%3E%3Crect x='17' y='9' width='6' height='6' fill='url(%23fg)' opacity='0.55'/%3E%3Crect x='9' y='17' width='6' height='6' fill='url(%23fg)' opacity='0.55'/%3E%3Crect x='17' y='17' width='6' height='6' fill='url(%23fg)' opacity='0.25'/%3E%3Cpath d='M2 6 L2 2 L6 2' fill='none' stroke='url(%23fg)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M26 2 L30 2 L30 6' fill='none' stroke='url(%23fg)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M30 26 L30 30 L26 30' fill='none' stroke='url(%23fg)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M6 30 L2 30 L2 26' fill='none' stroke='url(%23fg)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E";
 const siteName = "The Trust Group";
 const defaultDescription = "The Trust Group specializes in AI solutions, custom software development, mobile and web application development, and sophisticated website development.";
 const defaultImage = `${siteUrl}/og-image.jpg`;
@@ -84,14 +88,15 @@ export function generateMetadata({
     publisher: siteName,
     applicationName: siteName,
     referrer: "origin-when-cross-origin",
-    // ✅ Favicon and icons - Next.js automatically handles charset and viewport
+    // ✅ Favicon — TTG geometric mark (navy + gold) inline SVG; PNG fallbacks for older clients
     icons: {
       icon: [
-        { url: "/favicon.ico", sizes: "any" },
+        { url: TTG_FAVICON_DATA_URL, type: "image/svg+xml" },
         { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
         { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "any" },
       ],
+      shortcut: TTG_FAVICON_DATA_URL,
       apple: [
         { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
       ],
