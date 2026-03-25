@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/cloud-solutions",
     "/services/consulting",
     "/services/defense-technology",
+    "/services/robotics-edge-ai",
     "/contact",
     "/blog",
     "/careers",

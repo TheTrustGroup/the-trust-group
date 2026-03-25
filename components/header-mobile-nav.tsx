@@ -42,6 +42,7 @@ export function HeaderMobileNav() {
                 <Link
                   key={href}
                   href={href}
+                  prefetch
                   className="font-sans text-body-lg text-foreground no-underline py-2 border-b border-border/40 last:border-0"
                   onClick={() => setOpen(false)}
                 >
@@ -50,6 +51,7 @@ export function HeaderMobileNav() {
               ))}
               <Link
                 href="/contact"
+                prefetch
                 className="font-sans text-body-lg text-foreground no-underline py-2"
                 onClick={() => setOpen(false)}
               >

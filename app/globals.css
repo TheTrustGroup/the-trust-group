@@ -15,6 +15,7 @@
   --z-dropdown: 1000;
   --z-sticky: 1100;
   --z-fixed: 1200;
+  --z-loading: 1250;
   --z-modal-backdrop: 1300;
   --z-modal: 1400;
   --z-popover: 1500;
@@ -277,6 +278,12 @@
 @keyframes trust-statusPulse {
   0%, 100% { box-shadow: 0 0 6px rgba(76, 175, 110, 0.5); }
   50% { box-shadow: 0 0 14px rgba(76, 175, 110, 0.9); }
+}
+
+/* Route loading: minimal top bar (only full-screen loader after delay) */
+@keyframes route-load-shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(400%); }
 }
 
 .trust-nav-pill::before {

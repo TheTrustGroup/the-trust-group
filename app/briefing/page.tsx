@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
+import nextDynamic from "next/dynamic";
 import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/lib/seo";
-import { PrivateBriefingContent } from "@/components/briefing/private-briefing-content";
+import { PageContentLoader } from "@/components/loading/page-content-loader";
+
+const PrivateBriefingContent = nextDynamic(
+  () =>
+    import("@/components/briefing/private-briefing-content").then((m) => ({
+      default: m.PrivateBriefingContent,
+    })),
+  { loading: () => <PageContentLoader />, ssr: true }
+);
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Private Briefing",

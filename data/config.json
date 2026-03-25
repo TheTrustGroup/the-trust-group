@@ -63,13 +63,14 @@
     ],
     "footer": {
       "services": [
+        { "name": "Defense Technology", "href": "/services/defense-technology" },
+        { "name": "Robotics & Edge AI", "href": "/services/robotics-edge-ai" },
         { "name": "AI Solutions & Implementation", "href": "/services/ai-solutions" },
         { "name": "Custom Software Development", "href": "/services/custom-software" },
         { "name": "Mobile App Development", "href": "/services/mobile-apps" },
         { "name": "Web Development", "href": "/services/web-development" },
         { "name": "Cloud Solutions", "href": "/services/cloud-solutions" },
-        { "name": "Consulting & Strategy", "href": "/services/consulting" },
-        { "name": "Defense Technology", "href": "/services/defense-technology" }
+        { "name": "Consulting & Strategy", "href": "/services/consulting" }
       ],
       "company": [
         { "name": "About Us", "href": "/about" },

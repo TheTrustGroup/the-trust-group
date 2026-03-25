@@ -9,6 +9,8 @@ export interface Service {
   variant: "default" | "primary" | "accent";
   href?: string;
   featured?: boolean; // For highlighting strategic capabilities
+  /** Pill on the Capabilities page hero grid ("Strategic" / "Emerging"). */
+  capabilityLabel?: "strategic" | "emerging";
 }
 
 export interface Project {

@@ -18,6 +18,7 @@ import {
   Cloud,
   Lightbulb,
   Shield,
+  Cpu,
 } from "lucide-react";
 import { siteConfig } from "@/lib/cms-client";
 
@@ -46,6 +47,7 @@ const SERVICE_ICON_MAP: Record<
   "Cloud Solutions": Cloud,
   "Consulting & Strategy": Lightbulb,
   "Defense Technology": Shield,
+  "Robotics & Edge AI": Cpu,
 };
 
 function ServiceIcon({ name }: { name: string }) {
@@ -130,7 +132,7 @@ export function TTGFooter() {
 
       <div className="ttg-footer__main">
         <div className="ttg-footer__brand">
-          <Link href="/" className="ttg-footer__brand-logo">
+          <Link href="/" prefetch className="ttg-footer__brand-logo">
             <div className="ttg-footer__brand-icon">
               <Shield
                 className="text-white"
@@ -170,7 +172,7 @@ export function TTGFooter() {
           <ul>
             {QUICK_LINKS.map(({ label, href }) => (
               <li key={href}>
-                <Link href={href}>{label}</Link>
+                <Link href={href} prefetch>{label}</Link>
               </li>
             ))}
           </ul>
@@ -182,7 +184,7 @@ export function TTGFooter() {
             {services.map((item) => (
               <li key={item.href} className="with-icon">
                 <ServiceIcon name={item.name} />
-                <Link href={item.href}>{item.name}</Link>
+                <Link href={item.href} prefetch>{item.name}</Link>
               </li>
             ))}
           </ul>
@@ -242,7 +244,7 @@ export function TTGFooter() {
             {LEGAL_LINKS.map((item, i) => (
               <React.Fragment key={item.href}>
                 {i > 0 && <span>•</span>}
-                <Link href={item.href}>{item.label}</Link>
+                <Link href={item.href} prefetch>{item.label}</Link>
               </React.Fragment>
             ))}
           </nav>

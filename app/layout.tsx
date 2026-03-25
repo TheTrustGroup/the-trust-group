@@ -5,6 +5,8 @@ import {
   DM_Serif_Display,
   DM_Mono,
   Instrument_Sans,
+  Jost,
+  Cormorant_Garamond,
 } from "next/font/google";
 import "./globals.css";
 import "./ttg-design.css";
@@ -66,6 +68,21 @@ const trustSans = Instrument_Sans({
   style: ["normal", "italic"],
 });
 
+const ttgJost = Jost({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-ttg-jost",
+  display: "swap",
+});
+
+const ttgCormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-ttg-cormorant",
+  display: "swap",
+});
+
 export const metadata: Metadata = generateMetadata({
   title: "Mission-Critical Software Engineering",
   description:
@@ -89,12 +106,13 @@ export default function RootLayout({
   const websiteSchema = generateStructuredData("WebSite");
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${ttgJost.variable} ${ttgCormorant.variable}`}
+    >
       <head>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        {/* Favicon from metadata.icons + Next app/icon.svg & app/favicon.ico; no duplicate links */}
         <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"

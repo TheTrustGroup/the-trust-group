@@ -78,13 +78,15 @@ export function PrivateBriefingContent() {
 
     try {
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const briefingTemplateId =
+        process.env.NEXT_PUBLIC_EMAILJS_BRIEFING_TEMPLATE_ID ||
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-      if (serviceId && templateId && publicKey) {
+      if (serviceId && briefingTemplateId && publicKey) {
         await emailjs.send(
           serviceId,
-          templateId,
+          briefingTemplateId,
           {
             first_name: formData.firstName,
             last_name: formData.lastName,

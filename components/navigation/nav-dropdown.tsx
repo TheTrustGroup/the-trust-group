@@ -85,6 +85,7 @@ export function NavDropdown({ label, items, onItemClick }: NavDropdownProps) {
                 >
                   <Link
                     href={item.href}
+                    prefetch
                     onClick={onItemClick}
                     className="block px-4 py-2.5 text-sm text-foreground/80 hover:text-foreground hover:bg-accent/50 transition-colors duration-200 relative group"
                   >

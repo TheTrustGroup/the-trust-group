@@ -55,6 +55,7 @@ export function Header() {
       >
         <Link
           href="/"
+          prefetch
           className="ttg-serif text-[17px] text-[var(--ttg-navy)] no-underline tracking-[0.01em] uppercase"
           aria-label="The Trust Group — Home"
         >
@@ -65,6 +66,7 @@ export function Header() {
             <li key={href}>
               <Link
                 href={href}
+                prefetch
                 className={`text-[12px] uppercase tracking-[0.1em] no-underline transition-colors ${
                   pathname === href ? "text-[var(--ttg-navy)]" : "text-[var(--ttg-muted)]"
                 } hover:text-[var(--ttg-navy)]`}
@@ -77,6 +79,7 @@ export function Header() {
         {!HIDE_NAV_CTA_PATHS.includes(pathname as (typeof HIDE_NAV_CTA_PATHS)[number]) && (
           <Link
             href="/contact"
+            prefetch
             className="ttg-btn-pill hidden md:inline-flex"
           >
             Private Briefing →
@@ -92,6 +95,7 @@ export function Header() {
       <div className="mx-auto flex h-20 w-full max-w-editorial items-center justify-between gap-6 px-4 sm:px-6 lg:px-12">
         <Link
           href="/"
+          prefetch
           className="font-serif text-headline-sm font-medium uppercase tracking-[0.2em] text-foreground no-underline outline-none focus-visible:ring-0 focus-visible:underline focus-visible:underline-offset-2 whitespace-nowrap shrink-0"
           aria-label="The Trust Group — Home"
         >
@@ -105,6 +109,7 @@ export function Header() {
             <Link
               key={href}
               href={href}
+              prefetch
               className="font-sans text-body-sm text-muted-foreground no-underline whitespace-nowrap hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-inset focus-visible:ring-offset-0"
             >
               {label}
@@ -114,6 +119,7 @@ export function Header() {
         <div className="hidden md:block shrink-0">
           <MotionLink
             href="/contact"
+            prefetch
             className="font-sans text-body-sm text-muted-foreground no-underline whitespace-nowrap hover:text-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-inset focus-visible:ring-offset-0"
           >
             Private Briefing →

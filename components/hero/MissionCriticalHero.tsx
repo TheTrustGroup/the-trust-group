@@ -206,7 +206,7 @@ export function MissionCriticalHero() {
         >
           Proven at Scale
         </span>
-        <div className="trust-ticker-wrap flex-1 min-w-0 overflow-hidden">
+        <div className="trust-ticker-wrap flex-1 min-w-0 min-h-[52px] overflow-hidden flex items-center">
           <div
             className="flex gap-0 whitespace-nowrap"
             style={{ animation: "trust-tickerRoll 30s linear infinite" }}

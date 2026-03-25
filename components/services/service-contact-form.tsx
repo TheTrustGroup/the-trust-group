@@ -31,7 +31,7 @@ export function ServiceContactForm({
             )}
           </div>
           <div className="bg-background rounded-2xl border-2 border-border p-6 md:p-8">
-            <ContactForm />
+            <ContactForm defaultService={prefillService ?? serviceName} />
           </div>
         </div>
       </div>

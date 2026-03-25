@@ -138,6 +138,7 @@ export function EnhancedNavigation() {
             >
               <Link
                 href="/"
+                prefetch
                 className="flex items-center group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:rounded-lg"
                 aria-label="The Trust Group - Home"
               >
@@ -167,6 +168,7 @@ export function EnhancedNavigation() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    prefetch
                     onClick={(e) => {
                       if (item.href.startsWith("#")) {
                         e.preventDefault();
@@ -196,7 +198,7 @@ export function EnhancedNavigation() {
             <div className="hidden md:flex items-center gap-apple-sm flex-shrink-0 ml-6">
               <ThemeToggle />
               <Button className="btn-apple btn-apple-primary text-sm px-4 py-2 min-h-[44px]" asChild>
-                <Link href="/contact">Start Conversation</Link>
+                <Link href="/contact" prefetch>Start Conversation</Link>
               </Button>
             </div>
 

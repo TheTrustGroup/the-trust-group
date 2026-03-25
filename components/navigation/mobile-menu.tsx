@@ -160,6 +160,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                         <div className="space-y-2">
                           <Link
                             href={item.href}
+                            prefetch
                             onClick={() => handleLinkClick(item.href)}
                             className={cn(
                               "block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200",
@@ -176,6 +177,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                               <Link
                                 key={service.href}
                                 href={service.href}
+                                prefetch
                                 onClick={() => handleLinkClick(service.href)}
                                 className={cn(
                                   "block px-4 py-2 text-sm text-foreground/70 hover:text-foreground hover:bg-accent/50 rounded-lg transition-colors min-h-[44px] flex items-center",
@@ -191,6 +193,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                       ) : (
                         <Link
                           href={item.href}
+                          prefetch
                           onClick={() => handleLinkClick(item.href)}
                           className={cn(
                             "block px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 min-h-[44px] flex items-center",
@@ -219,6 +222,7 @@ export function MobileMenu({ isOpen, onClose, items, servicesItems }: MobileMenu
                 <Link
                   ref={lastFocusableRef}
                   href="/contact"
+                  prefetch
                   className="btn-apple btn-apple-primary w-full min-h-[52px] flex items-center justify-center"
                   onClick={() => onClose()}
                 >

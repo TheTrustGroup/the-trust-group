@@ -10,6 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 const services = [
+  "Defense Technology",
+  "Robotics & Edge AI",
   "AI Solutions & Implementation",
   "Custom Software Development",
   "Mobile App Development",
@@ -44,16 +46,27 @@ interface FormErrors {
   description?: string;
 }
 
-export function ContactForm() {
+interface ContactFormProps {
+  /** Pre-selects the service field (e.g. from a service detail page). */
+  defaultService?: string;
+}
+
+export function ContactForm({ defaultService = "" }: ContactFormProps) {
   const { showToast } = useToast();
   const [formData, setFormData] = React.useState<FormData>({
     name: "",
     email: "",
     company: "",
-    service: "",
+    service: defaultService,
     description: "",
     budget: "",
   });
+
+  React.useEffect(() => {
+    if (defaultService) {
+      setFormData((prev) => ({ ...prev, service: defaultService }));
+    }
+  }, [defaultService]);
 
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
@@ -135,7 +148,7 @@ export function ContactForm() {
         name: "",
         email: "",
         company: "",
-        service: "",
+        service: defaultService || "",
         description: "",
         budget: "",
       });

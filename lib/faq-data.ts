@@ -18,7 +18,7 @@ export const faqEntries: FAQEntry[] = [
   {
     question: "What industries do you serve?",
     answer:
-      "We serve defense and intelligence, healthcare, financial services, e-commerce, real estate, transportation, hospitality, and enterprise SaaS. Solutions are tailored to meet industry-specific compliance standards — including HIPAA, SOC 2, and defense-grade security frameworks.",
+      "We serve defense and intelligence, healthcare, financial services, e-commerce, real estate, transportation, hospitality, enterprise SaaS, robotics and autonomous systems, and manufacturing automation. Solutions are tailored to meet industry-specific compliance standards — including HIPAA, SOC 2, and defense-grade security frameworks.",
   },
   {
     question: "What technologies do you specialize in?",

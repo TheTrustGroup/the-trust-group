@@ -1,11 +1,17 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import {
   DM_Serif_Display,
   DM_Mono,
   Instrument_Sans,
 } from "next/font/google";
 import { generateMetadata as genMeta } from "@/lib/seo";
-import { WorkPageClient } from "./WorkPageClient";
+import { PageContentLoader } from "@/components/loading/page-content-loader";
+
+const WorkPageClient = dynamic(
+  () => import("./WorkPageClient").then((m) => ({ default: m.WorkPageClient })),
+  { loading: () => <PageContentLoader />, ssr: true }
+);
 
 const dmSerif = DM_Serif_Display({
   subsets: ["latin"],

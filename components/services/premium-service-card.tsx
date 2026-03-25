@@ -1,13 +1,14 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check, ChevronDown } from "lucide-react";
 
 export interface PremiumServiceCardProps extends React.HTMLAttributes<HTMLDivElement> {
   serviceId: string;
+  href: string;
   title: string;
   description: string;
   features?: string[];
@@ -17,7 +18,8 @@ export interface PremiumServiceCardProps extends React.HTMLAttributes<HTMLDivEle
 export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServiceCardProps>(
   ({ 
     className, 
-    serviceId,
+    serviceId: _serviceId,
+    href,
     title, 
     description, 
     features = [],
@@ -50,35 +52,43 @@ export const PremiumServiceCard = React.forwardRef<HTMLDivElement, PremiumServic
           "group cursor-pointer",
           "transition-all duration-300",
           "hover:shadow-lg hover:-translate-y-1",
-          "focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2",
           className
         )}
       >
-        <CardHeader className="pb-4 card-padding-apple">
+        <Link
+          href={href}
+          prefetch
+          className="absolute inset-0 z-[1] rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          aria-label={`${title} — view capability`}
+        />
+        <CardHeader className="relative z-[2] pb-4 card-padding-apple pointer-events-none">
           <CardTitle className="text-lg md:text-xl mb-3 break-words text-high-contrast">
             {title}
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="space-y-4 card-padding-apple pt-0">
+        <CardContent className="relative z-[2] space-y-4 card-padding-apple pt-0 pointer-events-none">
           <CardDescription className="text-sm md:text-base break-words text-medium-contrast">
             {description}
           </CardDescription>
 
-          {/* Expandable Details Section */}
           {features.length > 0 && (
             <div className="space-y-3">
               <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="flex items-center justify-between w-full text-sm font-medium text-primary hover:text-primary/80 transition-colors min-h-[44px]"
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsExpanded(!isExpanded);
+                }}
+                className="pointer-events-auto relative z-[3] flex items-center justify-between w-full text-sm font-medium text-primary hover:text-primary/80 transition-colors min-h-[44px] text-left"
               >
                 <span>View Details</span>
-                <ChevronDown 
+                <ChevronDown
                   className={cn(
-                    "h-4 w-4 transition-transform duration-200",
+                    "h-4 w-4 transition-transform duration-200 shrink-0",
                     isExpanded && "rotate-180"
-                  )} 
-                  strokeWidth={2} 
+                  )}
+                  strokeWidth={2}
                 />
               </button>
 

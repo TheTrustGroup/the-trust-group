@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import nextDynamic from "next/dynamic";
 import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/lib/seo";
-import { CompanyTimelineScroll } from "@/components/about/company-timeline-scroll";
+import { SectionContentLoader } from "@/components/loading/page-content-loader";
+
+const CompanyTimelineScroll = nextDynamic(
+  () =>
+    import("@/components/about/company-timeline-scroll").then((m) => ({
+      default: m.CompanyTimelineScroll,
+    })),
+  { loading: () => <SectionContentLoader />, ssr: true }
+);
 
 const principles = [
   {

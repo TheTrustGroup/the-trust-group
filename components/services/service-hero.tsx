@@ -12,6 +12,7 @@ import {
   TrendingUp,
   Shield,
   Building2,
+  Cpu,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -24,6 +25,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   TrendingUp,
   Shield,
   Building2,
+  Cpu,
 };
 
 interface ServiceHeroProps {
@@ -65,7 +67,7 @@ export function ServiceHero({
           </h1>
 
           {/* Description */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed whitespace-pre-line">
             {description}
           </p>
 

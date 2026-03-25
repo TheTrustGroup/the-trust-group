@@ -1,6 +1,6 @@
-import { LoadingScreen } from "@/components/loading/loading-screen";
+import { RouteLoading } from "@/components/loading/route-loading";
 
 export default function Loading() {
-  return <LoadingScreen isLoading={true} message="Loading your experience..." />;
+  return <RouteLoading />;
 }
 

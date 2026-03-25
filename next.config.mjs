@@ -147,6 +147,10 @@ const nextConfig = {
             value: 'public, max-age=0, must-revalidate',
           },
           {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },
