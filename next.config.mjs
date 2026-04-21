@@ -1,14 +1,8 @@
-/** @type {import('next').NextConfig} */
-let withBundleAnalyzer;
-try {
-  withBundleAnalyzer = require('@next/bundle-analyzer')({
-    enabled: process.env.ANALYZE === 'true',
-  });
-} catch (e) {
-  // Bundle analyzer not installed, use identity function
-  withBundleAnalyzer = (config) => config;
-}
+import { createRequire } from 'node:module';
 
+const require = createRequire(import.meta.url);
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   // Case studies: every /portfolio/:slug must resolve to a real page (see CASE_STUDY_AUDIT.md).
   async redirects() {
@@ -168,16 +162,13 @@ const nextConfig = {
   },
 };
 
-// Apply bundle analyzer if available
 let config = nextConfig;
 if (process.env.ANALYZE === 'true') {
   try {
     const bundleAnalyzer = require('@next/bundle-analyzer');
-    config = bundleAnalyzer.default({
-      enabled: true,
-    })(nextConfig);
+    const wrap = bundleAnalyzer.default ?? bundleAnalyzer;
+    config = wrap({ enabled: true })(nextConfig);
   } catch (e) {
-    // Bundle analyzer not installed, use config as-is
     console.warn('Bundle analyzer not installed. Run: npm install --save-dev @next/bundle-analyzer');
   }
 }

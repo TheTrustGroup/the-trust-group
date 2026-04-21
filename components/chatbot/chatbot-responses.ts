@@ -24,7 +24,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["company", "about", "who are you", "trust group", "background"],
-    response: "The Trust Group is a parent company specializing in AI solutions and innovative software engineering. We transform businesses through cutting-edge technology and have multiple businesses under our umbrella, delivering excellence in every project.\n\nWe have 10+ years of experience, 500+ projects delivered, and 100+ happy clients.",
+    response: "The Trust Group is a parent company specializing in AI solutions and innovative software engineering. We transform businesses through cutting-edge technology and have multiple businesses under our umbrella, delivering excellence in every project.\n\nWe have 5+ years of experience, 500+ projects delivered, and 100+ happy clients.",
     links: [{ text: "Learn more about us", href: "/about" }],
   },
   {

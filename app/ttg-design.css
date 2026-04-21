@@ -56,19 +56,42 @@
 }
 
 .ttg-nav__logo {
-  font-family: var(--ttg-font-serif);
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: var(--ttg-navy);
   text-decoration: none;
-  text-transform: uppercase;
   line-height: 1;
   flex-shrink: 0;
 }
 
+.ttg-nav__mark {
+  display: block;
+  flex-shrink: 0;
+}
+
+.ttg-nav__wordmark {
+  font-family: var(--ttg-font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .ttg-nav__logo:hover {
   color: var(--ttg-navy);
+}
+
+@media (max-width: 768px) {
+  .ttg-nav__wordmark {
+    font-size: 16px;
+    letter-spacing: 0.16em;
+  }
+  .ttg-nav__logo {
+    gap: 10px;
+  }
 }
 
 .ttg-nav__links {
@@ -376,8 +399,9 @@
 }
 
 .ttg-footer__brand-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 .ttg-footer__brand-name {

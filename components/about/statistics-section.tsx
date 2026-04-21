@@ -30,7 +30,7 @@ const statistics = [
   },
   {
     icon: Calendar,
-    value: 10,
+    value: 5,
     suffix: "+",
     label: "Years of Experience",
     color: "text-accent",

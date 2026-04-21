@@ -45,7 +45,7 @@ Edit the following fields in `data/config.json`:
   "name": "The Trust Group",
   "tagline": "Your Tagline Here",
   "description": "Your company description...",
-  "founded": "2014",
+  "founded": "2021",
   "headquarters": "Your City, State",
   "website": "https://thetrustgroupsolutions.com"
 }

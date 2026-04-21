@@ -4,6 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lockBodyScroll, forceUnlockScroll } from "@/lib/utils/scroll-lock";
+import { TrustMark } from "@/components/trust-mark";
 
 const NAV_ITEMS = [
   { label: "Capabilities", href: "/services" },
@@ -76,8 +77,9 @@ export function TTGNav() {
         id="ttgNav"
         aria-label="Main navigation"
       >
-        <Link href="/" className="ttg-nav__logo">
-          The Trust Group
+        <Link href="/" className="ttg-nav__logo" aria-label="The Trust Group, home">
+          <TrustMark size={28} tone="gold-gradient-deep" showCrosshair={false} className="ttg-nav__mark" />
+          <span className="ttg-nav__wordmark">The Trust Group</span>
         </Link>
 
         <ul className="ttg-nav__links" role="list">

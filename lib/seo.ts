@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
 const siteName = "The Trust Group";
-const defaultDescription = "The Trust Group specializes in AI solutions, custom software development, mobile and web application development, and sophisticated website development.";
-const defaultImage = `${siteUrl}/og-image.jpg`;
+const defaultDescription =
+  "Mission-critical software for organizations that cannot afford to fail. Engineering · Strategy · Defense. Built to enterprise-grade reliability standards, delivered on time.";
 
 export interface SEOProps {
   title?: string;
@@ -33,7 +33,7 @@ function truncate(text: string, maxLength: number): string {
  */
 function generateTitle(title?: string): string {
   if (!title) {
-    return `${siteName} - AI & Software Engineering Solutions`;
+    return `${siteName} — Engineering · Strategy · Defense`;
   }
   
   const fullTitle = `${title} | ${siteName}`;
@@ -60,7 +60,7 @@ export function generateMetadata({
   title,
   description,
   keywords = [],
-  image = defaultImage,
+  image,
   url,
   type = "website",
   publishedTime,
@@ -72,7 +72,14 @@ export function generateMetadata({
   const fullTitle = generateTitle(title);
   const metaDescription = generateDescription(description);
   const canonicalUrl = url ? `${siteUrl}${url}` : siteUrl;
-  const ogImage = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  // If no custom image is provided, defer to Next.js's auto-registered
+  // app/opengraph-image.tsx by omitting the images block entirely. When
+  // a page supplies a custom `image`, we override with it explicitly.
+  const ogImage = image
+    ? image.startsWith("http")
+      ? image
+      : `${siteUrl}${image}`
+    : null;
 
   return {
     metadataBase: new URL(siteUrl),
@@ -84,16 +91,22 @@ export function generateMetadata({
     publisher: siteName,
     applicationName: siteName,
     referrer: "origin-when-cross-origin",
-    // Favicon: SVG only with cache-bust so browsers don’t use cached old blue icon
+    // Favicons. Single source of truth: files in /public. App-router icon.svg /
+    // apple-icon.svg have been removed so scrapers only see one declaration each.
+    // Cache-bust query strings are intentionally omitted because social link
+    // scrapers (Snapchat, iMessage, WhatsApp) request /favicon.ico and
+    // /apple-touch-icon.png directly and ignore ?v= params.
     icons: {
       icon: [
-        { url: "/favicon.svg?v=3", type: "image/svg+xml" },
-        { url: "/favicon-16x16.png?v=3", sizes: "16x16", type: "image/png" },
-        { url: "/favicon-32x32.png?v=3", sizes: "32x32", type: "image/png" },
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       ],
       apple: [
-        { url: "/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" },
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
       ],
+      shortcut: [{ url: "/favicon.ico" }],
     },
     manifest: "/manifest.json",
     robots: {
@@ -113,15 +126,16 @@ export function generateMetadata({
       title: fullTitle,
       description: metaDescription,
       siteName,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: fullTitle,
-          type: "image/jpeg",
-        },
-      ],
+      ...(ogImage && {
+        images: [
+          {
+            url: ogImage,
+            width: 1200,
+            height: 630,
+            alt: fullTitle,
+          },
+        ],
+      }),
       locale: "en_US",
       ...(publishedTime && { publishedTime }),
       ...(modifiedTime && { modifiedTime }),
@@ -131,7 +145,7 @@ export function generateMetadata({
       card: "summary_large_image",
       title: fullTitle,
       description: metaDescription,
-      images: [ogImage],
+      ...(ogImage && { images: [ogImage] }),
       creator: "@thetrustgroup",
       site: "@thetrustgroup",
     },
@@ -145,11 +159,8 @@ export function generateMetadata({
         "facebook-domain-verification": process.env.NEXT_PUBLIC_FACEBOOK_VERIFICATION || "",
       },
     },
-    // LinkedIn specific tags (via other property)
+    // LinkedIn + extended tags
     other: {
-      "og:image:width": "1200",
-      "og:image:height": "630",
-      "og:image:type": "image/jpeg",
       "article:author": author || siteName,
       "article:publisher": siteName,
       "linkedin:owner": process.env.NEXT_PUBLIC_LINKEDIN_COMPANY_ID || "",
@@ -194,7 +205,7 @@ export function generateStructuredData(
       "https://www.facebook.com/thetrustgroup",
       "https://github.com/thetrustgroup",
     ],
-    foundingDate: "2014",
+    foundingDate: "2021",
     numberOfEmployees: {
       "@type": "QuantitativeValue",
       value: "50+",
@@ -282,7 +293,7 @@ export function generateStructuredData(
         "@type": "Article",
         headline: data?.headline || "",
         description: data?.description || "",
-        image: data?.image || defaultImage,
+        image: data?.image || `${siteUrl}/opengraph-image`,
         datePublished: data?.datePublished || new Date().toISOString(),
         dateModified: data?.dateModified || data?.datePublished || new Date().toISOString(),
         author: {

@@ -19,6 +19,7 @@ import { ScrollToTop } from "@/components/scroll-to-top";
 import { USE_TTG_LAYOUT } from "@/lib/layout-feature";
 import { TTGNav } from "@/components/ttg-nav";
 import { TTGFooter } from "@/components/ttg-footer";
+import { GoogleAnalytics } from "@/components/analytics";
 import dynamic from "next/dynamic";
 
 const Chatbot = dynamic(
@@ -112,8 +113,7 @@ export default function RootLayout({
       className={`${ttgJost.variable} ${ttgCormorant.variable}`}
     >
       <head>
-        {/* Favicon from metadata.icons + Next app/icon.svg & app/favicon.ico; no duplicate links */}
-        <link rel="manifest" href="/manifest.json" />
+        {/* Favicons + manifest are declared via metadata in lib/seo.ts. No duplicate link tags here. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -157,6 +157,7 @@ export default function RootLayout({
             <Chatbot />
           </ToastProvider>
         </ThemeProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
       </body>
     </html>
   );

@@ -1,144 +1,149 @@
 "use client";
 
 import * as React from "react";
-import { useId } from "react";
 import { cn } from "@/lib/utils";
+import { TrustMark, type TrustMarkTone } from "@/components/trust-mark";
 
 interface LogoProps {
-  variant?: "full" | "icon" | "text";
-  size?: "sm" | "md" | "lg";
-  className?: string;
+  variant?: "full" | "icon" | "text" | "stacked";
+  size?: "sm" | "md" | "lg" | "xl";
+  tone?: TrustMarkTone;
   showText?: boolean;
+  showTagline?: boolean;
+  className?: string;
 }
 
-export function Logo({ 
-  variant = "full", 
-  size = "md",
-  className,
-  showText = true 
-}: LogoProps) {
-  const sizeClasses = {
-    sm: { icon: "h-10 w-10 sm:h-12 sm:w-12", text: "text-base sm:text-lg md:text-xl" },
-    md: { icon: "h-10 w-10 xs:h-11 xs:w-11 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16", text: "text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl" },
-    lg: { icon: "h-12 w-12 sm:h-16 sm:w-16 md:h-20 md:w-20", text: "text-lg sm:text-2xl md:text-3xl" },
-  };
+const SIZE_MAP = {
+  sm: { mark: 28, wordmarkPx: 16, taglinePx: 8, gap: 10 },
+  md: { mark: 36, wordmarkPx: 20, taglinePx: 9, gap: 12 },
+  lg: { mark: 52, wordmarkPx: 28, taglinePx: 10, gap: 14 },
+  xl: { mark: 72, wordmarkPx: 40, taglinePx: 12, gap: 18 },
+} as const;
 
-  const currentSize = sizeClasses[size];
+/**
+ * Logo — The Trust Group identity lockup per 2026 rebrand.
+ *
+ * variants:
+ *   - "full"     → mark + wordmark (no sub-tagline) for nav, inline
+ *   - "stacked"  → mark above wordmark + sub-tagline for hero / splash
+ *   - "icon"     → mark only
+ *   - "text"     → wordmark only
+ */
+export function Logo({
+  variant = "full",
+  size = "md",
+  tone = "gold-gradient-deep",
+  showText = true,
+  showTagline = variant === "stacked",
+  className,
+}: LogoProps) {
+  const s = SIZE_MAP[size];
 
   if (variant === "icon") {
     return (
-      <div className={cn("flex items-center", className)}>
-        <LogoIcon className={currentSize.icon} />
-      </div>
+      <span
+        className={cn("inline-flex items-center", className)}
+        aria-hidden={false}
+      >
+        <TrustMark
+          size={s.mark}
+          tone={tone}
+          title="The Trust Group"
+          showCrosshair={s.mark >= 32}
+        />
+      </span>
     );
   }
 
   if (variant === "text") {
     return (
-      <span className={cn("font-bold text-primary", currentSize.text, className)}>
+      <span
+        className={cn(
+          "font-normal uppercase text-foreground",
+          "tracking-[0.22em] leading-none",
+          className
+        )}
+        style={{
+          fontFamily: "var(--font-ttg-cormorant), Georgia, serif",
+          fontSize: s.wordmarkPx,
+        }}
+      >
         The Trust Group
       </span>
     );
   }
 
-  return (
-    <div className={cn("flex items-center gap-1.5 xs:gap-1.5 sm:gap-2 md:gap-2.5 lg:gap-3 min-w-0", className)}>
-      <div className={cn("flex items-center justify-center flex-shrink-0", currentSize.icon)}>
-        <LogoIcon className="w-full h-full" />
+  if (variant === "stacked") {
+    return (
+      <div
+        className={cn("inline-flex flex-col items-center text-center", className)}
+        style={{ gap: s.gap }}
+      >
+        <TrustMark size={s.mark} tone={tone} />
+        <div className="flex flex-col items-center" style={{ gap: Math.max(4, s.gap / 3) }}>
+          {showText && (
+            <span
+              className="font-normal uppercase leading-none text-foreground"
+              style={{
+                fontFamily: "var(--font-ttg-cormorant), Georgia, serif",
+                fontSize: s.wordmarkPx,
+                letterSpacing: "0.22em",
+              }}
+            >
+              The Trust Group
+            </span>
+          )}
+          {showTagline && (
+            <span
+              className="font-light uppercase leading-none"
+              style={{
+                fontFamily: "var(--font-ttg-jost), system-ui, sans-serif",
+                fontSize: s.taglinePx,
+                letterSpacing: "0.38em",
+                color: "#c8a96e",
+              }}
+            >
+              Engineering · Strategy · Defense
+            </span>
+          )}
+        </div>
       </div>
+    );
+  }
+
+  return (
+    <div
+      className={cn("inline-flex items-center", className)}
+      style={{ gap: s.gap }}
+    >
+      <TrustMark size={s.mark} tone={tone} showCrosshair={s.mark >= 32} />
       {showText && (
-        <span className={cn("font-bold text-foreground whitespace-nowrap truncate leading-tight tracking-tight", currentSize.text)}>
-          The Trust Group
-        </span>
+        <div className="flex flex-col justify-center" style={{ gap: 3 }}>
+          <span
+            className="font-normal uppercase leading-none text-foreground whitespace-nowrap"
+            style={{
+              fontFamily: "var(--font-ttg-cormorant), Georgia, serif",
+              fontSize: s.wordmarkPx,
+              letterSpacing: "0.22em",
+            }}
+          >
+            The Trust Group
+          </span>
+          {showTagline && (
+            <span
+              className="font-light uppercase leading-none whitespace-nowrap"
+              style={{
+                fontFamily: "var(--font-ttg-jost), system-ui, sans-serif",
+                fontSize: s.taglinePx,
+                letterSpacing: "0.38em",
+                color: "#c8a96e",
+              }}
+            >
+              Engineering · Strategy · Defense
+            </span>
+          )}
+        </div>
       )}
     </div>
   );
 }
-
-interface LogoIconProps {
-  className?: string;
-}
-
-function LogoIcon({ className }: LogoIconProps) {
-  const uniqueId = useId();
-  const gradientId = `logoGradient-${uniqueId}`;
-  const filterId = `logoGlow-${uniqueId}`;
-  
-  return (
-    <svg
-      viewBox="0 0 400 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#0044AA", stopOpacity: 1 }} />
-          <stop offset="50%" style={{ stopColor: "#0066FF", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#00B8E6", stopOpacity: 1 }} />
-        </linearGradient>
-        <filter id={filterId}>
-          <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-        <filter id={`${filterId}-shadow`}>
-          <feDropShadow dx="0" dy="3" stdDeviation="4" floodColor="#0066FF" floodOpacity="0.4" />
-        </filter>
-      </defs>
-      
-      {/* Outer hexagon - more visible with thicker stroke */}
-      <polygon
-        points="200,60 280,110 280,210 200,260 120,210 120,110"
-        fill="none"
-        stroke={`url(#${gradientId})`}
-        strokeWidth="5"
-        opacity="0.6"
-      />
-      
-      {/* Main hexagon - full opacity with stronger shadow */}
-      <polygon
-        points="200,80 260,120 260,200 200,240 140,200 140,120"
-        fill={`url(#${gradientId})`}
-        opacity="1"
-        filter={`url(#${filterId}-shadow)`}
-      />
-      
-      {/* Inner circuit pattern - more visible with thicker lines */}
-      <g stroke="#FFFFFF" strokeWidth="3" fill="none" opacity="0.95">
-        {/* Vertical lines */}
-        <line x1="200" y1="100" x2="200" y2="140" />
-        <line x1="200" y1="180" x2="200" y2="220" />
-        
-        {/* Horizontal connections */}
-        <line x1="170" y1="140" x2="230" y2="140" />
-        <line x1="170" y1="180" x2="230" y2="180" />
-        
-        {/* Diagonal connections */}
-        <line x1="170" y1="140" x2="160" y2="160" />
-        <line x1="230" y1="140" x2="240" y2="160" />
-        <line x1="160" y1="160" x2="170" y2="180" />
-        <line x1="240" y1="160" x2="230" y2="180" />
-      </g>
-      
-      {/* Circuit nodes - larger and more visible */}
-      <g filter={`url(#${filterId})`}>
-        <circle cx="200" cy="100" r="6" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="200" cy="140" r="7" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="170" cy="140" r="6" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="230" cy="140" r="6" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="160" cy="160" r="8" fill="#00B8E6" opacity="1" />
-        <circle cx="240" cy="160" r="8" fill="#00B8E6" opacity="1" />
-        <circle cx="200" cy="160" r="9" fill="#FFFFFF" opacity="1" />
-        <circle cx="170" cy="180" r="6" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="230" cy="180" r="6" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="200" cy="180" r="7" fill="#FFFFFF" opacity="0.95" />
-        <circle cx="200" cy="220" r="6" fill="#FFFFFF" opacity="0.95" />
-      </g>
-    </svg>
-  );
-}
-

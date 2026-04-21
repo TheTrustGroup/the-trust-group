@@ -20,31 +20,31 @@ import {
 
 const timelineEvents = [
   {
-    year: "2014",
+    year: "2021",
     title: "Company Founded",
     description: "The Trust Group was established with a vision to transform businesses through innovative technology solutions.",
     icon: Building2,
   },
   {
-    year: "2017",
+    year: "2022",
     title: "First Major Client",
     description: "Secured our first enterprise client and delivered a groundbreaking AI-powered analytics platform.",
     icon: Rocket,
   },
   {
-    year: "2019",
+    year: "2023",
     title: "Team Expansion",
     description: "Grew to 25+ team members and expanded our expertise across AI, cloud, and mobile development.",
     icon: Users,
   },
   {
-    year: "2021",
+    year: "2024",
     title: "Industry Recognition",
     description: "Received multiple industry awards for innovation and excellence in software development.",
     icon: Award,
   },
   {
-    year: "2024",
+    year: "2025",
     title: "Ecosystem Growth",
     description: "Launched multiple subsidiary companies and reached 500+ successful projects milestone.",
     icon: Lightbulb,

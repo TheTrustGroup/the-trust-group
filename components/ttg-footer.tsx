@@ -21,6 +21,7 @@ import {
   Cpu,
 } from "lucide-react";
 import { siteConfig } from "@/lib/cms-client";
+import { TrustMark } from "@/components/trust-mark";
 
 const QUICK_LINKS = [
   { label: "Capabilities", href: "/services" },
@@ -132,17 +133,10 @@ export function TTGFooter() {
 
       <div className="ttg-footer__main">
         <div className="ttg-footer__brand">
-          <Link href="/" prefetch className="ttg-footer__brand-logo">
-            <div className="ttg-footer__brand-icon">
-              <Shield
-                className="text-white"
-                width={20}
-                height={20}
-                strokeWidth={1.5}
-                fill="none"
-                stroke="white"
-              />
-            </div>
+          <Link href="/" prefetch className="ttg-footer__brand-logo" aria-label={`${company.name}, home`}>
+            <span className="ttg-footer__brand-icon" aria-hidden>
+              <TrustMark size={40} tone="gold-gradient" showCrosshair={false} showBrackets={false} />
+            </span>
             <span className="ttg-footer__brand-name">{company.name}</span>
           </Link>
           {company.tagline && (

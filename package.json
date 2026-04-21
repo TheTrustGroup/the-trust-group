@@ -7,6 +7,7 @@
     "test:lint": "next lint",
     "test:type-check": "tsc --noEmit",
     "verify": "node scripts/verify-build.js",
+    "favicons": "node scripts/generate-favicons.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:analyze": "ANALYZE=true next build",
@@ -41,8 +42,5 @@
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.9",
     "typescript": "^5.5.4"
-  },
-  "optionalDependencies": {
-    "@next/swc-darwin-arm64": "npm:null@*"
   }
 }
