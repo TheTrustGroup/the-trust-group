@@ -21,52 +21,24 @@ export function MissionCriticalHero() {
       style={{ background: "var(--ttg-bg)" }}
       aria-label="Introduction"
     >
-      {/* Background — subtle grid and gradient (navy-tinted, not gold) */}
+      {/* Background — soft radial orb + vignette only. No grid, no flicker
+          lines. Scan line kept for motion interest, gated by reduced-motion. */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-100"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(26,31,46,0.04) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(26,31,46,0.04) 1px, transparent 1px)
-            `,
-            backgroundSize: "60px 60px",
-            animation: "trust-gridShift 20s linear infinite",
-          }}
-        />
-        <div
-          className="absolute left-0 right-0 h-px z-[2]"
+          className="ttg-hero-scanline absolute left-0 right-0 h-px z-[2]"
           style={{
             background:
               "linear-gradient(90deg, transparent, rgba(26,31,46,0.12), transparent)",
-            animation: "trust-scanDown 8s ease-in-out infinite",
           }}
+          aria-hidden
         />
         <div
-          className="absolute w-px top-0 bottom-0"
-          style={{
-            right: "33.33%",
-            background:
-              "linear-gradient(to bottom, transparent, rgba(26,31,46,0.06) 30%, rgba(26,31,46,0.06) 70%, transparent)",
-            animation: "trust-lineFlicker 7s ease-in-out infinite",
-          }}
-        />
-        <div
-          className="absolute w-px top-0 bottom-0"
-          style={{
-            right: "66.66%",
-            background:
-              "linear-gradient(to bottom, transparent, rgba(26,31,46,0.06) 30%, rgba(26,31,46,0.06) 70%, transparent)",
-            animation: "trust-lineFlicker 7s ease-in-out 2s infinite",
-          }}
-        />
-        <div
-          className="absolute w-[600px] h-[600px] rounded-full pointer-events-none top-1/2 right-[5%] -translate-y-1/2"
+          className="ttg-hero-orb absolute w-[600px] h-[600px] rounded-full pointer-events-none top-1/2 right-[5%] -translate-y-1/2"
           style={{
             background:
               "radial-gradient(circle, rgba(26,31,46,0.03) 0%, transparent 70%)",
-            animation: "trust-orbPulse 6s ease-in-out infinite",
           }}
+          aria-hidden
         />
         <div
           className="absolute inset-0"
@@ -74,6 +46,7 @@ export function MissionCriticalHero() {
             background:
               "radial-gradient(ellipse 70% 80% at 30% 50%, transparent 20%, var(--ttg-bg) 80%)",
           }}
+          aria-hidden
         />
       </div>
 

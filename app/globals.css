@@ -262,10 +262,6 @@
 }
 
 /* Trust hero + ticker animations */
-@keyframes trust-gridShift {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(60px, 60px); }
-}
 @keyframes trust-scanDown {
   0% { top: -1px; opacity: 0; }
   5% { opacity: 1; }
@@ -276,10 +272,21 @@
   0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; }
   50% { transform: translateY(-50%) scale(1.12); opacity: 1; }
 }
-@keyframes trust-lineFlicker {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+/* Hero background motion — gated by prefers-reduced-motion */
+.ttg-hero-scanline {
+  animation: trust-scanDown 8s ease-in-out infinite;
 }
+.ttg-hero-orb {
+  animation: trust-orbPulse 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ttg-hero-scanline,
+  .ttg-hero-orb {
+    animation: none;
+  }
+}
+
 @keyframes trust-tickerRoll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
