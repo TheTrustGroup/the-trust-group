@@ -19,7 +19,7 @@ export const aiSolutions: ServicePageDefinition = {
     description:
       "Transform your business with cutting-edge AI solutions. From machine learning models to intelligent automation, we help you harness the power of artificial intelligence.",
     iconName: "Brain",
-    visualUrl: "/images/capabilities/ai-datacenter-brain.png",
+    visualUrl: "/images/capabilities/ai-cloud-mind.png",
     features: [
       "Custom ML model development",
       "AI integration & automation",

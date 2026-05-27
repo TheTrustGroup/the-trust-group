@@ -112,16 +112,21 @@ export function ServiceHero({
           </div>
           </div>
           {visualUrl && (
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/40 shadow-2xl">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/40 bg-[#080a0e] shadow-2xl ring-1 ring-black/5">
               <Image
                 src={visualUrl}
                 alt=""
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={92}
                 priority
               />
-              <p className="absolute bottom-3 left-3 right-3 text-center text-[10px] uppercase tracking-wider text-white/70">
+              <div
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/75 to-transparent"
+                aria-hidden
+              />
+              <p className="absolute bottom-3 left-3 right-3 z-10 text-center text-[10px] font-medium uppercase tracking-wider text-white/80">
                 Illustrative capability — not a client deliverable
               </p>
             </div>

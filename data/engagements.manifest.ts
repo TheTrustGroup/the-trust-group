@@ -168,7 +168,6 @@ export const ENGAGEMENT_MANIFEST: EngagementManifestEntry[] = [
       { value: "2", label: "Ride Tiers" },
     ],
     caseStudySlug: "velora",
-    showOnHomepage: true,
     homePreview: {
       client: "Transportation startup, West Africa",
       industry: "Mobility",
@@ -242,7 +241,6 @@ export const ENGAGEMENT_MANIFEST: EngagementManifestEntry[] = [
       challenge: "The brand needed a premium public storefront that matched its positioning and stayed fast on mobile.",
       solution: "Production commerce site with responsive catalog, seasonal campaigns, and performance-focused delivery.",
       outcome: "Live at extremedeptkidz.com for customer-facing sales.",
-      previewImage: "/images/projects/extreme-dept-kidz-storefront-mobile.png",
     },
   },
   {

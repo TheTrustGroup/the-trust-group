@@ -56,7 +56,7 @@ export function AppleCaseStudyCard({
             src={caseStudy.previewImage}
             alt=""
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>

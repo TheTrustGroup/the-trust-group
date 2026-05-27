@@ -5,10 +5,20 @@ import { Section } from "@/components/ui";
 import { AppleCaseStudyCard, type AppleCaseStudy } from "./apple-case-study-card";
 import { ENGAGEMENT_MANIFEST } from "@/data/engagements.manifest";
 
+function homepageSortOrder(
+  a: (typeof ENGAGEMENT_MANIFEST)[number],
+  b: (typeof ENGAGEMENT_MANIFEST)[number]
+): number {
+  const rank = (e: (typeof ENGAGEMENT_MANIFEST)[number]) =>
+    (e.disclosureStatus === "live" ? 0 : 1) * 2 + (e.featured ? 0 : 1);
+  return rank(a) - rank(b);
+}
+
 function getHomepageCaseStudies(): AppleCaseStudy[] {
   return ENGAGEMENT_MANIFEST.filter(
     (entry) => entry.showOnHomepage && entry.homePreview
   )
+    .sort(homepageSortOrder)
     .slice(0, 4)
     .map((entry) => ({
       id: entry.id,
