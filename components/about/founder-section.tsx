@@ -56,12 +56,11 @@ const expertise = [
 ];
 
 const achievements = [
-  "Led design and development of 500+ successful digital projects",
-  "Transformed user experiences for Fortune 500 companies",
-  "Pioneered innovative UX patterns adopted industry-wide",
-  "Built scalable frontend and backend architectures serving millions of users",
-  "Architected high-performance APIs and microservices for enterprise applications",
-  "Mentored and led high-performing design and engineering teams",
+  "Led design and engineering on production web, retail operations, and mobility platforms",
+  "Delivered enterprise and classified systems under NDA with security-first architecture",
+  "Built scalable frontend and backend systems for high-traffic retail and operations tooling",
+  "Architected APIs and services for multi-surface commerce (storefront + staff workspaces)",
+  "Mentored and led cross-functional product and engineering teams",
 ];
 
 const technologies = [
@@ -210,17 +209,13 @@ export function FounderSection({ className }: FounderSectionProps) {
                   </div>
                 </div>
 
-                {/* Quick Stats */}
-                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary mb-1">500+</div>
-                    <div className="text-xs text-muted-foreground">Projects</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-primary mb-1">10+</div>
-                    <div className="text-xs text-muted-foreground">Years</div>
-                  </div>
-                </div>
+                <p className="pt-6 border-t border-border text-sm text-muted-foreground leading-relaxed">
+                  Published client work and case studies are on{" "}
+                  <a href="/work" className="text-primary underline underline-offset-2">
+                    /work
+                  </a>
+                  .
+                </p>
               </div>
             </div>
           </motion.div>

@@ -13,7 +13,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 export const alt =
-  "The Trust Group — Engineering · Strategy · Defense. Mission-critical software.";
+  "The Trust Group | Engineering · Strategy · Defense. Mission-critical software.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

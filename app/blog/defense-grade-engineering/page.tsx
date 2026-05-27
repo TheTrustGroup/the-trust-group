@@ -386,8 +386,7 @@ export default function DefenseGradeEngineeringArticlePage() {
               <p>
                 <strong>Incident frequency drops.</strong> Systems designed with failure modes
                 mapped and security built in produce dramatically fewer production incidents than
-                systems built without those disciplines. The uptime numbers reflect this directly —
-                our consistent 99.9% SLA performance is a consequence of design choices made
+                systems built without those disciplines.                 Reliable uptime is a consequence of design choices made
                 before development, not heroic incident response after.
               </p>
               <p>
@@ -554,11 +553,11 @@ export default function DefenseGradeEngineeringArticlePage() {
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 py-4">
-                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
-                    99.9<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
+                  <span className="ttg-serif text-[22px] leading-tight text-[var(--ttg-navy)]">
+                    Ops-first
                   </span>
                   <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
-                    Uptime SLA — maintained continuously
+                    Design for operability, not launch-day heroics
                   </span>
                 </div>
               </div>

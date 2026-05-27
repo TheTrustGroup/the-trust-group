@@ -33,10 +33,8 @@ const SelectedWorkLazy = dynamic(
 export default function Home() {
   return (
     <>
-      {/* 1. Hero — Mission-critical systems (circuit grid, ticker, CTAs) */}
       <MissionCriticalHero />
 
-      {/* 2. Client Testimonials — Matches provided HTML design */}
       <TrustTestimonialsSectionLazy />
 
       {/* 2. Editorial content block - What we do (entrance motion, once on view) */}

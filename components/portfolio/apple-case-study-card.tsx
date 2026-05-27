@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -15,6 +16,8 @@ export interface AppleCaseStudy {
   industry?: string; // Optional: for client badge
   featured?: boolean; // Optional: for highlighting
   caseStudyUrl?: string; // Link to full case study page
+  /** Production screenshot (live work only). */
+  previewImage?: string;
 }
 
 interface AppleCaseStudyCardProps {
@@ -47,6 +50,17 @@ export function AppleCaseStudyCard({
 
   const cardContent = (
     <>
+      {caseStudy.previewImage && (
+        <div className="relative -mx-6 -mt-6 md:-mx-8 md:-mt-8 mb-6 aspect-[16/10] overflow-hidden rounded-t-2xl bg-muted">
+          <Image
+            src={caseStudy.previewImage}
+            alt=""
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </div>
+      )}
       {/* Client Badge - Optional, subtle glass */}
       {caseStudy.industry && (
         <div className="absolute top-4 right-4 z-10">

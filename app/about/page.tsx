@@ -72,7 +72,7 @@ const leadership = [
     initials: "VP",
     name: "VP of Engineering",
     role: "Delivery Leadership",
-    bio: "Leads engineering delivery across active engagements. Responsible for team allocation, milestone execution, and the post-launch support infrastructure that keeps client systems at 99.9% uptime.",
+    bio: "Leads engineering delivery across active engagements. Responsible for team allocation, milestone execution, and post-launch support for production client systems.",
   },
 ];
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -35,6 +36,8 @@ interface ServiceHeroProps {
   /** Icon name (e.g. "Brain") so Server Components can pass a string instead of a component */
   iconName?: string;
   features?: string[];
+  /** Symbolic capability imagery — not client work. */
+  visualUrl?: string;
 }
 
 export function ServiceHero({
@@ -43,6 +46,7 @@ export function ServiceHero({
   description,
   iconName,
   features = [],
+  visualUrl,
 }: ServiceHeroProps) {
   const Icon = iconName ? ICON_MAP[iconName] : undefined;
   return (
@@ -54,7 +58,14 @@ export function ServiceHero({
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl">
+        <div
+          className={
+            visualUrl
+              ? "grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2"
+              : "max-w-4xl"
+          }
+        >
+          <div className={visualUrl ? undefined : "max-w-4xl"}>
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             {Icon && <Icon className="h-4 w-4 text-primary" />}
@@ -99,6 +110,22 @@ export function ServiceHero({
               View Case Studies
             </Link>
           </div>
+          </div>
+          {visualUrl && (
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/40 shadow-2xl">
+              <Image
+                src={visualUrl}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              <p className="absolute bottom-3 left-3 right-3 text-center text-[10px] uppercase tracking-wider text-white/70">
+                Illustrative capability — not a client deliverable
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>

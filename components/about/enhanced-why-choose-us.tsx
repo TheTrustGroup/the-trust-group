@@ -34,7 +34,7 @@ const advantages = [
   {
     icon: Shield,
     title: "Proven Track Record",
-    description: "500+ successful projects, 100+ satisfied clients, and five years of excellence in technology solutions.",
+    description: "Production software across retail operations, mobility, and enterprise engagements — with public work you can verify on /work.",
     color: "text-primary",
     bgColor: "bg-primary/10",
     borderColor: "border-primary/20",

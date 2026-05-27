@@ -3,8 +3,9 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import { useToast } from "@/components/ui/toast";
+import { postContactJson, ContactApiError } from "@/lib/contact-api-client";
+import { isTurnstileWidgetEnabled, TurnstileWidget } from "@/components/contact/turnstile-widget";
 
 const SERVICE_OPTIONS = [
   "Defense Technology & Intelligence Systems",
@@ -64,6 +65,7 @@ export function PrivateBriefingContent() {
   const [formData, setFormData] = React.useState<BriefingFormData>(initialFormState);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [showSuccess, setShowSuccess] = React.useState(false);
+  const [turnstileToken, setTurnstileToken] = React.useState<string | null>(null);
 
   const updateField = <K extends keyof BriefingFormData>(
     key: K,
@@ -74,36 +76,31 @@ export function PrivateBriefingContent() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isTurnstileWidgetEnabled() && !turnstileToken) {
+      showToast({
+        type: "error",
+        title: "Verification required",
+        message: "Please complete the security verification before submitting.",
+      });
+      return;
+    }
     setIsSubmitting(true);
 
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const briefingTemplateId =
-        process.env.NEXT_PUBLIC_EMAILJS_BRIEFING_TEMPLATE_ID ||
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (serviceId && briefingTemplateId && publicKey) {
-        await emailjs.send(
-          serviceId,
-          briefingTemplateId,
-          {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            from_email: formData.workEmail,
-            phone: formData.phone || "Not provided",
-            organization: formData.organization,
-            role: formData.role,
-            service_area: formData.serviceArea,
-            budget: formData.budget || "Not specified",
-            project_overview: formData.projectOverview,
-            requires_nda: formData.requiresNda ? "Yes" : "No",
-            to_email: "info@thetrustgroupsolutions.com",
-            reply_to: formData.workEmail,
-          },
-          publicKey
-        );
-      }
+      await postContactJson("/api/briefing", {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        workEmail: formData.workEmail,
+        phone: formData.phone,
+        organization: formData.organization,
+        role: formData.role,
+        serviceArea: formData.serviceArea,
+        budget: formData.budget,
+        projectOverview: formData.projectOverview,
+        requiresNda: formData.requiresNda,
+        privacyAccepted: formData.privacyAccepted,
+        turnstileToken: turnstileToken ?? undefined,
+      });
 
       setShowSuccess(true);
       showToast({
@@ -111,11 +108,15 @@ export function PrivateBriefingContent() {
         title: "Briefing request received",
         message: "We'll reach out within 24 hours.",
       });
-    } catch {
+    } catch (error) {
+      const message =
+        error instanceof ContactApiError
+          ? error.message
+          : "Please try again or email us directly.";
       showToast({
         type: "error",
         title: "Something went wrong",
-        message: "Please try again or email us directly.",
+        message,
       });
     } finally {
       setIsSubmitting(false);
@@ -597,6 +598,11 @@ export function PrivateBriefingContent() {
                     aria-hidden
                   />
                 </div>
+                {isTurnstileWidgetEnabled() && (
+                  <div className="mb-6">
+                    <TurnstileWidget onToken={setTurnstileToken} />
+                  </div>
+                )}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
                   <button
                     type="submit"

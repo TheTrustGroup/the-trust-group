@@ -11,7 +11,8 @@ data/
 ├── types.ts              # TypeScript type definitions
 ├── config.json            # Site configuration
 ├── services.json          # Service descriptions
-├── projects.json          # Portfolio projects
+├── engagements.manifest.ts # Work page + homepage selected work
+├── case-studies.json      # Case study narratives
 ├── testimonials.json     # Client testimonials
 ├── team.json             # Team members
 ├── technologies.json     # Technology stack
@@ -31,8 +32,8 @@ lib/
 
 ### 2. Component Updates
 - ✅ Services section now uses `services.json`
-- ✅ Portfolio section now uses `projects.json`
-- ✅ Testimonials section now uses `testimonials.json`
+- ✅ Work page uses `engagements.manifest.ts` + `case-studies.json`
+- ✅ Homepage testimonials: `TrustTestimonialsSection.tsx` (see `data/CMS_README.md`)
 - ✅ Team section now uses `team.json`
 - ✅ Technologies section now uses `technologies.json`
 - ✅ Footer now uses `config.json`

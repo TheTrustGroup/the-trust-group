@@ -9,9 +9,6 @@ import fs from 'fs';
 import path from 'path';
 import type {
   Service,
-  Project,
-  ProjectCategory,
-  Testimonial,
   TeamMember,
   Technology,
   TechnologyCategory,
@@ -25,8 +22,6 @@ import type {
 // Cache for loaded data
 const cache: {
   services?: Service[];
-  projects?: { categories: ProjectCategory[]; projects: Project[] };
-  testimonials?: Testimonial[];
   team?: TeamMember[];
   technologies?: { categories: TechnologyCategory[]; technologies: Technology[] };
   blog?: { categories: BlogCategory[]; posts: BlogPost[] };
@@ -58,57 +53,6 @@ export function getServices(): Service[] {
  */
 export function getService(id: string): Service | undefined {
   return getServices().find((service) => service.id === id);
-}
-
-/**
- * Get all projects with categories
- */
-export function getProjects(): { categories: ProjectCategory[]; projects: Project[] } {
-  if (!cache.projects) {
-    cache.projects = loadJSON<{ categories: ProjectCategory[]; projects: Project[] }>('projects.json');
-  }
-  return cache.projects;
-}
-
-/**
- * Get a project by ID
- */
-export function getProject(id: string): Project | undefined {
-  return getProjects().projects.find((project) => project.id === id);
-}
-
-/**
- * Get featured projects
- */
-export function getFeaturedProjects(): Project[] {
-  return getProjects().projects.filter((project) => project.featured);
-}
-
-/**
- * Get projects by category
- */
-export function getProjectsByCategory(category: string): Project[] {
-  if (category === 'all') {
-    return getProjects().projects;
-  }
-  return getProjects().projects.filter((project) => project.category === category);
-}
-
-/**
- * Get all testimonials
- */
-export function getTestimonials(): Testimonial[] {
-  if (!cache.testimonials) {
-    cache.testimonials = loadJSON<Testimonial[]>('testimonials.json');
-  }
-  return cache.testimonials;
-}
-
-/**
- * Get featured testimonials
- */
-export function getFeaturedTestimonials(): Testimonial[] {
-  return getTestimonials().filter((testimonial) => testimonial.featured);
 }
 
 /**

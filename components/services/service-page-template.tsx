@@ -50,6 +50,7 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
           description={service.hero.description}
           iconName={service.hero.iconName}
           features={service.hero.features}
+          visualUrl={service.hero.visualUrl}
         />
 
         {service.whySection && (
@@ -180,24 +181,40 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
               <p className="text-lg text-muted-foreground">{service.caseStudies.intro}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {service.caseStudies.items.map((study, index) => (
-                <Card key={index} className="border-2">
-                  <CardHeader>
-                    <CardTitle className="text-xl">{study.title}</CardTitle>
-                    <CardDescription className="text-base">{study.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {study.results.map((result, idx) => (
-                        <div key={idx} className="flex items-center gap-2">
-                          <CheckCircle2 className="h-5 w-5 text-success" />
-                          <span className="text-foreground font-medium">{result}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+              {service.caseStudies.items.map((study, index) => {
+                const card = (
+                  <Card className="border-2 h-full">
+                    <CardHeader>
+                      <CardTitle className="text-xl">{study.title}</CardTitle>
+                      <CardDescription className="text-base">{study.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2">
+                        {study.results.map((result, idx) => (
+                          <div key={idx} className="flex items-center gap-2">
+                            <CheckCircle2 className="h-5 w-5 text-success" />
+                            <span className="text-foreground font-medium">{result}</span>
+                          </div>
+                        ))}
+                      </div>
+                      {study.href && (
+                        <p className="mt-6 text-sm font-medium text-primary">
+                          {study.href.startsWith("/case-studies/")
+                            ? "Read case study →"
+                            : "Request overview →"}
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                );
+                return study.href ? (
+                  <Link key={index} href={study.href} className="block h-full no-underline">
+                    {card}
+                  </Link>
+                ) : (
+                  <div key={index}>{card}</div>
+                );
+              })}
             </div>
           </Section>
         )}

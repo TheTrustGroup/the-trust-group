@@ -33,7 +33,7 @@ function truncate(text: string, maxLength: number): string {
  */
 function generateTitle(title?: string): string {
   if (!title) {
-    return `${siteName} — Engineering · Strategy · Defense`;
+    return `${siteName} | Engineering · Strategy · Defense`;
   }
   
   const fullTitle = `${title} | ${siteName}`;

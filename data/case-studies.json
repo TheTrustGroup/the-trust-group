@@ -38,21 +38,21 @@
     "approach": null,
     "outcome": null,
     "ourRole": "We designed and delivered the core platform, including data pipelines and analytical models, with strict access controls and auditability.",
-    "result": "The system was deployed on schedule and met performance and compliance targets. Outcomes include a 35% increase in conversion rates, 50% reduction in customer churn, real-time analytics with sub-100ms latency, and processing of 10M+ events daily. The client runs daily analysis at scale.",
+    "result": "The system was deployed on schedule and met agreed performance and compliance targets. The client runs daily analysis at scale; specific commercial metrics are not disclosed publicly.",
     "image": null
   },
   {
     "slug": "enterprise-saas",
     "title": "Enterprise SaaS Management Platform",
     "confidentiality": "limited",
-    "client": "Fortune 500 Company",
+    "client": "Enterprise client (confidential)",
     "year": "2024",
     "context": "A large enterprise required a unified platform for workflows, collaboration, and business intelligence with real-time analytics and high availability.",
     "challenge": null,
     "approach": null,
     "outcome": null,
     "ourRole": "We led architecture and implementation of the platform, including workflow automation, collaboration features, and BI tooling.",
-    "result": "The platform was launched and now serves 500+ enterprise clients with 99.9% uptime SLA achieved, 50% reduction in operational costs, and scalability to 1M+ users.",
+    "result": "The platform launched on the agreed schedule with high-availability architecture and room to scale user load. Client-specific scale and SLA figures are not published.",
     "image": null
   },
   {
@@ -108,12 +108,12 @@
     "approach": null,
     "outcome": null,
     "ourRole": "We built the platform and mobile experience, including virtual tour integration and transaction flows.",
-    "result": "The platform launched with 30% increase in property viewings, AI matching at 85% accuracy, virtual tours reducing site visits by 40%, and 500+ properties listed.",
+    "result": "The platform launched with AI-assisted matching, virtual tours, and listing workflows built for scale. Client-specific performance figures are not published.",
     "image": null
   },
   {
     "slug": "velora",
-    "title": "Velora — Premium Ride-Hailing Platform",
+    "title": "Velora: Premium Ride-Hailing Platform",
     "confidentiality": "limited",
     "client": "Transportation Startup",
     "year": "2024",
@@ -127,7 +127,7 @@
   },
   {
     "slug": "wellness-tracker",
-    "title": "Wellness Tracker — Health & Wellness Platform",
+    "title": "Wellness Tracker: Health & Wellness Platform",
     "confidentiality": "limited",
     "client": "Wellness & Spa Company",
     "year": "2024",
@@ -140,31 +140,31 @@
     "image": null
   },
   {
-    "slug": "chez-amis",
-    "title": "Chez Amis Bar and Grill — Premium Restaurant Website",
-    "confidentiality": "limited",
-    "client": "Chez Amis Bar and Grill",
-    "year": "2024",
-    "context": "An upscale restaurant required a website for reservations, ordering, menu display, and events, with a distinct visual identity.",
-    "challenge": null,
-    "approach": null,
-    "outcome": null,
-    "ourRole": "We designed and developed the website, including reservation and ordering flows, menu presentation, and gallery.",
-    "result": "The site launched with an elegant dark theme and premium golden accents, seamless online reservation system, food ordering and delivery, comprehensive menu and signature dishes, immersive gallery, private dining and event booking, and 24/7 operational information. The client maintains and uses it for daily operations.",
-    "image": null
-  },
-  {
     "slug": "extreme-dept-kidz",
-    "title": "Extreme Dept Kidz — Web Platform",
+    "title": "Extreme Dept Kidz: Storefront & Operations",
     "confidentiality": "limited",
     "client": "Extreme Dept Kidz",
     "year": "2024",
-    "context": "The client needed a performant, scalable web platform with reliable content delivery and a solid foundation for future growth.",
+    "context": "A premium youth apparel brand needed both a public storefront and staff-facing inventory and POS tooling, with performance and reliability across mobile and desktop.",
     "challenge": null,
     "approach": null,
     "outcome": null,
-    "ourRole": "We engineered the platform with emphasis on performance, scalability, and maintainability, using modern tooling and practices.",
-    "result": "The platform was delivered and went live with optimized performance and fast page load times, scalable architecture supporting growth, reliable infrastructure with consistent uptime, modern responsive UI, and efficient content management and delivery. It is ready for further expansion.",
-    "image": null
+    "ourRole": "We built the customer-facing commerce site and the authenticated warehouse workspace for inventory and point-of-sale, using a shared modern web stack.",
+    "result": "Production systems are live at extremedeptkidz.com (storefront) and warehouse.extremedeptkidz.com (inventory and POS). The stack emphasizes fast catalog delivery, responsive UI, and maintainable operations tooling.",
+    "image": "/images/projects/extreme-dept-kidz-storefront-desktop.png"
+  },
+  {
+    "slug": "hunnid-official",
+    "title": "Hunnid Official: Inventory & POS",
+    "confidentiality": "limited",
+    "client": "Hunnid Official",
+    "year": "2024",
+    "context": "A music and streetwear label needed secure warehouse management and point-of-sale software for drops and in-store operations.",
+    "challenge": null,
+    "approach": null,
+    "outcome": null,
+    "ourRole": "We designed and delivered an authenticated warehouse application for inventory, POS, and operational workflows.",
+    "result": "The staff workspace is live at warehouse.hunnidofficial.com and supports day-to-day inventory and sales operations.",
+    "image": "/images/projects/hunnid-warehouse-pos.png"
   }
 ]

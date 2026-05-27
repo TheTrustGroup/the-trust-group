@@ -8,7 +8,7 @@ export function TrustIndicators() {
   const indicators = [
     { icon: Shield, text: "Enterprise-grade security" },
     { icon: Clock, text: "Response within 24 hours" },
-    { icon: CheckCircle2, text: "500+ projects delivered" },
+    { icon: CheckCircle2, text: "Published work on /work" },
   ];
 
   return (

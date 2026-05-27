@@ -24,7 +24,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["company", "about", "who are you", "trust group", "background"],
-    response: "The Trust Group is a parent company specializing in AI solutions and innovative software engineering. We transform businesses through cutting-edge technology and have multiple businesses under our umbrella, delivering excellence in every project.\n\nWe have 5+ years of experience, 500+ projects delivered, and 100+ happy clients.",
+    response: "The Trust Group builds production software: web platforms, retail operations tooling, mobility, and enterprise systems. Some work is public on /work (with live URLs where allowed); classified engagements are summary-only.\n\nAsk about a specific service or visit /work to see what we can show.",
     links: [{ text: "Learn more about us", href: "/about" }],
   },
   {
@@ -34,7 +34,7 @@ const responseDatabase: ResponseMatch[] = [
   },
   {
     keywords: ["portfolio", "projects", "work", "examples", "case study"],
-    response: "We've completed 500+ projects across various industries. Our portfolio includes AI solutions, web applications, mobile apps, and enterprise software.\n\nYou can browse our featured projects to see examples of our work.",
+    response: "Our published portfolio is on /work: live retail and warehouse systems, limited case studies, classified summaries, and pipeline programs (e.g. FuelAxis, RideWM).\n\nWe do not list unverifiable aggregate project counts.",
     links: [{ text: "View portfolio", href: "/#portfolio" }],
   },
   {

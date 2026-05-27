@@ -13,7 +13,7 @@ const timelineEvents = [
     year: "2022",
     event: "First enterprise platform at scale",
     detail:
-      "Delivered a multi-tenant SaaS platform that onboarded 500+ enterprise clients in its first year of operation — with a 99.9% uptime SLA maintained continuously since launch.",
+      "Delivered a multi-tenant SaaS platform for enterprise workflow and analytics — high-availability architecture with client-specific SLA targets.",
   },
   {
     year: "2023",

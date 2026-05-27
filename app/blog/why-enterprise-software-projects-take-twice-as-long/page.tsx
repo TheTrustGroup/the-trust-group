@@ -595,11 +595,11 @@ export default function EnterpriseSoftwareArticlePage() {
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 py-4">
-                  <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
-                    99.9<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
+                  <span className="ttg-serif text-[22px] leading-tight text-[var(--ttg-navy)]">
+                    Verify
                   </span>
                   <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
-                    Avg uptime SLA achieved
+                    Live work listed on /work
                   </span>
                 </div>
               </div>

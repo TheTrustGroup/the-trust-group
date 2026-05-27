@@ -30,6 +30,8 @@ export interface CaseStudyCardDef {
   title: string;
   description: string;
   results: string[];
+  /** Path to a published case study, e.g. /case-studies/enterprise-saas */
+  href?: string;
 }
 
 export interface ServicePageDefinition {
@@ -49,6 +51,8 @@ export interface ServicePageDefinition {
     description: string;
     iconName?: string;
     features: string[];
+    /** Symbolic capability art from /public/images/capabilities — not a client logo. */
+    visualUrl?: string;
   };
   whySection?: {
     title: string;

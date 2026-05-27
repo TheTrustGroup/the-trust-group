@@ -13,12 +13,12 @@ export const faqEntries: FAQEntry[] = [
   {
     question: "How long does a typical project take?",
     answer:
-      "We deliver faster than the industry standard — by design. Small projects are typically completed in 6–8 weeks. Larger enterprise systems range from 3–6 months, depending on scope and integration complexity. This is possible because of our architecture-first methodology: we invest heavily in the discovery and design phases to eliminate ambiguity before a single line of production code is written. The result is fewer revisions, zero wasted cycles, and delivery timelines that consistently beat industry benchmarks by 40–50%. A detailed, milestone-by-milestone timeline is provided during the discovery phase.",
+      "We deliver faster than the industry standard, by design. Small projects are typically completed in 6–8 weeks. Larger enterprise systems range from 3–6 months, depending on scope and integration complexity. This is possible because of our architecture-first methodology: we invest heavily in the discovery and design phases to eliminate ambiguity before a single line of production code is written. The result is fewer revisions, zero wasted cycles, and delivery timelines that consistently beat industry benchmarks by 40–50%. A detailed, milestone-by-milestone timeline is provided during the discovery phase.",
   },
   {
     question: "What industries do you serve?",
     answer:
-      "We serve defense and intelligence, healthcare, financial services, e-commerce, real estate, transportation, hospitality, enterprise SaaS, robotics and autonomous systems, and manufacturing automation. Solutions are tailored to meet industry-specific compliance standards — including HIPAA, SOC 2, and defense-grade security frameworks.",
+      "We serve defense and intelligence, healthcare, financial services, e-commerce, real estate, transportation, hospitality, enterprise SaaS, robotics and autonomous systems, and manufacturing automation. Solutions are tailored to meet industry-specific compliance standards, including HIPAA, SOC 2, and defense-grade security frameworks.",
   },
   {
     question: "What technologies do you specialize in?",
@@ -38,7 +38,7 @@ export const faqEntries: FAQEntry[] = [
   {
     question: 'What does "mission-critical" mean to you?',
     answer:
-      "It means we build systems that cannot afford to fail. Our engineering standards account for failure modes before they occur — through redundant architecture, rigorous testing protocols, and post-launch monitoring that runs 24/7. When an organization's operations depend on a system we've built, we take that responsibility seriously. We don't ship and disappear.",
+      "It means we build systems that cannot afford to fail. Our engineering standards account for failure modes before they occur: redundant architecture, rigorous testing protocols, and post-launch monitoring that runs 24/7. When an organization's operations depend on a system we've built, we take that responsibility seriously. We don't ship and disappear.",
   },
   {
     question: "Do you work under NDA for classified or sensitive projects?",

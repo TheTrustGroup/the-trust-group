@@ -12,6 +12,11 @@ const nextConfig = {
         destination: '/case-studies/:slug',
         permanent: true,
       },
+      {
+        source: '/case-studies/chez-amis',
+        destination: '/work',
+        permanent: true,
+      },
     ];
   },
   images: {
@@ -101,6 +106,21 @@ const nextConfig = {
   },
   // Headers for caching and performance
   async headers() {
+    const csp = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "img-src 'self' data: https:",
+      "font-src 'self' data:",
+      "style-src 'self' 'unsafe-inline'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com",
+      "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://api.emailjs.com https://challenges.cloudflare.com",
+      "frame-src 'self' https://challenges.cloudflare.com",
+      "upgrade-insecure-requests",
+    ].join("; ");
+
     return [
       {
         // Static assets (JS, CSS, images) - can cache longer
@@ -133,6 +153,19 @@ const nextConfig = {
         ],
       },
       {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
         // HTML pages - short cache, allow revalidation
         source: '/:path*',
         headers: [
@@ -153,8 +186,20 @@ const nextConfig = {
             value: 'DENY',
           },
           {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: csp,
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
           },
         ],
       },

@@ -1,13 +1,11 @@
 import Link from "next/link";
 
 const TICKER_ITEMS = [
-  { num: "40", suffix: "+", desc: "Systems\nDeployed" },
-  { num: "99.9", suffix: "%", desc: "Avg Uptime\nSLA Delivered" },
-  { num: "35", suffix: "%", desc: "Avg Conversion\nLift" },
-  { num: "6", suffix: "wk", desc: "Avg Small Project\nDelivery" },
-  { num: "500", suffix: "+", desc: "Enterprise Clients\nServed" },
-  { num: "12", suffix: "", desc: "Countries\nDeployed In" },
-  { num: "50", suffix: "%", desc: "Avg Churn\nReduction" },
+  { desc: "Live retail &\noperations software" },
+  { desc: "Architecture before\nimplementation" },
+  { desc: "Classified & NDA\nengagements" },
+  { desc: "Work you can\nverify on /work" },
+  { desc: "Pipeline programs\n(FuelAxis, RideWM)" },
 ] as const;
 
 /**
@@ -107,7 +105,7 @@ export function MissionCriticalHero() {
             animation: "trust-fadeUp 1s ease 0.5s forwards",
           }}
         >
-          The Trust Group — Est. 2021
+          The Trust Group · Est. 2021
         </p>
 
         <h1
@@ -177,7 +175,7 @@ export function MissionCriticalHero() {
             color: "var(--ttg-muted)",
           }}
         >
-          Proven at Scale
+          How we work
         </span>
         <div className="trust-ticker-wrap flex-1 min-w-0 min-h-[52px] overflow-hidden flex items-center">
           <div
@@ -187,22 +185,13 @@ export function MissionCriticalHero() {
             {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2.5 py-0 px-10 border-r border-[var(--ttg-border)] flex-shrink-0"
+                className="flex items-center py-0 px-10 border-r border-[var(--ttg-border)] flex-shrink-0"
               >
                 <span
-                  className="ttg-serif text-xl leading-none"
-                  style={{ color: "var(--ttg-navy)" }}
-                >
-                  {item.num}
-                  <em className="not-italic text-[var(--ttg-navy)]">
-                    {item.suffix}
-                  </em>
-                </span>
-                <span
-                  className="text-[9px] tracking-[0.1em] uppercase leading-snug"
+                  className="text-[10px] tracking-[0.1em] uppercase leading-snug"
                   style={{
                     fontFamily: "var(--ttg-font-sans)",
-                    color: "var(--ttg-muted)",
+                    color: "var(--ttg-navy)",
                     whiteSpace: "pre-line",
                   }}
                 >

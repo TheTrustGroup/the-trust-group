@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+lighthouse-report.json
+/drafts/
 
 # debug
 npm-debug.log*

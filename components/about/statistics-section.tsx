@@ -1,48 +1,28 @@
 "use client";
 
-import { AnimatedCounter } from "./animated-counter";
 import { useScrollAnimation } from "@/lib/hooks/use-scroll-animation";
-import { 
-  Briefcase, 
-  Users, 
-  Calendar, 
-  Award,
-  TrendingUp,
-  Code2
-} from "lucide-react";
+import { Briefcase, Shield, Globe, Code2 } from "lucide-react";
 
-const statistics = [
+const pillars = [
   {
     icon: Briefcase,
-    value: 500,
-    suffix: "+",
-    label: "Projects Completed",
-    color: "text-primary",
-    bgColor: "bg-primary/10",
+    label: "Production focus",
+    description: "Software built to run in market, not slide decks.",
   },
   {
-    icon: Users,
-    value: 100,
-    suffix: "+",
-    label: "Happy Clients",
-    color: "text-success",
-    bgColor: "bg-success/10",
+    icon: Shield,
+    label: "Clear disclosure",
+    description: "Live, limited, classified, and pipeline work labeled on /work.",
   },
   {
-    icon: Calendar,
-    value: 5,
-    suffix: "+",
-    label: "Years of Experience",
-    color: "text-accent",
-    bgColor: "bg-accent/10",
+    icon: Globe,
+    label: "Verifiable proof",
+    description: "Public URLs and case studies where clients allow.",
   },
   {
     icon: Code2,
-    value: 50,
-    suffix: "+",
-    label: "Team Members",
-    color: "text-primary",
-    bgColor: "bg-primary/10",
+    label: "Full-stack delivery",
+    description: "Web, operations tooling, mobility, and enterprise systems.",
   },
 ];
 
@@ -50,32 +30,24 @@ export function StatisticsSection() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
-      {statistics.map((stat, index) => {
-        const Icon = stat.icon;
+    <div
+      ref={ref}
+      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 transition-opacity duration-700 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      {pillars.map((item, index) => {
+        const Icon = item.icon;
         return (
-          <div
-            key={index}
-            className="text-center group"
-            style={{
-              animationDelay: `${index * 100}ms`,
-            }}
-          >
-            <div
-              className={`${stat.bgColor} ${stat.color} w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-transform group-hover:scale-110`}
-            >
-              <Icon className="h-8 w-8 md:h-10 md:w-10 stroke-current dark:stroke-current" strokeWidth={2} />
+          <div key={item.label} className="text-center">
+            <div className="bg-primary/10 text-primary w-16 h-16 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <Icon className="h-8 w-8 md:h-10 md:w-10" strokeWidth={2} aria-hidden />
             </div>
-            <div className={`text-3xl md:text-4xl lg:text-5xl font-bold ${stat.color} mb-2`}>
-              <AnimatedCounter
-                end={stat.value}
-                suffix={stat.suffix}
-                duration={2000}
-                isVisible={isVisible}
-              />
-            </div>
-            <p className="text-sm md:text-base text-muted-foreground font-medium">
-              {stat.label}
+            <p className="text-base md:text-lg font-semibold text-foreground mb-2">
+              {item.label}
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {item.description}
             </p>
           </div>
         );
@@ -83,4 +55,3 @@ export function StatisticsSection() {
     </div>
   );
 }
-

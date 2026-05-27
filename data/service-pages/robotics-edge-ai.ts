@@ -26,6 +26,7 @@ export const roboticsEdgeAi: ServicePageDefinition = {
     description:
       "Autonomous physical systems and real-time AI inference at the edge.\n\nBuilt for environments where cloud latency is not an option.\n\nReliable. Deterministic. Field-proven.",
     iconName: "Cpu",
+    visualUrl: "/images/capabilities/robotics-industrial-arm.png",
     features: [
       "Autonomous Ground & Aerial Vehicles",
       "Edge Inference Engines",

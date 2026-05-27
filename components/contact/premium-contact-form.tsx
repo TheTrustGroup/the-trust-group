@@ -17,7 +17,8 @@ import {
   errorMessages, 
   getRandomSuccessMessage 
 } from "@/components/ui/personality-placeholders";
-import emailjs from "@emailjs/browser";
+import { postContactJson, ContactApiError } from "@/lib/contact-api-client";
+import { isTurnstileWidgetEnabled, TurnstileWidget } from "./turnstile-widget";
 
 interface FormData {
   name: string;
@@ -57,6 +58,7 @@ export function PremiumContactForm() {
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState<"idle" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = React.useState<string | null>(null);
 
   // Real-time validation with personality
   const validateField = (name: keyof FormData, value: string): string | undefined => {
@@ -135,40 +137,34 @@ export function PremiumContactForm() {
       setCurrentStep(3);
       return;
     }
+    if (isTurnstileWidgetEnabled() && !turnstileToken) {
+      setSubmitStatus("error");
+      showToast({
+        type: "error",
+        title: "Verification required",
+        message: "Please complete the security verification before sending.",
+      });
+      return;
+    }
 
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
-      // EmailJS integration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
-      }
-
-      // Prepare file attachments info (EmailJS doesn't support file attachments directly)
       const filesInfo = formData.files.length > 0 
         ? formData.files.map(f => `${f.name} (${(f.size / 1024).toFixed(2)} KB)`).join(", ")
         : "No files attached";
-
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || "Not provided",
-        phone: formData.phone || "Not provided",
+      await postContactJson("/api/contact", {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
         service: formData.service,
-        message: formData.description,
-        budget: formData.budget || "Not specified",
+        description: formData.description,
+        budget: formData.budget,
         files_info: filesInfo,
-        files_count: formData.files.length.toString(),
-        to_email: "info@thetrustgroupsolutions.com",
-        reply_to: formData.email,
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        turnstileToken: turnstileToken ?? undefined,
+      });
 
       setSubmitStatus("success");
       showToast({
@@ -195,10 +191,14 @@ export function PremiumContactForm() {
       }, 3000);
     } catch (error) {
       setSubmitStatus("error");
+      const message =
+        error instanceof ContactApiError
+          ? error.message
+          : "Please try again or email us directly.";
       showToast({
         type: "error",
         title: "Error Sending Message",
-        message: "Please try again or email us directly.",
+        message,
       });
     } finally {
       setIsSubmitting(false);
@@ -439,6 +439,10 @@ export function PremiumContactForm() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {isTurnstileWidgetEnabled() && currentStep === 4 && (
+        <TurnstileWidget onToken={setTurnstileToken} />
+      )}
 
       {/* Navigation Buttons */}
       <div className="flex items-center justify-between gap-3 sm:gap-4 pt-6 mt-6 border-t border-border/50">

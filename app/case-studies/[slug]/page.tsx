@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getCaseStudy, getCaseStudySlugs } from "@/lib/case-studies";
@@ -25,6 +26,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: desc,
     url: `/case-studies/${params.slug}`,
   });
+}
+
+function CaseStudyScreenshot({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="relative mb-10 aspect-[16/10] w-full overflow-hidden rounded-lg border border-border/60 bg-muted">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover object-top"
+        sizes="(max-width: 768px) 100vw, 720px"
+        priority
+      />
+    </div>
+  );
 }
 
 /** Tier A/B: section block. Typography-first, no cards. */
@@ -72,6 +88,12 @@ function renderCaseStudyPage(study: CaseStudy) {
         <h1 className="font-serif text-display-3 font-medium text-foreground lg:text-display-2">
           {study.title}
         </h1>
+        {study.image && (
+          <CaseStudyScreenshot
+            src={study.image}
+            alt={study.client ? `${study.client} production screenshot` : "Project screenshot"}
+          />
+        )}
         {(study.client || study.year) && (
           <p className="mt-6 font-sans text-body-sm text-muted-foreground">
             {[study.client, study.year].filter(Boolean).join(" · ")}
@@ -107,6 +129,12 @@ function renderCaseStudyPage(study: CaseStudy) {
       <h1 className="font-serif text-display-3 font-medium text-foreground lg:text-display-2">
         {study.title}
       </h1>
+      {study.image && (
+        <CaseStudyScreenshot
+          src={study.image}
+          alt={study.client ? `${study.client} production screenshot` : "Project screenshot"}
+        />
+      )}
       {(study.client || study.year) && (
         <p className="mt-6 font-sans text-body-sm text-muted-foreground">
           {[study.client, study.year].filter(Boolean).join(" · ")}

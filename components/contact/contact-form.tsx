@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { useToast } from "@/components/ui/toast";
 import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import { postContactJson, ContactApiError } from "@/lib/contact-api-client";
+import { isTurnstileWidgetEnabled, TurnstileWidget } from "./turnstile-widget";
 
 const services = [
   "Defense Technology",
@@ -72,6 +73,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState<"idle" | "success" | "error">("idle");
   const [submitMessage, setSubmitMessage] = React.useState("");
+  const [turnstileToken, setTurnstileToken] = React.useState<string | null>(null);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -107,32 +109,28 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
       return;
     }
 
+    if (isTurnstileWidgetEnabled() && !turnstileToken) {
+      setSubmitStatus("error");
+      setSubmitMessage("Please complete the verification challenge below.");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
     setSubmitMessage("");
 
     try {
-      // EmailJS integration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
-      }
-
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        company: formData.company || "Not provided",
+      await postContactJson("/api/contact", {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
         service: formData.service,
-        message: formData.description,
-        budget: formData.budget || "Not specified",
-        to_email: "info@thetrustgroupsolutions.com",
-        reply_to: formData.email,
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        description: formData.description,
+        budget: formData.budget,
+        phone: "",
+        files_info: "",
+        turnstileToken: turnstileToken ?? undefined,
+      });
 
       setSubmitStatus("success");
       setSubmitMessage("Thank you! We'll get back to you within 24 hours.");
@@ -154,7 +152,11 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
       });
     } catch (error) {
       setSubmitStatus("error");
-      setSubmitMessage("Something went wrong. Please try again or email us directly.");
+      const msg =
+        error instanceof ContactApiError
+          ? error.message
+          : "Something went wrong. Please try again or email us directly.";
+      setSubmitMessage(msg);
       
       showToast({
         type: "error",
@@ -340,6 +342,10 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
           ))}
         </select>
       </div>
+
+      {isTurnstileWidgetEnabled() && (
+        <TurnstileWidget onToken={setTurnstileToken} />
+      )}
 
       {/* Submit Status Messages - Enhanced with animations */}
       <AnimatePresence>

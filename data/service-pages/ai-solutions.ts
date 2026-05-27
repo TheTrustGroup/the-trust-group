@@ -19,6 +19,7 @@ export const aiSolutions: ServicePageDefinition = {
     description:
       "Transform your business with cutting-edge AI solutions. From machine learning models to intelligent automation, we help you harness the power of artificial intelligence.",
     iconName: "Brain",
+    visualUrl: "/images/capabilities/ai-datacenter-brain.png",
     features: [
       "Custom ML model development",
       "AI integration & automation",
@@ -137,12 +138,14 @@ export const aiSolutions: ServicePageDefinition = {
         description:
           "Built a comprehensive analytics platform that processes millions of customer interactions daily, resulting in a 35% increase in conversion rates.",
         results: ["35% increase in conversion", "50% reduction in churn", "Real-time analytics"],
+        href: "/case-studies/ai-customer-analytics",
       },
       {
         title: "Intelligent Document Processing System",
         description:
           "Developed an NLP-powered system that automates document processing, reducing manual work by 80% and improving accuracy.",
         results: ["80% time reduction", "95% accuracy", "Scalable to millions of documents"],
+        href: "/contact",
       },
     ],
   },

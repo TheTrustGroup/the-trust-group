@@ -101,7 +101,7 @@ export function TTGFooter() {
         <div className="ttg-footer__newsletter-inner">
           <div className="ttg-footer__nl-text">
             <h3>Stay Updated</h3>
-            <p>Tech insights on AI, software, and innovation — delivered to your inbox.</p>
+            <p>Tech insights on AI, software, and innovation, delivered to your inbox.</p>
           </div>
           <div>
             <form

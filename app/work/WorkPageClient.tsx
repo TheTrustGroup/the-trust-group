@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   WORK_ENGAGEMENTS,
   WORK_FILTERS,
-  WORK_STAT_ROW,
   type WorkEngagement,
   type WorkCategory,
 } from "@/data/work-engagements";
@@ -37,37 +36,6 @@ function matchesFilter(engagement: WorkEngagement, filter: string): boolean {
 
 export function WorkPageClient() {
   const [filter, setFilter] = React.useState(WORK_CATEGORY_ALL);
-  const cursorRef = React.useRef<HTMLDivElement>(null);
-  const ringRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    const cursor = cursorRef.current;
-    const ring = ringRef.current;
-    if (!cursor || !ring) return;
-
-    const onMove = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-      requestAnimationFrame(() => {
-        ring.style.left = `${e.clientX}px`;
-        ring.style.top = `${e.clientY}px`;
-      });
-    };
-    const media = window.matchMedia("(pointer: fine) and (min-width: 901px)");
-    const prevCursor = document.body.style.cursor;
-    const applyCursor = () => {
-      document.body.style.cursor = media.matches ? "none" : prevCursor;
-    };
-    applyCursor();
-    media.addEventListener("change", applyCursor);
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      media.removeEventListener("change", applyCursor);
-      window.removeEventListener("mousemove", onMove);
-      document.body.style.cursor = prevCursor;
-    };
-  }, []);
-
   const cardRefs = React.useRef<Map<string, HTMLDivElement>>(new Map());
 
   const filteredEngagements = React.useMemo(
@@ -98,26 +66,7 @@ export function WorkPageClient() {
   }, [filter, filteredEngagements]);
 
   return (
-    <div className="work-page relative min-h-screen" style={{ cursor: "none" }}>
-      <div
-        ref={cursorRef}
-        className="work-cursor fixed z-[9999] h-2 w-2 rounded-full transition-transform duration-100 ease-out"
-        style={{
-          background: "var(--work-accent)",
-          transform: "translate(-50%, -50%)",
-        }}
-        aria-hidden
-      />
-      <div
-        ref={ringRef}
-        className="work-cursor-ring fixed z-[9998] h-9 w-9 rounded-full border transition-all duration-150 ease-out"
-        style={{
-          transform: "translate(-50%, -50%)",
-          borderColor: "rgba(26,31,46,0.25)",
-        }}
-        aria-hidden
-      />
-
+    <div className="work-page relative min-h-screen">
       {/* Hero */}
       <section className="relative flex min-h-screen flex-col justify-end overflow-hidden px-6 pb-20 lg:px-[60px] lg:pb-20">
         <div
@@ -138,7 +87,7 @@ export function WorkPageClient() {
             fontFamily: "var(--ttg-font-sans)",
           }}
         >
-          Selected Engagements — 2021–2026
+          Selected Engagements, 2021–2026
         </div>
 
         <p
@@ -164,83 +113,17 @@ export function WorkPageClient() {
           </em>
         </h1>
 
-        <div
-          className="work-hero-meta flex flex-wrap items-end gap-10 lg:gap-[60px]"
+        <p
+          className="work-hero-meta max-w-2xl text-sm leading-[1.7]"
           style={{
             fontFamily: "var(--ttg-font-sans)",
+            color: "var(--work-muted)",
           }}
         >
-          <div className="flex flex-col gap-1">
-            <span
-              className="text-[36px] leading-none"
-              style={{
-                fontFamily: "var(--ttg-font-serif)",
-                color: "var(--work-text)",
-              }}
-            >
-              40+
-            </span>
-            <span
-              className="text-[10px] uppercase tracking-[0.1em]"
-              style={{ color: "var(--work-muted)" }}
-            >
-              Systems Deployed
-            </span>
-          </div>
-          <div
-            className="h-10 w-px shrink-0"
-            style={{ background: "var(--work-border)" }}
-          />
-          <div className="flex flex-col gap-1">
-            <span
-              className="text-[36px] leading-none"
-              style={{
-                fontFamily: "var(--ttg-font-serif)",
-                color: "var(--work-text)",
-              }}
-            >
-              12
-            </span>
-            <span
-              className="text-[10px] uppercase tracking-[0.1em]"
-              style={{ color: "var(--work-muted)" }}
-            >
-              Countries
-            </span>
-          </div>
-          <div
-            className="h-10 w-px shrink-0"
-            style={{ background: "var(--work-border)" }}
-          />
-          <div className="flex flex-col gap-1">
-            <span
-              className="text-[36px] leading-none"
-              style={{
-                fontFamily: "var(--ttg-font-serif)",
-                color: "var(--work-text)",
-              }}
-            >
-              99.9%
-            </span>
-            <span
-              className="text-[10px] uppercase tracking-[0.1em]"
-              style={{ color: "var(--work-muted)" }}
-            >
-              Avg Uptime SLA
-            </span>
-          </div>
-          <div
-            className="h-10 w-px shrink-0"
-            style={{ background: "var(--work-border)" }}
-          />
-          <p
-            className="max-w-[380px] text-sm leading-[1.7]"
-            style={{ color: "var(--work-muted)" }}
-          >
-            A curated selection of engagements across defense, enterprise, and
-            emerging technology sectors. Some details remain classified.
-          </p>
-        </div>
+          A curated selection of engagements across defense, enterprise, retail
+          operations, and mobility. Live projects link to production URLs where
+          disclosure allows. Classified and pipeline work is labeled accordingly.
+        </p>
       </section>
 
       {/* Filter */}
@@ -270,38 +153,6 @@ export function WorkPageClient() {
       {/* Portfolio grid */}
       <section className="px-6 py-20 lg:px-[60px] lg:py-[120px]">
         <div className="grid grid-cols-12 gap-6">
-          {/* Stat row */}
-          <div
-            className="col-span-12 flex flex-wrap items-center justify-center gap-10 border-y border-[var(--work-border)] py-10 lg:gap-20"
-            style={{ background: "transparent", borderColor: "var(--work-border)" }}
-          >
-            {WORK_STAT_ROW.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div
-                  className="mb-2 text-[52px] leading-none"
-                  style={{
-                    fontFamily: "var(--ttg-font-serif)",
-                    color: "var(--work-text)",
-                  }}
-                >
-                  {stat.value}
-                  <span style={{ color: "var(--work-accent)" }}>
-                    {stat.suffix}
-                  </span>
-                </div>
-                <div
-                  className="text-[10px] uppercase tracking-[0.12em]"
-                  style={{
-                    fontFamily: "var(--ttg-font-sans)",
-                    color: "var(--work-muted)",
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-
           {filteredEngagements.map((eng) => (
             <WorkCard
               key={eng.id}
@@ -339,7 +190,7 @@ export function WorkPageClient() {
             style={{ color: "var(--work-muted)" }}
           >
             We work with a select number of organizations at a time. If your
-            project demands precision, security, and speed — let&apos;s talk.
+            project demands precision, security, and speed, let&apos;s talk.
           </p>
         </div>
         <div className="flex flex-col gap-4 lg:items-end">
@@ -390,9 +241,14 @@ const WorkCard = React.forwardRef<
     techStack,
     metrics,
     ndaCtaText,
+    caseStudySlug,
+    liveUrl,
+    pipeline,
+    previewImage,
   } = engagement;
 
   const sizeClass = getCardSizeClass(size);
+  const caseStudyHref = caseStudySlug ? `/case-studies/${caseStudySlug}` : undefined;
   const dataCategory = engagement.category.join(" ");
 
   return (
@@ -415,12 +271,29 @@ const WorkCard = React.forwardRef<
       }}
     >
       <div
-        className={`flex h-full flex-col p-10 ${
+        className={`flex h-full flex-col ${
+          previewImage && !classified ? "p-0" : "p-10"
+        } ${
           classified
             ? "bg-[repeating-linear-gradient(-45deg,var(--work-bg-card),var(--work-bg-card)_10px,rgba(255,80,80,0.02)_10px,rgba(255,80,80,0.02)_20px)]"
             : ""
         }`}
       >
+        {previewImage && !classified && (
+          <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-[var(--work-border)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={previewImage}
+              alt=""
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+        )}
+        <div
+          className={`flex h-full flex-col ${
+            previewImage && !classified ? "p-10" : ""
+          }`}
+        >
         <div className="mb-8 flex items-start justify-between gap-4">
           <span
             className="text-[10px] tracking-[0.1em]"
@@ -562,7 +435,37 @@ const WorkCard = React.forwardRef<
           </div>
         )}
 
-        {ndaCtaText && (
+        {caseStudyHref && (
+          <Link
+            href={caseStudyHref}
+            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--work-accent)",
+              borderColor: "rgba(26, 31, 46, 0.2)",
+            }}
+          >
+            Read case study
+            <span aria-hidden>→</span>
+          </Link>
+        )}
+        {!caseStudyHref && liveUrl && (
+          <Link
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--work-accent)",
+              borderColor: "rgba(26, 31, 46, 0.2)",
+            }}
+          >
+            View live project
+            <span aria-hidden>↗</span>
+          </Link>
+        )}
+        {!caseStudyHref && ndaCtaText && (
           <Link
             href="/contact"
             className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
@@ -576,6 +479,20 @@ const WorkCard = React.forwardRef<
             <span aria-hidden>→</span>
           </Link>
         )}
+        {!caseStudyHref && !liveUrl && !ndaCtaText && (
+          <Link
+            href="/contact"
+            className="mt-auto inline-flex items-center gap-2.5 self-start text-[11px] tracking-wider transition-opacity hover:opacity-80"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--work-muted)",
+            }}
+          >
+            {pipeline ? "Request delivery overview" : "Discuss this engagement"}
+            <span aria-hidden>→</span>
+          </Link>
+        )}
+        </div>
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ const timelineEvents = [
   {
     year: "2025",
     title: "Ecosystem Growth",
-    description: "Launched multiple subsidiary companies and reached 500+ successful projects milestone.",
+    description: "Expanded delivery across retail operations, mobility, and enterprise platforms.",
     icon: Lightbulb,
   },
 ];

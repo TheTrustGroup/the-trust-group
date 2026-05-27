@@ -18,6 +18,7 @@ export const defenseTechnology: ServicePageDefinition = {
     description:
       "Building mission-critical software systems that protect national interests and support defense operations. Secure. Compliant. Battle-tested.",
     iconName: "Shield",
+    visualUrl: "/images/capabilities/drone-mapping-hud.png",
     features: [
       "Cybersecurity & Threat Detection",
       "AI-Powered Defense Systems",

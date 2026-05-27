@@ -3,48 +3,34 @@
 import * as React from "react";
 import { Section } from "@/components/ui";
 import { AppleCaseStudyCard, type AppleCaseStudy } from "./apple-case-study-card";
-import { getFeaturedProjects } from "@/lib/cms-client";
+import { ENGAGEMENT_MANIFEST } from "@/data/engagements.manifest";
 
-// Only use case study URLs that point to our app's case study route (avoids 404s from bad or external URLs)
-const VALID_CASE_STUDY_PREFIX = "/case-studies/";
-function isValidCaseStudyUrl(url: unknown): url is string {
-  return typeof url === "string" && url.startsWith(VALID_CASE_STUDY_PREFIX) && url.length > VALID_CASE_STUDY_PREFIX.length && !url.includes(" ");
-}
-
-// Convert real projects to Apple case study format
-function convertProjectToCaseStudy(project: any): AppleCaseStudy {
-  // Extract key results/impact from results array
-  const resultsSummary = project.results && project.results.length > 0
-    ? project.results.slice(0, 2).join(", ")
-    : project.description;
-
-  // Create concise solution description
-  const solutionText = project.longDescription 
-    ? (project.longDescription.length > 150 
-        ? project.longDescription.substring(0, 150) + "..." 
-        : project.longDescription)
-    : project.description;
-
-  return {
-    id: project.id,
-    client: project.client || "Enterprise client",
-    challenge: project.description || "Required a reliable, scalable solution to support business growth.",
-    solution: solutionText,
-    outcome: resultsSummary,
-    industry: project.industry,
-    featured: project.featured,
-    caseStudyUrl: isValidCaseStudyUrl(project.caseStudyUrl) ? project.caseStudyUrl : undefined,
-  };
+function getHomepageCaseStudies(): AppleCaseStudy[] {
+  return ENGAGEMENT_MANIFEST.filter(
+    (entry) => entry.showOnHomepage && entry.homePreview
+  )
+    .slice(0, 4)
+    .map((entry) => ({
+      id: entry.id,
+      client: entry.homePreview!.client,
+      challenge: entry.homePreview!.challenge,
+      solution: entry.homePreview!.solution,
+      outcome: entry.homePreview!.outcome,
+      industry: entry.homePreview!.industry ?? entry.industry,
+      featured: entry.featured,
+      previewImage:
+        entry.homePreview!.previewImage ?? entry.previewImage,
+      caseStudyUrl: entry.caseStudySlug
+        ? `/case-studies/${entry.caseStudySlug}`
+        : entry.liveUrl,
+    }));
 }
 
 export function SelectedWork() {
-  // Memoize featured projects to prevent recalculation on re-renders
   const caseStudies = React.useMemo(() => {
-    const featuredProjects = getFeaturedProjects().slice(0, 4);
-    return featuredProjects.map(convertProjectToCaseStudy);
+    return getHomepageCaseStudies();
   }, []);
 
-  // If no featured projects, show a message or return null
   if (caseStudies.length === 0) {
     return null;
   }
