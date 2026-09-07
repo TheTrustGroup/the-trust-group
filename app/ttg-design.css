@@ -208,10 +208,13 @@
   right: 0;
   background: var(--ttg-bg-white);
   border-bottom: 1px solid var(--ttg-border);
-  padding: 24px var(--ttg-pad-x);
+  padding: 20px var(--ttg-pad-x) calc(20px + env(safe-area-inset-bottom, 0px));
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
   z-index: 999;
+  max-height: calc(100vh - var(--ttg-nav-h));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 8px 32px rgba(26, 31, 46, 0.1);
   font-family: var(--ttg-font-sans);
 }
@@ -221,11 +224,14 @@
 }
 
 .ttg-nav__mobile a {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--ttg-muted);
   text-decoration: none;
-  padding: 12px 0;
+  padding: 16px 0;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
   border-bottom: 1px solid var(--ttg-border);
   transition: color 0.2s;
 }
@@ -282,88 +288,6 @@
   background: var(--ttg-bg-white);
   border-top: 1px solid var(--ttg-border);
   font-family: var(--ttg-font-sans);
-}
-
-.ttg-footer__newsletter {
-  border-bottom: 1px solid var(--ttg-border);
-  padding: 52px var(--ttg-pad-x);
-}
-
-.ttg-footer__newsletter-inner {
-  max-width: var(--ttg-max-w);
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.ttg-footer__nl-text h3 {
-  font-family: var(--ttg-font-serif);
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--ttg-navy);
-  margin-bottom: 6px;
-  letter-spacing: 0.01em;
-}
-
-.ttg-footer__nl-text p {
-  font-size: 14px;
-  color: var(--ttg-muted);
-}
-
-.ttg-footer__nl-form {
-  display: flex;
-  gap: 0;
-  flex-shrink: 0;
-  border: 1px solid var(--ttg-border-nav);
-  border-radius: 100px;
-  overflow: hidden;
-  background: var(--ttg-bg);
-}
-
-.ttg-footer__nl-form input {
-  background: transparent;
-  border: none;
-  padding: 12px 20px;
-  font-family: var(--ttg-font-sans);
-  font-size: 13px;
-  color: var(--ttg-navy);
-  outline: none;
-  min-width: 240px;
-}
-
-.ttg-footer__nl-form input::placeholder {
-  color: var(--ttg-muted-lt);
-}
-
-.ttg-footer__nl-form button {
-  background: var(--ttg-navy);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  font-family: var(--ttg-font-sans);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  border-radius: 100px;
-  margin: 3px;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-
-.ttg-footer__nl-form button:hover {
-  background: var(--ttg-navy-dim);
-}
-
-.ttg-footer__nl-privacy {
-  font-size: 11px;
-  color: var(--ttg-muted-lt);
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .ttg-footer__main {
@@ -595,31 +519,12 @@
   .ttg-footer__main {
     grid-template-columns: 1fr 1fr;
   }
-
-  .ttg-footer__newsletter-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .ttg-footer__nl-form {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .ttg-footer__nl-form input {
-    min-width: 0;
-    flex: 1;
-  }
 }
 
 @media (max-width: 768px) {
   .ttg-footer__main {
     grid-template-columns: 1fr;
     gap: 36px;
-  }
-
-  .ttg-footer__newsletter {
-    padding: 40px var(--ttg-pad-x);
   }
 
   .ttg-footer__bottom-inner {
@@ -686,5 +591,65 @@
   color: var(--ttg-muted);
 }
 .ttg-hero-secondary-link:hover {
+  color: var(--ttg-navy);
+}
+
+/* ─── Shared section primitives (homepage + capabilities) ─────────────────── */
+
+/* Small uppercase arrow link, e.g. "Read case study →" */
+.ttg-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--ttg-font-sans);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ttg-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.ttg-text-link:hover {
+  color: var(--ttg-navy);
+}
+.ttg-text-link--plain {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+/* Field label above a short block of copy */
+.ttg-label {
+  display: block;
+  font-family: var(--ttg-font-sans);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ttg-muted);
+}
+
+/* Hairline-divided cell grid: 1px gaps painted by the container background */
+.ttg-cells {
+  display: grid;
+  gap: 1px;
+  background: var(--ttg-border);
+  border: 1px solid var(--ttg-border);
+}
+.ttg-cell {
+  background: var(--ttg-bg-white);
+  transition: background-color 0.3s ease;
+}
+a.ttg-cell:hover {
+  background: var(--ttg-bg);
+}
+
+/* Section body copy */
+.ttg-body {
+  font-family: var(--ttg-font-sans);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ttg-muted);
+}
+.ttg-body--navy {
   color: var(--ttg-navy);
 }

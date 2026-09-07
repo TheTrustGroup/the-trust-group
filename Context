@@ -1,0 +1,63 @@
+First: Apple-level framing (how Apple would think about this site)
+What this company must communicate
+Trust
+Competence
+Quiet confidence
+Operational excellence
+Modern, but not loud
+If someone lands on the site for 7 seconds, they should feel:
+“These people are serious. I can trust them with important work.”
+That’s the bar.
+What your site NEEDS vs DOES NOT NEED
+Needs
+✅ Crystal-clear positioning (what you do, who it’s for, why you’re credible)
+✅ Mobile-first UX (thumb-reachable, fast, zero clutter)
+✅ Case studies that prove outcomes, not storytelling fluff
+✅ Subtle glassmorphism + Liquid Glass (used sparingly, not everywhere)
+✅ Tight typography system
+✅ Robust end-to-end user flow (landing → credibility → proof → contact)
+Does NOT need
+❌ Carousels
+❌ Excess animations
+❌ Marketing buzzwords
+❌ Too many colors
+❌ Overdesigned cards
+❌ Long paragraphs
+❌ “About us” fluff that says nothing
+Apple rule: If it doesn’t improve comprehension, remove it.
+Visual & UI Direction (non-negotiable)
+Design Language
+Background: soft off-white / very light gray (never pure white)
+Glass: used only for containers that group meaning (case cards, nav)
+Blur: subtle (8–16px), never frosted-overkill
+Borders: 1px hairline, low-contrast
+Shadows: extremely soft, barely noticeable
+Typography
+System-first:
+-apple-system, SF Pro, fallback to Inter
+Font sizes:
+Hero: confident but not huge
+Body: readable, airy
+Line height matters more than font size
+Information Architecture (Apple-style)
+Homepage flow (mobile-first)
+Hero
+One sentence
+One action
+What We Do
+3 short capabilities max
+Why Trust Us
+Quiet proof points
+Case Studies
+Outcome-driven
+Call to Action
+Calm, not salesy
+Case Study Section — THIS IS CRITICAL
+Apple’s rule for case studies
+Show results, not process noise.
+Structure per case study
+Client context (1 line)
+Problem (1–2 lines)
+Solution (1 line)
+Outcome (metrics or concrete impact)
+No screenshots unless they add meaning.

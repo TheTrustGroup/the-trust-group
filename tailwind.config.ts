@@ -6,7 +6,6 @@ import type { Config } from "tailwindcss";
  * Zero layout shift: images require explicit width/height in markup.
  */
 const config: Config = {
-  darkMode: ["class"],
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -50,11 +49,8 @@ const config: Config = {
         "destructive-foreground": "hsl(var(--destructive-foreground))",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
-        "trust-serif": ["var(--font-trust-serif)", "Georgia", "serif"],
-        "trust-mono": ["var(--font-trust-mono)", "monospace"],
-        "trust-sans": ["var(--font-trust-sans)", "system-ui", "sans-serif"],
+        sans: ["var(--font-ttg-jost)", "system-ui", "sans-serif"],
+        serif: ["var(--font-ttg-cormorant)", "Georgia", "serif"],
       },
       /* Ralph Lauren–inspired scale: large serif headlines, tight leading; sans body, generous leading */
       fontSize: {

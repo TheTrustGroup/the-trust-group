@@ -12,23 +12,6 @@ import "./work-page.css";
 
 const WORK_CATEGORY_ALL = "all";
 
-function getCardSizeClass(size: WorkEngagement["size"]): string {
-  switch (size) {
-    case "wide":
-      return "lg:col-span-8";
-    case "narrow":
-      return "lg:col-span-4";
-    case "half":
-      return "lg:col-span-6";
-    case "full":
-      return "col-span-12";
-    case "third":
-      return "lg:col-span-4";
-    default:
-      return "col-span-12";
-  }
-}
-
 function matchesFilter(engagement: WorkEngagement, filter: string): boolean {
   if (filter === WORK_CATEGORY_ALL) return true;
   return engagement.category.includes(filter as WorkCategory);
@@ -36,39 +19,15 @@ function matchesFilter(engagement: WorkEngagement, filter: string): boolean {
 
 export function WorkPageClient() {
   const [filter, setFilter] = React.useState(WORK_CATEGORY_ALL);
-  const cardRefs = React.useRef<Map<string, HTMLDivElement>>(new Map());
 
   const filteredEngagements = React.useMemo(
     () => WORK_ENGAGEMENTS.filter((e) => matchesFilter(e, filter)),
     [filter]
   );
 
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLDivElement;
-            const ids = filteredEngagements.map((e) => e.id);
-            const delay = ids.indexOf(el.dataset.workId ?? "") * 80;
-            setTimeout(() => el.classList.add("work-card-visible"), Math.max(0, delay));
-            observer.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    filteredEngagements.forEach((eng) => {
-      const el = cardRefs.current.get(eng.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, [filter, filteredEngagements]);
-
   return (
     <div className="work-page relative min-h-screen">
-      {/* Hero */}
-      <section className="relative flex min-h-screen flex-col justify-end overflow-hidden px-6 pb-20 lg:px-[60px] lg:pb-20">
+      <section className="relative flex min-h-[70vh] flex-col justify-end overflow-hidden px-6 pb-16 lg:px-[60px] lg:pb-20 pt-32">
         <div
           className="pointer-events-none absolute inset-0 opacity-90"
           style={{
@@ -79,16 +38,6 @@ export function WorkPageClient() {
               "radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%)",
           }}
         />
-        <div
-          className="absolute right-6 top-36 hidden text-[11px] uppercase tracking-[0.1em] lg:block"
-          style={{
-            color: "var(--work-muted)",
-            writingMode: "vertical-rl",
-            fontFamily: "var(--ttg-font-sans)",
-          }}
-        >
-          Selected Engagements, 2021–2026
-        </div>
 
         <p
           className="work-hero-eyebrow mb-7 text-[11px] uppercase tracking-[0.14em]"
@@ -100,16 +49,16 @@ export function WorkPageClient() {
           Our Work
         </p>
         <h1
-          className="work-hero-title mb-10 text-[clamp(52px,7vw,96px)] leading-[0.95] tracking-tight"
+          className="work-hero-title mb-8 text-[clamp(44px,6vw,80px)] leading-[0.95] tracking-tight max-w-[900px]"
           style={{
             fontFamily: "var(--ttg-font-serif)",
             color: "var(--work-text)",
           }}
         >
-          Systems built for
+          Engagements we do not
           <br />
           <em className="italic" style={{ color: "var(--work-accent)" }}>
-            permanence.
+            publish by name.
           </em>
         </h1>
 
@@ -120,23 +69,20 @@ export function WorkPageClient() {
             color: "var(--work-muted)",
           }}
         >
-          A curated selection of engagements across defense, enterprise, retail
-          operations, and mobility. Live projects link to production URLs where
-          disclosure allows. Classified and pipeline work is labeled accordingly.
+          Anonymous industry summaries only. Client identity, screenshots, and
+          production URLs are withheld. Architecture, metrics, and references
+          are shared under NDA in a private briefing.
         </p>
       </section>
 
-      {/* Filter */}
-      <div
-        className="work-hero-filter border-b border-[var(--work-border)] px-6 lg:px-[60px]"
-      >
-        <div className="flex overflow-x-auto">
+      <div className="work-hero-filter border-b border-[var(--work-border)] px-0 sm:px-6 lg:px-[60px]">
+        <div className="work-filter-bar flex overflow-x-auto px-6 sm:px-0">
           {WORK_FILTERS.map(({ id, label }) => (
             <button
               key={id}
               type="button"
               onClick={() => setFilter(id)}
-              className="whitespace-nowrap border-b-2 px-6 py-5 pb-[18px] text-[11px] uppercase tracking-[0.1em] transition-colors -mb-px"
+              className="whitespace-nowrap border-b-2 px-4 py-5 pb-[18px] text-[11px] uppercase tracking-[0.1em] transition-colors -mb-px sm:px-6"
               style={{
                 fontFamily: "var(--ttg-font-sans)",
                 color: filter === id ? "var(--work-accent)" : "var(--work-muted)",
@@ -150,59 +96,49 @@ export function WorkPageClient() {
         </div>
       </div>
 
-      {/* Portfolio grid */}
-      <section className="px-6 py-20 lg:px-[60px] lg:py-[120px]">
-        <div className="grid grid-cols-12 gap-6">
+      <section className="px-6 py-16 lg:px-[60px] lg:py-24">
+        <ul className="m-0 list-none border-t border-[var(--work-border)] p-0">
           {filteredEngagements.map((eng) => (
-            <WorkCard
-              key={eng.id}
-              engagement={eng}
-              ref={(el) => {
-                if (el) cardRefs.current.set(eng.id, el);
-              }}
-              visible={matchesFilter(eng, filter)}
-            />
+            <WorkRow key={eng.id} engagement={eng} />
           ))}
-        </div>
+        </ul>
+        {filteredEngagements.length === 0 && (
+          <p
+            className="py-16 text-sm"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--work-muted)",
+            }}
+          >
+            No engagements in this category are listed publicly.
+          </p>
+        )}
       </section>
 
-      {/* CTA */}
       <section
-        className="flex flex-col gap-10 border-t border-[var(--work-border)] px-6 py-20 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-[60px] lg:py-[120px]"
+        className="flex flex-col gap-10 border-t border-[var(--work-border)] px-6 py-20 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-[60px] lg:py-[100px]"
         style={{ borderColor: "var(--work-border)" }}
       >
         <div>
           <h2
-            className="mb-4 text-[clamp(36px,4vw,60px)] leading-[1.05]"
+            className="mb-4 text-[clamp(32px,4vw,52px)] leading-[1.05]"
             style={{
               fontFamily: "var(--ttg-font-serif)",
               color: "var(--work-text)",
             }}
           >
-            Ready to build something
-            <br />
-            <em className="italic" style={{ color: "var(--work-accent)" }}>
-              that lasts?
-            </em>
+            Need detail on past work?
           </h2>
           <p
-            className="max-w-[440px] text-sm leading-[1.7]"
+            className="max-w-[480px] text-sm leading-[1.7]"
             style={{ color: "var(--work-muted)" }}
           >
-            We work with a select number of organizations at a time. If your
-            project demands precision, security, and speed, let&apos;s talk.
+            We share references, architecture notes, and outcomes under mutual
+            NDA — not on a public portfolio.
           </p>
         </div>
         <div className="flex flex-col gap-4 lg:items-end">
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-[18px] text-xs uppercase tracking-wider transition-colors"
-            style={{
-              fontFamily: "var(--ttg-font-sans)",
-              background: "var(--work-accent)",
-              color: "#fff",
-            }}
-          >
+          <Link href="/contact" className="ttg-btn-pill">
             Request a Private Briefing
           </Link>
           <Link
@@ -221,123 +157,56 @@ export function WorkPageClient() {
   );
 }
 
-const WorkCard = React.forwardRef<
-  HTMLDivElement,
-  {
-    engagement: WorkEngagement;
-    visible: boolean;
-  }
->(function WorkCard({ engagement, visible }, ref) {
+function WorkRow({ engagement }: { engagement: WorkEngagement }) {
   const {
-    id,
     index,
-    size,
-    featured,
     classified,
     industry,
     title,
     description,
     tags,
-    techStack,
-    metrics,
     ndaCtaText,
-    caseStudySlug,
-    liveUrl,
     pipeline,
-    previewImage,
   } = engagement;
 
-  const sizeClass = getCardSizeClass(size);
-  const caseStudyHref = caseStudySlug ? `/case-studies/${caseStudySlug}` : undefined;
-  const dataCategory = engagement.category.join(" ");
-
   return (
-    <div
-      ref={ref}
-      data-category={dataCategory}
-      data-work-id={id}
-      className={`work-card ${sizeClass} col-span-12 overflow-hidden rounded border transition-all duration-300 ${
-        visible
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-20 scale-[0.98] pointer-events-none"
-      } work-card opacity-0 translate-y-8`}
-      style={{
-        background: classified
-          ? undefined
-          : featured
-            ? "linear-gradient(135deg, var(--ttg-bg-white) 0%, var(--ttg-bg) 100%)"
-            : "var(--work-bg-card)",
-        borderColor: "var(--work-border)",
-      }}
+    <li
+      className="grid grid-cols-1 gap-6 border-b border-[var(--work-border)] py-10 md:grid-cols-12 md:gap-8 md:py-12"
     >
-      <div
-        className={`flex h-full flex-col ${
-          previewImage && !classified ? "p-0" : "p-10"
-        } ${
-          classified
-            ? "bg-[repeating-linear-gradient(-45deg,var(--work-bg-card),var(--work-bg-card)_10px,rgba(255,80,80,0.02)_10px,rgba(255,80,80,0.02)_20px)]"
-            : ""
-        }`}
-      >
-        {previewImage && !classified && (
-          <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden border-b border-[var(--work-border)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={previewImage}
-              alt=""
-              className="h-full w-full object-cover object-top"
-            />
-          </div>
-        )}
-        <div
-          className={`flex h-full flex-col ${
-            previewImage && !classified ? "p-10" : ""
-          }`}
+      <div className="md:col-span-2">
+        <span
+          className="text-[10px] tracking-[0.1em]"
+          style={{
+            fontFamily: "var(--ttg-font-sans)",
+            color: "var(--work-muted)",
+          }}
         >
-        <div className="mb-8 flex items-start justify-between gap-4">
-          <span
-            className="text-[10px] tracking-[0.1em]"
-            style={{
-              fontFamily: "var(--ttg-font-sans)",
-              color: "var(--work-muted)",
-            }}
-          >
-            {index}
-          </span>
-          <div className="flex flex-wrap justify-end gap-2">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="border px-2.5 py-1 text-[9px] uppercase tracking-[0.1em]"
-                style={{
-                  fontFamily: "var(--ttg-font-sans)",
-                  ...(tag === "Classified"
-                    ? {
-                        borderColor: "rgba(255, 80, 80, 0.3)",
-                        color: "rgba(255, 120, 120, 0.8)",
-                        background: "rgba(255, 80, 80, 0.05)",
-                      }
-                    : tag === "Featured"
-                      ? {
-                          borderColor: "rgba(26, 31, 46, 0.25)",
-                          color: "var(--work-accent)",
-                          background: "var(--work-tag-bg)",
-                        }
-                      : {
-                          borderColor: "var(--work-border)",
-                          color: "var(--work-muted)",
-                          background: "var(--work-tag-bg)",
-                        }),
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+          {index}
+        </span>
+        <div className="mt-3 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="border px-2.5 py-1 text-[9px] uppercase tracking-[0.1em]"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                borderColor:
+                  tag === "Classified"
+                    ? "rgba(26, 31, 46, 0.2)"
+                    : "var(--work-border)",
+                color: "var(--work-muted)",
+                background: "var(--work-tag-bg)",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
         </div>
+      </div>
 
+      <div className="md:col-span-7">
         <p
-          className="mb-3 text-[10px] uppercase tracking-[0.14em]"
+          className="mb-2 text-[10px] uppercase tracking-[0.14em]"
           style={{
             fontFamily: "var(--ttg-font-sans)",
             color: "var(--work-accent)",
@@ -346,7 +215,7 @@ const WorkCard = React.forwardRef<
           {industry}
         </p>
         <h2
-          className={`mb-4 font-serif leading-[1.1] ${featured ? "text-[clamp(28px,3.5vw,48px)]" : "text-[clamp(22px,2.5vw,32px)]"}`}
+          className="mb-4 text-[clamp(22px,2.5vw,32px)] leading-[1.1]"
           style={{
             fontFamily: "var(--ttg-font-serif)",
             color: "var(--work-text)",
@@ -354,146 +223,49 @@ const WorkCard = React.forwardRef<
         >
           {title}
         </h2>
-
-        {classified && (
-          <div
-            className="mb-6 flex items-center gap-2.5 border px-3.5 py-2.5"
-            style={{
-              background: "rgba(255, 80, 80, 0.06)",
-              borderColor: "rgba(255, 80, 80, 0.15)",
-            }}
-          >
-            <div
-              className="h-1.5 w-1.5 rounded-full bg-[rgba(255,100,100,0.8)] animate-pulse"
-              style={{ animation: "work-pulse 2s ease infinite" }}
-            />
-            <span
-              className="text-[10px] uppercase tracking-[0.12em]"
-              style={{
-                fontFamily: "var(--ttg-font-sans)",
-                color: "rgba(255, 120, 120, 0.8)",
-              }}
-            >
-              {id === "07" ? "NDA Required" : "Details available under NDA only"}
-            </span>
-          </div>
-        )}
-
         <p
-          className="mb-8 flex-1 text-[13px] leading-[1.7]"
+          className="text-[14px] leading-[1.7] max-w-[560px]"
           style={{ color: "var(--work-muted)" }}
         >
           {description}
         </p>
-
-        {techStack && techStack.length > 0 && (
-          <div className="mb-6 flex flex-wrap gap-2">
-            {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="border px-2.5 py-1 text-[10px]"
-                style={{
-                  fontFamily: "var(--ttg-font-sans)",
-                  color: "var(--work-muted)",
-                  background: "rgba(26,31,46,0.04)",
-                  borderColor: "var(--work-border)",
-                }}
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        )}
-
-        {metrics && metrics.length > 0 && (
-          <div
-            className="flex flex-wrap gap-6 border-t pt-6"
-            style={{ borderColor: "var(--work-border)" }}
-          >
-            {metrics.map((m) => (
-              <div key={m.label} className="flex flex-col gap-0.5">
-                <span
-                  className="text-[22px] leading-none"
-                  style={{
-                    fontFamily: "var(--ttg-font-serif)",
-                    color: "var(--work-text)",
-                  }}
-                >
-                  {m.value}
-                </span>
-                <span
-                  className="text-[9px] uppercase tracking-[0.1em]"
-                  style={{
-                    fontFamily: "var(--ttg-font-sans)",
-                    color: "var(--work-muted)",
-                  }}
-                >
-                  {m.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {caseStudyHref && (
-          <Link
-            href={caseStudyHref}
-            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
-            style={{
-              fontFamily: "var(--ttg-font-sans)",
-              color: "var(--work-accent)",
-              borderColor: "rgba(26, 31, 46, 0.2)",
-            }}
-          >
-            Read case study
-            <span aria-hidden>→</span>
-          </Link>
-        )}
-        {!caseStudyHref && liveUrl && (
-          <Link
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
-            style={{
-              fontFamily: "var(--ttg-font-sans)",
-              color: "var(--work-accent)",
-              borderColor: "rgba(26, 31, 46, 0.2)",
-            }}
-          >
-            View live project
-            <span aria-hidden>↗</span>
-          </Link>
-        )}
-        {!caseStudyHref && ndaCtaText && (
-          <Link
-            href="/contact"
-            className="mt-auto inline-flex items-center gap-2.5 self-start border px-5 py-3 text-[11px] tracking-wider transition-colors hover:bg-[rgba(26,31,46,0.06)]"
-            style={{
-              fontFamily: "var(--ttg-font-sans)",
-              color: "var(--work-accent)",
-              borderColor: "rgba(26, 31, 46, 0.2)",
-            }}
-          >
-            {ndaCtaText}
-            <span aria-hidden>→</span>
-          </Link>
-        )}
-        {!caseStudyHref && !liveUrl && !ndaCtaText && (
-          <Link
-            href="/contact"
-            className="mt-auto inline-flex items-center gap-2.5 self-start text-[11px] tracking-wider transition-opacity hover:opacity-80"
+        {classified && (
+          <p
+            className="mt-4 text-[11px] uppercase tracking-[0.1em]"
             style={{
               fontFamily: "var(--ttg-font-sans)",
               color: "var(--work-muted)",
             }}
           >
-            {pipeline ? "Request delivery overview" : "Discuss this engagement"}
-            <span aria-hidden>→</span>
-          </Link>
+            Details available under NDA only
+          </p>
         )}
-        </div>
+        {pipeline && !classified && (
+          <p
+            className="mt-4 text-[11px] uppercase tracking-[0.1em]"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--work-muted)",
+            }}
+          >
+            Active delivery — not a completed case study
+          </p>
+        )}
       </div>
-    </div>
+
+      <div className="md:col-span-3 md:flex md:items-start md:justify-end">
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.1em] transition-opacity hover:opacity-70"
+          style={{
+            fontFamily: "var(--ttg-font-sans)",
+            color: "var(--work-accent)",
+          }}
+        >
+          {ndaCtaText ?? "Request Briefing Under NDA"}
+          <span aria-hidden>→</span>
+        </Link>
+      </div>
+    </li>
   );
-});
+}

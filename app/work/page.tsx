@@ -1,10 +1,5 @@
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import {
-  DM_Serif_Display,
-  DM_Mono,
-  Instrument_Sans,
-} from "next/font/google";
 import { generateMetadata as genMeta } from "@/lib/seo";
 import { PageContentLoader } from "@/components/loading/page-content-loader";
 
@@ -13,34 +8,13 @@ const WorkPageClient = dynamic(
   { loading: () => <PageContentLoader />, ssr: true }
 );
 
-const dmSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-work-serif",
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-work-mono",
-  display: "swap",
-});
-
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-work-sans",
-  display: "swap",
-});
-
 export const metadata: Metadata = genMeta({
   title: "Our Work",
   description:
-    "Selected engagements in defense technology, enterprise AI, and mission-critical software. 40+ systems deployed across 12 countries.",
+    "Anonymous summaries of selected engagements. Client identity, screenshots, and production URLs are not published. Detail under NDA.",
   keywords: [
-    "case studies",
-    "portfolio",
+    "engagements",
+    "confidential work",
     "defense",
     "enterprise",
     "AI systems",
@@ -50,11 +24,5 @@ export const metadata: Metadata = genMeta({
 });
 
 export default function WorkPage() {
-  return (
-    <div
-      className={`${dmSerif.variable} ${dmMono.variable} ${instrumentSans.variable}`}
-    >
-      <WorkPageClient />
-    </div>
-  );
+  return <WorkPageClient />;
 }

@@ -30,3 +30,16 @@ export function getCaseStudy(slug: string): CaseStudy | undefined {
 export function getCaseStudySlugs(): string[] {
   return loadCaseStudies().map((c) => c.slug);
 }
+
+/** Slugs safe to list in sitemap — excludes confidential and redirected names. */
+export function getIndexableCaseStudySlugs(): string[] {
+  const redirected = new Set([
+    "extreme-dept-kidz",
+    "hunnid-official",
+    "velora",
+    "chez-amis",
+  ]);
+  return loadCaseStudies()
+    .filter((c) => c.confidentiality !== "confidential" && !redirected.has(c.slug))
+    .map((c) => c.slug);
+}

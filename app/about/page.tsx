@@ -123,11 +123,11 @@ export default function AboutPage() {
         {/* Manifesto */}
         <section className="relative pt-[180px] pb-[120px] px-6 lg:px-16 max-w-[1100px] mx-auto">
           <p
-            className="text-[10px] uppercase tracking-[0.18em] mb-10 flex items-center gap-4 opacity-0"
+            className="ttg-reveal text-[10px] uppercase tracking-[0.18em] mb-10 flex items-center gap-4"
             style={{
               fontFamily: "var(--ttg-font-sans)",
               color: "var(--ttg-muted)",
-              animation: "trust-fadeUp 1s ease 0.3s forwards",
+              animationDelay: "0.3s",
             }}
           >
             <span
@@ -137,10 +137,10 @@ export default function AboutPage() {
             The Trust Group — Company
           </p>
           <h1
-            className="ttg-serif text-[clamp(44px,6vw,80px)] leading-none tracking-[-0.025em] mb-16 max-w-[820px] opacity-0"
+            className="ttg-reveal ttg-serif text-[clamp(44px,6vw,80px)] leading-none tracking-[-0.025em] mb-16 max-w-[820px]"
             style={{
               color: "var(--ttg-navy)",
-              animation: "trust-fadeUp 1s ease 0.5s forwards",
+              animationDelay: "0.5s",
             }}
           >
             We were founded on a single
@@ -153,8 +153,8 @@ export default function AboutPage() {
             </em>
           </h1>
           <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-[var(--ttg-border)] pt-16 opacity-0"
-            style={{ animation: "trust-fadeUp 1s ease 0.7s forwards" }}
+            className="ttg-reveal grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-[var(--ttg-border)] pt-16"
+            style={{ animationDelay: "0.7s" }}
           >
             <div className="space-y-5">
               <p

@@ -1,17 +1,34 @@
+import Link from "next/link";
 import { generateBreadcrumbs, generateStructuredData } from "@/lib/seo";
 import { ServiceHero } from "@/components/services/service-hero";
-import { Section } from "@/components/ui/section";
 import { ProcessTimeline } from "@/components/services/process-timeline";
 import { ServiceFAQ } from "@/components/services/service-faq";
 import { ServiceContactForm } from "@/components/services/service-contact-form";
-import { CheckCircle2, ArrowRight, Lock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
+import { TTGSectionHeading } from "@/components/ttg/section-heading";
 import type { ServicePageDefinition } from "@/data/service-pages/types";
 
 interface ServicePageTemplateProps {
   service: ServicePageDefinition;
+}
+
+function CapabilitySection({
+  title,
+  intro,
+  children,
+}: {
+  title: string;
+  intro?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section
+      className="ttg-section border-t border-[var(--ttg-border)] px-6 py-20 md:py-[100px] lg:px-16"
+      style={{ background: "var(--ttg-bg-white)" }}
+    >
+      <TTGSectionHeading title={title} description={intro} />
+      {children}
+    </section>
+  );
 }
 
 export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
@@ -31,7 +48,6 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
   });
 
   const cap = service.capabilities;
-  const capSectionVariant = cap.sectionVariant ?? "default";
 
   return (
     <>
@@ -43,234 +59,211 @@ export function ServicePageTemplate({ service }: ServicePageTemplateProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
-      <main className="min-h-screen">
-        <ServiceHero
-          title={service.hero.title}
-          subtitle={service.hero.subtitle}
-          description={service.hero.description}
-          iconName={service.hero.iconName}
-          features={service.hero.features}
-          visualUrl={service.hero.visualUrl}
-        />
 
-        {service.whySection && (
-          <Section variant="default" size="default">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                {service.whySection.title}
-              </h2>
-              {service.whySection.intro.trim() ? (
-                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  {service.whySection.intro}
-                </p>
-              ) : null}
-            </div>
+      <ServiceHero
+        title={service.hero.title}
+        subtitle={service.hero.subtitle}
+        description={service.hero.description}
+        features={service.hero.features}
+      />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {service.whySection.items.map((item, index) => (
-                <Card key={index} className="border-2 hover:border-primary transition-colors">
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="text-4xl font-bold text-primary/30">{item.number}</div>
-                      <div className="flex-1">
-                        <CardTitle className="text-xl mb-2">{item.title}</CardTitle>
-                        <CardDescription className="text-base">{item.description}</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        <Section variant={capSectionVariant} size="default">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-foreground">
-                {cap.title}
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-                {cap.intro}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {cap.items.map((item, index) => (
-                <Card key={index} className={cap.cardClassName}>
-                  <CardHeader>
-                    <CardTitle className="text-xl">{item.title}</CardTitle>
-                    {item.description.trim() ? (
-                      <CardDescription className="text-base">{item.description}</CardDescription>
-                    ) : null}
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {item.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </Section>
-
-        {service.compliance && (
-          <Section variant="default" size="default">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                {service.compliance.title}
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                {service.compliance.intro}
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {service.compliance.items.map((standard, index) => (
-                <Card key={index} className="border-2 text-center">
-                  <CardHeader>
-                    <CardTitle className="text-xl">{standard.title}</CardTitle>
-                    {standard.description.trim() ? (
-                      <CardDescription className="text-base">{standard.description}</CardDescription>
-                    ) : null}
-                  </CardHeader>
-                </Card>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        <ProcessTimeline
-          steps={service.process.steps}
-          title={service.process.title}
-          description={service.process.description}
-        />
-
-        {service.techStack && (
-          <Section variant="muted" size="default">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                {service.techStack.title}
-              </h2>
-              <p className="text-lg text-muted-foreground">{service.techStack.intro}</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              {service.techStack.tags.map((tech, index) => (
+      {service.whySection && (
+        <CapabilitySection
+          title={service.whySection.title}
+          intro={service.whySection.intro.trim() || undefined}
+        >
+          <div className="ttg-cells grid-cols-1 md:grid-cols-2">
+            {service.whySection.items.map((item) => (
+              <div key={item.number} className="ttg-cell p-8 md:p-10">
                 <span
-                  key={index}
-                  className="px-4 py-2 rounded-lg bg-background border-2 border-border text-sm font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
+                  className="ttg-serif mb-8 block text-[36px] leading-none"
+                  style={{ color: "var(--ttg-muted-lt)" }}
+                  aria-hidden
                 >
-                  {tech}
+                  {item.number}
                 </span>
-              ))}
-            </div>
-          </Section>
-        )}
-
-        {service.caseStudies && (
-          <Section variant="default" size="default">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                {service.caseStudies.title}
-              </h2>
-              <p className="text-lg text-muted-foreground">{service.caseStudies.intro}</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {service.caseStudies.items.map((study, index) => {
-                const card = (
-                  <Card className="border-2 h-full">
-                    <CardHeader>
-                      <CardTitle className="text-xl">{study.title}</CardTitle>
-                      <CardDescription className="text-base">{study.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-2">
-                        {study.results.map((result, idx) => (
-                          <div key={idx} className="flex items-center gap-2">
-                            <CheckCircle2 className="h-5 w-5 text-success" />
-                            <span className="text-foreground font-medium">{result}</span>
-                          </div>
-                        ))}
-                      </div>
-                      {study.href && (
-                        <p className="mt-6 text-sm font-medium text-primary">
-                          {study.href.startsWith("/case-studies/")
-                            ? "Read case study →"
-                            : "Request overview →"}
-                        </p>
-                      )}
-                    </CardContent>
-                  </Card>
-                );
-                return study.href ? (
-                  <Link key={index} href={study.href} className="block h-full no-underline">
-                    {card}
-                  </Link>
-                ) : (
-                  <div key={index}>{card}</div>
-                );
-              })}
-            </div>
-          </Section>
-        )}
-
-        {service.pricingBand && (
-          <Section variant="primary" size="default" className="bg-gradient-to-r from-primary/10 to-accent/10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                {service.pricingBand.title}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">{service.pricingBand.intro}</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                {service.pricingBand.columns.map((col, i) => (
-                  <div key={i} className="p-6 rounded-xl bg-background border-2 border-border">
-                    <h3 className="font-bold text-lg mb-2 text-foreground">{col.title}</h3>
-                    <p className="text-muted-foreground text-sm">{col.description}</p>
-                  </div>
-                ))}
+                <h3
+                  className="ttg-serif mb-3 text-[24px] leading-[1.15]"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
+                  {item.title}
+                </h3>
+                <p className="ttg-body">{item.description}</p>
               </div>
-              <Button size="lg" className="group" asChild>
-                <Link href="/contact">
-                  Get a Custom Quote
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+            ))}
+          </div>
+        </CapabilitySection>
+      )}
+
+      <CapabilitySection title={cap.title} intro={cap.intro}>
+        <div className="ttg-cells grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {cap.items.map((item) => (
+            <div key={item.title} className="ttg-cell flex flex-col p-8 md:p-10">
+              <h3
+                className="ttg-serif mb-3 text-[24px] leading-[1.15]"
+                style={{ color: "var(--ttg-navy)" }}
+              >
+                {item.title}
+              </h3>
+              {item.description.trim() ? (
+                <p className="ttg-body mb-6">{item.description}</p>
+              ) : null}
+              <ul className="mt-auto list-none space-y-2 border-t border-[var(--ttg-border)] p-0 pt-5">
+                {item.features.map((feature) => (
+                  <li key={feature} className="ttg-body text-[13px]">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </Section>
-        )}
+          ))}
+        </div>
+      </CapabilitySection>
 
-        {service.classifiedNote && (
-          <Section variant="primary" size="default" className="bg-gradient-to-r from-primary/10 to-accent/10">
-            <div className="max-w-3xl mx-auto text-center">
-              <Lock className="h-12 w-12 mx-auto mb-4 text-primary" />
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                {service.classifiedNote.title}
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 whitespace-pre-line">
-                {service.classifiedNote.body}
-              </p>
-              <Button size="lg" className="group" asChild>
-                <Link href={service.classifiedNote.ctaHref}>
-                  {service.classifiedNote.ctaLabel}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+      {service.compliance && (
+        <CapabilitySection
+          title={service.compliance.title}
+          intro={service.compliance.intro}
+        >
+          <div className="ttg-cells grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {service.compliance.items.map((standard) => (
+              <div key={standard.title} className="ttg-cell p-8 md:p-10">
+                <h3
+                  className="ttg-serif mb-3 text-[22px] leading-[1.15]"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
+                  {standard.title}
+                </h3>
+                {standard.description.trim() ? (
+                  <p className="ttg-body">{standard.description}</p>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </CapabilitySection>
+      )}
+
+      <ProcessTimeline
+        steps={service.process.steps}
+        title={service.process.title}
+        description={service.process.description}
+      />
+
+      {service.techStack && (
+        <CapabilitySection
+          title={service.techStack.title}
+          intro={service.techStack.intro}
+        >
+          <ul className="m-0 flex list-none flex-wrap gap-x-6 gap-y-3 border-t border-[var(--ttg-border)] p-0 pt-8">
+            {service.techStack.tags.map((tech) => (
+              <li
+                key={tech}
+                className="text-[13px] uppercase tracking-[0.08em]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-navy)",
+                }}
+              >
+                {tech}
+              </li>
+            ))}
+          </ul>
+        </CapabilitySection>
+      )}
+
+      {service.caseStudies && (
+        <CapabilitySection
+          title={service.caseStudies.title}
+          intro={service.caseStudies.intro}
+        >
+          <div className="ttg-cells grid-cols-1 md:grid-cols-2">
+            {service.caseStudies.items.map((study) => {
+              const body = (
+                <div className="ttg-cell flex h-full flex-col p-8 md:p-10">
+                  <h3
+                    className="ttg-serif mb-3 text-[24px] leading-[1.15]"
+                    style={{ color: "var(--ttg-navy)" }}
+                  >
+                    {study.title}
+                  </h3>
+                  <p className="ttg-body mb-6">{study.description}</p>
+                  <ul className="mt-auto list-none space-y-2 border-t border-[var(--ttg-border)] p-0 pt-5">
+                    {study.results.map((result) => (
+                      <li key={result} className="ttg-body text-[13px]">
+                        {result}
+                      </li>
+                    ))}
+                  </ul>
+                  {study.href && (
+                    <p className="ttg-text-link mt-8">
+                      {study.href.startsWith("/case-studies/")
+                        ? "Read case study →"
+                        : "Request overview →"}
+                    </p>
+                  )}
+                </div>
+              );
+              return study.href ? (
+                <Link
+                  key={study.title}
+                  href={study.href}
+                  className="block no-underline"
+                >
+                  {body}
                 </Link>
-              </Button>
-            </div>
-          </Section>
-        )}
+              ) : (
+                <div key={study.title}>{body}</div>
+              );
+            })}
+          </div>
+        </CapabilitySection>
+      )}
 
-        <ServiceFAQ faqs={service.faqs} />
+      {service.pricingBand && (
+        <CapabilitySection
+          title={service.pricingBand.title}
+          intro={service.pricingBand.intro}
+        >
+          <div className="ttg-cells mb-10 grid-cols-1 md:grid-cols-3">
+            {service.pricingBand.columns.map((col) => (
+              <div key={col.title} className="ttg-cell p-8 md:p-10">
+                <h3
+                  className="ttg-serif mb-3 text-[22px] leading-[1.15]"
+                  style={{ color: "var(--ttg-navy)" }}
+                >
+                  {col.title}
+                </h3>
+                <p className="ttg-body">{col.description}</p>
+              </div>
+            ))}
+          </div>
+          <Link href="/contact" className="ttg-btn-pill">
+            Get a Custom Quote
+          </Link>
+        </CapabilitySection>
+      )}
 
-        <ServiceContactForm
-          serviceName={service.contact.serviceName}
-          prefillService={service.contact.prefillService}
-        />
-      </main>
+      {service.classifiedNote && (
+        <section
+          className="ttg-section border-t border-[var(--ttg-border)] px-6 py-20 md:py-[100px] lg:px-16"
+          style={{ background: "var(--ttg-bg)" }}
+        >
+          <TTGSectionHeading
+            title={service.classifiedNote.title}
+            description={service.classifiedNote.body}
+          />
+          <Link href={service.classifiedNote.ctaHref} className="ttg-btn-pill">
+            {service.classifiedNote.ctaLabel}
+          </Link>
+        </section>
+      )}
+
+      <ServiceFAQ faqs={service.faqs} />
+
+      <ServiceContactForm
+        serviceName={service.contact.serviceName}
+        prefillService={service.contact.prefillService}
+      />
     </>
   );
 }

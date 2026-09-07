@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/components/ui/toast";
 import { postContactJson, ContactApiError } from "@/lib/contact-api-client";
 import { isTurnstileWidgetEnabled, TurnstileWidget } from "@/components/contact/turnstile-widget";
@@ -54,11 +53,10 @@ const initialFormState: BriefingFormData = {
   privacyAccepted: false,
 };
 
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 1, ease: "easeOut" as const },
-};
+/** Stagger for the CSS-only `.ttg-reveal` entrance (see globals.css). */
+const revealAt = (seconds: number): React.CSSProperties => ({
+  animationDelay: `${seconds}s`,
+});
 
 export function PrivateBriefingContent() {
   const { showToast } = useToast();
@@ -145,42 +143,35 @@ export function PrivateBriefingContent() {
           }}
         />
         <div className="relative z-10">
-          <motion.p
-            className="ttg-mono text-[10px] text-[var(--ttg-navy)] tracking-[0.18em] uppercase flex items-center gap-3 mb-8"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.3 }}
+          <p
+            className="ttg-reveal ttg-mono text-[10px] text-[var(--ttg-navy)] tracking-[0.18em] uppercase flex items-center gap-3 mb-8"
+            style={revealAt(0.1)}
           >
             <span
               className="w-6 h-px shrink-0"
               style={{ background: "var(--ttg-navy)" }}
             />
             Private Briefing
-          </motion.p>
-          <motion.h1
-            className="ttg-serif text-4xl lg:text-[clamp(2.25rem,3.5vw,3.25rem)] leading-[1.05] tracking-[-0.02em] mb-7"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.5 }}
+          </p>
+          <h1
+            className="ttg-reveal ttg-serif text-4xl lg:text-[clamp(2.25rem,3.5vw,3.25rem)] leading-[1.05] tracking-[-0.02em] mb-7"
+            style={revealAt(0.25)}
           >
             Let&apos;s discuss
             <br />
             what you&apos;re
             <br />
             <em className="italic text-[var(--ttg-navy)]">building.</em>
-          </motion.h1>
-          <motion.p
-            className="text-[15px] text-[var(--ttg-muted)] leading-[1.75] max-w-[380px] mb-14"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.7 }}
+          </h1>
+          <p
+            className="ttg-reveal text-[15px] text-[var(--ttg-muted)] leading-[1.75] max-w-[380px] mb-14"
+            style={revealAt(0.4)}
           >
             A private briefing is a confidential, no-obligation conversation about
             your project. We&apos;ll discuss your requirements, constraints, and
             objectives — and tell you honestly whether we&apos;re the right fit.
-          </motion.p>
-          <motion.div
-            className="flex flex-col gap-5"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.9 }}
-          >
+          </p>
+          <div className="ttg-reveal flex flex-col gap-5" style={revealAt(0.55)}>
             <p className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.14em] uppercase">
               What to expect
             </p>
@@ -218,17 +209,14 @@ export function PrivateBriefingContent() {
                 </span>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
         <footer
-          className="relative z-10 flex flex-col gap-3 pt-10 border-t border-[var(--ttg-border)]"
+          className="ttg-reveal relative z-10 flex flex-col gap-3 pt-10 border-t border-[var(--ttg-border)]"
+          style={revealAt(0.7)}
           aria-label="Contact information"
         >
-          <motion.div
-            className="flex gap-4 items-center"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 1.1 }}
-          >
+          <div className="flex gap-4 items-center">
             <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Email
             </span>
@@ -238,12 +226,8 @@ export function PrivateBriefingContent() {
             >
               info@thetrustgroupsolutions.com
             </a>
-          </motion.div>
-          <motion.div
-            className="flex gap-4 items-center"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 1.1 }}
-          >
+          </div>
+          <div className="flex gap-4 items-center">
             <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Phone
             </span>
@@ -253,45 +237,32 @@ export function PrivateBriefingContent() {
             >
               +233 (057) 589-5601
             </a>
-          </motion.div>
-          <motion.div
-            className="flex gap-4 items-center"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 1.1 }}
-          >
+          </div>
+          <div className="flex gap-4 items-center">
             <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Location
             </span>
             <span className="text-[13px] text-[var(--ttg-muted)]">
               Airport Residential Area, Accra, Ghana
             </span>
-          </motion.div>
-          <motion.div
-            className="flex gap-4 items-center"
-            {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 1.1 }}
-          >
+          </div>
+          <div className="flex gap-4 items-center">
             <span className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.1em] uppercase w-[60px] shrink-0">
               Hours
             </span>
             <span className="text-[13px] text-[var(--ttg-muted)]">
               Mon–Fri 9am–6pm GMT · Sat 10am–2pm
             </span>
-          </motion.div>
+          </div>
         </footer>
       </aside>
 
       {/* Right panel — form or success */}
       <div className="flex flex-col justify-center pt-20 lg:pt-40 pb-20 lg:pb-20 px-6 lg:px-16 bg-[var(--ttg-bg)]">
-        <AnimatePresence mode="wait">
-          {showSuccess ? (
-            <motion.div
+        {showSuccess ? (
+            <div
               key="success"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-center py-20 px-10 flex flex-col items-center justify-center"
+              className="ttg-reveal text-center py-20 px-10 flex flex-col items-center justify-center"
             >
               <div
                 className="w-16 h-16 rounded-full border border-[var(--ttg-navy)] flex items-center justify-center text-2xl text-[var(--ttg-navy)] mb-8"
@@ -307,16 +278,9 @@ export function PrivateBriefingContent() {
                 confirm and schedule your discovery call. We look forward to
                 learning about your project.
               </p>
-            </motion.div>
+            </div>
           ) : (
-            <motion.div
-              key="form"
-              id="form-panel"
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-            >
+            <div key="form" id="form-panel" className="ttg-reveal" style={revealAt(0.3)}>
               <h2 className="ttg-serif text-3xl mb-2">
                 Tell us about your project.
               </h2>
@@ -616,9 +580,8 @@ export function PrivateBriefingContent() {
                   </p>
                 </div>
               </form>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
       </div>
     </div>
   );

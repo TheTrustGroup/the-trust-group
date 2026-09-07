@@ -1,7 +1,4 @@
-"use client";
-
-import { CheckCircle2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { TTGSectionHeading } from "@/components/ttg/section-heading";
 
 interface ProcessStep {
   title: string;
@@ -18,62 +15,42 @@ interface ProcessTimelineProps {
 export function ProcessTimeline({
   steps,
   title = "Our Process",
-  description = "A proven methodology for delivering exceptional results",
+  description = "A systematic approach to delivering reliable systems.",
 }: ProcessTimelineProps) {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            {title}
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {description}
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
-
-            {/* Steps */}
-            <div className="space-y-12">
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className="relative flex gap-6 md:gap-8 items-start"
-                >
-                  {/* Step Number/Icon */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl border-4 border-background shadow-lg">
-                      {index + 1}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 pt-2">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                        {step.title}
-                      </h3>
-                      {step.duration && (
-                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
-                          {step.duration}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    <section
+      className="ttg-section border-t border-[var(--ttg-border)] px-6 py-20 md:py-[100px] lg:px-16"
+      style={{ background: "var(--ttg-bg)" }}
+      aria-labelledby="service-process-heading"
+    >
+      <TTGSectionHeading
+        id="service-process-heading"
+        title={title}
+        description={description}
+      />
+      <ol className="ttg-cells m-0 list-none grid-cols-1 p-0 md:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step, index) => (
+          <li key={step.title} className="ttg-cell p-8 md:p-10">
+            <span
+              className="ttg-serif mb-8 block text-[36px] leading-none"
+              style={{ color: "var(--ttg-muted-lt)" }}
+              aria-hidden
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3
+              className="ttg-serif mb-2 text-[22px] leading-[1.15]"
+              style={{ color: "var(--ttg-navy)" }}
+            >
+              {step.title}
+            </h3>
+            {step.duration && (
+              <p className="ttg-label mb-4">{step.duration}</p>
+            )}
+            <p className="ttg-body">{step.description}</p>
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
-

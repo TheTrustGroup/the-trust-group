@@ -1,41 +1,32 @@
 "use client";
 
 import { ContactForm } from "@/components/contact/contact-form";
+import { TTGSectionHeading } from "@/components/ttg/section-heading";
 
 interface ServiceContactFormProps {
   serviceName: string;
   prefillService?: string;
 }
 
-// Note: The ContactForm component would need to accept a prefillService prop
-// For now, this wrapper provides the service-specific context
 export function ServiceContactForm({
   serviceName,
   prefillService,
 }: ServiceContactFormProps) {
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-              Ready to Get Started?
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Let&apos;s discuss how our {serviceName} services can transform your business.
-            </p>
-            {prefillService && (
-              <p className="text-sm text-muted-foreground mt-2">
-                This form is pre-configured for: <span className="font-semibold text-primary">{prefillService}</span>
-              </p>
-            )}
-          </div>
-          <div className="bg-background rounded-2xl border-2 border-border p-6 md:p-8">
-            <ContactForm defaultService={prefillService ?? serviceName} />
-          </div>
-        </div>
+    <section
+      className="ttg-section border-t border-[var(--ttg-border)] px-6 py-20 md:py-[100px] lg:px-16"
+      style={{ background: "var(--ttg-bg)" }}
+    >
+      <TTGSectionHeading
+        title="Start a conversation"
+        description={`Discuss how ${serviceName} can support your requirements. Confidential, no obligation.`}
+      />
+      {prefillService && (
+        <p className="ttg-label mb-8">Prefill: {prefillService}</p>
+      )}
+      <div className="mx-auto max-w-[640px] border border-[var(--ttg-border)] bg-[var(--ttg-bg-white)] p-6 md:p-10">
+        <ContactForm defaultService={prefillService ?? serviceName} />
       </div>
     </section>
   );
 }
-

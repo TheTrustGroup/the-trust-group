@@ -17,6 +17,28 @@ const nextConfig = {
         destination: '/work',
         permanent: true,
       },
+      // Named client case studies retired under confidential posture.
+      {
+        source: '/case-studies/extreme-dept-kidz',
+        destination: '/work',
+        permanent: true,
+      },
+      {
+        source: '/case-studies/hunnid-official',
+        destination: '/work',
+        permanent: true,
+      },
+      {
+        source: '/case-studies/velora',
+        destination: '/work',
+        permanent: true,
+      },
+      // RFC 9116: root security.txt is a legacy location; canonical is /.well-known.
+      {
+        source: '/security.txt',
+        destination: '/.well-known/security.txt',
+        permanent: true,
+      },
     ];
   },
   images: {
@@ -106,6 +128,20 @@ const nextConfig = {
   },
   // Headers for caching and performance
   async headers() {
+    // Dev-mode webpack wraps modules in eval() (eval-source-map). Without
+    // 'unsafe-eval' the CSP blocks every module and the site never hydrates
+    // locally. Production bundles do not use eval, so it stays off there.
+    const isDev = process.env.NODE_ENV !== 'production';
+    const scriptSrc = [
+      "'self'",
+      "'unsafe-inline'",
+      isDev ? "'unsafe-eval'" : null,
+      'https://www.googletagmanager.com',
+      'https://challenges.cloudflare.com',
+    ]
+      .filter(Boolean)
+      .join(' ');
+
     const csp = [
       "default-src 'self'",
       "base-uri 'self'",
@@ -115,7 +151,7 @@ const nextConfig = {
       "img-src 'self' data: https:",
       "font-src 'self' data:",
       "style-src 'self' 'unsafe-inline'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com",
+      `script-src ${scriptSrc}`,
       "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://api.emailjs.com https://challenges.cloudflare.com",
       "frame-src 'self' https://challenges.cloudflare.com",
       "upgrade-insecure-requests",
@@ -192,6 +228,14 @@ const nextConfig = {
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()',
+          },
+          {
+            key: 'Cross-Origin-Opener-Policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'X-Permitted-Cross-Domain-Policies',
+            value: 'none',
           },
           {
             key: 'Content-Security-Policy',

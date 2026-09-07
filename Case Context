@@ -1,0 +1,51 @@
+Apple truth:
+People don’t trust claims.
+They trust evidence presented calmly.
+Your case study section should feel like:
+A quiet briefing
+A boardroom slide
+A system postmortem (without the drama)
+Not marketing. Not storytelling. Proof.
+How Apple Thinks About Case Studies
+Apple does not say:
+“Here’s how creative we were”
+Apple says:
+“Here’s the problem. Here’s what we did. Here’s what changed.”
+That’s the model we’ll use.
+Case Study Section — High-Level Structure
+Section title (locked)
+Selected work
+Optional subline (only one line):
+A small sample of systems designed for reliability and scale.
+Each Case Study Card (THIS IS THE SYSTEM)
+Each case study must follow this exact order:
+Client Context (who + environment)
+Problem (what was at risk)
+Solution (what you built or changed)
+Outcome (measurable or concrete result)
+No extra sections. No fluff.
+Apple-Approved Case Study Template
+Here’s the canonical format:
+Client
+Mid-sized enterprise operating in a regulated environment
+Challenge
+Legacy systems were unstable under load, creating operational and security risk.
+Solution
+We redesigned the system architecture and deployed a secure, scalable platform.
+Outcome
+Improved system reliability, reduced operational incidents, and enabled future growth.
+That’s it.
+Readable in 8–10 seconds on mobile.
+How Many Case Studies?
+Apple rule:
+Fewer, stronger.
+2–4 case studies max
+If you have 1 strong one → that’s fine
+Never add weak ones to “fill space”
+Visual Design Rules (Very Important)
+Subtle glass cards only
+No screenshots unless they add meaning
+No logos unless client-approved
+Plenty of white space
+Clear typographic hierarchy
+This should feel heavier than the rest of the page — not visually, but psychologically.

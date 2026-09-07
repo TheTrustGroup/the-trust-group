@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import {
@@ -10,7 +8,6 @@ import {
   Phone,
   MapPin,
   Clock,
-  Lock,
   Brain,
   Code2,
   Smartphone,
@@ -35,6 +32,7 @@ const LEGAL_LINKS = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "Cookies", href: "/cookies" },
+  { label: "Security", href: "/security" },
 ] as const;
 
 const SERVICE_ICON_MAP: Record<
@@ -61,24 +59,9 @@ function ServiceIcon({ name }: { name: string }) {
 }
 
 /**
- * TTG Footer — design-system footer matching live site.
- * Newsletter, brand, quick links, services (config), contact (config). Requires app/ttg-design.css.
+ * TTG Footer — brand, quick links, services, contact. Requires app/ttg-design.css.
  */
 export function TTGFooter() {
-  const [email, setEmail] = React.useState("");
-  const [submitted, setSubmitted] = React.useState(false);
-
-  const handleSubmit = React.useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      const value = email.trim();
-      if (!value) return;
-      setSubmitted(true);
-      setEmail("");
-    },
-    [email]
-  );
-
   const { company, contact, navigation } = siteConfig;
   const services = navigation.footer.services;
   const socialLinks = siteConfig.socialLinks;
@@ -97,40 +80,6 @@ export function TTGFooter() {
 
   return (
     <footer className="ttg-footer" role="contentinfo">
-      <div className="ttg-footer__newsletter">
-        <div className="ttg-footer__newsletter-inner">
-          <div className="ttg-footer__nl-text">
-            <h3>Stay Updated</h3>
-            <p>Tech insights on AI, software, and innovation, delivered to your inbox.</p>
-          </div>
-          <div>
-            <form
-              className="ttg-footer__nl-form"
-              onSubmit={handleSubmit}
-              aria-label="Newsletter signup"
-            >
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email *"
-                aria-label="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                disabled={submitted}
-              />
-              <button type="submit" disabled={submitted}>
-                {submitted ? "Subscribed" : "Subscribe"}
-              </button>
-            </form>
-            <p className="ttg-footer__nl-privacy">
-              <Lock width={12} height={12} strokeWidth={2} aria-hidden />
-              We respect your privacy. Unsubscribe anytime.
-            </p>
-          </div>
-        </div>
-      </div>
-
       <div className="ttg-footer__main">
         <div className="ttg-footer__brand">
           <Link href="/" prefetch className="ttg-footer__brand-logo" aria-label={`${company.name}, home`}>

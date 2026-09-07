@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
 
 import { getBlogPosts, getJobListings } from "@/lib/cms";
-import { getCaseStudySlugs } from "@/lib/case-studies";
+import { getIndexableCaseStudySlugs } from "@/lib/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const { posts } = getBlogPosts();
@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/terms",
     "/cookies",
+    "/security",
   ];
 
   const { jobs } = getJobListings();
@@ -49,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: job.featured ? 0.7 : 0.5,
   }));
 
-  const caseStudySlugs = getCaseStudySlugs();
+  const caseStudySlugs = getIndexableCaseStudySlugs();
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudySlugs.map((slug) => ({
     url: `${siteUrl}/case-studies/${slug}`,
     lastModified: new Date(),

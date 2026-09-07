@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const TICKER_ITEMS = [
-  { desc: "Live retail &\noperations software" },
   { desc: "Architecture before\nimplementation" },
-  { desc: "Classified & NDA\nengagements" },
-  { desc: "Work you can\nverify on /work" },
-  { desc: "Pipeline programs\n(FuelAxis, RideWM)" },
+  { desc: "Client identity\nwithheld by default" },
+  { desc: "Detail shared\nunder NDA only" },
+  { desc: "Anonymous summaries\non /work" },
+  { desc: "Private briefing\nfor references" },
 ] as const;
 
 /**
@@ -73,8 +73,8 @@ export function MissionCriticalHero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center max-w-[900px] pt-[130px] px-6 lg:pt-40 lg:px-16">
         <div
-          className="flex items-center gap-3 mb-10 opacity-0"
-          style={{ animation: "trust-fadeUp 1s ease 0.3s forwards" }}
+          className="ttg-reveal flex items-center gap-3 mb-10"
+          style={{ animationDelay: "0s" }}
         >
           <div
             className="w-1.5 h-1.5 rounded-full bg-[#4caf6e]"
@@ -84,11 +84,10 @@ export function MissionCriticalHero() {
             }}
           />
           <span
-            className="text-[10px] uppercase tracking-[0.14em] opacity-0"
+            className="text-[10px] uppercase tracking-[0.14em]"
             style={{
               fontFamily: "var(--ttg-font-sans)",
               color: "var(--ttg-muted)",
-              animation: "trust-fadeUp 1s ease 0.3s forwards",
             }}
           >
             Currently accepting{" "}
@@ -98,20 +97,20 @@ export function MissionCriticalHero() {
         </div>
 
         <p
-          className="text-[10px] uppercase tracking-[0.18em] mb-6 opacity-0"
+          className="ttg-reveal text-[10px] uppercase tracking-[0.18em] mb-6"
           style={{
             fontFamily: "var(--ttg-font-sans)",
             color: "var(--ttg-muted)",
-            animation: "trust-fadeUp 1s ease 0.5s forwards",
+            animationDelay: "0.05s",
           }}
         >
           The Trust Group · Est. 2021
         </p>
 
         <h1
-          className="ttg-serif text-[clamp(50px,6.5vw,88px)] leading-[0.96] tracking-[-0.025em] mb-9 opacity-0"
+          className="ttg-reveal ttg-serif text-[clamp(50px,6.5vw,88px)] leading-[0.96] tracking-[-0.025em] mb-9"
           style={{
-            animation: "trust-fadeUp 1s ease 0.7s forwards",
+            animationDelay: "0.1s",
             color: "var(--ttg-navy)",
           }}
         >
@@ -125,11 +124,11 @@ export function MissionCriticalHero() {
         </h1>
 
         <p
-          className="max-w-[520px] text-[15px] leading-[1.75] mb-12 opacity-0"
+          className="ttg-reveal max-w-[520px] text-[15px] leading-[1.75] mb-12"
           style={{
             fontFamily: "var(--ttg-font-sans)",
             color: "var(--ttg-muted)",
-            animation: "trust-fadeUp 1s ease 0.9s forwards",
+            animationDelay: "0.15s",
           }}
         >
           Engineered for reliability, security, and long-term scale. Trusted by
@@ -138,8 +137,8 @@ export function MissionCriticalHero() {
         </p>
 
         <div
-          className="flex items-center gap-8 opacity-0"
-          style={{ animation: "trust-fadeUp 1s ease 1.1s forwards" }}
+          className="ttg-reveal flex items-center gap-8"
+          style={{ animationDelay: "0.2s" }}
         >
           <Link
             href="/contact"
@@ -162,9 +161,9 @@ export function MissionCriticalHero() {
 
       {/* Ticker — cream/white strip, navy text */}
       <div
-        className="relative z-10 border-t border-[var(--ttg-border)] py-6 px-6 lg:py-8 lg:px-16 flex flex-col md:flex-row md:flex-wrap md:items-center gap-6 md:gap-0 overflow-hidden opacity-0"
+        className="ttg-reveal relative z-10 border-t border-[var(--ttg-border)] py-6 px-6 lg:py-8 lg:px-16 flex flex-col md:flex-row md:flex-wrap md:items-center gap-6 md:gap-0 overflow-hidden"
         style={{
-          animation: "trust-fadeUp 1s ease 1.4s forwards",
+          animationDelay: "0.25s",
           background: "var(--ttg-bg-white)",
         }}
       >

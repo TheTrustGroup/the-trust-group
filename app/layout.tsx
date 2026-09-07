@@ -1,73 +1,13 @@
 import type { Metadata } from "next";
-import {
-  Inter,
-  Playfair_Display,
-  DM_Serif_Display,
-  DM_Mono,
-  Instrument_Sans,
-  Jost,
-  Cormorant_Garamond,
-} from "next/font/google";
+import { Jost, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import "./ttg-design.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { generateMetadata, generateStructuredData } from "@/lib/seo";
 import { ToastProvider } from "@/components/ui/toast";
-import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/components/scroll-to-top";
-import { USE_TTG_LAYOUT } from "@/lib/layout-feature";
 import { TTGNav } from "@/components/ttg-nav";
 import { TTGFooter } from "@/components/ttg-footer";
 import { GoogleAnalytics } from "@/components/analytics";
-import dynamic from "next/dynamic";
-
-const Chatbot = dynamic(
-  () => import("@/components/chatbot").then((mod) => ({ default: mod.Chatbot })),
-  { ssr: false, loading: () => null }
-);
-
-const CustomCursor = dynamic(
-  () => import("@/components/custom-cursor").then((mod) => ({ default: mod.CustomCursor })),
-  { ssr: false, loading: () => null }
-);
-
-const sans = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  preload: true,
-});
-
-const serif = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  display: "swap",
-  preload: true,
-  weight: ["400", "500", "600", "700"],
-});
-
-const trustSerif = DM_Serif_Display({
-  subsets: ["latin"],
-  variable: "--font-trust-serif",
-  display: "swap",
-  weight: ["400"],
-});
-
-const trustMono = DM_Mono({
-  subsets: ["latin"],
-  variable: "--font-trust-mono",
-  display: "swap",
-  weight: ["300", "400", "500"],
-});
-
-const trustSans = Instrument_Sans({
-  subsets: ["latin"],
-  variable: "--font-trust-sans",
-  display: "swap",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
 
 const ttgJost = Jost({
   subsets: ["latin"],
@@ -109,7 +49,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${ttgJost.variable} ${ttgCormorant.variable}`}
     >
       <head>
@@ -123,40 +62,18 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body
-        className={`${sans.variable} ${serif.variable} ${trustSerif.variable} ${trustMono.variable} ${trustSans.variable} font-sans antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <ToastProvider>
-            <CustomCursor />
-            <ScrollToTop />
-            <a
-              href="#main-content"
-              className="skip-to-main"
-            >
-              Skip to main content
-            </a>
-            {USE_TTG_LAYOUT ? (
-              <>
-                <TTGNav />
-                <main id="main-content" tabIndex={-1}>{children}</main>
-                <TTGFooter />
-              </>
-            ) : (
-              <>
-                <Header />
-                <main id="main-content" tabIndex={-1}>{children}</main>
-                <Footer />
-              </>
-            )}
-            <Chatbot />
-          </ToastProvider>
-        </ThemeProvider>
+      <body className="font-sans antialiased">
+        <ToastProvider>
+          <ScrollToTop />
+          <a href="#main-content" className="skip-to-main">
+            Skip to main content
+          </a>
+          <TTGNav />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <TTGFooter />
+        </ToastProvider>
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
       </body>
     </html>

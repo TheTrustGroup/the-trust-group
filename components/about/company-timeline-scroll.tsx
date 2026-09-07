@@ -7,31 +7,31 @@ const timelineEvents = [
     year: "2021 — Founded",
     event: "The Trust Group established in Accra, Ghana",
     detail:
-      "Founded with a mandate to bring defense-grade engineering discipline to enterprise software. First engagements in custom software and AI systems.",
+      "Founded with a mandate to bring disciplined engineering to software that cannot afford failure. First engagements in custom software and AI systems.",
   },
   {
     year: "2022",
-    event: "First enterprise platform at scale",
+    event: "Enterprise platform work",
     detail:
-      "Delivered a multi-tenant SaaS platform for enterprise workflow and analytics — high-availability architecture with client-specific SLA targets.",
+      "Delivered multi-tenant workflow and analytics platforms for enterprise clients. Client identity and SLAs are not published.",
   },
   {
     year: "2023",
-    event: "Defense & intelligence practice established",
+    event: "Defense & intelligence practice",
     detail:
-      "Expanded into defense technology, building mission-critical systems for clients operating in high-security environments. NDA-protected engagements available for briefing.",
+      "Expanded into defense-adjacent technology. Engagements in this practice are briefed under NDA only.",
   },
   {
     year: "2024",
-    event: "Healthcare and AI expansion",
+    event: "Healthcare and commerce systems",
     detail:
-      "Delivered a comprehensive healthcare management platform across 50+ facilities, and launched an AI analytics platform producing a 35% average conversion lift for e-commerce clients.",
+      "Shipped clinical operations and retail commerce / operations software. Client names, facility counts, and commercial metrics are withheld.",
   },
   {
     year: "2025 — 2026",
-    event: "40+ systems deployed. 12 countries. Growing.",
+    event: "Select engagements only",
     detail:
-      "Expanded operations across West Africa and internationally. Currently accepting select engagements in defense technology, enterprise AI, and mission-critical software infrastructure.",
+      "Operating from Accra with regional and international clients. Past work remains confidential by default; detail is shared under NDA.",
   },
 ];
 

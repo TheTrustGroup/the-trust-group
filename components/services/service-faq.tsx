@@ -1,8 +1,4 @@
-"use client";
-
-import * as React from "react";
-import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { TTGSectionHeading } from "@/components/ttg/section-heading";
 
 interface FAQItem {
   question: string;
@@ -14,60 +10,36 @@ interface ServiceFAQProps {
   title?: string;
 }
 
-export function ServiceFAQ({ faqs, title = "Frequently Asked Questions" }: ServiceFAQProps) {
-  const [openIndex, setOpenIndex] = React.useState<number | null>(0);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+/** Always-visible FAQ list — no accordion hide-behind-JS. */
+export function ServiceFAQ({
+  faqs,
+  title = "Common Questions",
+}: ServiceFAQProps) {
+  if (faqs.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            {title}
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Everything you need to know about our services
-          </p>
-        </div>
-
-        <div className="max-w-3xl mx-auto space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border-2 border-border rounded-xl overflow-hidden bg-background"
+    <section
+      className="ttg-section border-t border-[var(--ttg-border)] px-6 py-20 md:py-[100px] lg:px-16"
+      style={{ background: "var(--ttg-bg-white)" }}
+      aria-labelledby="service-faq-heading"
+    >
+      <TTGSectionHeading id="service-faq-heading" title={title} />
+      <dl className="grid grid-cols-1 gap-x-16 border-t border-[var(--ttg-border)] md:grid-cols-2 lg:gap-x-24">
+        {faqs.map((faq) => (
+          <div
+            key={faq.question}
+            className="border-b border-[var(--ttg-border)] py-10"
+          >
+            <dt
+              className="ttg-serif mb-4 text-[22px] leading-[1.15]"
+              style={{ color: "var(--ttg-navy)" }}
             >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
-              >
-                <span className="font-semibold text-foreground pr-4">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={cn(
-                    "h-5 w-5 text-muted-foreground flex-shrink-0 transition-transform",
-                    openIndex === index && "transform rotate-180"
-                  )}
-                />
-              </button>
-              <div
-                className={cn(
-                  "overflow-hidden transition-all duration-300",
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                )}
-              >
-                <div className="px-6 py-4 pt-0 text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+              {faq.question}
+            </dt>
+            <dd className="ttg-body max-w-[560px]">{faq.answer}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }
-

@@ -66,7 +66,7 @@
     "approach": null,
     "outcome": null,
     "ourRole": "We built the mobile application and integrated it with existing core banking and security systems, with emphasis on compliance and reliability.",
-    "result": "The app was released to production with 100K+ active users, a 4.8/5 app store rating, zero security breaches, and 99.5% transaction success rate.",
+    "result": "The app was released to production with biometric auth, fraud controls, and real-time transaction flows. Client-specific usage and performance figures are not published.",
     "image": null
   },
   {
@@ -80,7 +80,7 @@
     "approach": null,
     "outcome": null,
     "ourRole": "We delivered the platform and recommendation stack, including search and payment integration, with a focus on performance and maintainability.",
-    "result": "The platform went live with a 40% increase in average order value, 60% improvement in search relevance, 2x faster page load times, and 25% increase in customer retention.",
+    "result": "The platform went live with personalized recommendations, search, and checkout. Client-specific commercial metrics are not published.",
     "image": null
   },
   {
@@ -94,7 +94,7 @@
     "approach": null,
     "outcome": null,
     "ourRole": "We designed and implemented the system with appropriate access controls, audit trails, and integration to existing clinical workflows.",
-    "result": "The system was deployed across 50+ healthcare facilities with 90% reduction in appointment scheduling time, 100% data security compliance, and real-time patient data synchronization.",
+    "result": "The system was deployed for multi-site clinical operations with access controls and audit trails. Facility counts and scheduling metrics are not published.",
     "image": null
   },
   {
@@ -113,16 +113,16 @@
   },
   {
     "slug": "velora",
-    "title": "Velora: Premium Ride-Hailing Platform",
-    "confidentiality": "limited",
-    "client": "Transportation Startup",
+    "title": "Confidential Mobility Engagement",
+    "confidentiality": "confidential",
+    "client": null,
     "year": "2024",
-    "context": "A transportation startup needed a ride-hailing application for the Ghanaian market with real-time tracking, multiple ride tiers, and transparent pricing.",
+    "context": null,
     "challenge": null,
     "approach": null,
     "outcome": null,
-    "ourRole": "We developed the mobile application and backend, including map integration, booking flows, and driver and ride history.",
-    "result": "The app was released to production with seamless real-time location tracking, multiple ride tiers, complete ride history with driver details, transparent GHS pricing, and interactive map-based booking. Core flows and reliability met the client's expectations.",
+    "ourRole": null,
+    "result": null,
     "image": null
   },
   {
@@ -141,30 +141,30 @@
   },
   {
     "slug": "extreme-dept-kidz",
-    "title": "Extreme Dept Kidz: Storefront & Operations",
-    "confidentiality": "limited",
-    "client": "Extreme Dept Kidz",
+    "title": "Confidential Retail Engagement",
+    "confidentiality": "confidential",
+    "client": null,
     "year": "2024",
-    "context": "A premium youth apparel brand needed both a public storefront and staff-facing inventory and POS tooling, with performance and reliability across mobile and desktop.",
+    "context": null,
     "challenge": null,
     "approach": null,
     "outcome": null,
-    "ourRole": "We built the customer-facing commerce site and the authenticated warehouse workspace for inventory and point-of-sale, using a shared modern web stack.",
-    "result": "Production systems are live at extremedeptkidz.com (storefront) and warehouse.extremedeptkidz.com (inventory and POS). The stack emphasizes fast catalog delivery, responsive UI, and maintainable operations tooling.",
-    "image": "/images/projects/extreme-dept-kidz-storefront-desktop.png"
+    "ourRole": null,
+    "result": null,
+    "image": null
   },
   {
     "slug": "hunnid-official",
-    "title": "Hunnid Official: Inventory & POS",
-    "confidentiality": "limited",
-    "client": "Hunnid Official",
+    "title": "Confidential Commerce Operations Engagement",
+    "confidentiality": "confidential",
+    "client": null,
     "year": "2024",
-    "context": "A music and streetwear label needed secure warehouse management and point-of-sale software for drops and in-store operations.",
+    "context": null,
     "challenge": null,
     "approach": null,
     "outcome": null,
-    "ourRole": "We designed and delivered an authenticated warehouse application for inventory, POS, and operational workflows.",
-    "result": "The staff workspace is live at warehouse.hunnidofficial.com and supports day-to-day inventory and sales operations.",
-    "image": "/images/projects/hunnid-warehouse-pos.png"
+    "ourRole": null,
+    "result": null,
+    "image": null
   }
 ]

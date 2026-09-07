@@ -1,139 +1,77 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Brain,
-  Cloud,
-  Code,
-  Smartphone,
-  Globe,
-  TrendingUp,
-  Shield,
-  Building2,
-  Cpu,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Brain,
-  Cloud,
-  Code,
-  Smartphone,
-  Globe,
-  TrendingUp,
-  Shield,
-  Building2,
-  Cpu,
-};
+import { TTGSectionHeading } from "@/components/ttg/section-heading";
 
 interface ServiceHeroProps {
   title: string;
   subtitle: string;
   description: string;
-  /** Icon name (e.g. "Brain") so Server Components can pass a string instead of a component */
-  iconName?: string;
   features?: string[];
-  /** Symbolic capability imagery — not client work. */
-  visualUrl?: string;
 }
 
+/**
+ * Capability page hero — TTG cream/navy, no gradient blobs or icon pills.
+ */
 export function ServiceHero({
   title,
   subtitle,
   description,
-  iconName,
   features = [],
-  visualUrl,
 }: ServiceHeroProps) {
-  const Icon = iconName ? ICON_MAP[iconName] : undefined;
   return (
-    <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5 py-20 md:py-32">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div
-          className={
-            visualUrl
-              ? "grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2"
-              : "max-w-4xl"
-          }
-        >
-          <div className={visualUrl ? undefined : "max-w-4xl"}>
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            {Icon && <Icon className="h-4 w-4 text-primary" />}
-            <span className="text-sm font-medium text-primary">{subtitle}</span>
-          </div>
-
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-            {title}
-          </h1>
-
-          {/* Description */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed whitespace-pre-line">
-            {description}
-          </p>
-
-          {/* Features */}
-          {features.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" strokeWidth={2} />
-                  <span className="text-foreground">{feature}</span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* CTA — use Link directly so navigation always fires (no button intercept) */}
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium h-12 px-8 bg-primary text-primary-foreground hover:bg-primary-hover shadow-sm hover:shadow-lg hover:shadow-primary/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-200 group"
+    <section
+      className="ttg-section border-b border-[var(--ttg-border)] px-6 pb-16 pt-12 lg:px-16 lg:pb-24 lg:pt-16"
+      style={{ background: "var(--ttg-bg)" }}
+      aria-labelledby="service-hero-heading"
+    >
+      <p
+        className="mb-6 text-[10px] uppercase tracking-[0.18em]"
+        style={{
+          fontFamily: "var(--ttg-font-sans)",
+          color: "var(--ttg-muted)",
+        }}
+      >
+        {subtitle}
+      </p>
+      <h1
+        id="service-hero-heading"
+        className="ttg-serif mb-6 max-w-[900px] text-[clamp(40px,5.5vw,72px)] leading-[1.02] tracking-[-0.02em]"
+        style={{ color: "var(--ttg-navy)" }}
+      >
+        {title}
+      </h1>
+      <p
+        className="mb-10 max-w-[560px] whitespace-pre-line text-[15px] leading-[1.75]"
+        style={{
+          fontFamily: "var(--ttg-font-sans)",
+          color: "var(--ttg-muted)",
+        }}
+      >
+        {description}
+      </p>
+      {features.length > 0 && (
+        <ul className="mb-12 max-w-[640px] list-none space-y-3 border-t border-[var(--ttg-border)] p-0 pt-8">
+          {features.map((feature) => (
+            <li
+              key={feature}
+              className="text-[14px] leading-[1.6]"
+              style={{
+                fontFamily: "var(--ttg-font-sans)",
+                color: "var(--ttg-navy)",
+              }}
             >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="/work"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-base font-medium h-12 px-8 border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-200"
-            >
-              View Case Studies
-            </Link>
-          </div>
-          </div>
-          {visualUrl && (
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border/40 bg-[#080a0e] shadow-2xl ring-1 ring-black/5">
-              <Image
-                src={visualUrl}
-                alt=""
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={92}
-                priority
-              />
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/75 to-transparent"
-                aria-hidden
-              />
-              <p className="absolute bottom-3 left-3 right-3 z-10 text-center text-[10px] font-medium uppercase tracking-wider text-white/80">
-                Illustrative capability — not a client deliverable
-              </p>
-            </div>
-          )}
-        </div>
+              {feature}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+        <Link href="/contact" className="ttg-btn-pill">
+          Request a Private Briefing
+        </Link>
+        <Link href="/work" className="ttg-text-link">
+          View engagements <span aria-hidden>→</span>
+        </Link>
       </div>
     </section>
   );
 }
-
