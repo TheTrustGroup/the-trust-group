@@ -1,9 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
 import {
-  Linkedin,
-  Twitter,
-  Github,
   Mail,
   Phone,
   MapPin,
@@ -64,17 +61,6 @@ function ServiceIcon({ name }: { name: string }) {
 export function TTGFooter() {
   const { company, contact, navigation } = siteConfig;
   const services = navigation.footer.services;
-  const socialLinks = siteConfig.socialLinks;
-
-  const socialIconMap: Record<
-    string,
-    React.ComponentType<React.SVGProps<SVGSVGElement>>
-  > = {
-    Linkedin,
-    Twitter,
-    Github,
-    Mail,
-  };
 
   const currentYear = new Date().getFullYear();
 
@@ -91,23 +77,6 @@ export function TTGFooter() {
           {company.tagline && (
             <p className="ttg-footer__tagline">{company.tagline}</p>
           )}
-          <p className="ttg-footer__follow-label">Follow</p>
-          <div className="ttg-footer__socials">
-            {socialLinks.map((link) => {
-              const Icon = socialIconMap[link.icon] ?? Mail;
-              return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.name}
-                >
-                  <Icon width={16} height={16} strokeWidth={2} />
-                </a>
-              );
-            })}
-          </div>
         </div>
 
         <div className="ttg-footer__col">

@@ -22,38 +22,8 @@
       "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM GMT",
       "weekends": "Saturday: 10:00 AM - 2:00 PM GMT",
       "closed": "Sunday: Closed"
-    },
-    "social": {
-      "linkedin": "https://linkedin.com/company/thetrustgroup",
-      "twitter": "https://twitter.com/thetrustgroup",
-      "github": "https://github.com/thetrustgroup",
-      "facebook": "",
-      "instagram": "",
-      "youtube": ""
     }
   },
-  "socialLinks": [
-    {
-      "name": "LinkedIn",
-      "icon": "Linkedin",
-      "href": "https://linkedin.com/company/thetrustgroup"
-    },
-    {
-      "name": "Twitter",
-      "icon": "Twitter",
-      "href": "https://twitter.com/thetrustgroup"
-    },
-    {
-      "name": "GitHub",
-      "icon": "Github",
-      "href": "https://github.com/thetrustgroup"
-    },
-    {
-      "name": "Email",
-      "icon": "Mail",
-      "href": "mailto:info@thetrustgroupsolutions.com"
-    }
-  ],
   "navigation": {
     "main": [
       { "name": "Home", "href": "/" },
@@ -78,26 +48,6 @@
         { "name": "Blog", "href": "/blog" },
         { "name": "Privacy Policy", "href": "/privacy" },
         { "name": "Terms of Service", "href": "/terms" }
-      ],
-      "subsidiaries": [
-        {
-          "name": "AI Innovations",
-          "href": "/companies/ai-innovations",
-          "status": "coming-soon",
-          "description": "Leading AI research and development"
-        },
-        {
-          "name": "Cloud Dynamics",
-          "href": "/companies/cloud-dynamics",
-          "status": "coming-soon",
-          "description": "Cloud infrastructure solutions"
-        },
-        {
-          "name": "Digital Ventures",
-          "href": "/companies/digital-ventures",
-          "status": "coming-soon",
-          "description": "Digital transformation consulting"
-        }
       ]
     }
   }

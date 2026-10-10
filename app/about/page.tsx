@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import nextDynamic from "next/dynamic";
+import type { TeamMember } from "@/data/types";
+import { getTeamMembers } from "@/lib/cms";
 import { generateMetadata as generateSEOMetadata, generateBreadcrumbs } from "@/lib/seo";
 import { SectionContentLoader } from "@/components/loading/page-content-loader";
 
@@ -55,39 +57,24 @@ const capabilities = [
   { name: "Consulting & Technology Strategy", tag: "Advisory" },
 ];
 
-const leadership = [
-  {
-    initials: "TT",
-    name: "Founder & CEO",
-    role: "Executive Leadership",
-    bio: "Founded The Trust Group with a mandate to bring defense-grade engineering standards to enterprise software. Leads strategic direction, key client relationships, and the firm's defense and intelligence practice.",
-  },
-  {
-    initials: "CTO",
-    name: "Chief Technology Officer",
-    role: "Engineering Leadership",
-    bio: "Architect of the firm's engineering methodology. Oversees system design across all engagements, sets technical standards, and leads the architecture review process that drives our delivery performance.",
-  },
-  {
-    initials: "VP",
-    name: "VP of Engineering",
-    role: "Delivery Leadership",
-    bio: "Leads engineering delivery across active engagements. Responsible for team allocation, milestone execution, and post-launch support for production client systems.",
-  },
-];
+function initialsFromName(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  const first = parts[0] ?? "";
+  const last = parts[parts.length - 1] ?? first;
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return first.slice(0, 2).toUpperCase();
+  return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
+}
+
+function namedLeaders(members: TeamMember[]): TeamMember[] {
+  return members.filter((member) => member.name.trim().length > 0);
+}
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Company",
   description:
-    "Built on a single conviction: reliability is not negotiable. Learn about our methodology, principles, and the team behind The Trust Group.",
-  keywords: [
-    "about",
-    "company",
-    "leadership",
-    "principles",
-    "mission",
-    "The Trust Group",
-  ],
+    "Built on a single conviction: reliability is not negotiable. Learn about our methodology and principles.",
+  keywords: ["about", "company", "principles", "mission", "The Trust Group"],
   url: "/about",
 });
 
@@ -95,6 +82,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default function AboutPage() {
+  const leadership = namedLeaders(getTeamMembers());
   const breadcrumbs = generateBreadcrumbs([
     { name: "Home", url: "/" },
     { name: "Company", url: "/about" },
@@ -371,82 +359,85 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Leadership */}
-        <section className="py-[120px] px-6 lg:px-16 max-w-[1100px] mx-auto">
-          <div className="flex items-center gap-5 mb-14">
-            <span
-              className="text-[10px] uppercase tracking-[0.18em]"
-              style={{
-                fontFamily: "var(--ttg-font-sans)",
-                color: "var(--ttg-muted)",
-              }}
-            >
-              Leadership
-            </span>
-            <div
-              className="flex-1 h-px max-w-[80px]"
-              style={{ background: "var(--ttg-border)" }}
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {leadership.map((leader) => (
-              <article
-                key={leader.initials}
-                className="border border-[var(--ttg-border)] overflow-hidden transition-colors duration-300 hover:border-[var(--ttg-navy-dim)]"
-                style={{ background: "var(--ttg-bg-white)" }}
+        {leadership.length > 0 && (
+          <section className="py-[120px] px-6 lg:px-16 max-w-[1100px] mx-auto">
+            <div className="flex items-center gap-5 mb-14">
+              <span
+                className="text-[10px] uppercase tracking-[0.18em]"
+                style={{
+                  fontFamily: "var(--ttg-font-sans)",
+                  color: "var(--ttg-muted)",
+                }}
               >
-                <div
-                  className="h-[180px] flex items-center justify-center relative overflow-hidden"
-                  style={{ background: "var(--ttg-bg)" }}
+                Leadership
+              </span>
+              <div
+                className="flex-1 h-px max-w-[80px]"
+                style={{ background: "var(--ttg-border)" }}
+              />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {leadership.map((leader) => (
+                <article
+                  key={leader.id}
+                  className="border border-[var(--ttg-border)] overflow-hidden transition-colors duration-300 hover:border-[var(--ttg-navy-dim)]"
+                  style={{ background: "var(--ttg-bg-white)" }}
                 >
-                  <span
-                    className="ttg-serif text-[52px] leading-none"
-                    style={{ color: "rgba(26,31,46,0.12)" }}
-                  >
-                    {leader.initials}
-                  </span>
                   <div
-                    className="absolute inset-0"
-                    style={{
-                      background:
-                        "linear-gradient(to bottom, transparent 60%, var(--ttg-bg) 100%)",
-                    }}
-                    aria-hidden
-                  />
-                </div>
-                <div className="p-7 pt-8 pb-8">
-                  <h3
-                    className="ttg-serif text-[20px] mb-1"
-                    style={{ color: "var(--ttg-navy)" }}
+                    className="h-[180px] flex items-center justify-center relative overflow-hidden"
+                    style={{ background: "var(--ttg-bg)" }}
                   >
-                    {leader.name}
-                  </h3>
-                  <p
-                    className="text-[10px] uppercase tracking-[0.12em] mb-4"
-                    style={{
-                      fontFamily: "var(--ttg-font-sans)",
-                      color: "var(--ttg-muted)",
-                    }}
-                  >
-                    {leader.role}
-                  </p>
-                  <p
-                    className="text-[13px] leading-[1.7]"
-                    style={{
-                      fontFamily: "var(--ttg-font-sans)",
-                      color: "var(--ttg-muted)",
-                    }}
-                  >
-                    {leader.bio}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+                    <span
+                      className="ttg-serif text-[52px] leading-none"
+                      style={{ color: "rgba(26,31,46,0.12)" }}
+                    >
+                      {initialsFromName(leader.name)}
+                    </span>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(to bottom, transparent 60%, var(--ttg-bg) 100%)",
+                      }}
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="p-7 pt-8 pb-8">
+                    <h3
+                      className="ttg-serif text-[20px] mb-1"
+                      style={{ color: "var(--ttg-navy)" }}
+                    >
+                      {leader.name}
+                    </h3>
+                    <p
+                      className="text-[10px] uppercase tracking-[0.12em] mb-4"
+                      style={{
+                        fontFamily: "var(--ttg-font-sans)",
+                        color: "var(--ttg-muted)",
+                      }}
+                    >
+                      {leader.role}
+                    </p>
+                    <p
+                      className="text-[13px] leading-[1.7]"
+                      style={{
+                        fontFamily: "var(--ttg-font-sans)",
+                        color: "var(--ttg-muted)",
+                      }}
+                    >
+                      {leader.bio}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Location */}
-        <section className="px-6 lg:px-16 pb-[120px] max-w-[1100px] mx-auto">
+        <section
+          className={`px-6 lg:px-16 pb-[120px] max-w-[1100px] mx-auto${leadership.length > 0 ? "" : " pt-[120px]"}`}
+        >
           <div className="flex items-center gap-5 mb-14">
             <span
               className="text-[10px] uppercase tracking-[0.18em]"

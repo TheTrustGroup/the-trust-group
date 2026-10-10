@@ -9,16 +9,26 @@ export const metadata: Metadata = generateSEOMetadata({
   url: "/privacy",
 });
 
+const LAST_UPDATED = "October 9, 2026";
+
 const SECTIONS = [
   {
     title: "1. Introduction",
     body: (
-      <p>
-        The Trust Group (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is
-        committed to protecting your privacy. This Privacy Policy explains how
-        we collect, use, disclose, and safeguard your information when you visit
-        our website thetrustgroupsolutions.com.
-      </p>
+      <>
+        <p>
+          This website is operated by The Trust Group, operated by a sole
+          proprietor trading as Trust Dynamics, Accra, Ghana (&quot;The Trust
+          Group,&quot; &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). The
+          Trust Group is the data controller for personal information collected
+          through this website.
+        </p>
+        <p>
+          We are committed to protecting your privacy. This Privacy Policy
+          explains how we collect, use, disclose, and safeguard your information
+          when you visit our website thetrustgroupsolutions.com.
+        </p>
+      </>
     ),
   },
   {
@@ -106,12 +116,6 @@ const SECTIONS = [
 ] as const;
 
 export default function PrivacyPage() {
-  const updated = new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   return (
     <article
       className="min-h-screen px-6 py-16 lg:px-16 lg:py-24"
@@ -124,7 +128,7 @@ export default function PrivacyPage() {
         >
           Privacy Policy
         </h1>
-        <p className="ttg-body mb-14 text-[13px]">Last updated: {updated}</p>
+        <p className="ttg-body mb-14 text-[13px]">Last updated: {LAST_UPDATED}</p>
         <div className="space-y-0">
           {SECTIONS.map((section) => (
             <section

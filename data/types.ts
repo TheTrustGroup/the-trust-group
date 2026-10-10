@@ -128,32 +128,11 @@ export interface ContactInfo {
     weekends?: string;
     closed?: string;
   };
-  social: {
-    linkedin?: string;
-    twitter?: string;
-    github?: string;
-    facebook?: string;
-    instagram?: string;
-    youtube?: string;
-  };
-}
-
-export interface SocialLink {
-  name: string;
-  icon: string; // Icon name from lucide-react
-  href: string;
 }
 
 export interface NavigationLink {
   name: string;
   href: string;
-}
-
-export interface Subsidiary {
-  name: string;
-  href: string;
-  status?: "active" | "coming-soon";
-  description?: string;
 }
 
 export interface CompanyInfo {
@@ -226,13 +205,11 @@ export interface JobDepartment {
 export interface SiteConfig {
   company: CompanyInfo;
   contact: ContactInfo;
-  socialLinks: SocialLink[];
   navigation: {
     main: NavigationLink[];
     footer: {
       services: NavigationLink[];
       company: NavigationLink[];
-      subsidiaries: Subsidiary[];
     };
   };
 }

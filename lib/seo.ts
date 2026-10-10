@@ -199,12 +199,6 @@ export function generateStructuredData(
       postalCode: "00233",
       addressCountry: "GH",
     },
-    sameAs: [
-      "https://www.linkedin.com/company/thetrustgroup",
-      "https://twitter.com/thetrustgroup",
-      "https://www.facebook.com/thetrustgroup",
-      "https://github.com/thetrustgroup",
-    ],
     foundingDate: "2021",
     numberOfEmployees: {
       "@type": "QuantitativeValue",

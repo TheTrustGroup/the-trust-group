@@ -33,6 +33,17 @@ const nextConfig = {
         destination: '/work',
         permanent: true,
       },
+      // Subsidiary/ecosystem pages retired; the business operates as a single entity.
+      {
+        source: '/ecosystem',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/companies/:slug*',
+        destination: '/about',
+        permanent: true,
+      },
       // RFC 9116: root security.txt is a legacy location; canonical is /.well-known.
       {
         source: '/security.txt',

@@ -9,16 +9,26 @@ export const metadata: Metadata = generateSEOMetadata({
   url: "/terms",
 });
 
+const LAST_UPDATED = "October 9, 2026";
+
 const SECTIONS = [
   {
     title: "1. Agreement to Terms",
     body: (
-      <p>
-        By accessing or using The Trust Group&apos;s website and services, you
-        agree to be bound by these Terms of Service and all applicable laws and
-        regulations. If you do not agree with any of these terms, you are
-        prohibited from using or accessing this site.
-      </p>
+      <>
+        <p>
+          This website and the services described on it are provided by The
+          Trust Group, operated by a sole proprietor trading as Trust Dynamics,
+          Accra, Ghana (&quot;The Trust Group,&quot; &quot;we,&quot;
+          &quot;us,&quot; or &quot;our&quot;).
+        </p>
+        <p>
+          By accessing or using The Trust Group&apos;s website and services, you
+          agree to be bound by these Terms of Service and all applicable laws
+          and regulations. If you do not agree with any of these terms, you are
+          prohibited from using or accessing this site.
+        </p>
+      </>
     ),
   },
   {
@@ -103,12 +113,6 @@ const SECTIONS = [
 ] as const;
 
 export default function TermsPage() {
-  const updated = new Date().toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   return (
     <article
       className="min-h-screen px-6 py-16 lg:px-16 lg:py-24"
@@ -121,7 +125,7 @@ export default function TermsPage() {
         >
           Terms of Service
         </h1>
-        <p className="ttg-body mb-14 text-[13px]">Last updated: {updated}</p>
+        <p className="ttg-body mb-14 text-[13px]">Last updated: {LAST_UPDATED}</p>
         <div className="space-y-0">
           {SECTIONS.map((section) => (
             <section
