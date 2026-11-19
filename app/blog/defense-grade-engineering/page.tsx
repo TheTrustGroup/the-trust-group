@@ -16,7 +16,7 @@ const HEADING_IDS = TOC_ITEMS.map((i) => i.href.slice(1));
 const ARTICLE_SLUG = "defense-grade-engineering";
 const ARTICLE_TITLE = "What Defense-Grade Engineering Can Teach Commercial Software Teams";
 const ARTICLE_DESCRIPTION =
-  "The practices standard in aerospace and defense engineering — redundancy, failure-mode analysis, security-first architecture — are treated as optional in commercial software. Here's what that gap costs you, and what the alternative looks like.";
+  "The practices standard in aerospace and defense engineering (redundancy, failure-mode analysis, security-first architecture) are treated as optional in commercial software. Here's what that gap costs you, and what the alternative looks like.";
 const PUBLISHED = "2026-02-01";
 const READ_TIME = "9";
 
@@ -115,8 +115,8 @@ export default function DefenseGradeEngineeringArticlePage() {
                 borderColor: "var(--ttg-navy)",
               }}
             >
-              The practices standard in aerospace and defense engineering — redundancy, failure-mode
-              analysis, security-first architecture — are treated as optional in commercial
+              The practices standard in aerospace and defense engineering (redundancy, failure-mode
+              analysis, security-first architecture) are treated as optional in commercial
               software. Here&apos;s what that gap costs you, and what the alternative looks like.
             </p>
           </div>
@@ -128,7 +128,7 @@ export default function DefenseGradeEngineeringArticlePage() {
             <div className="space-y-7 text-base leading-[1.85]" style={{ color: "var(--ttg-muted)" }}>
               <p>
                 In 1996, the Ariane 5 rocket exploded 37 seconds after launch. The cause was a
-                software error — a 64-bit floating point number had been incorrectly converted to a
+                software error: a 64-bit floating point number had been incorrectly converted to a
                 16-bit signed integer. The failure mode had been identified and documented during
                 development. It had been deliberately left unaddressed because the same code had
                 worked on its predecessor, Ariane 4.
@@ -136,14 +136,14 @@ export default function DefenseGradeEngineeringArticlePage() {
               <p>The cost: $370 million and a decade of development time.</p>
               <p>
                 Defense and aerospace engineers study failures like this with religious intensity.
-                They build processes specifically designed to prevent them — processes that treat
+                They build processes specifically designed to prevent them: processes that treat
                 every assumption as a liability and every failure mode as a responsibility. They
                 document, verify, simulate, and audit. They design for the worst case, not the
                 average case.
               </p>
               <p>
-                Commercial software rarely does any of this. And that gap — between how defense-grade
-                systems are built and how most enterprise software is built — is wider than most
+                Commercial software rarely does any of this. And the gap between how defense-grade
+                systems are built and how most enterprise software is built is wider than most
                 technology leaders realize.
               </p>
 
@@ -177,7 +177,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                 your software becomes genuinely critical to operations. Healthcare platforms that
                 manage patient records. Financial systems processing billions in transactions.
                 Enterprise infrastructure that hundreds of thousands of users depend on daily. These
-                systems carry stakes that are closer to aerospace than to a consumer app — but
+                systems carry stakes that are closer to aerospace than to a consumer app, but
                 they&apos;re often built like consumer apps.
               </p>
 
@@ -256,9 +256,9 @@ export default function DefenseGradeEngineeringArticlePage() {
                 Three Principles Worth Borrowing
               </h2>
               <p>
-                We&apos;ve spent years applying defense engineering discipline to commercial
-                software projects. These are the three principles that create the most meaningful
-                difference in outcomes — and that most commercial teams don&apos;t practice.
+                Applied to commercial software, three principles from defense engineering make
+                the most meaningful difference in outcomes. Most commercial teams don&apos;t
+                practice them.
               </p>
 
               <div
@@ -282,12 +282,12 @@ export default function DefenseGradeEngineeringArticlePage() {
                   In defense engineering, a Failure Modes and Effects Analysis (FMEA) is performed
                   before a system is built. Every component is analyzed for the ways it could fail,
                   and the downstream effects of that failure are mapped. This isn&apos;t done out of
-                  pessimism — it&apos;s done because identifying failure modes at the design stage
+                  pessimism. It&apos;s done because identifying failure modes at the design stage
                   costs almost nothing. Discovering them in production can cost everything.
                 </p>
               </div>
               <p>
-                In commercial software, failure mode analysis — when it happens at all — typically
+                In commercial software, failure mode analysis, when it happens at all, typically
                 occurs in retrospective. After the outage. After the data breach. After the
                 performance degradation that cascaded into a service interruption.
               </p>
@@ -319,14 +319,14 @@ export default function DefenseGradeEngineeringArticlePage() {
                   In defense systems, security is not a feature. It&apos;s a constraint that shapes
                   the entire architecture from the beginning. Access control models, encryption
                   requirements, network segmentation, and audit logging are defined during system
-                  design — before a single line of application code exists.
+                  design, before a single line of application code exists.
                 </p>
               </div>
               <p>
                 Commercial software almost universally treats security as a post-development
                 concern. Security audits happen before launch. Penetration tests are scheduled.
                 Compliance frameworks are mapped to an existing codebase. The result is security
-                that is bolted on rather than built in — and that creates a fundamentally different
+                that is bolted on rather than built in, and that creates a fundamentally different
                 risk profile.
               </p>
               <p>
@@ -356,14 +356,14 @@ export default function DefenseGradeEngineeringArticlePage() {
                 <p className="m-0 text-[14px] leading-[1.75] text-[var(--ttg-muted)]">
                   In defense engineering, documentation is not optional or deferred. System design
                   documents, architecture decision records, interface specifications, and test
-                  protocols are produced as first-class engineering artifacts — with the same rigor
+                  protocols are produced as first-class engineering artifacts, with the same rigor
                   applied to code. They are reviewed, versioned, and maintained.
                 </p>
               </div>
               <p>
                 In commercial software, documentation is typically the first casualty of timeline
                 pressure. The result is systems where institutional knowledge lives in the heads of
-                the engineers who built them — and evaporates when those engineers move on. More
+                the engineers who built them, and evaporates when those engineers move on. More
                 consequentially, undocumented systems are unmaintainable systems. When a component
                 fails at 2am three years after launch, the team responsible for fixing it is
                 operating without a map.
@@ -392,13 +392,13 @@ export default function DefenseGradeEngineeringArticlePage() {
               <p>
                 <strong>Mean time to resolution decreases.</strong> When incidents do occur,
                 documented systems with well-defined architecture resolve faster. The diagnosis
-                phase — which consumes the majority of incident response time in undocumented
-                systems — is compressed from hours to minutes when the team has accurate system
+                phase, which consumes the majority of incident response time in undocumented
+                systems, is compressed from hours to minutes when the team has accurate system
                 documentation to work from.
               </p>
               <p>
                 <strong>Long-term maintenance costs fall sharply.</strong> The majority of
-                software&apos;s total cost of ownership is incurred post-launch — in maintenance,
+                software&apos;s total cost of ownership is incurred post-launch: in maintenance,
                 feature extension, and incident management. Systems built with long-term operability
                 as a design constraint consistently perform better on this dimension than those
                 built purely for initial delivery speed.
@@ -467,7 +467,7 @@ export default function DefenseGradeEngineeringArticlePage() {
               <p>
                 Organizations that build their critical systems to defense-grade engineering
                 standards don&apos;t just get better uptime numbers. They get systems they can
-                actually depend on — systems that become durable business infrastructure rather than
+                actually depend on: systems that become durable business infrastructure rather than
                 fragile technical debt.
               </p>
               <p>
@@ -478,7 +478,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                 it becomes.
               </p>
               <p>
-                We built The Trust Group specifically to close this gap — to bring the discipline
+                We built The Trust Group specifically to close this gap: to bring the discipline
                 that has always been standard in the highest-stakes engineering environments to
                 organizations that need that level of reliability without the overhead of a defense
                 contractor.
@@ -497,7 +497,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                 <p className="mb-6 text-sm leading-[1.6] text-[var(--ttg-muted)]">
                   If your system carries genuine operational stakes, we&apos;d welcome the
                   opportunity to walk you through how a defense-grade engineering approach would
-                  change the way it&apos;s designed — and what that means for its long-term
+                  change the way it&apos;s designed, and what that means for its long-term
                   performance.
                 </p>
                 <Link
@@ -538,7 +538,7 @@ export default function DefenseGradeEngineeringArticlePage() {
                     $370<em className="font-style-normal text-[var(--ttg-navy)]">M</em>
                   </span>
                   <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
-                    Ariane 5 loss — one software error
+                    Ariane 5 loss: one software error
                   </span>
                 </div>
                 <div

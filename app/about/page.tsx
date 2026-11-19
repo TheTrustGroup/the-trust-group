@@ -28,22 +28,22 @@ const principles = [
   {
     number: "03",
     title: "Security by Design",
-    body: "Security architecture is not a post-launch audit. It's a design-phase constraint. Every system we build accounts for its threat model before the first sprint begins — including systems that will never face a public network.",
+    body: "Security architecture is not a post-launch audit. It's a design-phase constraint. Every system we build accounts for its threat model before the first sprint begins, including systems that will never face a public network.",
   },
   {
     number: "04",
     title: "Long-Term Thinking",
-    body: "We design for the system's fifth year, not its first release. Maintainability, observability, and graceful degradation are engineering requirements — not afterthoughts addressed when problems arise.",
+    body: "We design for the system's fifth year, not its first release. Maintainability, observability, and graceful degradation are engineering requirements, not afterthoughts addressed when problems arise.",
   },
   {
     number: "05",
     title: "Radical Transparency",
-    body: "Clients receive milestone-by-milestone timelines before development begins. We surface problems the moment we identify them — not after they've grown into expensive conversations.",
+    body: "Clients receive milestone-by-milestone timelines before development begins. We surface problems the moment we identify them, not after they've grown into expensive conversations.",
   },
   {
     number: "06",
     title: "Selective Engagement",
-    body: "We work with a limited number of organizations at any given time. This is not a limitation — it's the mechanism by which we deliver the quality we promise. We don't stretch. We commit.",
+    body: "We work with a limited number of organizations at any given time. This is not a limitation; it's the mechanism by which we deliver the quality we promise. We don't stretch. We commit.",
   },
 ];
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
               className="w-8 h-px block"
               style={{ background: "var(--ttg-navy)" }}
             />
-            The Trust Group — Company
+            The Trust Group · Company
           </p>
           <h1
             className="ttg-reveal ttg-serif text-[clamp(44px,6vw,80px)] leading-none tracking-[-0.025em] mb-16 max-w-[820px]"
@@ -159,7 +159,7 @@ export default function AboutPage() {
                   style={{ color: "var(--ttg-navy)" }}
                 >
                   Enterprise organizations, defense clients, and high-growth
-                  companies don&apos;t just need software — they need systems they
+                  companies don&apos;t just need software. They need systems they
                   can depend on when the stakes are highest.
                 </strong>
               </p>
@@ -172,7 +172,7 @@ export default function AboutPage() {
               >
                 The market is full of firms that can write code. Very few have
                 the discipline, the methodology, and the depth of experience to
-                build systems that operate reliably at scale — especially in
+                build systems that operate reliably at scale, especially in
                 environments where failure carries real consequences.
               </p>
               <p
@@ -198,7 +198,7 @@ export default function AboutPage() {
                 aerospace, defense, critical infrastructure. In those fields, an
                 architecture-first methodology, exhaustive pre-development
                 planning, and dedicated specialist teams aren&apos;t best
-                practices — they&apos;re baseline.
+                practices; they&apos;re baseline.
               </p>
               <p
                 className="text-[16px] leading-[1.85]"
@@ -609,7 +609,7 @@ export default function AboutPage() {
             }}
           >
             We work with a select number of organizations at a time. If your
-            project demands precision, security, and delivery you can count on —
+            project demands precision, security, and delivery you can count on,
             let&apos;s talk.
           </p>
           <Link href="/contact" className="ttg-btn-pill">

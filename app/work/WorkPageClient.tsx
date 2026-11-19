@@ -134,7 +134,7 @@ export function WorkPageClient() {
             style={{ color: "var(--work-muted)" }}
           >
             We share references, architecture notes, and outcomes under mutual
-            NDA — not on a public portfolio.
+            NDA, not on a public portfolio.
           </p>
         </div>
         <div className="flex flex-col gap-4 lg:items-end">
@@ -248,7 +248,7 @@ function WorkRow({ engagement }: { engagement: WorkEngagement }) {
               color: "var(--work-muted)",
             }}
           >
-            Active delivery — not a completed case study
+            Active delivery, not a completed case study
           </p>
         )}
       </div>

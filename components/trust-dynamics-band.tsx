@@ -38,7 +38,7 @@ export function TrustDynamicsBand() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/brand/trust-dynamics-compact-dark.png"
-              alt="Trust Dynamics — Autonomy, Engineered"
+              alt="Trust Dynamics: Autonomy, Engineered"
               width={1598}
               height={504}
               className="block h-auto w-[300px] max-w-full sm:hidden"

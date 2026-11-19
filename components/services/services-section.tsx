@@ -53,7 +53,7 @@ function ServiceCard({
     <Link
       href={href}
       className="ttg-cell flex flex-col p-8 md:p-10 no-underline"
-      aria-label={`${service.title} — view capability`}
+      aria-label={`${service.title}: view capability`}
     >
       <div className="mb-8 flex items-start justify-between gap-4">
         <Heading

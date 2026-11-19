@@ -137,7 +137,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 technical problem was harder than anticipated.
               </p>
               <p>
-                The reality is different. Development — the act of writing production code — is
+                The reality is different. Development, the act of writing production code, is
                 rarely where projects derail. The delays accumulate in the phases that precede it.
               </p>
               <p>
@@ -302,8 +302,8 @@ export default function EnterpriseSoftwareArticlePage() {
               </p>
               <p>
                 This sounds obvious. In practice, most commercial software teams don&apos;t do it.
-                The &quot;agile&quot; philosophy — interpreted loosely by most organizations as
-                &quot;figure it out as you go&quot; — has convinced an entire industry that planning
+                The &quot;agile&quot; philosophy (interpreted loosely by most organizations as
+                &quot;figure it out as you go&quot;) has convinced an entire industry that planning
                 is overhead. That speed comes from starting immediately. That iteration is free.
               </p>
               <p>
@@ -316,8 +316,8 @@ export default function EnterpriseSoftwareArticlePage() {
                 Technical Discovery (Weeks 1–2)
               </h3>
               <p>
-                We conduct stakeholder interviews with everyone whose workflow the system will touch
-                — not just the project sponsor. We audit existing infrastructure for integration
+                We conduct stakeholder interviews with everyone whose workflow the system will touch,
+                not just the project sponsor. We audit existing infrastructure for integration
                 constraints, data residency requirements, and security posture. We map every edge
                 case we can identify before a line of code exists.
               </p>
@@ -337,7 +337,7 @@ export default function EnterpriseSoftwareArticlePage() {
               </p>
               <p>
                 This document functions as a contract. When it&apos;s approved by the client, it
-                eliminates an entire category of mid-development surprises — the kind that produce
+                eliminates an entire category of mid-development surprises: the kind that produce
                 scope creep, timeline extensions, and the uncomfortable conversations that follow.
               </p>
 
@@ -348,7 +348,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 Most teams write tests after they write code. We define success criteria during the
                 design phase and build QA frameworks before development begins. This means that
                 when a feature is complete, it&apos;s immediately testable against pre-agreed
-                standards — not held up while engineers figure out what &quot;working&quot; is
+                standards, not held up while engineers figure out what &quot;working&quot; is
                 supposed to look like.
               </p>
               <p>
@@ -373,14 +373,14 @@ export default function EnterpriseSoftwareArticlePage() {
               <p>
                 Context switching is one of the most underestimated costs in software development.
                 Research in cognitive science has consistently shown that switching between complex
-                tasks carries a significant mental cost — estimates suggest it can consume 20–40%
+                tasks carries a significant mental cost; some estimates put it at 20–40%
                 of productive capacity. For engineering work, which requires sustained deep
                 concentration, the effect is even more pronounced.
               </p>
               <p>
                 Most software firms run their engineers across multiple client projects
                 simultaneously. An engineer working on three projects isn&apos;t delivering 33% of
-                their capacity to each. They&apos;re delivering something closer to 25% — the rest
+                their capacity to each. They&apos;re delivering something closer to 25%. The rest
                 evaporates in the transitions, the catching-up, the mental overhead of
                 context-loading.
               </p>
@@ -401,13 +401,12 @@ export default function EnterpriseSoftwareArticlePage() {
                 </li>
                 <li>
                   The team develops a deep, intuitive familiarity with the system they&apos;re
-                  building — which accelerates the later stages of development considerably
+                  building, which accelerates the later stages of development considerably
                 </li>
               </ul>
               <p>
                 This is not a luxury we offer premium clients. It&apos;s the standard operating
-                model. It&apos;s also one of the primary reasons our timelines look different from
-                those of our peers.
+                model. It&apos;s also one of the main reasons timelines hold.
               </p>
 
               <h2
@@ -418,26 +417,24 @@ export default function EnterpriseSoftwareArticlePage() {
               </h2>
               <p>To be concrete about what this methodology produces:</p>
               <p>
-                <strong>Small projects</strong> — a customer-facing application, an internal workflow
-                tool, a mobile product — are typically completed in <strong>6–8 weeks</strong>{" "}
-                from the start of discovery. The industry standard for comparable scope is 3–4
-                months.
+                <strong>Fewer surprises.</strong> Integration constraints, edge cases and
+                failure modes are found on paper, during discovery and design, not in the
+                middle of the build.
               </p>
               <p>
-                <strong>Enterprise systems</strong> — multi-integration platforms, healthcare
-                management systems, AI-powered analytics infrastructure — are delivered in{" "}
-                <strong>3–6 months</strong>. Comparable engagements at conventional firms routinely
-                run 9–18 months, with significant rework phases embedded in that timeline.
+                <strong>Less rework.</strong> Success criteria are agreed before code is
+                written, so finished work is tested against a standard everyone has already
+                signed off.
               </p>
               <p>
-                These aren&apos;t optimistic estimates. They&apos;re the outcome of a process
-                designed specifically to eliminate the variables that cause delays.
+                None of this is luck. It&apos;s the outcome of a process designed specifically to
+                remove the variables that cause delays.
               </p>
               <p>
                 We provide a detailed, milestone-by-milestone timeline at the end of the discovery
                 phase. Clients know what will be delivered, when, and what it will look like.
-                Mid-project surprises don&apos;t disappear entirely — software is still a human
-                endeavor — but they&apos;re rare, and they&apos;re handled with processes already in
+                Mid-project surprises don&apos;t disappear entirely (software is still a human
+                endeavor), but they&apos;re rare, and they&apos;re handled with processes already in
                 place for exactly that scenario.
               </p>
 
@@ -462,7 +459,7 @@ export default function EnterpriseSoftwareArticlePage() {
               </p>
               <p>
                 <strong>&quot;How do you handle mid-project scope changes?&quot;</strong> Every firm
-                will face them. The question is whether they have a formal process — or whether they
+                will face them. The question is whether they have a formal process, or whether they
                 handle it informally and absorb the cost in timeline slippage.
               </p>
               <p>
@@ -499,9 +496,9 @@ export default function EnterpriseSoftwareArticlePage() {
                 compromise are considerably higher.
               </p>
               <p>
-                Our work in defense and intelligence has been built on the same methodology — with
-                additional layers of security architecture, compliance verification, and
-                redundancy planning layered in from the beginning. The architecture-first approach
+                In defense and other high-stakes fields, the same methodology is applied with
+                additional layers of security architecture, compliance verification and
+                redundancy planning from the beginning. The architecture-first approach
                 is, frankly, standard in aerospace and defense engineering. It&apos;s where we
                 borrowed it from.
               </p>
@@ -519,8 +516,8 @@ export default function EnterpriseSoftwareArticlePage() {
 
               <p>
                 If your last software project ran over schedule, it wasn&apos;t bad luck. It was a
-                process problem — and process problems have solutions. We&apos;ve spent years
-                refining an approach that removes timeline variability as a significant risk factor.
+                process problem, and process problems have solutions. Our approach is designed to
+                remove timeline variability as a significant risk factor.
               </p>
 
               <div
@@ -534,9 +531,9 @@ export default function EnterpriseSoftwareArticlePage() {
                   Ready to build something that ships on time?
                 </h3>
                 <p className="mb-6 text-sm text-[var(--ttg-muted)]">
-                  If you&apos;re evaluating partners for a mission-critical build — whether
+                  If you&apos;re evaluating partners for a mission-critical build, whether
                   that&apos;s an enterprise platform, an AI system, or infrastructure your
-                  organization depends on — we&apos;d welcome the opportunity to walk you through
+                  organization depends on, we&apos;d welcome the opportunity to walk you through
                   exactly how we&apos;d approach your project.
                 </p>
                 <Link

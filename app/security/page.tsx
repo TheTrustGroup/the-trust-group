@@ -24,7 +24,7 @@ export default function SecurityPage() {
           <p>
             We do not publish client names, logos, screenshots, or production URLs
             without explicit written permission. Public references to past work are
-            limited to industry context and outcome shape — never enough to
+            limited to industry context and outcome shape, never enough to
             identify the organization.
           </p>
           <p>
@@ -60,7 +60,7 @@ export default function SecurityPage() {
             The site is served over HTTPS with a strict Content Security Policy,
             HSTS, and framing disabled. Contact form submissions are used only to
             respond to your request. Analytics, where enabled, is limited to
-            aggregate usage measurement — see the{" "}
+            aggregate usage measurement; see the{" "}
             <Link href="/privacy" className="underline underline-offset-4">
               Privacy Policy
             </Link>{" "}

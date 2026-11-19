@@ -169,7 +169,7 @@ export function PrivateBriefingContent() {
           >
             A private briefing is a confidential, no-obligation conversation about
             your project. We&apos;ll discuss your requirements, constraints, and
-            objectives — and tell you honestly whether we&apos;re the right fit.
+            objectives, and tell you honestly whether we&apos;re the right fit.
           </p>
           <div className="ttg-reveal flex flex-col gap-5" style={revealAt(0.55)}>
             <p className="ttg-mono text-[10px] text-[var(--ttg-muted)] tracking-[0.14em] uppercase">
@@ -194,7 +194,7 @@ export function PrivateBriefingContent() {
               {
                 num: "04",
                 strong: "Full NDA available.",
-                rest: "For sensitive or proprietary projects — we operate under NDA from the first conversation.",
+                rest: "For sensitive or proprietary projects, we operate under NDA from the first conversation.",
               },
             ].map((item) => (
               <div key={item.num} className="flex gap-4">

@@ -91,7 +91,7 @@ export function TTGFooter() {
               className="mt-[1px] h-7 w-7 shrink-0"
             />
             <span className="ttg-footer__tagline">
-              Trust Dynamics — our autonomous systems division. Briefings by
+              Trust Dynamics, our autonomous systems division. Briefings by
               request.
             </span>
           </Link>

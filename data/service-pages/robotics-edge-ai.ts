@@ -42,19 +42,19 @@ export const roboticsEdgeAi: ServicePageDefinition = {
         number: "01",
         title: "Real-Time Constraints",
         description:
-          "Cloud AI responds in hundreds of milliseconds. Edge AI must respond in under 10ms. We build inference pipelines optimized for latency-critical physical systems — where a delayed response means a failed mission or a safety incident.",
+          "Cloud AI responds in hundreds of milliseconds. Edge AI must respond in under 10ms. We build inference pipelines optimized for latency-critical physical systems, where a delayed response means a failed mission or a safety incident.",
       },
       {
         number: "02",
         title: "Sensor Fusion & Perception",
         description:
-          "Autonomous systems navigate the world through sensor fusion — combining LiDAR, IMU, camera, radar, and GPS into a coherent world model. We build the perception stacks that give machines situational awareness.",
+          "Autonomous systems navigate the world through sensor fusion, combining LiDAR, IMU, camera, radar, and GPS into a coherent world model. We build the perception stacks that give machines situational awareness.",
       },
       {
         number: "03",
         title: "Autonomy in Denied Environments",
         description:
-          "GPS-denied. Comms-degraded. Extreme temperature. Dust. Vibration. Our systems are designed to operate when the environment gives no guarantees — exactly the conditions where autonomous capability matters most.",
+          "GPS-denied. Comms-degraded. Extreme temperature. Dust. Vibration. Our systems are designed to operate when the environment gives no guarantees: exactly the conditions where autonomous capability matters most.",
       },
       {
         number: "04",

@@ -12,7 +12,7 @@ const POINTS = [
   },
   {
     title: "Anonymous summaries only",
-    body: "When we reference past work publicly, it is industry context and outcome shape — never enough to identify the organization.",
+    body: "When we reference past work publicly, it is industry context and outcome shape, never enough to identify the organization.",
   },
   {
     title: "Detail under NDA",
