@@ -75,13 +75,22 @@ export function TrustDynamicsBand() {
             that is too remote, too large or too risky to do by hand, designed
             for the conditions they will actually face.
           </p>
-          <Link
-            href="/contact"
-            className="mt-10 inline-block text-[12px] uppercase tracking-[0.1em] no-underline"
-            style={{ fontFamily: "var(--ttg-font-sans)", color: "#c8a96e" }}
-          >
-            Briefings by request <span aria-hidden>→</span>
-          </Link>
+          <div className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-10">
+            <Link
+              href="/contact"
+              className="inline-block text-[12px] uppercase tracking-[0.1em] no-underline"
+              style={{ fontFamily: "var(--ttg-font-sans)", color: "#c8a96e" }}
+            >
+              Briefings by request <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/blog/physical-ai-explained"
+              className="inline-block text-[12px] uppercase tracking-[0.1em] no-underline"
+              style={{ fontFamily: "var(--ttg-font-sans)", color: "rgba(255,255,255,0.72)" }}
+            >
+              Read: Physical AI, Explained <span aria-hidden>→</span>
+            </Link>
+          </div>
         </div>
 
         <div

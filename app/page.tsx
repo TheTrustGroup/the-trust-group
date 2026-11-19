@@ -4,7 +4,6 @@ import { TrustDynamicsBand } from "@/components/trust-dynamics-band";
 import { EditorialSection } from "@/components/EditorialSection";
 import { SelectedWork } from "@/components/portfolio/selected-work";
 import { ContactCTA } from "@/components/contact/contact-cta";
-import { TrustTestimonialsSection } from "@/components/testimonials/TrustTestimonialsSection";
 
 // Homepage stays short: hero → posture → capability → proof → CTA.
 // Process and FAQ live on /services and /faq so the first scroll is not diluted.
@@ -13,7 +12,6 @@ export default function Home() {
     <>
       <MissionCriticalHero />
       <TrustDynamicsBand />
-      <TrustTestimonialsSection />
       <EditorialSection
         id="what-we-do"
         title="What We Do"

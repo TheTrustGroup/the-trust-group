@@ -3,21 +3,21 @@ import { TTGSectionHeading } from "@/components/ttg/section-heading";
 const proofPoints = [
   {
     number: "01",
-    title: "Systematic Approach",
+    title: "Architecture before code",
     description:
-      "We follow established engineering practices and systematic approaches that ensure consistent, reliable outcomes.",
+      "Every engagement starts with a written design and a milestone-by-milestone plan. Problems surface on paper, not in production.",
   },
   {
     number: "02",
-    title: "Enterprise Standards",
+    title: "Confidential from the first call",
     description:
-      "Every system is built to meet enterprise-grade requirements for security, performance, and maintainability.",
+      "A mutual NDA before any detail is shared. Client names, screenshots and production URLs are never published without permission.",
   },
   {
     number: "03",
-    title: "Long-Term Design",
+    title: "Built for real conditions",
     description:
-      "We design systems with long-term operation in mind, ensuring they remain reliable and maintainable over time.",
+      "Heat, dust, unreliable power and patchy connectivity are design inputs, not surprises. Systems are planned for where they will actually run.",
   },
 ];
 
