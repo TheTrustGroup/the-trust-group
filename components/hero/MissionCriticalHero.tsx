@@ -120,8 +120,8 @@ export function MissionCriticalHero() {
             animationDelay: "0.15s",
           }}
         >
-          Engineered for reliability, security, and long-term scale, for
-          organizations where failure is not an option.
+          Software, AI and autonomous systems for organizations where
+          failure is not an option.
         </p>
 
         <div

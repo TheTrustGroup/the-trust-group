@@ -76,6 +76,25 @@ export function TTGFooter() {
           {company.tagline && (
             <p className="ttg-footer__tagline">{company.tagline}</p>
           )}
+          <Link
+            href="/contact"
+            prefetch
+            className="mt-8 flex max-w-[280px] items-start gap-3 no-underline"
+            aria-label="Trust Dynamics, our autonomous systems division. Briefings by request."
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/trust-dynamics-mark-gold.svg"
+              alt=""
+              width={28}
+              height={28}
+              className="mt-[1px] h-7 w-7 shrink-0"
+            />
+            <span className="ttg-footer__tagline">
+              Trust Dynamics — our autonomous systems division. Briefings by
+              request.
+            </span>
+          </Link>
         </div>
 
         <div className="ttg-footer__col">

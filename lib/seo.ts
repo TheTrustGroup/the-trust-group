@@ -3,7 +3,7 @@ import { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
 const siteName = "The Trust Group";
 const defaultDescription =
-  "Mission-critical software for organizations that cannot afford to fail. Engineering · Strategy · Defense. Built to enterprise-grade reliability standards, delivered on time.";
+  "Software, AI and autonomous systems for organizations that cannot afford to fail. Engineering · Strategy · Autonomy.";
 
 export interface SEOProps {
   title?: string;
@@ -33,7 +33,7 @@ function truncate(text: string, maxLength: number): string {
  */
 function generateTitle(title?: string): string {
   if (!title) {
-    return `${siteName} | Engineering · Strategy · Defense`;
+    return `${siteName} | Engineering · Strategy · Autonomy`;
   }
   
   const fullTitle = `${title} | ${siteName}`;
