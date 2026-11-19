@@ -546,10 +546,10 @@ export default function DefenseGradeEngineeringArticlePage() {
                   style={{ borderColor: "var(--ttg-border)" }}
                 >
                   <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
-                    &lt;8<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
+                    Design-first
                   </span>
                   <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
-                    Our rework rate vs 25–35% industry avg
+                    Rework designed out, not tested out
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 py-4">

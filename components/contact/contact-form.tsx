@@ -11,7 +11,7 @@ import { postContactJson, ContactApiError } from "@/lib/contact-api-client";
 import { isTurnstileWidgetEnabled, TurnstileWidget } from "./turnstile-widget";
 
 const services = [
-  "Defense Technology",
+  "Secure & Defense-Adjacent Systems",
   "Robotics & Edge AI",
   "AI Solutions & Implementation",
   "Custom Software Development",

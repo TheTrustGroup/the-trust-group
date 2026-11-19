@@ -74,7 +74,7 @@ export const aiSolutions: ServicePageDefinition = {
   },
   process: {
     title: "Our AI Development Process",
-    description: "A proven methodology for delivering exceptional AI solutions",
+    description: "How we take an AI project from discovery to production",
     steps: [
       {
         title: "Discovery & Strategy",
@@ -127,26 +127,6 @@ export const aiSolutions: ServicePageDefinition = {
       "Azure ML",
       "Docker",
       "Kubernetes",
-    ],
-  },
-  caseStudies: {
-    title: "Success Stories",
-    intro: "Real results from our AI implementations",
-    items: [
-      {
-        title: "AI-Powered Customer Analytics Platform",
-        description:
-          "Built a comprehensive analytics platform that processes millions of customer interactions daily, resulting in a 35% increase in conversion rates.",
-        results: ["35% increase in conversion", "50% reduction in churn", "Real-time analytics"],
-        href: "/case-studies/ai-customer-analytics",
-      },
-      {
-        title: "Intelligent Document Processing System",
-        description:
-          "Developed an NLP-powered system that automates document processing, reducing manual work by 80% and improving accuracy.",
-        results: ["80% time reduction", "95% accuracy", "Scalable to millions of documents"],
-        href: "/contact",
-      },
     ],
   },
   pricingBand: {

@@ -2,15 +2,13 @@
   {
     "id": "defense-technology",
     "icon": "Shield",
-    "title": "Defense Technology",
-    "description": "Built to support defense and intelligence operations. Designed for security and compliance. Trusted by organizations operating at the highest level.",
+    "title": "Secure & Defense-Adjacent Systems",
+    "description": "Security-first engineering for defense-adjacent and regulated environments. Discussed under NDA only.",
     "features": [
-      "Cybersecurity & Threat Detection",
-      "AI-Powered Defense Systems",
-      "Secure Communication Platforms",
-      "Intelligence Data Analytics",
-      "Mission Planning Software",
-      "Autonomous Systems Integration"
+      "Security-first architecture",
+      "Edge AI & computer vision",
+      "Autonomous & sensing systems",
+      "NDA from the first conversation"
     ],
     "variant": "primary",
     "href": "/services/defense-technology",

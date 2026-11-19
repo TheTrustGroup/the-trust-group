@@ -23,7 +23,7 @@ const principles = [
   {
     number: "02",
     title: "Dedicated Focus",
-    body: "Our engineers are not split across multiple clients. Each engagement receives a dedicated team with full attention. Focus compounds into speed and quality in ways that distributed teams cannot replicate.",
+    body: "We take on a limited number of engagements at a time, and each one gets full attention from a team formed for that work. Focus compounds into speed and quality.",
   },
   {
     number: "03",
@@ -48,13 +48,13 @@ const principles = [
 ];
 
 const capabilities = [
-  { name: "Defense Technology & Intelligence Systems", tag: "Strategic" },
+  { name: "Robotics & Edge AI", tag: "Physical AI" },
   { name: "AI Solutions & Implementation", tag: "Applied AI" },
-  { name: "Custom Enterprise Software", tag: "Core" },
-  { name: "Mobile Application Development", tag: "Platforms" },
-  { name: "Cloud Infrastructure & DevOps", tag: "Infrastructure" },
-  { name: "Legacy System Modernization", tag: "Transformation" },
-  { name: "Consulting & Technology Strategy", tag: "Advisory" },
+  { name: "Custom Software Development", tag: "Core" },
+  { name: "Web Development", tag: "Platforms" },
+  { name: "Mobile App Development", tag: "Platforms" },
+  { name: "Cloud Solutions", tag: "Infrastructure" },
+  { name: "Consulting & Strategy", tag: "Advisory" },
 ];
 
 function initialsFromName(name: string): string {
@@ -214,9 +214,8 @@ export default function AboutPage() {
                   We&apos;ve brought that baseline to enterprise and commercial
                   software.
                 </strong>{" "}
-                The result is a firm that consistently delivers faster than the
-                industry standard, with a rework rate under 8%, and systems that
-                hold their SLAs long after launch day.
+                The result is less rework, fewer surprises, and systems that keep
+                doing their job long after launch day.
               </p>
               <p
                 className="text-[16px] leading-[1.85]"
@@ -316,8 +315,8 @@ export default function AboutPage() {
                   color: "var(--ttg-muted)",
                 }}
               >
-                Seven core capability areas. Each staffed with specialists. All
-                built on the same architectural discipline.
+                Seven capability areas, all built on the same architectural
+                discipline.
               </p>
             </div>
             <div className="flex flex-col gap-0">
@@ -464,7 +463,7 @@ export default function AboutPage() {
               >
                 Headquartered in Accra.
                 <br />
-                Operating Globally.
+                Available beyond it.
               </h3>
               <p
                 className="text-[14px] leading-[1.75] mb-7"
@@ -473,10 +472,8 @@ export default function AboutPage() {
                   color: "var(--ttg-muted)",
                 }}
               >
-                Our primary operations are based in the Airport Residential Area
-                of Accra, Ghana — one of West Africa&apos;s leading technology
-                hubs. We operate internationally and regularly engage with
-                clients across Africa, Europe, and North America.
+                We are based in the Airport Residential Area of Accra, Ghana, and
+                work with clients in Ghana and beyond, in person or remotely.
               </p>
               <div className="flex flex-col gap-3">
                 <div className="flex gap-3.5 items-start">
@@ -517,7 +514,7 @@ export default function AboutPage() {
                       color: "var(--ttg-muted)",
                     }}
                   >
-                    +233 (057) 589-5601
+                    +233 57 589 5601
                   </span>
                 </div>
                 <div className="flex gap-3.5 items-start">
@@ -618,6 +615,24 @@ export default function AboutPage() {
           <Link href="/contact" className="ttg-btn-pill">
             Request a Private Briefing →
           </Link>
+          <p
+            className="text-[13px] max-w-[480px] mx-auto mt-10 leading-[1.7]"
+            style={{
+              fontFamily: "var(--ttg-font-sans)",
+              color: "var(--ttg-muted)",
+            }}
+          >
+            We work with a trusted bench of specialists, formed per engagement.
+            Interested in joining it?{" "}
+            <a
+              href="mailto:info@thetrustgroupsolutions.com"
+              className="underline underline-offset-4"
+              style={{ color: "var(--ttg-navy)" }}
+            >
+              Write to us
+            </a>
+            .
+          </p>
         </section>
       </div>
     </>

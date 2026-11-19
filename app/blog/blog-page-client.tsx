@@ -99,11 +99,10 @@ export function BlogPageClient({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              Our Blog
+              Insights
             </h1>
             <p className="text-lg text-muted-foreground sm:text-xl">
-              Insights, tutorials, and updates on AI, software development, and
-              technology
+              Engineering perspectives on building systems that last.
             </p>
           </div>
         </div>

@@ -32,26 +32,6 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
     >
       <Link href={`/blog/${post.slug}`} className="block h-full">
         <div className="flex h-full flex-col">
-          {/* Featured Image */}
-          {post.featuredImage ? (
-            <div className="relative h-48 overflow-hidden bg-muted md:h-64">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-4xl font-bold text-primary/20">
-                  {post.title.charAt(0)}
-                </span>
-              </div>
-            </div>
-          ) : (
-            <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 md:h-64">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-6xl font-bold text-primary/20">
-                  {post.title.charAt(0)}
-                </span>
-              </div>
-            </div>
-          )}
-
           {/* Content */}
           <div className="flex flex-1 flex-col p-6">
             {/* Category Badge */}

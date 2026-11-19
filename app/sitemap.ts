@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thetrustgroupsolutions.com";
 
-import { getBlogPosts, getJobListings } from "@/lib/cms";
+import { getBlogPosts } from "@/lib/cms";
 import { getIndexableCaseStudySlugs } from "@/lib/case-studies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -19,31 +19,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/web-development",
     "/services/cloud-solutions",
     "/services/consulting",
-    "/services/defense-technology",
     "/services/robotics-edge-ai",
     "/contact",
     "/blog",
-    "/careers",
     "/privacy",
     "/terms",
     "/cookies",
     "/security",
   ];
 
-  const { jobs } = getJobListings();
-  
   const blogRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
     lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: "weekly" as const,
     priority: post.featured ? 0.8 : 0.6,
-  }));
-
-  const jobRoutes: MetadataRoute.Sitemap = jobs.map((job) => ({
-    url: `${siteUrl}/careers/${job.slug}`,
-    lastModified: new Date(job.postedAt),
-    changeFrequency: "weekly" as const,
-    priority: job.featured ? 0.7 : 0.5,
   }));
 
   const caseStudySlugs = getIndexableCaseStudySlugs();
@@ -64,6 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  return [...staticRoutes, ...blogRoutes, ...jobRoutes, ...caseStudyRoutes] as MetadataRoute.Sitemap;
+  return [...staticRoutes, ...blogRoutes, ...caseStudyRoutes] as MetadataRoute.Sitemap;
 }
 

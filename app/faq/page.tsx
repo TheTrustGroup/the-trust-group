@@ -45,7 +45,7 @@ export default function FAQPage() {
       />
       <div className="min-h-screen border-t border-hairline">
         <section className="container-padding-apple section-padding-apple">
-          <FAQSection />
+          <FAQSection headingLevel="h1" />
         </section>
       </div>
     </>

@@ -3,7 +3,6 @@
     "name": "The Trust Group",
     "tagline": "Engineering · Strategy · Defense",
     "description": "Mission-critical software for organizations that cannot afford to fail. Built to enterprise-grade reliability standards, delivered on time.",
-    "founded": "2021",
     "headquarters": "Accra, Ghana",
     "website": "https://thetrustgroupsolutions.com"
   },
@@ -17,7 +16,7 @@
       "country": "Ghana"
     },
     "email": "info@thetrustgroupsolutions.com",
-    "phone": "+233 (057) 589-5601",
+    "phone": "+233 57 589 5601",
     "businessHours": {
       "weekdays": "Monday - Friday: 9:00 AM - 6:00 PM GMT",
       "weekends": "Saturday: 10:00 AM - 2:00 PM GMT",
@@ -26,30 +25,76 @@
   },
   "navigation": {
     "main": [
-      { "name": "Home", "href": "/" },
-      { "name": "Services", "href": "/services" },
-      { "name": "About", "href": "/about" },
-      { "name": "Contact", "href": "/contact" }
+      {
+        "name": "Home",
+        "href": "/"
+      },
+      {
+        "name": "Services",
+        "href": "/services"
+      },
+      {
+        "name": "About",
+        "href": "/about"
+      },
+      {
+        "name": "Contact",
+        "href": "/contact"
+      }
     ],
     "footer": {
       "services": [
-        { "name": "Defense Technology", "href": "/services/defense-technology" },
-        { "name": "Robotics & Edge AI", "href": "/services/robotics-edge-ai" },
-        { "name": "AI Solutions & Implementation", "href": "/services/ai-solutions" },
-        { "name": "Custom Software Development", "href": "/services/custom-software" },
-        { "name": "Mobile App Development", "href": "/services/mobile-apps" },
-        { "name": "Web Development", "href": "/services/web-development" },
-        { "name": "Cloud Solutions", "href": "/services/cloud-solutions" },
-        { "name": "Consulting & Strategy", "href": "/services/consulting" }
+        {
+          "name": "Secure & Defense-Adjacent Systems",
+          "href": "/services/defense-technology"
+        },
+        {
+          "name": "Robotics & Edge AI",
+          "href": "/services/robotics-edge-ai"
+        },
+        {
+          "name": "AI Solutions & Implementation",
+          "href": "/services/ai-solutions"
+        },
+        {
+          "name": "Custom Software Development",
+          "href": "/services/custom-software"
+        },
+        {
+          "name": "Mobile App Development",
+          "href": "/services/mobile-apps"
+        },
+        {
+          "name": "Web Development",
+          "href": "/services/web-development"
+        },
+        {
+          "name": "Cloud Solutions",
+          "href": "/services/cloud-solutions"
+        },
+        {
+          "name": "Consulting & Strategy",
+          "href": "/services/consulting"
+        }
       ],
       "company": [
-        { "name": "About Us", "href": "/about" },
-        { "name": "Careers", "href": "/careers" },
-        { "name": "Blog", "href": "/blog" },
-        { "name": "Privacy Policy", "href": "/privacy" },
-        { "name": "Terms of Service", "href": "/terms" }
+        {
+          "name": "About Us",
+          "href": "/about"
+        },
+        {
+          "name": "Blog",
+          "href": "/blog"
+        },
+        {
+          "name": "Privacy Policy",
+          "href": "/privacy"
+        },
+        {
+          "name": "Terms of Service",
+          "href": "/terms"
+        }
       ]
     }
   }
 }
-

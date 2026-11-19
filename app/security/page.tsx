@@ -39,8 +39,8 @@ export default function SecurityPage() {
       body: (
         <>
           <p>
-            An NDA is available from the first conversation. For sensitive,
-            classified-adjacent, or proprietary work we operate under NDA before
+            An NDA is available from the first conversation. For sensitive
+            or proprietary work we operate under NDA before
             any technical detail is exchanged.
           </p>
           <p>

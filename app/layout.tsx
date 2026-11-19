@@ -27,7 +27,7 @@ const ttgCormorant = Cormorant_Garamond({
 export const metadata: Metadata = generateMetadata({
   title: "Mission-Critical Software Engineering",
   description:
-    "We build enterprise software, AI systems, and defense technology trusted by organizations operating at the highest level. Accra, Ghana. Global reach.",
+    "Secure software, AI and autonomous systems for organizations where failure is not an option. Accra, Ghana.",
   keywords: [
     "AI solutions",
     "software development",

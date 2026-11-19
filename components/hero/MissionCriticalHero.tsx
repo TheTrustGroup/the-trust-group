@@ -96,17 +96,6 @@ export function MissionCriticalHero() {
           </span>
         </div>
 
-        <p
-          className="ttg-reveal text-[10px] uppercase tracking-[0.18em] mb-6"
-          style={{
-            fontFamily: "var(--ttg-font-sans)",
-            color: "var(--ttg-muted)",
-            animationDelay: "0.05s",
-          }}
-        >
-          The Trust Group · Est. 2021
-        </p>
-
         <h1
           className="ttg-reveal ttg-serif text-[clamp(50px,6.5vw,88px)] leading-[0.96] tracking-[-0.025em] mb-9"
           style={{
@@ -131,9 +120,8 @@ export function MissionCriticalHero() {
             animationDelay: "0.15s",
           }}
         >
-          Engineered for reliability, security, and long-term scale. Trusted by
-          enterprise organizations, defense clients, and technology companies
-          operating at the highest level.
+          Engineered for reliability, security, and long-term scale, for
+          organizations where failure is not an option.
         </p>
 
         <div

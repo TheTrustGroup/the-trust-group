@@ -1,3 +1,4 @@
+import * as React from "react";
 import { notFound } from "next/navigation";
 import { getBlogPost, getBlogPosts } from "@/lib/cms";
 import { generateMetadata as generateSEOMetadata, generateArticle, generateBreadcrumbs } from "@/lib/seo";
@@ -6,6 +7,45 @@ import { Calendar, Clock, User, ArrowLeft, Tag } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog";
+
+/** Render [text](url) links inside a line of article text. */
+function renderInline(text: string): React.ReactNode[] {
+  const parts: React.ReactNode[] = [];
+  const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    const href = m[2];
+    const external = /^https?:\/\//.test(href);
+    parts.push(
+      external ? (
+        <a
+          key={m.index}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-4"
+          style={{ color: "var(--ttg-navy)" }}
+        >
+          {m[1]}
+        </a>
+      ) : (
+        <Link
+          key={m.index}
+          href={href}
+          className="underline underline-offset-4"
+          style={{ color: "var(--ttg-navy)" }}
+        >
+          {m[1]}
+        </Link>
+      )
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts;
+}
 
 interface BlogPostPageProps {
   params: {
@@ -91,7 +131,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           return (
             <h2
               key={index}
-              className="mt-8 mb-4 text-2xl font-bold text-foreground"
+              className="ttg-serif mt-12 mb-4 text-[30px] leading-[1.15] tracking-[-0.01em]"
+              style={{ color: "var(--ttg-navy)" }}
             >
               {paragraph.replace("## ", "")}
             </h2>
@@ -101,7 +142,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           return (
             <h3
               key={index}
-              className="mt-6 mb-3 text-xl font-semibold text-foreground"
+              className="ttg-serif mt-8 mb-3 text-[23px] leading-[1.2]"
+              style={{ color: "var(--ttg-navy)" }}
             >
               {paragraph.replace("### ", "")}
             </h3>
@@ -116,7 +158,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             <ul key={index} className="my-4 ml-6 list-disc space-y-2">
               {items.map((item, i) => (
                 <li key={i} className="text-muted-foreground">
-                  {item}
+                  {renderInline(item)}
                 </li>
               ))}
             </ul>
@@ -126,8 +168,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           return null;
         }
         return (
-          <p key={index} className="mb-4 leading-7 text-muted-foreground">
-            {paragraph}
+          <p key={index} className="mb-5 leading-8 text-muted-foreground">
+            {renderInline(paragraph)}
           </p>
         );
       })
@@ -151,7 +193,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           <Link href="/blog">
             <Button variant="ghost" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
-              Back to Blog
+              Back to Insights
             </Button>
           </Link>
         </div>
@@ -171,7 +213,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
 
               {/* Title */}
-              <h1 className="mb-6 text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">
+              <h1
+                className="ttg-serif mb-6 text-[clamp(36px,5vw,56px)] leading-[1.05] tracking-[-0.02em]"
+                style={{ color: "var(--ttg-navy)" }}
+              >
                 {post.title}
               </h1>
 

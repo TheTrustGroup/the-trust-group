@@ -74,7 +74,7 @@ export const webDevelopment: ServicePageDefinition = {
   },
   process: {
     title: "Our Process",
-    description: "A proven methodology for delivering exceptional results",
+    description: "How we take a project from discovery to delivery",
     steps: [
       {
         title: "Planning & Strategy",

@@ -42,6 +42,8 @@ export interface ServicePageDefinition {
     description: string;
     keywords?: string[];
     url: string;
+    /** Keep the page out of search engines and the sitemap. */
+    noindex?: boolean;
   };
   schemaServiceType: string;
   schemaDescription: string;

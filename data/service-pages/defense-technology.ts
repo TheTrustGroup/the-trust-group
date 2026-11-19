@@ -1,282 +1,154 @@
 import type { ServicePageDefinition } from "./types";
 
+/**
+ * Deliberately quiet page: capability-level only, no certifications,
+ * clearances, client names or project details. Not indexed; not listed on
+ * /services. Linked from the footer only. Detail is shared under NDA.
+ */
 export const defenseTechnology: ServicePageDefinition = {
   slug: "defense-technology",
-  breadcrumbLabel: "Defense Technology",
+  breadcrumbLabel: "Secure & Defense-Adjacent Systems",
   seo: {
-    title: "Defense Technology Solutions",
+    title: "Secure & Defense-Adjacent Systems",
     description:
-      "Mission-critical systems for defense and intelligence operations. Secure, compliant, and battle-tested software solutions that protect national interests and support defense operations worldwide.",
+      "Security-first engineering for organizations in defense-adjacent and regulated environments. Every engagement begins under NDA and is briefed privately.",
     url: "/services/defense-technology",
+    noindex: true,
   },
-  schemaServiceType: "Defense Technology Solutions",
+  schemaServiceType: "Secure Systems Engineering",
   schemaDescription:
-    "Mission-critical systems for defense and intelligence operations. Secure, compliant, and battle-tested software solutions.",
+    "Security-first software and autonomous systems engineering for defense-adjacent and regulated environments.",
   hero: {
-    title: "Defense Technology Solutions",
-    subtitle: "Mission-Critical Defense Systems",
+    title: "Secure & Defense-Adjacent Systems",
+    subtitle: "Discreet engagements",
     description:
-      "Building mission-critical software systems that protect national interests and support defense operations. Secure. Compliant. Battle-tested.",
+      "Software and autonomous systems for organizations where security is a design constraint, not an afterthought. Every engagement begins under NDA, and detail is shared in private briefings only.",
     iconName: "Shield",
     visualUrl: "/images/capabilities/drone-mapping-hud.png",
     features: [
-      "Cybersecurity & Threat Detection",
-      "AI-Powered Defense Systems",
-      "Secure Communication Platforms",
-      "Intelligence Data Analytics",
+      "Security-first architecture",
+      "Edge AI & computer vision",
+      "Autonomous & sensing systems",
+      "NDA from the first conversation",
     ],
   },
   whySection: {
-    title: "Why Software Engineers are Central to Defense Tech",
-    intro:
-      "Modern defense operations depend entirely on sophisticated software systems. From autonomous vehicles to intelligence analysis, software engineers are the architects of national security infrastructure.",
+    title: "How we work in sensitive environments",
+    intro: "",
     items: [
       {
         number: "01",
-        title: "Cybersecurity & Threat Defense",
+        title: "Security is a design constraint",
         description:
-          "Protecting critical infrastructure from cyber threats requires advanced software engineering. We build intrusion detection systems, threat intelligence platforms, and secure communication networks.",
+          "Threat modelling happens before the first sprint, not after launch. Access control, audit trails and data handling are decided at the architecture stage.",
       },
       {
         number: "02",
-        title: "AI & Autonomous Systems",
+        title: "Need-to-know by default",
         description:
-          "Modern defense relies on AI for autonomous vehicles, predictive analytics, and decision support. Our engineers develop machine learning models for threat detection, target recognition, and mission planning.",
+          "Each engagement is staffed with a small team formed for that work. Access to systems and information is limited to the people who need it.",
       },
       {
         number: "03",
-        title: "Intelligence & Data Analytics",
+        title: "Discretion as standard",
         description:
-          "Processing massive amounts of intelligence data requires sophisticated software. We build analytics platforms that turn raw data into actionable intelligence for decision-makers.",
+          "No client names, no public case studies, no public demonstrations. References and specifics are shared in private briefings.",
       },
       {
         number: "04",
-        title: "Secure Communications",
+        title: "Built for the field",
         description:
-          "Military operations depend on secure, reliable communications. We develop encrypted communication systems, secure messaging platforms, and classified data management solutions.",
+          "Systems designed to keep working with limited connectivity, at the edge, where cloud infrastructure does not reach.",
       },
     ],
   },
   capabilities: {
-    title: "Defense Technology Capabilities",
-    intro: "Comprehensive defense solutions tailored to mission-critical requirements",
+    title: "Areas of capability",
+    intro: "Discussed in detail under NDA only.",
     sectionVariant: "muted",
     cardClassName: "border-2 hover:border-primary transition-colors",
     items: [
       {
-        title: "Cybersecurity Solutions",
+        title: "Secure Software Systems",
         description:
-          "Protecting critical infrastructure from cyber threats with advanced intrusion detection systems, threat intelligence platforms, and secure communication networks.",
+          "Applications and platforms where access, auditability and data protection are requirements from day one.",
         features: [
-          "Intrusion Detection & Prevention Systems",
-          "Threat Intelligence Platforms",
-          "Security Information & Event Management (SIEM)",
-          "Zero Trust Architecture Implementation",
-          "Vulnerability Assessment & Penetration Testing",
-          "Security Operations Center (SOC) Development",
+          "Threat modelling from the start",
+          "Role-based access and audit trails",
+          "Encryption at rest and in transit",
+          "Hardened deployment pipelines",
         ],
       },
       {
-        title: "AI Defense Systems",
+        title: "Perception & Edge AI",
         description:
-          "Modern defense relies on AI for autonomous vehicles, predictive analytics, and decision support. We develop machine learning models for threat detection, target recognition, and mission planning.",
+          "Computer vision and inference that runs on the device, close to the sensor.",
         features: [
-          "Computer Vision for Target Recognition",
-          "Predictive Threat Analysis",
-          "Autonomous System Integration",
-          "Natural Language Processing for Intelligence",
-          "Decision Support Systems",
-          "Anomaly Detection & Pattern Recognition",
+          "Detection and tracking models",
+          "On-device inference",
+          "Sensor data pipelines",
+          "Operator dashboards",
         ],
       },
       {
-        title: "Secure Communications",
+        title: "Autonomous & Sensing Systems",
         description:
-          "Military operations depend on secure, reliable communications. We develop encrypted communication systems, secure messaging platforms, and classified data management solutions.",
+          "Software for unmanned platforms and sensing equipment, validated in simulation before the field.",
         features: [
-          "End-to-End Encrypted Messaging",
-          "Classified Network Infrastructure",
-          "Secure Voice & Video Conferencing",
-          "Tactical Communication Systems",
-          "Command & Control Platforms",
-          "Cross-Domain Solutions",
+          "Platform and payload integration",
+          "Situational-awareness interfaces",
+          "Simulation before field testing",
+          "Fail-safe behaviour by design",
         ],
-      },
-      {
-        title: "Intelligence Analytics",
-        description:
-          "Processing massive amounts of intelligence data requires sophisticated software. We build analytics platforms that turn raw data into actionable intelligence for decision-makers.",
-        features: [
-          "Big Data Processing & Analysis",
-          "Intelligence Fusion Platforms",
-          "Geospatial Intelligence (GEOINT) Systems",
-          "Signals Intelligence (SIGINT) Processing",
-          "Open Source Intelligence (OSINT) Collection",
-          "Predictive Analytics & Forecasting",
-        ],
-      },
-      {
-        title: "Mission Planning & Operations",
-        description:
-          "Comprehensive software solutions for mission planning, logistics management, training simulations, and operational dashboards.",
-        features: [
-          "Mission Planning Software",
-          "Logistics & Supply Chain Management",
-          "Training & Simulation Systems",
-          "Asset Tracking & Management",
-          "Operational Dashboards",
-          "After-Action Review Systems",
-        ],
-      },
-      {
-        title: "Secure Cloud Infrastructure",
-        description:
-          "Government cloud deployment, classified cloud infrastructure, and secure DevSecOps pipelines for defense operations.",
-        features: [
-          "Government Cloud (GovCloud) Deployment",
-          "Classified Cloud Infrastructure",
-          "Impact Level 4/5/6 Compliance",
-          "Hybrid Cloud Architecture",
-          "Disaster Recovery & Business Continuity",
-          "Secure DevSecOps Pipelines",
-        ],
-      },
-    ],
-  },
-  compliance: {
-    title: "Compliance & Security Standards",
-    intro:
-      "We adhere to the highest security standards and maintain certifications required for defense contracting.",
-    items: [
-      {
-        title: "FedRAMP",
-        description: "Federal Risk and Authorization Management Program compliance for cloud services",
-      },
-      {
-        title: "NIST 800-171",
-        description: "Protecting Controlled Unclassified Information (CUI) in non-federal systems",
-      },
-      {
-        title: "CMMC",
-        description: "Cybersecurity Maturity Model Certification for defense contractors",
-      },
-      {
-        title: "ITAR",
-        description: "International Traffic in Arms Regulations compliance",
-      },
-      {
-        title: "ISO 27001",
-        description: "Information Security Management System certification",
-      },
-      {
-        title: "SOC 2 Type II",
-        description: "Service Organization Control for security, availability, and confidentiality",
       },
     ],
   },
   process: {
-    title: "Our Defense Technology Development Process",
-    description: "A proven methodology for delivering secure, mission-critical systems",
+    title: "How an engagement runs",
+    description: "Every step after the first conversation is covered by NDA.",
     steps: [
       {
-        title: "Requirements & Security Assessment",
-        description:
-          "We begin with a comprehensive security assessment and requirements analysis. Our team evaluates security clearance needs, compliance requirements, and mission-critical specifications.",
-        duration: "2-3 weeks",
+        title: "Private briefing & NDA",
+        description: "A confidential first conversation; a mutual NDA is signed before any detail is discussed.",
       },
       {
-        title: "Architecture & Design",
-        description:
-          "We design secure, scalable architectures that meet defense standards. This includes security architecture, threat modeling, and compliance planning.",
-        duration: "3-4 weeks",
+        title: "Requirements & threat model",
+        description: "Scope, constraints and security requirements agreed in writing.",
       },
       {
-        title: "Secure Development",
-        description:
-          "Our engineers develop mission-critical systems following secure coding practices, security testing, and continuous security monitoring throughout development.",
-        duration: "8-16 weeks",
+        title: "Build in milestones",
+        description: "Delivered milestone by milestone, with problems surfaced early.",
       },
       {
-        title: "Security Testing & Validation",
-        description:
-          "Rigorous security testing including penetration testing, vulnerability assessments, and compliance validation to ensure systems meet defense standards.",
-        duration: "2-4 weeks",
-      },
-      {
-        title: "Deployment & Support",
-        description:
-          "Secure deployment to classified environments with ongoing 24/7 mission support, security monitoring, and continuous compliance validation.",
-        duration: "Ongoing",
+        title: "Handover & support",
+        description: "Documentation, training and support terms agreed up front.",
       },
     ],
-  },
-  techStack: {
-    title: "Technologies We Use",
-    intro: "Industry-leading tools and frameworks for defense technology development",
-    tags: [
-      "Secure Cloud Platforms",
-      "Kubernetes",
-      "Docker",
-      "Terraform",
-      "Ansible",
-      "Python",
-      "Java",
-      "C++",
-      "Rust",
-      "Go",
-      "TensorFlow",
-      "PyTorch",
-      "Elasticsearch",
-      "Kafka",
-      "PostgreSQL",
-      "AWS GovCloud",
-      "Azure Government",
-      "Google Cloud Platform",
-      "Red Hat",
-      "Splunk",
-    ],
-  },
-  classifiedNote: {
-    title: "Classified Projects",
-    body:
-      "Many of our defense projects are classified. The examples shown represent our unclassified work. For specific capabilities inquiries, please contact our defense division directly.",
-    ctaLabel: "Contact Defense Division",
-    ctaHref: "/contact",
   },
   faqs: [
     {
-      question: "What security clearances do your team members hold?",
+      question: "Do you sign an NDA before discussing a project?",
       answer:
-        "Our team includes engineers with various security clearances appropriate for defense contracting. We work with clients to ensure all team members meet clearance requirements for specific projects. For highly classified work, we can provide team members with the necessary clearances.",
+        "Yes. We can put a mutual NDA in place before the first detailed conversation. Nothing beyond capability level is discussed until it is signed.",
     },
     {
-      question: "What compliance standards do you meet?",
+      question: "Why don't you publish this work?",
       answer:
-        "We adhere to multiple defense and security compliance standards including FedRAMP, NIST 800-171, CMMC, ITAR, ISO 27001, and SOC 2 Type II. Our compliance team ensures all systems meet or exceed required standards.",
+        "Clients in this space expect discretion. We do not publish names, screenshots or project details. References and specifics are shared in private briefings.",
     },
     {
-      question: "Can you work with classified information?",
+      question: "How do you handle sensitive information?",
       answer:
-        "Yes, we have experience working with classified systems and can provide team members with appropriate security clearances. We follow strict protocols for handling classified information and can work in secure facilities as required.",
+        "Access is limited to the people working on the engagement, data stays in the environment agreed with the client, and we follow the security requirements set out in the contract. Our general approach is described on our Security page.",
     },
     {
-      question: "What types of defense systems have you built?",
+      question: "Can you work within our security requirements?",
       answer:
-        "We've developed systems for cybersecurity, threat detection, secure communications, intelligence analytics, mission planning, and autonomous systems. Many of our defense projects are classified, but we can discuss our capabilities and approach during a secure consultation.",
-    },
-    {
-      question: "How do you ensure system security and reliability?",
-      answer:
-        "We follow defense-grade security practices including secure coding standards, continuous security testing, threat modeling, penetration testing, and rigorous validation. All systems undergo comprehensive security audits before deployment.",
-    },
-    {
-      question: "What is your approach to mission-critical systems?",
-      answer:
-        "We design for reliability, security, and performance from the ground up. Our systems include redundancy, failover capabilities, continuous monitoring, and 24/7 support. We understand that defense systems must operate flawlessly under all conditions.",
+        "Yes. We adapt to the client's policies, hosting requirements and review processes, and agree them in writing before work begins.",
     },
   ],
   contact: {
-    serviceName: "Defense Technology",
-    prefillService: "Defense Technology",
+    serviceName: "Secure & Defense-Adjacent Systems",
+    prefillService: "Secure & Defense-Adjacent Systems",
   },
 };

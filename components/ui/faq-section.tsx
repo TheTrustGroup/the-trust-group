@@ -7,7 +7,8 @@ import { AnimatedSection } from "./animated-section";
 import { cn } from "@/lib/utils";
 import { faqEntries } from "@/lib/faq-data";
 
-export function FAQSection() {
+export function FAQSection({ headingLevel = "h2" }: { headingLevel?: "h1" | "h2" } = {}) {
+  const Heading = headingLevel;
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -18,9 +19,9 @@ export function FAQSection() {
     <AnimatedSection variant="default" size="default" animation="fade-in" className="border-t border-hairline">
       <div className="relative">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-headline mb-4 md:mb-6">
+          <Heading className="text-headline mb-4 md:mb-6">
             FAQ
-          </h2>
+          </Heading>
           <p className="text-body text-medium-contrast max-w-2xl mx-auto">
             Common questions about our approach.
           </p>

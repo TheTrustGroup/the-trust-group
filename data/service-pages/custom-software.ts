@@ -71,7 +71,7 @@ export const customSoftware: ServicePageDefinition = {
   },
   process: {
     title: "Our Process",
-    description: "A proven methodology for delivering exceptional results",
+    description: "How we take a project from discovery to delivery",
     steps: [
       {
         title: "Requirements Analysis",
@@ -113,7 +113,7 @@ export const customSoftware: ServicePageDefinition = {
     {
       question: "Do you provide ongoing maintenance and support?",
       answer:
-        "Yes, we offer comprehensive maintenance and support packages including bug fixes, security updates, feature enhancements, and 24/7 monitoring.",
+        "Yes, we offer comprehensive maintenance and support packages including bug fixes, security updates, feature enhancements, and monitoring, with terms agreed per engagement.",
     },
     {
       question: "Can you integrate with our existing systems?",

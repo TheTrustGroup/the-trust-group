@@ -24,7 +24,7 @@ export const roboticsEdgeAi: ServicePageDefinition = {
     title: "Robotics & Edge AI",
     subtitle: "Mission-Critical Physical Systems",
     description:
-      "Autonomous physical systems and real-time AI inference at the edge.\n\nBuilt for environments where cloud latency is not an option.\n\nReliable. Deterministic. Field-proven.",
+      "Autonomous physical systems and real-time AI inference at the edge.\n\nBuilt for environments where cloud latency is not an option.\n\nReliable. Deterministic. Engineered for the field.",
     iconName: "Cpu",
     visualUrl: "/images/capabilities/robotics-industrial-arm.png",
     features: [
@@ -66,7 +66,7 @@ export const roboticsEdgeAi: ServicePageDefinition = {
   },
   capabilities: {
     title: "Robotics & Edge AI Capabilities",
-    intro: "Physical systems, edge inference, and field-proven autonomy",
+    intro: "Physical systems, edge inference, and autonomy built for real-world conditions",
     sectionVariant: "muted",
     cardClassName: "border-2 hover:border-primary transition-colors",
     items: [
@@ -144,18 +144,6 @@ export const roboticsEdgeAi: ServicePageDefinition = {
       },
     ],
   },
-  compliance: {
-    title: "Compliance & Engineering Standards",
-    intro: "We align robotics and edge deployments with applicable safety and regulatory frameworks.",
-    items: [
-      { title: "DO-178C", description: "Airborne software" },
-      { title: "IEC 61508", description: "Functional safety" },
-      { title: "ISO 26262", description: "Automotive safety, if applicable" },
-      { title: "MIL-STD-810", description: "Environmental engineering" },
-      { title: "NDAA compliance", description: "" },
-      { title: "Export control", description: "EAR/ITAR awareness" },
-    ],
-  },
   process: {
     title: "Our Robotics & Edge AI Development Process",
     description: "From safety analysis through field deployment and fleet operations",
@@ -216,13 +204,6 @@ export const roboticsEdgeAi: ServicePageDefinition = {
       "Azure IoT Edge",
     ],
   },
-  classifiedNote: {
-    title: "Classified Deployments",
-    body:
-      "Many of our robotics and edge AI deployments are for defense and intelligence clients and are not publicly disclosed. For capability inquiries, contact our robotics division.",
-    ctaLabel: "Contact Robotics Division",
-    ctaHref: "/contact",
-  },
   faqs: [
     {
       question: "What edge hardware do you target?",
@@ -242,17 +223,17 @@ export const roboticsEdgeAi: ServicePageDefinition = {
     {
       question: "How do you handle safety-critical systems?",
       answer:
-        "We follow functional safety standards (IEC 61508, DO-178C) including hazard analysis, safety case documentation, and independent safety validation. All autonomous systems include configurable safety envelopes and emergency stop logic.",
+        "Safety is designed in, not added later: hazard analysis at the start, simulation before field testing, and configurable safety envelopes with emergency-stop logic on every autonomous system.",
     },
     {
-      question: "What is your experience with GPS-denied navigation?",
+      question: "Can your systems navigate without GPS?",
       answer:
-        "We have deployed SLAM-based navigation systems in underground, indoor, and RF-contested environments using LiDAR-inertial odometry (LIO-SAM, FAST-LIO2) and visual-inertial odometry (VINS-Fusion, ORB-SLAM3).",
+        "Yes. We design navigation for GPS-denied and indoor environments using LiDAR-inertial and visual-inertial odometry (for example FAST-LIO2, VINS-Fusion and ORB-SLAM3), validated in simulation before field trials.",
     },
     {
       question: "Do you offer ongoing fleet management?",
       answer:
-        "Yes. We build and operate telemetry dashboards, OTA update pipelines, and health monitoring systems for deployed robotic fleets. Mission-critical SLAs available.",
+        "We can build telemetry dashboards, over-the-air update pipelines and health monitoring for robotic fleets. Support terms are agreed per engagement.",
     },
   ],
   contact: {

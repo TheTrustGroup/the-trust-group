@@ -18,11 +18,11 @@ const HEADING_IDS = TOC_ITEMS.map((i) => i.href.slice(1));
 export const metadata: Metadata = {
   title: "Why Enterprise Software Projects Take Twice as Long as They Should | The Trust Group",
   description:
-    "This is what we changed — and why our projects consistently deliver in half the time the industry considers standard.",
+    "This is what we changed, and why it removes most of the delay that the industry treats as normal.",
   openGraph: {
     title: "Why Enterprise Software Projects Take Twice as Long as They Should | The Trust Group",
     description:
-      "This is what we changed — and why our projects consistently deliver in half the time the industry considers standard.",
+      "This is what we changed, and why it removes most of the delay that the industry treats as normal.",
     type: "article",
   },
 };
@@ -99,8 +99,8 @@ export default function EnterpriseSoftwareArticlePage() {
             }}
           >
             Software delays are almost never caused by the complexity of the problem. They&apos;re
-            caused by the process used to solve it. Here&apos;s what we changed — and why our
-            projects consistently deliver in half the industry-standard timeline.
+            caused by the process used to solve it. Here&apos;s what we changed, and why it removes most of the
+            delay the industry treats as normal.
           </p>
         </header>
 
@@ -119,8 +119,7 @@ export default function EnterpriseSoftwareArticlePage() {
                 are unpredictable. That requirements change. That these things happen.
               </p>
               <p>
-                We disagree. After delivering mission-critical systems for enterprise organizations,
-                defense clients, and high-growth technology companies, we&apos;ve found that
+                We disagree. Building systems where failure is not an option, we&apos;ve found that
                 software delays are almost never caused by the complexity of the problem.
                 They&apos;re caused by the process used to solve it.
               </p>
@@ -262,7 +261,7 @@ export default function EnterpriseSoftwareArticlePage() {
                         className="border-b px-4 py-3.5 text-[12px] text-[#4caf6e]"
                         style={{ borderColor: "rgba(200,169,110,0.06)" }}
                       >
-                        Under 8%
+                        Designed out
                       </td>
                     </tr>
                     <tr>
@@ -353,8 +352,8 @@ export default function EnterpriseSoftwareArticlePage() {
                 supposed to look like.
               </p>
               <p>
-                The result: rework drops from an industry-average 25–35% of development time to
-                under 8% on our engagements.
+                The result: far less of the build is spent redoing work that was never
+                properly specified.
               </p>
 
               <hr
@@ -580,10 +579,10 @@ export default function EnterpriseSoftwareArticlePage() {
                 </div>
                 <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--ttg-border)" }}>
                   <span className="ttg-serif text-[28px] text-[var(--ttg-navy)]">
-                    &lt;8<em className="font-style-normal text-[var(--ttg-navy)]">%</em>
+                    Design-first
                   </span>
                   <span className="ttg-mono text-[9px] uppercase tracking-[0.1em] text-[var(--ttg-muted)]">
-                    Average rework rate
+                    Rework designed out, not tested out
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 border-b py-4" style={{ borderColor: "var(--ttg-border)" }}>

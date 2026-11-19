@@ -7,12 +7,12 @@ import { postContactJson, ContactApiError } from "@/lib/contact-api-client";
 import { isTurnstileWidgetEnabled, TurnstileWidget } from "@/components/contact/turnstile-widget";
 
 const SERVICE_OPTIONS = [
-  "Defense Technology & Intelligence Systems",
+  "Robotics & Edge AI",
+  "Secure & Defense-Adjacent Systems",
   "AI Solutions & Implementation",
   "Custom Enterprise Software",
   "Mobile Application Development",
   "Cloud Infrastructure & DevOps",
-  "Legacy System Modernization",
   "Consulting & Technology Strategy",
   "Multiple / Unsure",
 ] as const;
@@ -128,7 +128,7 @@ export function PrivateBriefingContent() {
     >
       {/* Left panel */}
       <aside
-        className="relative flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--ttg-border)] bg-[var(--ttg-bg-white)] lg:sticky lg:top-0 lg:h-screen overflow-hidden pt-24 lg:pt-40 pb-16 lg:pb-20 px-6 lg:px-16"
+        className="relative flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-[var(--ttg-border)] bg-[var(--ttg-bg-white)] overflow-hidden pt-24 lg:pt-40 pb-16 lg:pb-20 px-6 lg:px-16"
         style={{ minHeight: "50vh" }}
       >
         <div
@@ -179,7 +179,7 @@ export function PrivateBriefingContent() {
               {
                 num: "01",
                 strong: "Response within 24 hours.",
-                rest: "A senior member of our team will reach out to confirm receipt and schedule a time.",
+                rest: "We'll reply to confirm receipt and schedule a time.",
               },
               {
                 num: "02",
@@ -194,7 +194,7 @@ export function PrivateBriefingContent() {
               {
                 num: "04",
                 strong: "Full NDA available.",
-                rest: "For sensitive, classified, or proprietary projects — we operate under NDA from the first conversation.",
+                rest: "For sensitive or proprietary projects — we operate under NDA from the first conversation.",
               },
             ].map((item) => (
               <div key={item.num} className="flex gap-4">
@@ -235,7 +235,7 @@ export function PrivateBriefingContent() {
               href="tel:+233575895601"
               className="text-[13px] text-[var(--ttg-muted)] no-underline hover:text-[var(--ttg-navy)]"
             >
-              +233 (057) 589-5601
+              +233 57 589 5601
             </a>
           </div>
           <div className="flex gap-4 items-center">
@@ -274,8 +274,8 @@ export function PrivateBriefingContent() {
                 Briefing Request Received.
               </h2>
               <p className="text-[15px] text-[var(--ttg-muted)] leading-[1.7] max-w-[380px]">
-                A senior member of our team will reach out within 24 hours to
-                confirm and schedule your discovery call. We look forward to
+                We&apos;ll be in touch within 24 hours to confirm and schedule your
+                discovery call. We look forward to
                 learning about your project.
               </p>
             </div>

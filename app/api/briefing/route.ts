@@ -6,12 +6,12 @@ import { isTurnstileRequired, verifyTurnstileToken } from "@/lib/turnstile-verif
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const SERVICE_OPTIONS = [
-  "Defense Technology & Intelligence Systems",
+  "Robotics & Edge AI",
+  "Secure & Defense-Adjacent Systems",
   "AI Solutions & Implementation",
   "Custom Enterprise Software",
   "Mobile Application Development",
   "Cloud Infrastructure & DevOps",
-  "Legacy System Modernization",
   "Consulting & Technology Strategy",
   "Multiple / Unsure",
 ] as const;

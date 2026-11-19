@@ -22,7 +22,6 @@ const QUICK_LINKS = [
   { label: "Company", href: "/about" },
   { label: "Work", href: "/work" },
   { label: "Insights", href: "/blog" },
-  { label: "Careers", href: "/careers" },
 ] as const;
 
 const LEGAL_LINKS = [
@@ -42,7 +41,7 @@ const SERVICE_ICON_MAP: Record<
   "Web Development": Globe,
   "Cloud Solutions": Cloud,
   "Consulting & Strategy": Lightbulb,
-  "Defense Technology": Shield,
+  "Secure & Defense-Adjacent Systems": Shield,
   "Robotics & Edge AI": Cpu,
 };
 
@@ -117,7 +116,7 @@ export function TTGFooter() {
               <Phone width={14} height={14} strokeWidth={1.8} aria-hidden />
             </span>
             <span className="ttg-footer__contact-text">
-              <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>
+              <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}>{contact.phone}</a>
             </span>
           </div>
           <div className="ttg-footer__contact-item">
@@ -151,7 +150,10 @@ export function TTGFooter() {
 
       <div className="ttg-footer__bottom">
         <div className="ttg-footer__bottom-inner">
-          <p className="ttg-footer__copy">© {currentYear} {company.name}</p>
+          <p className="ttg-footer__copy">
+            © {currentYear} TTG Trust Dynamics. {company.name} is a brand of TTG
+            Trust Dynamics, a sole proprietorship registered in Ghana.
+          </p>
           <nav className="ttg-footer__legal" aria-label="Legal links">
             {LEGAL_LINKS.map((item, i) => (
               <React.Fragment key={item.href}>

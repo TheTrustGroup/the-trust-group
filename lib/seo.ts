@@ -146,8 +146,6 @@ export function generateMetadata({
       title: fullTitle,
       description: metaDescription,
       ...(ogImage && { images: [ogImage] }),
-      creator: "@thetrustgroup",
-      site: "@thetrustgroup",
     },
     alternates: {
       canonical: canonicalUrl,
@@ -176,19 +174,20 @@ export function generateStructuredData(
     "@context": "https://schema.org",
     "@type": "Organization",
     name: siteName,
+    legalName: "TTG Trust Dynamics",
     url: siteUrl,
     logo: {
       "@type": "ImageObject",
-      url: `${siteUrl}/logo.png`,
-      width: 400,
-      height: 400,
+      url: `${siteUrl}/android-chrome-512x512.png`,
+      width: 512,
+      height: 512,
     },
     description: defaultDescription,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       email: "info@thetrustgroupsolutions.com",
-      telephone: "+233 (057) 589-5601",
+      telephone: "+233575895601",
       availableLanguage: ["English"],
     },
     address: {
@@ -198,11 +197,6 @@ export function generateStructuredData(
       addressRegion: "Greater Accra",
       postalCode: "00233",
       addressCountry: "GH",
-    },
-    foundingDate: "2021",
-    numberOfEmployees: {
-      "@type": "QuantitativeValue",
-      value: "50+",
     },
   };
 
@@ -220,14 +214,6 @@ export function generateStructuredData(
         name: siteName,
         url: siteUrl,
         description: defaultDescription,
-        potentialAction: {
-          "@type": "SearchAction",
-          target: {
-            "@type": "EntryPoint",
-            urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-          },
-          "query-input": "required name=search_term_string",
-        },
         publisher: baseOrganization,
         ...data,
       };

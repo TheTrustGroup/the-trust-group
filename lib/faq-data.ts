@@ -13,12 +13,12 @@ export const faqEntries: FAQEntry[] = [
   {
     question: "How long does a typical project take?",
     answer:
-      "We deliver faster than the industry standard, by design. Small projects are typically completed in 6–8 weeks. Larger enterprise systems range from 3–6 months, depending on scope and integration complexity. This is possible because of our architecture-first methodology: we invest heavily in the discovery and design phases to eliminate ambiguity before a single line of production code is written. The result is fewer revisions, zero wasted cycles, and delivery timelines that consistently beat industry benchmarks by 40–50%. A detailed, milestone-by-milestone timeline is provided during the discovery phase.",
+      "It depends on scope, and we set the timeline in discovery rather than guessing up front. You receive a milestone-by-milestone plan before development begins, and we surface problems as soon as we see them. Our architecture-first approach means more time spent on design and less on rework.",
   },
   {
     question: "What industries do you serve?",
     answer:
-      "We serve defense and intelligence, healthcare, financial services, e-commerce, real estate, transportation, hospitality, enterprise SaaS, robotics and autonomous systems, and manufacturing automation. Solutions are tailored to meet industry-specific compliance standards, including HIPAA, SOC 2, and defense-grade security frameworks.",
+      "We work with organizations in commerce and retail, mobility and transportation, enterprise operations, and regulated or defense-adjacent environments. Each engagement is shaped around the client's own security and compliance requirements, agreed in writing before work begins.",
   },
   {
     question: "What technologies do you specialize in?",
@@ -28,22 +28,22 @@ export const faqEntries: FAQEntry[] = [
   {
     question: "How do you start a project?",
     answer:
-      "We begin with a technical discovery phase where we assess your requirements, constraints, and existing infrastructure. This includes stakeholder interviews, technical audits, and architecture planning. We then provide a detailed proposal with approach, timeline, and resource allocation. Most clients receive their proposal within 5 business days of the initial briefing.",
+      "We begin with a discovery phase: requirements, constraints, existing systems and architecture planning. You then receive a written proposal covering approach, timeline and milestones.",
   },
   {
     question: "What support do you offer post-launch?",
     answer:
-      "We provide comprehensive post-launch support including 24/7 monitoring, incident response, security updates, performance optimization, and capacity management. For mission-critical systems, we offer dedicated on-call engineering support and maintenance agreements tailored to your needs.",
+      "Support is agreed per engagement and can include monitoring, incident response, security updates, performance work and ongoing development. Coverage and response times are set out in the support agreement.",
   },
   {
     question: 'What does "mission-critical" mean to you?',
     answer:
-      "It means we build systems that cannot afford to fail. Our engineering standards account for failure modes before they occur: redundant architecture, rigorous testing protocols, and post-launch monitoring that runs 24/7. When an organization's operations depend on a system we've built, we take that responsibility seriously. We don't ship and disappear.",
+      "It means building systems that cannot afford to fail. We account for failure modes at the design stage, test rigorously, and plan monitoring and support before launch. When an organization depends on a system we've built, we don't ship and disappear.",
   },
   {
-    question: "Do you work under NDA for classified or sensitive projects?",
+    question: "Do you work under NDA for sensitive projects?",
     answer:
-      "Yes. A significant portion of our defense and intelligence work is conducted under non-disclosure agreements. If your project involves sensitive infrastructure, proprietary systems, or government-adjacent work, we are fully equipped to operate within those confidentiality requirements.",
+      "Yes. We can put a mutual NDA in place before the first detailed conversation. If your project involves sensitive infrastructure, proprietary systems or government-adjacent work, details are discussed only under NDA.",
     ctaLink: { href: "/contact", label: "Request a private briefing →" },
   },
 ];

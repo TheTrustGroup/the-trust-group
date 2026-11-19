@@ -8,7 +8,8 @@ const POSTS_PER_PAGE = 6;
 export const metadata: Metadata = generateMetadata({
   title: "Insights",
   description: "Engineering perspectives on AI systems, enterprise software, defense technology, and what it takes to build systems that last.",
-  keywords: ["blog", "AI", "software development", "technology", "tutorials"],
+  keywords: ["insights", "AI", "software engineering", "enterprise software"],
+  url: "/blog",
 });
 
 // Force dynamic rendering to prevent timeout

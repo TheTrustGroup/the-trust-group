@@ -9,7 +9,7 @@ export const metadata: Metadata = generateSEOMetadata({
   url: "/terms",
 });
 
-const LAST_UPDATED = "October 9, 2026";
+const LAST_UPDATED = "November 19, 2026";
 
 const SECTIONS = [
   {
@@ -17,10 +17,11 @@ const SECTIONS = [
     body: (
       <>
         <p>
-          This website and the services described on it are provided by The
-          Trust Group, operated by a sole proprietor trading as Trust Dynamics,
-          Accra, Ghana (&quot;The Trust Group,&quot; &quot;we,&quot;
-          &quot;us,&quot; or &quot;our&quot;).
+          This website and the services described on it are provided by TTG
+          Trust Dynamics, a sole proprietorship registered in Ghana, trading as
+          The Trust Group (&quot;The Trust Group,&quot; &quot;we,&quot;
+          &quot;us,&quot; or &quot;our&quot;), of 1, Nortei Abio St, Airport
+          Residential Area, Accra.
         </p>
         <p>
           By accessing or using The Trust Group&apos;s website and services, you

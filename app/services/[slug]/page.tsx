@@ -25,6 +25,7 @@ export function generateMetadata({
     description: service.seo.description,
     keywords: service.seo.keywords,
     url: service.seo.url,
+    noindex: service.seo.noindex,
   });
 }
 

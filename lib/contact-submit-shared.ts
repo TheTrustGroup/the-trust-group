@@ -1,6 +1,6 @@
 /** Allowed service values (simple contact form). */
 export const CONTACT_SERVICE_OPTIONS = [
-  "Defense Technology",
+  "Secure & Defense-Adjacent Systems",
   "Robotics & Edge AI",
   "AI Solutions & Implementation",
   "Custom Software Development",
@@ -19,7 +19,7 @@ export const PREMIUM_SERVICE_SLUG_TO_LABEL: Record<string, string> = {
   "web-development": "Web Development",
   "cloud-solutions": "Cloud Solutions",
   consulting: "Consulting & Strategy",
-  "defense-technology": "Defense Technology",
+  "defense-technology": "Secure & Defense-Adjacent Systems",
   other: "Other",
 };
 

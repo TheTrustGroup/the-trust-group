@@ -70,7 +70,7 @@ export const cloudSolutions: ServicePageDefinition = {
   },
   process: {
     title: "Our Process",
-    description: "A proven methodology for delivering exceptional results",
+    description: "How we take a project from discovery to delivery",
     steps: [
       {
         title: "Cloud Assessment",
@@ -122,7 +122,7 @@ export const cloudSolutions: ServicePageDefinition = {
     {
       question: "Do you provide cloud support and monitoring?",
       answer:
-        "Yes, we offer 24/7 cloud monitoring, support, and optimization services to ensure your infrastructure runs smoothly and cost-effectively.",
+        "Yes. We offer cloud monitoring, support and cost optimization, with coverage and response times agreed per engagement.",
     },
   ],
   contact: {

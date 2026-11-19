@@ -8,6 +8,8 @@ interface ServicesSectionProps {
   maxItems?: number;
   /** Use 4 columns on large screens when the grid has a multiple of four. */
   lgColumns?: 3 | 4;
+  /** Adds a closing "Private briefing" tile after the service cards. */
+  showBriefingTile?: boolean;
   /** Render the title as the page h1 (Capabilities page) or a section h2. */
   headingLevel?: "h1" | "h2";
   title?: string;
@@ -101,6 +103,7 @@ export function ServicesSection({
   servicesToShow,
   maxItems = 3,
   lgColumns = 3,
+  showBriefingTile = false,
   headingLevel = "h2",
   title = "Solutions",
   description = "What we build.",
@@ -133,6 +136,39 @@ export function ServicesSection({
             headingLevel={headingLevel === "h1" ? "h2" : "h3"}
           />
         ))}
+        {showBriefingTile && (
+          <Link
+            href="/contact"
+            className="ttg-cell flex flex-col justify-between p-8 md:p-10 no-underline"
+            style={{ background: "var(--ttg-navy)" }}
+          >
+            <div>
+              <p
+                className="mb-6 text-[10px] uppercase tracking-[0.18em]"
+                style={{ fontFamily: "var(--ttg-font-sans)", color: "#c8a96e" }}
+              >
+                Private briefing
+              </p>
+              <p className="ttg-serif text-[26px] leading-[1.15]" style={{ color: "#ffffff" }}>
+                Not sure where your project fits?
+              </p>
+              <p
+                className="mt-5 text-[14px] leading-[1.7]"
+                style={{ fontFamily: "var(--ttg-font-sans)", color: "rgba(255,255,255,0.7)" }}
+              >
+                Tell us what you&apos;re building. We&apos;ll tell you honestly
+                whether we&apos;re the right fit. NDA available from the first
+                conversation.
+              </p>
+            </div>
+            <span
+              className="mt-10 text-[12px] uppercase tracking-[0.1em]"
+              style={{ fontFamily: "var(--ttg-font-sans)", color: "#c8a96e" }}
+            >
+              Request a Private Briefing <span aria-hidden>→</span>
+            </span>
+          </Link>
+        )}
       </div>
     </section>
   );

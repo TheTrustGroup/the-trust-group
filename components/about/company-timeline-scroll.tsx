@@ -4,34 +4,22 @@ import { useEffect, useRef } from "react";
 
 const timelineEvents = [
   {
-    year: "2021 — Founded",
-    event: "The Trust Group established in Accra, Ghana",
+    year: "What we believe",
+    event: "Reliability is not negotiable",
     detail:
-      "Founded with a mandate to bring disciplined engineering to software that cannot afford failure. First engagements in custom software and AI systems.",
+      "The Trust Group was built in Accra to bring disciplined engineering to software that cannot afford to fail.",
   },
   {
-    year: "2022",
-    event: "Enterprise platform work",
+    year: "How we work",
+    event: "Architecture first, under NDA",
     detail:
-      "Delivered multi-tenant workflow and analytics platforms for enterprise clients. Client identity and SLAs are not published.",
+      "Every engagement starts with design and a written plan. Client identity and detail stay confidential by default.",
   },
   {
-    year: "2023",
-    event: "Defense & intelligence practice",
+    year: "What we build",
+    event: "Software, AI and autonomous systems",
     detail:
-      "Expanded into defense-adjacent technology. Engagements in this practice are briefed under NDA only.",
-  },
-  {
-    year: "2024",
-    event: "Healthcare and commerce systems",
-    detail:
-      "Shipped clinical operations and retail commerce / operations software. Client names, facility counts, and commercial metrics are withheld.",
-  },
-  {
-    year: "2025 — 2026",
-    event: "Select engagements only",
-    detail:
-      "Operating from Accra with regional and international clients. Past work remains confidential by default; detail is shared under NDA.",
+      "Secure platforms, AI systems, and autonomous and edge systems for organizations in regulated and demanding environments.",
   },
 ];
 
@@ -68,7 +56,7 @@ export function CompanyTimelineScroll() {
             color: "var(--ttg-muted)",
           }}
         >
-          Our Journey
+          How we got here
         </span>
         <div
           className="flex-1 h-px max-w-[80px]"
